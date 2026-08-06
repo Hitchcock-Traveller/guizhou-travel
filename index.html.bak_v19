@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>黔山秘境 · 贵州避暑自驾之旅 7天6晚 V20</title>
+<title>黔山秘境 · 贵州避暑自驾之旅 7天6晚 V19</title>
 <style>
 
 /* ========== 全局重置与变量 ========== */
@@ -2344,10 +2344,6 @@ svg.route-map { cursor: zoom-in; }
   }
   .add-in-portal .section {
     padding-top: 0;
-  }
-  /* V20: 手机端默认隐藏内容板块，只通过入口卡片+门户视图访问 */
-  #add-sections-wrapper {
-    display: none;
   }
 }
 
@@ -7177,8 +7173,6 @@ function add_hideAllInWrapper() {
 function add_restoreAllInWrapper() {
   var wrapper = document.getElementById('add-sections-wrapper');
   if (!wrapper) return;
-  /* V20: 手机端不恢复 - 内容板块仅通过门户视图访问 */
-  if (add_isMobileView) return;
   var allSections = wrapper.querySelectorAll('.section.mobile-accordion');
   var allDividers = wrapper.querySelectorAll('.mountain-divider, .wave-divider');
   var allKnowledge = wrapper.querySelectorAll('.add-knowledge-bar');
