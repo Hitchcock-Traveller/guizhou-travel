@@ -2537,353 +2537,9 @@ svg.route-map { cursor: zoom-in; }
   }
 }
 
-
-/* ===== 三层折叠架构 - 必须完整追加 ===== */
-
-/* 层级容器基础 */
-.layer-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  overflow-y: auto;
-  overflow-x: hidden;
-  -webkit-overflow-scrolling: touch;
-  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.4s ease;
-  z-index: 10;
-  background: #000;
-}
-
-/* 可见状态 */
-.layer-visible {
-  transform: translateX(0);
-  opacity: 1;
-  pointer-events: all;
-}
-
-/* 隐藏到右侧 */
-.layer-hidden-right {
-  transform: translateX(100vw);
-  opacity: 0;
-  pointer-events: none;
-}
-
-/* 隐藏到左侧 */
-.layer-hidden-left {
-  transform: translateX(-40vw);
-  opacity: 0;
-  pointer-events: none;
-}
-
-/* ========== 第一层：根入口 ========== */
-#layer-root {
-  z-index: 30;
-}
-
-.layer-root-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.6) 100%),
-              url('https://images.unsplash.com/photo-1513415277900-a62401e19be4?w=800&q=80') center/cover;
-  z-index: -1;
-}
-
-.layer-root-content {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  padding: 40px 24px;
-  box-sizing: border-box;
-}
-
-.layer-main-title {
-  font-size: 36px;
-  color: #fff;
-  text-shadow: 0 2px 12px rgba(0,0,0,0.6);
-  margin-bottom: 12px;
-  text-align: center;
-  font-weight: bold;
-  letter-spacing: 2px;
-}
-
-.layer-sub-title {
-  font-size: 14px;
-  color: rgba(255,255,255,0.8);
-  margin-bottom: 50px;
-  text-align: center;
-  text-shadow: 0 1px 4px rgba(0,0,0,0.5);
-}
-
-.layer-root-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  width: 100%;
-  max-width: 360px;
-}
-
-.layer-root-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 110px;
-  background: rgba(255,255,255,0.12);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-radius: 20px;
-  border: 1px solid rgba(255,255,255,0.18);
-  cursor: pointer;
-  transition: all 0.25s ease;
-  -webkit-tap-highlight-color: transparent;
-}
-
-.layer-root-card:hover {
-  transform: scale(1.06);
-  background: rgba(255,255,255,0.22);
-}
-
-.layer-root-card:active {
-  transform: scale(0.96);
-  background: rgba(255,255,255,0.28);
-}
-
-.layer-card-icon {
-  font-size: 36px;
-  margin-bottom: 8px;
-  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
-}
-
-.layer-card-label {
-  font-size: 16px;
-  color: #fff;
-  font-weight: bold;
-  text-shadow: 0 1px 4px rgba(0,0,0,0.5);
-  letter-spacing: 1px;
-}
-
-.layer-hint {
-  margin-top: 40px;
-  font-size: 13px;
-  color: rgba(255,255,255,0.55);
-  text-align: center;
-}
-
-/* ========== 第二层：板块目录 ========== */
-#layer-hub {
-  z-index: 20;
-  background: #0f0f0f;
-}
-
-.layer-hub-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(180deg, #1a1a2e 0%, #0f0f0f 100%);
-  z-index: -1;
-}
-
-.layer-hub-content {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 100vh;
-  padding: 80px 24px 40px;
-  box-sizing: border-box;
-}
-
-.layer-hub-title {
-  font-size: 28px;
-  color: #fff;
-  margin-bottom: 8px;
-  text-align: center;
-  font-weight: bold;
-}
-
-.layer-hub-sub {
-  font-size: 13px;
-  color: rgba(255,255,255,0.5);
-  margin-bottom: 30px;
-}
-
-.layer-hub-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  width: 100%;
-  max-width: 380px;
-}
-
-.layer-hub-card {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 70px;
-  background: rgba(255,255,255,0.06);
-  border-radius: 16px;
-  border: 1px solid rgba(255,255,255,0.1);
-  cursor: pointer;
-  transition: all 0.2s ease;
-  -webkit-tap-highlight-color: transparent;
-}
-
-.layer-hub-card:hover {
-  background: rgba(255,255,255,0.12);
-  transform: translateX(6px);
-}
-
-.layer-hub-card:active {
-  transform: scale(0.98);
-}
-
-.layer-hub-card-text {
-  font-size: 17px;
-  color: #fff;
-  font-weight: 500;
-  letter-spacing: 1px;
-}
-
-/* ========== 第三层：详情内容 ========== */
-#layer-detail {
-  z-index: 10;
-  background: #fff;
-}
-
-.layer-detail-back {
-  position: fixed;
-  top: 16px;
-  left: 16px;
-  z-index: 100;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  border: none;
-  background: rgba(0,0,0,0.5);
-  color: #fff;
-  font-size: 20px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  transition: all 0.2s ease;
-}
-
-.layer-detail-back:hover {
-  background: rgba(0,0,0,0.7);
-  transform: scale(1.1);
-}
-
-#layer-detail-inner {
-  padding-top: 70px;
-}
-
-/* ========== 返回按钮通用 ========== */
-.layer-back-btn {
-  position: fixed;
-  top: 16px;
-  left: 16px;
-  z-index: 100;
-  padding: 10px 18px;
-  border-radius: 24px;
-  border: none;
-  background: rgba(0,0,0,0.5);
-  color: #fff;
-  font-size: 14px;
-  cursor: pointer;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  transition: all 0.2s ease;
-}
-
-.layer-back-btn:hover {
-  background: rgba(0,0,0,0.7);
-}
-
-/* ========== 移动端适配 ========== */
-@media (max-width: 400px) {
-  .layer-main-title { font-size: 30px; }
-  .layer-root-grid { max-width: 300px; gap: 12px; }
-  .layer-root-card { height: 95px; border-radius: 16px; }
-  .layer-card-icon { font-size: 30px; }
-  .layer-card-label { font-size: 15px; }
-  .layer-hub-grid { max-width: 320px; }
-  .layer-hub-card { height: 65px; }
-}
-
-@media (min-width: 768px) {
-  .layer-root-grid { max-width: 480px; gap: 20px; }
-  .layer-root-card { height: 130px; }
-  .layer-card-icon { font-size: 42px; }
-  .layer-card-label { font-size: 18px; }
-}
-
 </style>
 </head>
 <body>
-  <!-- ========== 第一层：根入口层 ========== -->
-  <div id="layer-root" class="layer-container layer-visible">
-    <div class="layer-root-bg"></div>
-    <div class="layer-root-content">
-      <h1 class="layer-main-title">黔山秘境</h1>
-      <p class="layer-sub-title">贵州避暑自驾之旅 · 7天6晚</p>
-      <div class="layer-root-grid">
-        <div class="layer-root-card" onclick="layer_showHub('xingcheng')">
-          <span class="layer-card-icon">📍</span>
-          <span class="layer-card-label">行程概览</span>
-        </div>
-        <div class="layer-root-card" onclick="layer_showHub('yusuan')">
-          <span class="layer-card-icon">💰</span>
-          <span class="layer-card-label">预算规划</span>
-        </div>
-        <div class="layer-root-card" onclick="layer_showHub('hangpai')">
-          <span class="layer-card-icon">🚁</span>
-          <span class="layer-card-label">航拍攻略</span>
-        </div>
-        <div class="layer-root-card" onclick="layer_showHub('zhunbei')">
-          <span class="layer-card-icon">🎒</span>
-          <span class="layer-card-label">行前准备</span>
-        </div>
-      </div>
-      <p class="layer-hint">点击卡片探索详细攻略</p>
-    </div>
-  </div>
-
-  <!-- ========== 第二层：板块目录层 ========== -->
-  <div id="layer-hub" class="layer-container layer-hidden-right">
-    <div class="layer-hub-bg"></div>
-    <button class="layer-back-btn" onclick="layer_showRoot()">← 首页</button>
-    <div class="layer-hub-content">
-      <h2 id="layer-hub-title" class="layer-hub-title">板块目录</h2>
-      <p class="layer-hub-sub">选择要查看的内容</p>
-      <div id="layer-hub-grid" class="layer-hub-grid">
-        <!-- 这里的内容由 JS 动态填充 -->
-      </div>
-    </div>
-  </div>
-
-  <!-- ========== 第三层：详情内容层 ========== -->
-  <div id="layer-detail" class="layer-container layer-hidden-right">
-    <button class="layer-detail-back" onclick="layer_goBackToHub()">←</button>
-    <div id="layer-detail-inner">
-      <!-- 【原有 body 内的全部内容原封不动移到这里】 -->
-
 
 <!-- #10 骨架屏 -->
 <div id="skeleton">
@@ -2921,11 +2577,6 @@ svg.route-map { cursor: zoom-in; }
 </div>
 <div class="bg-overlay"></div>
 
-<div id="stay"></div>
-<div id="flight-plan"></div>
-<div id="strategy"></div>
-<div id="family"></div>
-<div id="fishing"></div>
 <!-- ========== 底部悬浮导航 ========== -->
 <nav class="floating-nav" id="floatingNav">
   <a href="#hero" class="fn-item active" data-target="hero">🏠</a>
@@ -3002,7 +2653,6 @@ svg.route-map { cursor: zoom-in; }
       <path d="M0,200 L0,180 L160,140 L300,170 L440,130 L580,160 L720,120 L860,150 L1000,110 L1140,150 L1280,120 L1440,160 L1440,200 Z" fill="rgba(10,14,39,0.8)"/>
     </svg>
   </div>
-<div id="cost"></div>
 </section>
 
 
@@ -3210,7 +2860,7 @@ svg.route-map { cursor: zoom-in; }
 
 
   <div class="route-overview fade-in">
-    <div id="day1" class="route-item">
+    <div class="route-item">
       <div class="route-dot">🚗</div>
       <div class="route-line"></div>
       <div class="route-content">
@@ -3220,7 +2870,7 @@ svg.route-map { cursor: zoom-in; }
         <span class="route-distance">🛣️ 约750km · 8-9h</span>
       </div>
     </div>
-    <div id="day2" class="route-item">
+    <div class="route-item">
       <div class="route-dot">🏛️</div>
       <div class="route-line"></div>
       <div class="route-content">
@@ -3231,7 +2881,7 @@ svg.route-map { cursor: zoom-in; }
         <span class="route-distance">📍 贵阳市内</span>
       </div>
     </div>
-    <div id="day3" class="route-item">
+    <div class="route-item">
       <div class="route-dot">💦</div>
       <div class="route-line"></div>
       <div class="route-content">
@@ -3241,7 +2891,7 @@ svg.route-map { cursor: zoom-in; }
         <span class="route-distance">🛣️ 约175km · 2.5h</span>
       </div>
     </div>
-    <div id="day4" class="route-item">
+    <div class="route-item">
       <div class="route-dot">🕳️</div>
       <div class="route-line"></div>
       <div class="route-content">
@@ -3251,7 +2901,7 @@ svg.route-map { cursor: zoom-in; }
         <span class="route-distance">🛣️ 约220km · 3.5h</span>
       </div>
     </div>
-    <div id="day5" class="route-item">
+    <div class="route-item">
       <div class="route-dot">🚡</div>
       <div class="route-line"></div>
       <div class="route-content">
@@ -3261,7 +2911,7 @@ svg.route-map { cursor: zoom-in; }
         <span class="route-distance">🛣️ 约180km · 2.5h</span>
       </div>
     </div>
-    <div id="day6" class="route-item">
+    <div class="route-item">
       <div class="route-dot">🌾</div>
       <div class="route-line"></div>
       <div class="route-content">
@@ -3271,7 +2921,7 @@ svg.route-map { cursor: zoom-in; }
         <span class="route-distance">🛣️ 约80km盘山路 · 2h</span>
       </div>
     </div>
-    <div id="day7" class="route-item">
+    <div class="route-item">
       <div class="route-dot">🏔️</div>
       
       <div class="route-content">
@@ -8184,135 +7834,7 @@ function add_closeMustDoModal() {
     })(cards[i]);
   }
 })();
-
-// ===== 三层折叠架构 - 必须完整追加 =====
-
-var layer_config = {
-  'xingcheng': {
-    title: '行程概览',
-    sub: '7天6晚 · 贵阳-黄果树-织金洞-六盘水-万峰林',
-    items: [
-      {label: 'Day 1 · 洞口→贵阳', targetId: 'day1'},
-      {label: 'Day 2 · 贵阳亲子日', targetId: 'day2'},
-      {label: 'Day 3 · 黄果树瀑布', targetId: 'day3'},
-      {label: 'Day 4 · 织金洞探险', targetId: 'day4'},
-      {label: 'Day 5 · 梅花山索道', targetId: 'day5'},
-      {label: 'Day 6 · 乌蒙草原 ★航拍', targetId: 'day6'},
-      {label: 'Day 7 · 万峰林→返程', targetId: 'day7'}
-    ]
-  },
-  'yusuan': {
-    title: '预算规划',
-    sub: '6人总预算 · 人均约¥1,250',
-    items: [
-      {label: '预算总览与滑块', targetId: 'budget'},
-      {label: '住宿推荐一览', targetId: 'stay'},
-      {label: '费用明细与饼图', targetId: 'cost'}
-    ]
-  },
-  'hangpai': {
-    title: '航拍攻略',
-    sub: 'Mini 4 Pro + Air 3S 双机协同',
-    items: [
-      {label: '无人机机型对比', targetId: 'drone'},
-      {label: '7天飞行规划表', targetId: 'flight-plan'},
-      {label: '双机选用策略', targetId: 'strategy'}
-    ]
-  },
-  'zhunbei': {
-    title: '行前准备',
-    sub: '清单 · 亲子 · 野钓 · 注意事项',
-    items: [
-      {label: '行前清单', targetId: 'checklist'},
-      {label: '亲子活动推荐', targetId: 'family'},
-      {label: '野钓点位', targetId: 'fishing'},
-      {label: '注意事项与温馨提示', targetId: 'tips'}
-    ]
-  }
-};
-
-var layer_currentHub = null;
-
-function layer_showRoot() {
-  var root = document.getElementById('layer-root');
-  var hub = document.getElementById('layer-hub');
-  var detail = document.getElementById('layer-detail');
-  
-  root.className = 'layer-container layer-visible';
-  hub.className = 'layer-container layer-hidden-right';
-  detail.className = 'layer-container layer-hidden-right';
-  layer_currentHub = null;
-  
-  window.scrollTo(0, 0);
-}
-
-function layer_showHub(sectionKey) {
-  var root = document.getElementById('layer-root');
-  var hub = document.getElementById('layer-hub');
-  var hubTitle = document.getElementById('layer-hub-title');
-  var hubSub = document.querySelector('.layer-hub-sub');
-  var hubGrid = document.getElementById('layer-hub-grid');
-  var config = layer_config[sectionKey];
-  
-  if (!config) return;
-  
-  layer_currentHub = sectionKey;
-  hubTitle.innerText = config.title;
-  if (hubSub) hubSub.innerText = config.sub;
-  
-  hubGrid.innerHTML = '';
-  for (var i = 0; i < config.items.length; i++) {
-    var item = config.items[i];
-    var card = document.createElement('div');
-    card.className = 'layer-hub-card';
-    card.innerHTML = '<span class="layer-hub-card-text">' + item.label + '</span>';
-    card.onclick = (function(id) {
-      return function() {
-        layer_showDetail(id);
-      };
-    })(item.targetId);
-    hubGrid.appendChild(card);
-  }
-  
-  root.className = 'layer-container layer-hidden-left';
-  hub.className = 'layer-container layer-visible';
-  
-  hub.scrollTop = 0;
-}
-
-function layer_showDetail(targetId) {
-  var hub = document.getElementById('layer-hub');
-  var detail = document.getElementById('layer-detail');
-  var targetEl = document.getElementById(targetId);
-  
-  hub.className = 'layer-container layer-hidden-left';
-  detail.className = 'layer-container layer-visible';
-  
-  detail.scrollTop = 0;
-  
-  if (targetEl) {
-    setTimeout(function() {
-      targetEl.scrollIntoView({behavior: 'auto', block: 'start'});
-    }, 60);
-  }
-}
-
-function layer_goBackToHub() {
-  var hub = document.getElementById('layer-hub');
-  var detail = document.getElementById('layer-detail');
-  
-  detail.className = 'layer-container layer-hidden-right';
-  hub.className = 'layer-container layer-visible';
-}
-
-window.onload = function() {
-  layer_showRoot();
-};
-
 </script>
 
-
-    </div>
-  </div>
 </body>
 </html>
