@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>黔山秘境 · 贵州避暑自驾之旅 7天6晚 V17</title>
+<title>黔山秘境 · 贵州避暑自驾之旅 7天6晚 V9</title>
 <style>
 
 /* ========== 全局重置与变量 ========== */
@@ -1038,9 +1038,8 @@ h1, h2, h3, h4, h5, h6,
 /* ========== V4-B2 #8: 灯箱组件 ========== */
 .lightbox { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 100000; display: flex; align-items: center; justify-content: center; }
 .lightbox-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.92); backdrop-filter: blur(10px); }
-.lightbox-content { position: relative; max-width: 98vw; max-height: 92vh; z-index: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; }
-.lightbox-content img { width: auto; height: auto; max-width: 95vw; max-height: 85vh; min-width: 200px; min-height: 150px; border-radius: 12px; object-fit: contain; box-shadow: 0 20px 60px rgba(0,0,0,0.5); transition: transform 0.1s ease-out; transform-origin: center center; touch-action: none; user-select: none; -webkit-user-select: none; display: block; margin: 0 auto; }
-.lightbox-content img[src*="blob:"] { min-width: 300px; min-height: 200px; }
+.lightbox-content { position: relative; max-width: 90vw; max-height: 85vh; z-index: 1; }
+.lightbox-content img { max-width: 100%; max-height: 80vh; border-radius: 12px; object-fit: contain; box-shadow: 0 20px 60px rgba(0,0,0,0.5); transition: transform 0.1s ease-out; transform-origin: center center; touch-action: none; user-select: none; -webkit-user-select: none; }
 .lightbox-zoom-hint { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); color: rgba(255,255,255,0.6); font-size: 0.75rem; background: rgba(0,0,0,0.5); padding: 4px 12px; border-radius: 12px; pointer-events: none; opacity: 1; transition: opacity 0.5s; }
 .lightbox-zoom-level { position: absolute; bottom: 50px; left: 50%; transform: translateX(-50%); color: rgba(255,255,255,0.8); font-size: 0.8rem; background: rgba(0,0,0,0.6); padding: 3px 10px; border-radius: 10px; pointer-events: none; opacity: 0; transition: opacity 0.3s; }
 .lightbox-caption { text-align: center; color: var(--text-sub); margin-top: 16px; font-size: 0.9rem; }
@@ -1329,6 +1328,7 @@ img[onclick*="openV9Lightbox"]:hover { transform: scale(1.02); }
   .video-section iframe { max-height: 200px; }
 
   /* 确保所有内容区域不被遮挡 */
+  .mobile-cta { z-index: 9998; }
 
   /* 底部留出 CTA 栏的空间 */
   .footer { padding-bottom: 80px; }
@@ -1377,10 +1377,37 @@ img[onclick*="openV9Lightbox"]:hover { transform: scale(1.02); }
   }
 }
 @media (min-width: 769px) {
-  .mobile-accordion .accordion-trigger { display: none !important; }
-  .mobile-accordion .accordion-body { display: block !important; }
-  .mobile-accordion .accordion-body-inner { overflow: visible !important; min-height: auto !important; border: none !important; }
+  .mobile-accordion .accordion-trigger { display: none; }
+  .mobile-accordion .accordion-body { display: block; }
+  .mobile-accordion .accordion-body-inner { overflow: visible; min-height: auto; border: none !important; }
 }
+
+/* ========== #14 底部CTA固定栏 ========== */
+.mobile-cta {
+  position: fixed; bottom: 0; left: 0; right: 0;
+  display: flex; gap: 8px; padding: 12px 16px;
+  background: rgba(10,10,10,0.95);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  border-top: 1px solid var(--border);
+  z-index: 9999;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.mobile-cta.hidden { transform: translateY(100%); opacity: 0; pointer-events: none; }
+.mobile-cta button {
+  flex: 1; padding: 12px; border: none; border-radius: 12px;
+  font-size: 14px; font-weight: 600; cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.mobile-cta button:active { transform: scale(0.95); }
+.mobile-cta .cta-budget {
+  background: linear-gradient(135deg, var(--primary), #4ee0c0);
+  color: #0a0e27;
+}
+.mobile-cta .cta-today {
+  background: linear-gradient(135deg, var(--accent), #ff8855);
+  color: #fff;
+}
+@media (min-width: 768px) { .mobile-cta { display: none; } }
 
 /* ========== #15 暗/亮主题切换 ========== */
 .theme-toggle {
@@ -1441,6 +1468,7 @@ img[onclick*="openV9Lightbox"]:hover { transform: scale(1.02); }
 [data-theme="light"] .budget-slider-section {
   background: rgba(0,0,0,0.03); border-color: rgba(0,0,0,0.08);
 }
+[data-theme="light"] .mobile-cta { background: rgba(255,255,255,0.95); border-top-color: rgba(0,0,0,0.08); }
 [data-theme="light"] #skeleton { background: #f5f5f5; }
 [data-theme="light"] .skeleton-block {
   background: linear-gradient(90deg, #e8e8e8 25%, #f5f5f5 50%, #e8e8e8 75%);
@@ -1767,707 +1795,6 @@ img[onclick*="openV9Lightbox"]:hover { transform: scale(1.02); }
 }
 .spot-photos img:hover { transform: scale(1.05); }
 
-
-/* ========== V12: 增强灯箱交互 ========== */
-/* 所有图片桌面端zoom-in光标 */
-img { cursor: zoom-in; }
-svg.route-map { cursor: zoom-in; }
-/* 灯箱内图片cursor */
-.lightbox-content img { cursor: grab; }
-.lightbox-content img.dragging { cursor: grabbing; }
-/* 灯箱容器禁止默认touch行为 */
-.lightbox-content {
-  touch-action: none;
-  user-select: none;
-  -webkit-user-select: none;
-}
-.lightbox-content img {
-  transition: transform 0.12s ease-out;
-  transform-origin: center center;
-  will-change: transform;
-}
-/* 重置按钮 */
-.lightbox-reset-btn {
-  position: fixed;
-  bottom: 30px;
-  right: 20px;
-  background: rgba(255,255,255,0.15);
-  border: 1px solid rgba(255,255,255,0.3);
-  color: #fff;
-  padding: 8px 18px;
-  border-radius: 20px;
-  font-size: 0.8rem;
-  cursor: pointer;
-  z-index: 100003;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-}
-.lightbox-reset-btn.visible { opacity: 1; pointer-events: auto; }
-.lightbox-reset-btn:hover { background: rgba(255,255,255,0.25); }
-/* 增强关闭按钮触控区域 */
-.lightbox-close {
-  min-width: 48px !important;
-  min-height: 48px !important;
-}
-.lightbox-zoom-level {
-  position: absolute; bottom: 50px; left: 50%;
-  transform: translateX(-50%);
-  color: rgba(255,255,255,0.8);
-  font-size: 0.8rem;
-  background: rgba(0,0,0,0.6);
-  padding: 3px 10px;
-  border-radius: 10px;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-@media (max-width: 768px) {
-  .lightbox-reset-btn { bottom: 80px; right: 15px; }
-}
-
-
-
-/* ========== V12 此行必做 ========== */
-.must-do-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-  margin-top: 24px;
-}
-.must-do-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  padding: 20px 16px;
-  text-align: center;
-  transition: var(--transition);
-  cursor: default;
-}
-.must-do-card:hover {
-  background: var(--bg-card-hover);
-  border-color: var(--border-hover);
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0,212,170,0.12);
-}
-.must-do-emoji { font-size: 2rem; margin-bottom: 8px; display: block; }
-.must-do-title { font-size: var(--fs-sm); font-weight: 600; color: var(--text-main); margin-bottom: 6px; }
-.must-do-desc { font-size: var(--fs-xs); color: var(--text-sub); line-height: 1.5; }
-@media (max-width: 768px) {
-  .must-do-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
-  .must-do-card { padding: 14px 10px; }
-  .must-do-emoji { font-size: 1.6rem; }
-}
-
-/* ========== V12 必吃推荐标签 ========== */
-.food-tag {
-  display: inline-block;
-  background: rgba(255,107,53,0.18);
-  color: var(--accent);
-  font-size: 0.7em;
-  padding: 1px 6px;
-  border-radius: 4px;
-  margin-left: 4px;
-  vertical-align: middle;
-  font-weight: 500;
-  letter-spacing: 0.02em;
-}
-
-
-/* ===== 新增样式开始 ===== */
-
-/* 1.1 板块标题淡入上浮 */
-@keyframes addFadeUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-.section-header.add-fade-up {
-  opacity: 0;
-  transform: translateY(20px);
-}
-.section-header.add-fade-up.add-visible {
-  animation: addFadeUp 0.7s ease-out forwards;
-}
-
-/* 1.2 按钮/卡片悬停微放大 */
-.add-hover-lift {
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-.add-hover-lift:hover {
-  transform: scale(1.02);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-}
-
-
-/* 1.4 行前清单勾选动画 */
-.checklist-item.add-check-anim .checklist-checkbox {
-  position: relative;
-  overflow: hidden;
-}
-.checklist-item.add-check-anim.active .checklist-checkbox::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 12px;
-  height: 8px;
-  border-left: 2px solid #fff;
-  border-bottom: 2px solid #fff;
-  transform: translate(-50%, -60%) rotate(-45deg) scale(0);
-  transform-origin: center;
-  animation: addCheckMark 0.35s ease-out forwards;
-}
-@keyframes addCheckMark {
-  0% { transform: translate(-50%, -60%) rotate(-45deg) scale(0); }
-  50% { transform: translate(-50%, -60%) rotate(-45deg) scale(1.2); }
-  100% { transform: translate(-50%, -60%) rotate(-45deg) scale(1); }
-}
-
-/* 2.2 贵州小知识轮播 */
-.add-knowledge-bar {
-  padding: 14px 20px;
-  background: linear-gradient(90deg, rgba(240,192,64,0.08), rgba(0,212,170,0.08));
-  border-top: 1px solid rgba(240,192,64,0.15);
-  border-bottom: 1px solid rgba(0,212,170,0.15);
-  overflow: hidden;
-  position: relative;
-  height: 44px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.add-knowledge-text {
-  font-size: 13px;
-  color: var(--text-main, #e8ecf8);
-  opacity: 0;
-  transition: opacity 0.5s ease;
-  text-align: center;
-  max-width: 90%;
-}
-.add-knowledge-text.add-knowledge-show {
-  opacity: 1;
-}
-.add-knowledge-icon {
-  margin-right: 8px;
-}
-
-/* 2.3 预算计算器切换 */
-.add-budget-toggle {
-  display: inline-flex;
-  align-items: center;
-  background: rgba(255,255,255,0.08);
-  border-radius: 20px;
-  padding: 3px;
-  margin-left: 10px;
-  vertical-align: middle;
-}
-.add-budget-toggle-btn {
-  padding: 4px 12px;
-  border: none;
-  background: transparent;
-  color: var(--text-sub, #8892b0);
-  font-size: 11px;
-  font-weight: 600;
-  border-radius: 16px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-.add-budget-toggle-btn.add-budget-toggle-active {
-  background: var(--primary, #00d4aa);
-  color: #0a0e27;
-}
-
-
-/* 3.2 SVG地图城市悬停高亮 */
-.route-map circle.route-node {
-  transition: all 0.25s ease;
-  cursor: pointer;
-}
-.route-map circle.route-node:hover {
-  filter: url(#nodeGlow) brightness(1.3);
-  r: 11;
-}
-.add-map-tooltip {
-  position: absolute;
-  pointer-events: none;
-  background: rgba(15,22,50,0.95);
-  color: #fff;
-  font-size: 12px;
-  padding: 6px 12px;
-  border-radius: 6px;
-  border: 1px solid rgba(0,212,170,0.4);
-  z-index: 50;
-  opacity: 0;
-  transition: opacity 0.2s ease;
-  white-space: nowrap;
-  transform: translate(-50%, -120%);
-}
-.add-map-tooltip.add-map-tooltip-show {
-  opacity: 1;
-}
-
-/* 4.1 旅行日记 */
-.add-diary-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  padding: 5px 12px;
-  margin-top: 8px;
-  background: rgba(240,192,64,0.15);
-  border: 1px solid rgba(240,192,64,0.3);
-  color: #f0c040;
-  border-radius: 16px;
-  font-size: 11px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-.add-diary-btn:hover {
-  background: rgba(240,192,64,0.25);
-  transform: translateY(-1px);
-}
-.add-diary-area {
-  margin-top: 8px;
-  display: none;
-}
-.add-diary-area.add-diary-open {
-  display: block;
-  animation: addFadeUp 0.3s ease-out;
-}
-.add-diary-textarea {
-  width: 100%;
-  min-height: 60px;
-  padding: 8px 10px;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(240,192,64,0.25);
-  border-radius: 8px;
-  color: var(--text-main, #e8ecf8);
-  font-size: 12px;
-  font-family: inherit;
-  resize: vertical;
-  box-sizing: border-box;
-}
-.add-diary-textarea:focus {
-  outline: none;
-  border-color: #f0c040;
-}
-.add-diary-status {
-  font-size: 10px;
-  color: rgba(240,192,64,0.7);
-  margin-top: 4px;
-}
-
-/* 4.2 景点打卡 */
-.add-checkin-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  padding: 3px 10px;
-  margin-left: 8px;
-  background: rgba(0,212,170,0.1);
-  border: 1px solid rgba(0,212,170,0.3);
-  color: #00d4aa;
-  border-radius: 12px;
-  font-size: 10px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  vertical-align: middle;
-  position: relative;
-  z-index: 1;
-}
-@media (max-width: 768px) {
-  .add-checkin-btn {
-    font-size: 11px;
-    padding: 4px 12px;
-    margin-left: 6px;
-    margin-top: 4px;
-  }
-  .add-checkin-badge {
-    width: 16px;
-    height: 16px;
-    line-height: 16px;
-    font-size: 10px;
-  }
-}
-.add-checkin-btn:hover {
-  background: rgba(0,212,170,0.2);
-}
-.add-checkin-btn.add-checkin-done {
-  background: rgba(0,212,170,0.25);
-  border-color: #00d4aa;
-  color: #00d4aa;
-}
-.add-checkin-badge {
-  display: inline-block;
-  width: 14px;
-  height: 14px;
-  background: #00d4aa;
-  color: #0a0e27;
-  border-radius: 50%;
-  font-size: 9px;
-  text-align: center;
-  line-height: 14px;
-  font-weight: 900;
-  margin-left: 4px;
-  vertical-align: middle;
-}
-
-
-/* 手机端地图hover修复 - 防止触屏粘住 */
-@media (max-width: 768px) {
-  .route-map circle.route-node:hover {
-    filter: url(#nodeGlow);
-    r: 9;
-  }
-}
-@media (hover: none) and (pointer: coarse) {
-  .route-map circle.route-node:hover {
-    filter: url(#nodeGlow);
-    r: 9;
-  }
-  .add-map-tooltip {
-    display: none !important;
-  }
-}
-
-
-/* 手机端地图直接显示，不依赖动画触发 */
-@media (max-width: 768px) {
-  .route-map-container .route-path {
-    stroke-dashoffset: 0 !important;
-    animation: none !important;
-  }
-  .route-map-container .route-node {
-    opacity: 1 !important;
-    animation: none !important;
-  }
-}
-
-
-/* 手机端折叠展开后内容强制可见 */
-@media (max-width: 768px) {
-  .mobile-accordion:not(.accordion-collapsed) .fade-in {
-    opacity: 1 !important;
-    transform: none !important;
-  }
-  .mobile-accordion:not(.accordion-collapsed) .stagger-in:not(.visible) {
-    opacity: 1 !important;
-    transform: none !important;
-  }
-  .mobile-accordion:not(.accordion-collapsed) .v3-slide-in:not(.v3-visible) {
-    opacity: 1 !important;
-    transform: none !important;
-  }
-}
-
-/* ===== 新增样式结束 ===== */
-
-
-/* ===== V16 Portal View System ===== */
-
-/* --- Entry Grid (Layer 1 - Main Interface) --- */
-.add-entry-grid {
-  position: relative;
-  z-index: 2;
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 40px 20px 60px;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
-}
-.add-entry-card {
-  background: rgba(15, 22, 50, 0.75);
-  border: 1px solid rgba(0, 212, 170, 0.12);
-  border-radius: 16px;
-  padding: 24px 16px;
-  text-align: center;
-  cursor: pointer;
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s;
-  -webkit-tap-highlight-color: transparent;
-  user-select: none;
-  position: relative;
-  overflow: hidden;
-}
-.add-entry-card::after {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, var(--primary), transparent);
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-.add-entry-card:active,
-.add-entry-card:hover {
-  transform: scale(1.04);
-  background: rgba(22, 32, 65, 0.9);
-  border-color: rgba(0, 212, 170, 0.35);
-}
-.add-entry-card:active::after,
-.add-entry-card:hover::after {
-  opacity: 1;
-}
-.add-entry-card-emoji {
-  font-size: 2.2rem;
-  display: block;
-  margin-bottom: 8px;
-  line-height: 1.2;
-}
-.add-entry-card-title {
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: var(--text-main);
-  letter-spacing: 0.5px;
-}
-.add-entry-card-sub {
-  font-size: 0.75rem;
-  color: var(--text-dim);
-  margin-top: 4px;
-}
-
-/* --- Portal Overlay --- */
-.add-portal-overlay {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  z-index: 10000;
-  background: var(--bg-dark);
-  transform: translateY(100%);
-  transition: transform 0.4s cubic-bezier(0.32, 0.72, 0, 1);
-  will-change: transform;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-  display: none;
-}
-.add-portal-overlay.add-portal-open {
-  transform: translateY(0);
-}
-.add-portal-overlay.add-portal-closing {
-  transform: translateY(-20%);
-  opacity: 0;
-  transition: transform 0.3s ease-in, opacity 0.3s ease-in;
-}
-
-.add-portal-content {
-  min-height: calc(100vh - 56px);
-  padding-bottom: 20px;
-}
-
-/* --- Portal Header (Immersive) --- */
-.add-portal-header {
-  position: relative;
-  padding: 44px 20px 16px;
-  text-align: center;
-  min-height: 80px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  background: linear-gradient(180deg, #1a2332 0%, #0f172a 100%);
-}
-.add-portal-header-emoji {
-  display: none;
-}
-.add-portal-back {
-  position: absolute;
-  left: 16px;
-  top: 16px;
-  background: rgba(0,0,0,0.3);
-  border: none;
-  color: #fff;
-  font-size: 0.85rem;
-  font-weight: 600;
-  padding: 6px 14px;
-  border-radius: 50px;
-  cursor: pointer;
-  z-index: 2;
-  -webkit-tap-highlight-color: transparent;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-}
-.add-portal-back:active {
-  transform: scale(0.95);
-  background: rgba(0,0,0,0.5);
-}
-.add-portal-title {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #fff;
-  margin: 0;
-  position: relative;
-  z-index: 1;
-}
-.add-portal-subtitle {
-  font-size: 0.85rem;
-  color: rgba(255,255,255,0.7);
-  margin-top: 4px;
-  position: relative;
-  z-index: 1;
-}
-
-/* --- Portal Bottom Nav --- */
-.add-portal-nav {
-  position: fixed;
-  bottom: 0; left: 0; right: 0;
-  height: 56px;
-  background: rgba(10,14,39,0.95);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  display: none;
-  justify-content: space-around;
-  align-items: center;
-  z-index: 10001;
-  border-top: 1px solid rgba(0,212,170,0.1);
-}
-.add-portal-nav.add-nav-visible {
-  display: flex;
-}
-.add-portal-nav-item {
-  font-size: 1.3rem;
-  background: none;
-  border: none;
-  padding: 8px;
-  cursor: pointer;
-  opacity: 0.5;
-  transition: opacity 0.2s, transform 0.2s;
-  -webkit-tap-highlight-color: transparent;
-}
-.add-portal-nav-item.add-nav-active {
-  opacity: 1;
-  transform: scale(1.2);
-}
-.add-portal-nav-item:active {
-  transform: scale(0.9);
-}
-
-/* --- Portal Content Animations --- */
-.add-portal-section-enter {
-  animation: addPortalFadeIn 0.25s ease forwards;
-}
-@keyframes addPortalFadeIn {
-  from { opacity: 0; transform: translateY(12px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* --- Portal: hide original section-header when inside portal --- */
-.add-in-portal > .section-header,
-.add-in-portal > .route-switcher {
-  display: none !important;
-}
-
-/* --- Portal: force expand accordion --- */
-.add-in-portal .accordion-trigger {
-  display: none !important;
-}
-.add-in-portal .accordion-body {
-  display: block !important;
-}
-.add-in-portal .accordion-body-inner {
-  overflow: visible !important;
-  min-height: auto !important;
-  border: none !important;
-}
-.add-in-portal.accordion-collapsed .accordion-body {
-  grid-template-rows: 1fr !important;
-}
-
-/* --- Portal: itinerary day card summary mode --- */
-.add-in-portal.add-itin-summary .day-card .itinerary-body {
-  display: none;
-}
-.add-in-portal.add-itin-summary .day-card.add-day-expanded .itinerary-body {
-  display: block;
-}
-.add-in-portal.add-itin-summary .day-card .itinerary-header {
-  cursor: pointer;
-}
-
-/* --- Portal: hide dividers inside portal content --- */
-.add-in-portal .mountain-divider,
-.add-in-portal .wave-divider {
-  display: none !important;
-}
-
-/* --- Mobile only: portal active --- */
-@media (max-width: 768px) {
-  .add-portal-overlay {
-    display: block;
-  }
-  .add-in-portal .section {
-    padding-top: 0;
-  }
-}
-
-/* --- Desktop: grid hidden, sections always visible, no portal --- */
-@media (min-width: 769px) {
-  .add-entry-grid {
-    display: none;
-  }
-  .add-portal-overlay {
-    display: none !important;
-  }
-  .add-portal-nav {
-    display: none !important;
-  }
-}
-
-
-/* --- V17: Level 3+ Header (更精简) --- */
-.add-portal-header.add-header-l3 {
-  padding: 44px 20px 12px;
-  min-height: 56px;
-  background: #0f172a;
-}
-.add-header-l3 .add-portal-subtitle {
-  display: none;
-}
-.add-header-l3 .add-portal-title {
-  font-size: 1.1rem;
-}
-
-/* --- V17: L2 Itinerary - 所有day-card折叠，header可点击钻入L3 --- */
-.add-itin-l2 .day-card .itinerary-body {
-  display: none !important;
-}
-.add-itin-l2 .day-card .itinerary-header {
-  cursor: pointer;
-  position: relative;
-}
-.add-itin-l2 .day-card .itinerary-header .toggle-icon {
-  display: none;
-}
-.add-itin-l2 .day-card .itinerary-header::after {
-  content: '\203a';
-  position: absolute;
-  right: 16px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 1.6rem;
-  color: var(--primary);
-  opacity: 0.6;
-}
-.add-itin-l2 .itinerary-card.open .itinerary-body {
-  display: none !important;
-}
-
-/* --- V17: L3 单天展开样式 --- */
-.add-day-expanded .itinerary-body {
-  display: block !important;
-}
-
-/* --- V17: L3+ 隐藏底部导航 --- */
-.add-header-l3 ~ .add-portal-nav,
-.add-portal-overlay.add-no-bottom-nav .add-portal-nav {
-  display: none !important;
-}
-
-/* ===== V17 Portal View System End ===== */
-
 </style>
 </head>
 <body>
@@ -2605,55 +1932,6 @@ svg.route-map { cursor: zoom-in; }
   </div>
 </section>
 
-
-<!-- ===== V14 入口卡片网格 (Layer 1) ===== -->
-<div class="add-entry-grid" id="add-entry-grid">
-  <div class="add-entry-card" data-target="route">
-    <span class="add-entry-card-emoji">🗺️</span>
-    <div class="add-entry-card-title">路线总览</div>
-    <div class="add-entry-card-sub">7天环线 · 2000km</div>
-  </div>
-  <div class="add-entry-card" data-target="itinerary">
-    <span class="add-entry-card-emoji">📅</span>
-    <div class="add-entry-card-title">每日行程</div>
-    <div class="add-entry-card-sub">7天6晚详情</div>
-  </div>
-  <div class="add-entry-card" data-target="temperature">
-    <span class="add-entry-card-emoji">🌡️</span>
-    <div class="add-entry-card-title">气温对比</div>
-    <div class="add-entry-card-sub">避暑14-26℃</div>
-  </div>
-  <div class="add-entry-card" data-target="budget">
-    <span class="add-entry-card-emoji">💰</span>
-    <div class="add-entry-card-title">预算</div>
-    <div class="add-entry-card-sub">6000-8000元</div>
-  </div>
-  <div class="add-entry-card" data-target="drone">
-    <span class="add-entry-card-emoji">🚁</span>
-    <div class="add-entry-card-title">航拍</div>
-    <div class="add-entry-card-sub">飞行指南</div>
-  </div>
-  <div class="add-entry-card" data-target="checklist">
-    <span class="add-entry-card-emoji">✅</span>
-    <div class="add-entry-card-title">行前清单</div>
-    <div class="add-entry-card-sub">12项待确认</div>
-  </div>
-  <div class="add-entry-card" data-target="summary">
-    <span class="add-entry-card-emoji">👨‍👩‍👧‍👦</span>
-    <div class="add-entry-card-title">亲子野钓</div>
-    <div class="add-entry-card-sub">活动汇总</div>
-  </div>
-  <div class="add-entry-card" data-target="must-do">
-    <span class="add-entry-card-emoji">✨</span>
-    <div class="add-entry-card-title">此行必做</div>
-    <div class="add-entry-card-sub">8个必体验</div>
-  </div>
-</div>
-
-<!-- V16: 浮动返回按钮已移除，改用门户视图系统 -->
-
-
-<div id="add-sections-wrapper">
 <!-- 山脉分隔 -->
 <div class="mountain-divider">
   <svg viewBox="0 0 1440 60" preserveAspectRatio="none">
@@ -2809,6 +2087,7 @@ svg.route-map { cursor: zoom-in; }
   </div>
 
 
+
   <div class="route-overview fade-in">
     <div class="route-item">
       <div class="route-dot">🚗</div>
@@ -2826,7 +2105,6 @@ svg.route-map { cursor: zoom-in; }
       <div class="route-content">
         <div class="route-day">Day 2 · 8月9日 周日</div>
         <div class="route-title">贵阳亲子日</div>
-
         <div class="route-desc">科技馆+花溪湿地，品地道贵阳美食</div>
         <span class="route-distance">📍 贵阳市内</span>
       </div>
@@ -3113,7 +2391,7 @@ svg.route-map { cursor: zoom-in; }
               <div class="meal-card">
                 <div class="meal-type">晚餐</div>
                 <div class="meal-name">青云市集</div>
-                <div class="meal-detail">丝娃娃、肠旺面、恋爱豆腐果<span class="food-tag">必吃</span></div>
+                <div class="meal-detail">丝娃娃、肠旺面、恋爱豆腐果</div>
                 <div class="meal-price">人均40-60元</div>
               </div>
             </div>
@@ -3127,7 +2405,7 @@ svg.route-map { cursor: zoom-in; }
               </li>
             </ul>
             <div style="display:flex;gap:10px;margin-top:10px;flex-wrap:wrap;">
-              <img src="https://s.coze.cn/image/R5jpc5u0bjM/" alt="甲秀楼夜景" style="width:100%;max-width:200px;height:120px;object-fit:cover;border-radius:8px;border:1px solid var(--border);" data-lightbox="true">
+              <img src="https://s.coze.cn/image/R5jpc5u0bjM/" alt="甲秀楼夜景" style="width:100%;max-width:200px;height:120px;object-fit:cover;border-radius:8px;border:1px solid var(--border);">
               <div style="flex:1;min-width:150px;">
                 <div style="font-size:var(--fs-sm);color:var(--text-sub);margin-bottom:6px;">📺 甲秀楼4K夜景视频</div>
                 <a href="https://www.bilibili.com/video/BV1DfjJ6HEB1/" target="_blank" style="display:inline-flex;align-items:center;gap:6px;background:rgba(255,107,53,0.15);border:1px solid rgba(255,107,53,0.3);color:var(--accent);border-radius:8px;padding:6px 14px;font-size:var(--fs-sm);text-decoration:none;">▶ B站观看</a>
@@ -3203,7 +2481,7 @@ svg.route-map { cursor: zoom-in; }
                 <span class="activity-text">花溪湿地公园 <span class="note note-ok">免费</span> 骑行+野餐，孩子可以在草地上奔跑</span>
               </li>
             </ul>
-            <img src="https://s.coze.cn/image/PkfkuP49UsA/" alt="花溪湿地" style="width:100%;max-width:250px;height:130px;object-fit:cover;border-radius:8px;border:1px solid var(--border);margin-top:10px;" data-lightbox="true">
+            <img src="https://s.coze.cn/image/PkfkuP49UsA/" alt="花溪湿地" style="width:100%;max-width:250px;height:130px;object-fit:cover;border-radius:8px;border:1px solid var(--border);margin-top:10px;">
           </div>
 
           <div class="hotel-section">
@@ -3256,14 +2534,14 @@ svg.route-map { cursor: zoom-in; }
               </div>
               <div class="meal-card">
                 <div class="meal-type">午餐</div>
-                <div class="meal-name">破酥包+夺夺粉 <span class="food-tag">🔥必吃</span></div>
-                <div class="meal-detail">何记破酥包+老字号夺夺粉<span class="food-tag">必吃</span></div>
+                <div class="meal-name">破酥包+夺夺粉</div>
+                <div class="meal-detail">何记破酥包+老字号夺夺粉</div>
                 <div class="meal-price">人均30元</div>
               </div>
               <div class="meal-card">
                 <div class="meal-type">晚餐</div>
-                <div class="meal-name">裹卷+小锅凉粉 <span class="food-tag">🔥必吃</span></div>
-                <div class="meal-detail">何记裹卷1元/个，小锅凉粉<span class="food-tag">必吃</span></div>
+                <div class="meal-name">裹卷+小锅凉粉</div>
+                <div class="meal-detail">何记裹卷1元/个，小锅凉粉</div>
                 <div class="meal-price">人均15元</div>
               </div>
             </div>
@@ -3285,7 +2563,7 @@ svg.route-map { cursor: zoom-in; }
               </li>
             </ul>
             <div style="display:flex;gap:10px;margin-top:10px;flex-wrap:wrap;">
-              <img src="https://s.coze.cn/image/sCUTRrQ9aDY/" alt="黄果树瀑布" style="width:100%;max-width:200px;height:120px;object-fit:cover;border-radius:8px;border:1px solid var(--border);" data-lightbox="true">
+              <img src="https://s.coze.cn/image/sCUTRrQ9aDY/" alt="黄果树瀑布" style="width:100%;max-width:200px;height:120px;object-fit:cover;border-radius:8px;border:1px solid var(--border);">
               <div style="flex:1;min-width:150px;">
                 <div style="font-size:var(--fs-sm);color:var(--text-sub);margin-bottom:6px;">📺 黄果树瀑布航拍视频</div>
                 <a href="https://www.bilibili.com/video/BV1Mk14BzESy/" target="_blank" style="display:inline-flex;align-items:center;gap:6px;background:rgba(255,107,53,0.15);border:1px solid rgba(255,107,53,0.3);color:var(--accent);border-radius:8px;padding:6px 14px;font-size:var(--fs-sm);text-decoration:none;">▶ B站观看</a>
@@ -3340,8 +2618,8 @@ svg.route-map { cursor: zoom-in; }
               </div>
               <div class="meal-card">
                 <div class="meal-type">午餐</div>
-                <div class="meal-name">织金烙锅 <span class="food-tag">🔥必吃</span></div>
-                <div class="meal-detail">织金县城"王烙锅"，贵州特色烙锅<span class="food-tag">必吃</span></div>
+                <div class="meal-name">织金烙锅</div>
+                <div class="meal-detail">织金县城"王烙锅"，贵州特色烙锅</div>
                 <div class="meal-price">人均40元</div>
               </div>
               <div class="meal-card">
@@ -3373,7 +2651,7 @@ svg.route-map { cursor: zoom-in; }
               </li>
             </ul>
             <div style="display:flex;gap:10px;margin-top:10px;flex-wrap:wrap;">
-              <div class="spot-photos"><img src="https://s.coze.cn/image/QYGMyNZbMM8/" alt="织金洞钟乳石" loading="lazy" onclick="openV9Lightbox(this)" data-lightbox="true"><img src="https://s.coze.cn/image/H8fndhZojCU/" alt="织金洞" loading="lazy" onclick="openV9Lightbox(this)" data-lightbox="true"><img src="https://s.coze.cn/image/rIv3BObs7hY/" alt="织金洞" loading="lazy" onclick="openV9Lightbox(this)" data-lightbox="true"><img src="https://s.coze.cn/image/_cwcKr3J-P8/" alt="织金洞" loading="lazy" onclick="openV9Lightbox(this)" data-lightbox="true"></div>
+              <div class="spot-photos"><img src="https://s.coze.cn/image/QYGMyNZbMM8/" alt="织金洞钟乳石" loading="lazy" onclick="openV9Lightbox(this)"><img src="https://s.coze.cn/image/H8fndhZojCU/" alt="织金洞" loading="lazy" onclick="openV9Lightbox(this)"><img src="https://s.coze.cn/image/rIv3BObs7hY/" alt="织金洞" loading="lazy" onclick="openV9Lightbox(this)"><img src="https://s.coze.cn/image/_cwcKr3J-P8/" alt="织金洞" loading="lazy" onclick="openV9Lightbox(this)"></div>
               <div style="flex:1;min-width:150px;">
                 <div style="font-size:var(--fs-sm);color:var(--text-sub);margin-bottom:6px;">📺 织金洞介绍视频</div>
                 <a href="https://www.bilibili.com/video/BV1MF5f6EEW4/" target="_blank" style="display:inline-flex;align-items:center;gap:6px;background:rgba(255,107,53,0.15);border:1px solid rgba(255,107,53,0.3);color:var(--accent);border-radius:8px;padding:6px 14px;font-size:var(--fs-sm);text-decoration:none;">▶ B站观看</a>
@@ -3431,14 +2709,14 @@ svg.route-map { cursor: zoom-in; }
               </div>
               <div class="meal-card">
                 <div class="meal-type">午餐</div>
-                <div class="meal-name">向佳羊肉粉 <span class="food-tag">🔥必吃</span></div>
-                <div class="meal-detail">当地排名第一<span class="food-tag">必吃</span></div>
+                <div class="meal-name">向佳羊肉粉</div>
+                <div class="meal-detail">当地排名第一</div>
                 <div class="meal-price">12-15元/碗</div>
               </div>
               <div class="meal-card">
                 <div class="meal-type">晚餐</div>
-                <div class="meal-name">全有福烙锅 <span class="food-tag">🔥必吃</span></div>
-                <div class="meal-detail">水城古镇烙锅一条街，百年老字号<span class="food-tag">必吃</span></div>
+                <div class="meal-name">全有福烙锅</div>
+                <div class="meal-detail">水城古镇烙锅一条街，百年老字号</div>
                 <div class="meal-price">人均50-60元</div>
               </div>
             </div>
@@ -3550,7 +2828,7 @@ svg.route-map { cursor: zoom-in; }
             <li>云海日出延时（如住草原）</li>
               </ul>
             </div>
-            <img src="https://s.coze.cn/image/EhDWB1jXPOA/" alt="乌蒙草原航拍" style="width:100%;max-width:300px;height:160px;object-fit:cover;border-radius:8px;border:1px solid var(--border);margin-top:10px;" data-lightbox="true">
+            <img src="https://s.coze.cn/image/EhDWB1jXPOA/" alt="乌蒙草原航拍" style="width:100%;max-width:300px;height:160px;object-fit:cover;border-radius:8px;border:1px solid var(--border);margin-top:10px;">
           </div>
           <div class="hotel-section">
             <div class="section-label">🏨 住宿</div>
@@ -3603,8 +2881,8 @@ svg.route-map { cursor: zoom-in; }
               </div>
               <div class="meal-card">
                 <div class="meal-type">午餐</div>
-                <div class="meal-name">羊肉粉+蛋炒饭 <span class="food-tag">🔥必吃</span></div>
-                <div class="meal-detail">兴义当地特色<span class="food-tag">必吃</span></div>
+                <div class="meal-name">羊肉粉+蛋炒饭</div>
+                <div class="meal-detail">兴义当地特色</div>
                 <div class="meal-price">人均30元</div>
               </div>
               <div class="meal-card">
@@ -3655,7 +2933,7 @@ svg.route-map { cursor: zoom-in; }
               </ul>
             </div>
             <div style="display:flex;gap:10px;margin-top:10px;flex-wrap:wrap;">
-              <img src="https://s.coze.cn/image/dc3Lqd04vW8/" alt="万峰林峰林田园" style="width:100%;max-width:200px;height:120px;object-fit:cover;border-radius:8px;border:1px solid var(--border);" data-lightbox="true">
+              <img src="https://s.coze.cn/image/dc3Lqd04vW8/" alt="万峰林峰林田园" style="width:100%;max-width:200px;height:120px;object-fit:cover;border-radius:8px;border:1px solid var(--border);">
               <div style="flex:1;min-width:150px;">
                 <div style="font-size:var(--fs-sm);color:var(--text-sub);margin-bottom:6px;">📺 万峰林4K航拍视频</div>
                 <a href="https://www.bilibili.com/video/BV1xWh9zsE13/" target="_blank" style="display:inline-flex;align-items:center;gap:6px;background:rgba(255,107,53,0.15);border:1px solid rgba(255,107,53,0.3);color:var(--accent);border-radius:8px;padding:6px 14px;font-size:var(--fs-sm);text-decoration:none;">▶ B站观看</a>
@@ -3701,17 +2979,17 @@ svg.route-map { cursor: zoom-in; }
               </div>
               <div class="meal-card">
                 <div class="meal-type">午餐</div>
-                <div class="meal-name">贵阳花溪牛肉粉 <span class="food-tag">🔥必吃</span></div>
-                <div class="meal-detail">途经贵阳，花溪牛肉粉是必吃<span class="food-tag">必吃</span></div>
+                <div class="meal-name">贵阳花溪牛肉粉</div>
+                <div class="meal-detail">途经贵阳，花溪牛肉粉是必吃</div>
                 <div class="meal-price">人均25元</div>
               </div>
               <div class="meal-card">
                 <div class="meal-type">晚餐</div>
                 <div class="meal-name">宫保鸡丁+织金烙锅</div>
                 <div class="meal-detail">织金县城·宫保鸡丁发源地的正宗做法</div>
-<div class="food-photos"><img src="https://s.coze.cn/image/rOo4KFFHhLA/" alt="" loading="lazy" onclick="openV9Lightbox(this)" data-lightbox="true">
-<img src="https://s.coze.cn/image/we3dv8-acJQ/" alt="" loading="lazy" onclick="openV9Lightbox(this)" data-lightbox="true">
-<img src="https://s.coze.cn/image/XgFP8u-gE20/" alt="" loading="lazy" onclick="openV9Lightbox(this)" data-lightbox="true"></div>
+<div class="food-photos"><img src="https://s.coze.cn/image/rOo4KFFHhLA/" alt="" loading="lazy" onclick="openV9Lightbox(this)">
+<img src="https://s.coze.cn/image/we3dv8-acJQ/" alt="" loading="lazy" onclick="openV9Lightbox(this)">
+<img src="https://s.coze.cn/image/XgFP8u-gE20/" alt="" loading="lazy" onclick="openV9Lightbox(this)"></div>
                 <div class="meal-price">人均60元</div>
               </div>
             </div>
@@ -3730,10 +3008,10 @@ svg.route-map { cursor: zoom-in; }
             </ul>
           </div>
           <div class="gallery-label">📷 织金洞实拍图集</div>
-<div class="photo-gallery"><img src="https://s.coze.cn/image/H8fndhZojCU/" alt="" loading="lazy" onclick="openV9Lightbox(this)" data-lightbox="true">
-<img src="https://s.coze.cn/image/rIv3BObs7hY/" alt="" loading="lazy" onclick="openV9Lightbox(this)" data-lightbox="true">
-<img src="https://s.coze.cn/image/_cwcKr3J-P8/" alt="" loading="lazy" onclick="openV9Lightbox(this)" data-lightbox="true">
-<img src="https://s.coze.cn/image/4t_cCqihS0A/" alt="" loading="lazy" onclick="openV9Lightbox(this)" data-lightbox="true"></div>
+<div class="photo-gallery"><img src="https://s.coze.cn/image/H8fndhZojCU/" alt="" loading="lazy" onclick="openV9Lightbox(this)">
+<img src="https://s.coze.cn/image/rIv3BObs7hY/" alt="" loading="lazy" onclick="openV9Lightbox(this)">
+<img src="https://s.coze.cn/image/_cwcKr3J-P8/" alt="" loading="lazy" onclick="openV9Lightbox(this)">
+<img src="https://s.coze.cn/image/4t_cCqihS0A/" alt="" loading="lazy" onclick="openV9Lightbox(this)"></div>
 <div class="video-section"><div class="gallery-label">🎬 推荐视频 - 织金洞航拍</div><iframe src="https://player.bilibili.com/player.html?bvid=BV1pxa5zyEzN&high_quality=1&danmaku=0" allowfullscreen loading="lazy" sandbox="allow-scripts allow-same-origin allow-popups"></iframe></div>
 <div class="video-links"><a class="video-link" href="https://www.bilibili.com/video/BV1yS85zgEvA/" target="_blank" rel="noopener">▶ 织金洞+苗寨航拍</a></div>
 <div class="hotel-section">
@@ -3743,9 +3021,9 @@ svg.route-map { cursor: zoom-in; }
               <div>
                 <div class="hotel-name">花都里·织金洞客栈</div>
                 <div class="hotel-detail">织金洞景区附近·带泳池/花园的中式庭院民宿</div>
-<div class="hotel-photos"><img src="https://s.coze.cn/image/-PNVjPG2Fn0/" alt="" loading="lazy" onclick="openV9Lightbox(this)" data-lightbox="true">
-<img src="https://s.coze.cn/image/iFSdK0yV8P4/" alt="" loading="lazy" onclick="openV9Lightbox(this)" data-lightbox="true">
-<img src="https://s.coze.cn/image/uuZrEsDnpb4/" alt="" loading="lazy" onclick="openV9Lightbox(this)" data-lightbox="true"></div>
+<div class="hotel-photos"><img src="https://s.coze.cn/image/-PNVjPG2Fn0/" alt="" loading="lazy" onclick="openV9Lightbox(this)">
+<img src="https://s.coze.cn/image/iFSdK0yV8P4/" alt="" loading="lazy" onclick="openV9Lightbox(this)">
+<img src="https://s.coze.cn/image/uuZrEsDnpb4/" alt="" loading="lazy" onclick="openV9Lightbox(this)"></div>
                 <div class="hotel-price">约300元/间×2间=600元/晚</div>
                 <div style="font-size:var(--fs-xs);color:var(--text-dim);margin-top:6px;padding-top:6px;border-top:1px solid rgba(255,255,255,0.05);">精品民宿，中式庭院风格，带泳池和花园</div>
               </div>
@@ -3794,9 +3072,9 @@ svg.route-map { cursor: zoom-in; }
                 <div class="meal-type">晚餐</div>
                 <div class="meal-name">骟鸡点豆腐+大方臭豆腐+毕节汤圆</div>
                 <div class="meal-detail">大方特色美食</div>
-<div class="food-photos"><img src="https://s.coze.cn/image/l_07wY_4ICI/" alt="" loading="lazy" onclick="openV9Lightbox(this)" data-lightbox="true">
-<img src="https://s.coze.cn/image/MvxmlRWsuhc/" alt="" loading="lazy" onclick="openV9Lightbox(this)" data-lightbox="true">
-<img src="https://s.coze.cn/image/DjamXndiBLc/" alt="" loading="lazy" onclick="openV9Lightbox(this)" data-lightbox="true"></div>
+<div class="food-photos"><img src="https://s.coze.cn/image/l_07wY_4ICI/" alt="" loading="lazy" onclick="openV9Lightbox(this)">
+<img src="https://s.coze.cn/image/MvxmlRWsuhc/" alt="" loading="lazy" onclick="openV9Lightbox(this)">
+<img src="https://s.coze.cn/image/DjamXndiBLc/" alt="" loading="lazy" onclick="openV9Lightbox(this)"></div>
                 <div class="meal-price">人均55元</div>
               </div>
             </div>
@@ -3815,13 +3093,13 @@ svg.route-map { cursor: zoom-in; }
             </ul>
           </div>
           <div class="gallery-label">📷 九洞天·奢香古镇实拍图集</div>
-<div class="photo-gallery"><img src="https://s.coze.cn/image/7UFH5T-w4kU/" alt="" loading="lazy" onclick="openV9Lightbox(this)" data-lightbox="true">
-<img src="https://s.coze.cn/image/k3Of8gt-C1s/" alt="" loading="lazy" onclick="openV9Lightbox(this)" data-lightbox="true">
-<img src="https://s.coze.cn/image/LrPnY5-IgKw/" alt="" loading="lazy" onclick="openV9Lightbox(this)" data-lightbox="true">
-<img src="https://s.coze.cn/image/rnKFuse1zzs/" alt="" loading="lazy" onclick="openV9Lightbox(this)" data-lightbox="true">
-<img src="https://s.coze.cn/image/oFBgvrTIGi0/" alt="" loading="lazy" onclick="openV9Lightbox(this)" data-lightbox="true">
-<img src="https://s.coze.cn/image/6iqcMxw-NT8/" alt="" loading="lazy" onclick="openV9Lightbox(this)" data-lightbox="true">
-<img src="https://s.coze.cn/image/17rMMz-Vt3s/" alt="" loading="lazy" onclick="openV9Lightbox(this)" data-lightbox="true"></div>
+<div class="photo-gallery"><img src="https://s.coze.cn/image/7UFH5T-w4kU/" alt="" loading="lazy" onclick="openV9Lightbox(this)">
+<img src="https://s.coze.cn/image/k3Of8gt-C1s/" alt="" loading="lazy" onclick="openV9Lightbox(this)">
+<img src="https://s.coze.cn/image/LrPnY5-IgKw/" alt="" loading="lazy" onclick="openV9Lightbox(this)">
+<img src="https://s.coze.cn/image/rnKFuse1zzs/" alt="" loading="lazy" onclick="openV9Lightbox(this)">
+<img src="https://s.coze.cn/image/oFBgvrTIGi0/" alt="" loading="lazy" onclick="openV9Lightbox(this)">
+<img src="https://s.coze.cn/image/6iqcMxw-NT8/" alt="" loading="lazy" onclick="openV9Lightbox(this)">
+<img src="https://s.coze.cn/image/17rMMz-Vt3s/" alt="" loading="lazy" onclick="openV9Lightbox(this)"></div>
 <div class="hotel-section">
             <div class="section-label">🏨 住宿</div>
             <div class="hotel-card">
@@ -3869,11 +3147,11 @@ svg.route-map { cursor: zoom-in; }
               </div>
               <div class="meal-card">
                 <div class="meal-type">午餐</div>
-                <div class="meal-name">威宁火腿+荞凉粉+烤洋芋 <span class="food-tag">🔥必吃</span></div>
+                <div class="meal-name">威宁火腿+荞凉粉+烤洋芋</div>
                 <div class="meal-detail">威宁县城</div>
-<div class="food-photos"><img src="https://s.coze.cn/image/5Vp_2iRfBbw/" alt="" loading="lazy" onclick="openV9Lightbox(this)" data-lightbox="true">
-<img src="https://s.coze.cn/image/zmrTfGq57gc/" alt="" loading="lazy" onclick="openV9Lightbox(this)" data-lightbox="true">
-<img src="https://s.coze.cn/image/qOM5oQA4I4E/" alt="" loading="lazy" onclick="openV9Lightbox(this)" data-lightbox="true"></div>
+<div class="food-photos"><img src="https://s.coze.cn/image/5Vp_2iRfBbw/" alt="" loading="lazy" onclick="openV9Lightbox(this)">
+<img src="https://s.coze.cn/image/zmrTfGq57gc/" alt="" loading="lazy" onclick="openV9Lightbox(this)">
+<img src="https://s.coze.cn/image/qOM5oQA4I4E/" alt="" loading="lazy" onclick="openV9Lightbox(this)"></div>
                 <div class="meal-price">人均35元</div>
               </div>
               <div class="meal-card">
@@ -3898,9 +3176,9 @@ svg.route-map { cursor: zoom-in; }
             </ul>
           </div>
           <div class="gallery-label">📷 威宁草海实拍图集</div>
-<div class="photo-gallery"><img src="https://s.coze.cn/image/bIBI5S8KkCk/" alt="" loading="lazy" onclick="openV9Lightbox(this)" data-lightbox="true">
-<img src="https://s.coze.cn/image/G0diSc2KiE8/" alt="" loading="lazy" onclick="openV9Lightbox(this)" data-lightbox="true">
-<img src="https://s.coze.cn/image/inJod4ZcgSA/" alt="" loading="lazy" onclick="openV9Lightbox(this)" data-lightbox="true"></div>
+<div class="photo-gallery"><img src="https://s.coze.cn/image/bIBI5S8KkCk/" alt="" loading="lazy" onclick="openV9Lightbox(this)">
+<img src="https://s.coze.cn/image/G0diSc2KiE8/" alt="" loading="lazy" onclick="openV9Lightbox(this)">
+<img src="https://s.coze.cn/image/inJod4ZcgSA/" alt="" loading="lazy" onclick="openV9Lightbox(this)"></div>
 <div class="hotel-section">
             <div class="section-label">🏨 住宿</div>
             <div class="hotel-card">
@@ -3908,8 +3186,8 @@ svg.route-map { cursor: zoom-in; }
               <div>
                 <div class="hotel-name">威宁县城最佳酒店</div>
                 <div class="hotel-detail">威宁县城·海拔2200m·7-8月均温18℃</div>
-<div class="hotel-photos"><img src="https://s.coze.cn/image/9uDLsEfVxDk/" alt="" loading="lazy" onclick="openV9Lightbox(this)" data-lightbox="true">
-<img src="https://s.coze.cn/image/2Krg2oTdz3M/" alt="" loading="lazy" onclick="openV9Lightbox(this)" data-lightbox="true"></div>
+<div class="hotel-photos"><img src="https://s.coze.cn/image/9uDLsEfVxDk/" alt="" loading="lazy" onclick="openV9Lightbox(this)">
+<img src="https://s.coze.cn/image/2Krg2oTdz3M/" alt="" loading="lazy" onclick="openV9Lightbox(this)"></div>
                 <div class="hotel-price">约200元/间×2间=400元/晚</div>
                 <div style="font-size:var(--fs-xs);color:var(--text-dim);margin-top:6px;padding-top:6px;border-top:1px solid rgba(255,255,255,0.05);">注意：威宁海拔2200m，早晚需外套</div>
               </div>
@@ -3980,10 +3258,10 @@ svg.route-map { cursor: zoom-in; }
             </ul>
           </div>
           <div class="gallery-label">📷 牂牁江实拍图集</div>
-<div class="photo-gallery"><img src="https://s.coze.cn/image/xfafO3wbWMc/" alt="" loading="lazy" onclick="openV9Lightbox(this)" data-lightbox="true">
-<img src="https://s.coze.cn/image/eogcCsqBDRo/" alt="" loading="lazy" onclick="openV9Lightbox(this)" data-lightbox="true">
-<img src="https://s.coze.cn/image/JHOohBdcay0/" alt="" loading="lazy" onclick="openV9Lightbox(this)" data-lightbox="true">
-<img src="https://s.coze.cn/image/HQS9UX0_FLM/" alt="" loading="lazy" onclick="openV9Lightbox(this)" data-lightbox="true"></div>
+<div class="photo-gallery"><img src="https://s.coze.cn/image/xfafO3wbWMc/" alt="" loading="lazy" onclick="openV9Lightbox(this)">
+<img src="https://s.coze.cn/image/eogcCsqBDRo/" alt="" loading="lazy" onclick="openV9Lightbox(this)">
+<img src="https://s.coze.cn/image/JHOohBdcay0/" alt="" loading="lazy" onclick="openV9Lightbox(this)">
+<img src="https://s.coze.cn/image/HQS9UX0_FLM/" alt="" loading="lazy" onclick="openV9Lightbox(this)"></div>
 <div class="video-section"><div class="gallery-label">🎬 推荐视频</div><div class="video-links"><a class="video-link" href="http://gz.news.cn/20260721/557dfff737134b6ba25be3ae11ff20b6/c.html" target="_blank" rel="noopener">▶ 牂牁江夏日·新华网</a><a class="video-link" href="https://v.qq.com/x/page/s3193il6d52.html" target="_blank" rel="noopener">▶ 牂牁江一线天·腾讯</a></div></div>
 <div class="hotel-section">
             <div class="section-label">🏨 住宿</div>
@@ -4034,9 +3312,9 @@ svg.route-map { cursor: zoom-in; }
                 <div class="meal-type">午餐</div>
                 <div class="meal-name">安顺丝娃娃+裹卷</div>
                 <div class="meal-detail">安顺城区</div>
-<div class="food-photos"><img src="https://s.coze.cn/image/2oO-LI8FtAg/" alt="" loading="lazy" onclick="openV9Lightbox(this)" data-lightbox="true">
-<img src="https://s.coze.cn/image/ztd6ReHHMxg/" alt="" loading="lazy" onclick="openV9Lightbox(this)" data-lightbox="true">
-<img src="https://s.coze.cn/image/ep6V9owVS10/" alt="" loading="lazy" onclick="openV9Lightbox(this)" data-lightbox="true"></div>
+<div class="food-photos"><img src="https://s.coze.cn/image/2oO-LI8FtAg/" alt="" loading="lazy" onclick="openV9Lightbox(this)">
+<img src="https://s.coze.cn/image/ztd6ReHHMxg/" alt="" loading="lazy" onclick="openV9Lightbox(this)">
+<img src="https://s.coze.cn/image/ep6V9owVS10/" alt="" loading="lazy" onclick="openV9Lightbox(this)"></div>
                 <div class="meal-price">人均35元</div>
               </div>
               <div class="meal-card">
@@ -4065,9 +3343,9 @@ svg.route-map { cursor: zoom-in; }
             </ul>
           </div>
           <div class="gallery-label">📷 格凸河实拍图集</div>
-<div class="photo-gallery"><img src="https://s.coze.cn/image/LvKOUPdPwMc/" alt="" loading="lazy" onclick="openV9Lightbox(this)" data-lightbox="true">
-<img src="https://s.coze.cn/image/yWxZl1Bmtus/" alt="" loading="lazy" onclick="openV9Lightbox(this)" data-lightbox="true">
-<img src="https://s.coze.cn/image/LcStw3TR-C4/" alt="" loading="lazy" onclick="openV9Lightbox(this)" data-lightbox="true"></div>
+<div class="photo-gallery"><img src="https://s.coze.cn/image/LvKOUPdPwMc/" alt="" loading="lazy" onclick="openV9Lightbox(this)">
+<img src="https://s.coze.cn/image/yWxZl1Bmtus/" alt="" loading="lazy" onclick="openV9Lightbox(this)">
+<img src="https://s.coze.cn/image/LcStw3TR-C4/" alt="" loading="lazy" onclick="openV9Lightbox(this)"></div>
 <div class="video-section"><div class="gallery-label">🎬 推荐视频 - 格凸河攀岩(国家地理)</div><iframe src="https://player.bilibili.com/player.html?bvid=BV1mK4y1m7GX&high_quality=1&danmaku=0" allowfullscreen loading="lazy" sandbox="allow-scripts allow-same-origin allow-popups"></iframe></div>
 <div class="video-links"><a class="video-link" href="https://tv.cctv.com/2015/07/29/VIDE1438178880814343.shtml" target="_blank" rel="noopener">▶ 格凸河蜘蛛人·CCTV</a></div>
 <div class="hotel-section">
@@ -4119,15 +3397,15 @@ svg.route-map { cursor: zoom-in; }
                 <div class="meal-type">午餐</div>
                 <div class="meal-name">旧州鸡辣子+烤小肠</div>
                 <div class="meal-detail">旧州古镇</div>
-<div class="food-photos"><img src="https://s.coze.cn/image/2oO-LI8FtAg/" alt="" loading="lazy" onclick="openV9Lightbox(this)" data-lightbox="true">
-<img src="https://s.coze.cn/image/ztd6ReHHMxg/" alt="" loading="lazy" onclick="openV9Lightbox(this)" data-lightbox="true"></div>
+<div class="food-photos"><img src="https://s.coze.cn/image/2oO-LI8FtAg/" alt="" loading="lazy" onclick="openV9Lightbox(this)">
+<img src="https://s.coze.cn/image/ztd6ReHHMxg/" alt="" loading="lazy" onclick="openV9Lightbox(this)"></div>
                 <div class="meal-price">人均40元</div>
               </div>
               <div class="meal-card">
                 <div class="meal-type">晚餐</div>
-                <div class="meal-name">夺夺粉+冲冲糕+小吃 <span class="food-tag">🔥必吃</span></div>
+                <div class="meal-name">夺夺粉+冲冲糕+小吃</div>
                 <div class="meal-detail">安顺古城小吃一条街</div>
-<div class="food-photos"><img src="https://s.coze.cn/image/ep6V9owVS10/" alt="" loading="lazy" onclick="openV9Lightbox(this)" data-lightbox="true"></div>
+<div class="food-photos"><img src="https://s.coze.cn/image/ep6V9owVS10/" alt="" loading="lazy" onclick="openV9Lightbox(this)"></div>
                 <div class="meal-price">人均50元</div>
               </div>
             </div>
@@ -4146,12 +3424,12 @@ svg.route-map { cursor: zoom-in; }
             </ul>
           </div>
           <div class="gallery-label">📷 旧州古镇·高荡古寨实拍图集</div>
-<div class="photo-gallery"><img src="https://s.coze.cn/image/Zwv3aoWBJ9A/" alt="" loading="lazy" onclick="openV9Lightbox(this)" data-lightbox="true">
-<img src="https://s.coze.cn/image/HGRVuXLqLoE/" alt="" loading="lazy" onclick="openV9Lightbox(this)" data-lightbox="true">
-<img src="https://s.coze.cn/image/yNUzul0pgE8/" alt="" loading="lazy" onclick="openV9Lightbox(this)" data-lightbox="true">
-<img src="https://s.coze.cn/image/5R_zm9cRuHU/" alt="" loading="lazy" onclick="openV9Lightbox(this)" data-lightbox="true">
-<img src="https://s.coze.cn/image/H6hf7csMLDQ/" alt="" loading="lazy" onclick="openV9Lightbox(this)" data-lightbox="true">
-<img src="https://s.coze.cn/image/zhPcKVMfT0w/" alt="" loading="lazy" onclick="openV9Lightbox(this)" data-lightbox="true"></div>
+<div class="photo-gallery"><img src="https://s.coze.cn/image/Zwv3aoWBJ9A/" alt="" loading="lazy" onclick="openV9Lightbox(this)">
+<img src="https://s.coze.cn/image/HGRVuXLqLoE/" alt="" loading="lazy" onclick="openV9Lightbox(this)">
+<img src="https://s.coze.cn/image/yNUzul0pgE8/" alt="" loading="lazy" onclick="openV9Lightbox(this)">
+<img src="https://s.coze.cn/image/5R_zm9cRuHU/" alt="" loading="lazy" onclick="openV9Lightbox(this)">
+<img src="https://s.coze.cn/image/H6hf7csMLDQ/" alt="" loading="lazy" onclick="openV9Lightbox(this)">
+<img src="https://s.coze.cn/image/zhPcKVMfT0w/" alt="" loading="lazy" onclick="openV9Lightbox(this)"></div>
 <div class="hotel-section">
             <div class="section-label">🏨 住宿</div>
             <div class="hotel-card">
@@ -4159,8 +3437,8 @@ svg.route-map { cursor: zoom-in; }
               <div>
                 <div class="hotel-name">安顺全季酒店</div>
                 <div class="hotel-detail">安顺市区·交通便利</div>
-<div class="hotel-photos"><img src="https://s.coze.cn/image/c2Dt5cIOHkY/" alt="" loading="lazy" onclick="openV9Lightbox(this)" data-lightbox="true">
-<img src="https://s.coze.cn/image/N4EXN4S0SwE/" alt="" loading="lazy" onclick="openV9Lightbox(this)" data-lightbox="true"></div>
+<div class="hotel-photos"><img src="https://s.coze.cn/image/c2Dt5cIOHkY/" alt="" loading="lazy" onclick="openV9Lightbox(this)">
+<img src="https://s.coze.cn/image/N4EXN4S0SwE/" alt="" loading="lazy" onclick="openV9Lightbox(this)"></div>
                 <div class="hotel-price">约250元/间×2间=500元/晚</div>
                 
               </div>
@@ -4528,7 +3806,7 @@ svg.route-map { cursor: zoom-in; }
         <div style="font-size:var(--fs-sm);color:var(--text-dim);margin-bottom:4px;">D1 织金（8.8）</div>
         <div style="font-size:var(--fs-base);font-weight:700;color:var(--primary);margin-bottom:6px;">花都里·织金洞客栈</div>
         <div style="font-size:var(--fs-sm);color:var(--text-sub);">中式庭院民宿·带泳池/花园</div>
-        <div class="hotel-photos"><img src="https://s.coze.cn/image/-PNVjPG2Fn0/" alt="" loading="lazy" onclick="openV9Lightbox(this)" data-lightbox="true"><img src="https://s.coze.cn/image/iFSdK0yV8P4/" alt="" loading="lazy" onclick="openV9Lightbox(this)" data-lightbox="true"><img src="https://s.coze.cn/image/uuZrEsDnpb4/" alt="" loading="lazy" onclick="openV9Lightbox(this)" data-lightbox="true"></div>
+        <div class="hotel-photos"><img src="https://s.coze.cn/image/-PNVjPG2Fn0/" alt="" loading="lazy" onclick="openV9Lightbox(this)"><img src="https://s.coze.cn/image/iFSdK0yV8P4/" alt="" loading="lazy" onclick="openV9Lightbox(this)"><img src="https://s.coze.cn/image/uuZrEsDnpb4/" alt="" loading="lazy" onclick="openV9Lightbox(this)"></div>
         <div style="font-size:var(--fs-sm);color:var(--gold);font-weight:600;margin-top:4px;">300元/间×2=600元/晚</div>
       </div>
       <div class="alt-hotel-card">
@@ -4541,7 +3819,7 @@ svg.route-map { cursor: zoom-in; }
         <div style="font-size:var(--fs-sm);color:var(--text-dim);margin-bottom:4px;">D3 威宁（8.10）</div>
         <div style="font-size:var(--fs-base);font-weight:700;color:var(--primary);margin-bottom:6px;">威宁县城最佳酒店</div>
         <div style="font-size:var(--fs-sm);color:var(--text-sub);">海拔2200m·均温18℃</div>
-        <div class="hotel-photos"><img src="https://s.coze.cn/image/9uDLsEfVxDk/" alt="" loading="lazy" onclick="openV9Lightbox(this)" data-lightbox="true"><img src="https://s.coze.cn/image/2Krg2oTdz3M/" alt="" loading="lazy" onclick="openV9Lightbox(this)" data-lightbox="true"></div>
+        <div class="hotel-photos"><img src="https://s.coze.cn/image/9uDLsEfVxDk/" alt="" loading="lazy" onclick="openV9Lightbox(this)"><img src="https://s.coze.cn/image/2Krg2oTdz3M/" alt="" loading="lazy" onclick="openV9Lightbox(this)"></div>
         <div style="font-size:var(--fs-sm);color:var(--gold);font-weight:600;margin-top:4px;">200元/间×2=400元/晚</div>
       </div>
       <div class="alt-hotel-card">
@@ -4560,7 +3838,7 @@ svg.route-map { cursor: zoom-in; }
         <div style="font-size:var(--fs-sm);color:var(--text-dim);margin-bottom:4px;">D6 安顺（8.13）</div>
         <div style="font-size:var(--fs-base);font-weight:700;color:var(--primary);margin-bottom:6px;">安顺全季酒店</div>
         <div style="font-size:var(--fs-sm);color:var(--text-sub);">安顺市区·交通便利</div>
-        <div class="hotel-photos"><img src="https://s.coze.cn/image/c2Dt5cIOHkY/" alt="" loading="lazy" onclick="openV9Lightbox(this)" data-lightbox="true"><img src="https://s.coze.cn/image/N4EXN4S0SwE/" alt="" loading="lazy" onclick="openV9Lightbox(this)" data-lightbox="true"></div>
+        <div class="hotel-photos"><img src="https://s.coze.cn/image/c2Dt5cIOHkY/" alt="" loading="lazy" onclick="openV9Lightbox(this)"><img src="https://s.coze.cn/image/N4EXN4S0SwE/" alt="" loading="lazy" onclick="openV9Lightbox(this)"></div>
         <div style="font-size:var(--fs-sm);color:var(--gold);font-weight:600;margin-top:4px;">250元/间×2=500元/晚</div>
       </div>
     </div>
@@ -4991,72 +4269,6 @@ svg.route-map { cursor: zoom-in; }
     </div>
   </div>
 </section>
-
-<!-- ===== V13 贵州小知识轮播 ===== -->
-<div class="add-knowledge-bar" id="addKnowledgeBar">
-  <span class="add-knowledge-icon">💡</span>
-  <span class="add-knowledge-text add-knowledge-show" id="addKnowledgeText">贵州被誉为"中国凉都"，夏季平均气温仅23℃</span>
-</div>
-
-<!-- ========== V12 此行必做 ========== -->
-<section class="section mobile-accordion" id="must-do">
-  <div class="section-header" onclick="toggleCard(this)">
-    <div class="section-header-left">
-      <span class="section-icon">✨</span>
-      <div>
-        <h2 class="section-title">此行必做 · Must Do</h2>
-        <p class="section-sub">8个不可错过的精选体验</p>
-      </div>
-    </div>
-    <span class="toggle-icon">▾</span>
-  </div>
-  <div class="section-body">
-    <div class="must-do-grid">
-      <div class="must-do-card">
-        <span class="must-do-emoji">🌅</span>
-        <div class="must-do-title">乌蒙草原日出</div>
-        <div class="must-do-desc">清晨5:30起床，看云海翻涌</div>
-      </div>
-      <div class="must-do-card">
-        <span class="must-do-emoji">🚁</span>
-        <div class="must-do-title">黄果树航拍</div>
-        <div class="must-do-desc">从高空俯瞰亚洲最大瀑布的震撼</div>
-      </div>
-      <div class="must-do-card">
-        <span class="must-do-emoji">💎</span>
-        <div class="must-do-title">织金洞钟乳石</div>
-        <div class="must-do-desc">在地下宫殿拍光影大片</div>
-      </div>
-      <div class="must-do-card">
-        <span class="must-do-emoji">♨️</span>
-        <div class="must-do-title">百车河温泉</div>
-        <div class="must-do-desc">星空下的露天温泉体验</div>
-      </div>
-      <div class="must-do-card">
-        <span class="must-do-emoji">🎣</span>
-        <div class="must-do-title">万峰林野钓</div>
-        <div class="must-do-desc">喀斯特峰林间的宁静时光</div>
-      </div>
-      <div class="must-do-card">
-        <span class="must-do-emoji">🍜</span>
-        <div class="must-do-title">贵阳夜市</div>
-        <div class="must-do-desc">二七路小吃街扫街打卡</div>
-      </div>
-      <div class="must-do-card">
-        <span class="must-do-emoji">📸</span>
-        <div class="must-do-title">万峰林骑行</div>
-        <div class="must-do-desc">租电动车穿越八卦田</div>
-      </div>
-      <div class="must-do-card">
-        <span class="must-do-emoji">🌌</span>
-        <div class="must-do-title">草原星空</div>
-        <div class="must-do-desc">海拔2800m无光污染银河观测</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-</div><!-- /add-sections-wrapper -->
 
 <!-- ========== Footer ========== -->
 <footer class="footer">
@@ -5560,6 +4772,7 @@ document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
 });
 
 
+
 // ============================================================
 // V3 新增交互效果
 // ============================================================
@@ -5980,6 +5193,32 @@ function scrollToToday() {
   }
 }
 
+(function() {
+  var mobileCta = document.getElementById('mobileCta');
+  if (!mobileCta) return;
+
+  var scrollTicking = false;
+  window.addEventListener('scroll', function() {
+    if (!scrollTicking) {
+      requestAnimationFrame(function() {
+        var scrollY = window.scrollY;
+        var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        // Hide when near bottom
+        if (scrollY > docHeight - 200) {
+          mobileCta.classList.add('hidden');
+        } else if (scrollY > 300) {
+          mobileCta.classList.remove('hidden');
+        } else {
+          mobileCta.classList.add('hidden');
+        }
+        scrollTicking = false;
+      });
+      scrollTicking = true;
+    }
+  }, { passive: true });
+  // Initially hidden
+  mobileCta.classList.add('hidden');
+})();
 
 // ============================================================
 // #15 暗/亮主题切换
@@ -6006,7 +5245,7 @@ function scrollToToday() {
 // 2a: Ripple 点击水波纹效果
 (function() {
   document.addEventListener('click', function(e) {
-    var target = e.target.closest('.itinerary-header, .checklist-item, .drone-point, .tip-card, .meal-card, .hotel-card, .fn-item, .navbar-links a, .view-full-btn');
+    var target = e.target.closest('.itinerary-header, .checklist-item, .drone-point, .tip-card, .meal-card, .hotel-card, .fn-item, .navbar-links a, .view-full-btn, .mobile-cta button');
     if (!target) return;
     if (!target.classList.contains('ripple-effect')) target.classList.add('ripple-effect');
     var rect = target.getBoundingClientRect();
@@ -6239,6 +5478,7 @@ function switchRoute(route) {
 })();
 
 
+
 // ============================================================
 // V9: 图片视频 Lightbox
 // ============================================================
@@ -6302,14 +5542,15 @@ window.closeLightbox = function() {
   if (_origCloseLightbox) _origCloseLightbox();
 };
 
-// ========== V11.1 灯箱缩放 & 拖动手势 (V12增强) ==========
+// ========== V11.1 灯箱缩放 & 拖动手势 ==========
 (function() {
-  var lbImg = null, lbContent = null, lbOverlay = null;
+  var lbImg = null;
   var scale = 1, posX = 0, posY = 0;
   var startX = 0, startY = 0, startPosX = 0, startPosY = 0;
   var isDragging = false;
   var initialPinchDist = 0, initialScale = 1;
-  var zoomHintTimer = null, zoomLevelTimer = null;
+  var zoomHintTimer = null;
+  var zoomLevelTimer = null;
 
   function getImg() {
     if (!lbImg) lbImg = document.getElementById('lightbox-img');
@@ -6326,16 +5567,7 @@ window.closeLightbox = function() {
       zl.textContent = Math.round(scale * 100) + '%';
       zl.style.opacity = '1';
       clearTimeout(zoomLevelTimer);
-      zoomLevelTimer = setTimeout(function() { zl.style.opacity = '0'; }, 1000);
-    }
-    // Show/hide reset button
-    var rb = document.getElementById('lightbox-reset-btn');
-    if (rb) {
-      if (scale !== 1 || posX !== 0 || posY !== 0) {
-        rb.classList.add('visible');
-      } else {
-        rb.classList.remove('visible');
-      }
+      zoomLevelTimer = setTimeout(function() { zl.style.opacity = '0'; }, 800);
     }
   }
 
@@ -6343,8 +5575,6 @@ window.closeLightbox = function() {
     scale = 1; posX = 0; posY = 0;
     var img = getImg();
     if (img) img.style.transform = '';
-    var rb = document.getElementById('lightbox-reset-btn');
-    if (rb) rb.classList.remove('visible');
     var hint = document.getElementById('lbZoomHint');
     if (hint) {
       hint.style.opacity = '1';
@@ -6354,36 +5584,25 @@ window.closeLightbox = function() {
   }
   window.resetLightboxZoom = resetLightboxZoom;
 
-  // Reset zoom when switching images
-  var _origShowV9 = window.showV9LightboxImage;
-  if (_origShowV9) {
+  // Make resetLightboxZoom available globally
+  window.resetLightboxZoom = resetLightboxZoom;
+
+  // Also reset on image change
+  var _origShow = window.showV9LightboxImage;
+  if (_origShow) {
     window.showV9LightboxImage = function() {
       resetLightboxZoom();
-      _origShowV9();
-    };
-  }
-  var _origShowLB = window.showLightboxImage;
-  if (_origShowLB) {
-    window.showLightboxImage = function() {
-      resetLightboxZoom();
-      _origShowLB();
+      _origShow();
     };
   }
 
-  // Reset zoom when closing
-  var _origClose = window.closeLightbox;
-  window.closeLightbox = function() {
-    resetLightboxZoom();
-    if (_origClose) _origClose();
-  };
-
+  // Touch: pinch zoom
   function getTouchDist(t1, t2) {
     var dx = t1.clientX - t2.clientX;
     var dy = t1.clientY - t2.clientY;
     return Math.sqrt(dx * dx + dy * dy);
   }
 
-  // Touch: pinch zoom + drag
   function onTouchStart(e) {
     if (e.touches.length === 2) {
       e.preventDefault();
@@ -6403,36 +5622,37 @@ window.closeLightbox = function() {
     if (e.touches.length === 2) {
       e.preventDefault();
       var dist = getTouchDist(e.touches[0], e.touches[1]);
-      var newScale = Math.max(0.5, Math.min(5, initialScale * (dist / initialPinchDist)));
+      var newScale = Math.max(1, Math.min(5, initialScale * (dist / initialPinchDist)));
       scale = newScale;
-      if (scale <= 1) { posX = 0; posY = 0; }
       applyTransform();
+      // Hide zoom hint on first interaction
       var hint = document.getElementById('lbZoomHint');
       if (hint) hint.style.opacity = '0';
     } else if (e.touches.length === 1 && isDragging && scale > 1) {
       e.preventDefault();
-      posX = startPosX + (e.touches[0].clientX - startX);
-      posY = startPosY + (e.touches[0].clientY - startY);
+      var dx = e.touches[0].clientX - startX;
+      var dy = e.touches[0].clientY - startY;
+      posX = startPosX + dx;
+      posY = startPosY + dy;
       applyTransform();
     }
   }
 
   function onTouchEnd(e) {
     isDragging = false;
-    if (e.touches.length === 0 && scale <= 1.05) {
+    if (scale <= 1.05) {
       scale = 1; posX = 0; posY = 0;
       applyTransform();
     }
   }
 
-  // Mouse: wheel zoom (supports zoom-out below 100%)
+  // Mouse: wheel zoom
   function onWheel(e) {
-    var lb = document.getElementById('lightbox');
-    if (!lb || lb.style.display === 'none') return;
+    if (!document.getElementById('lightbox') || document.getElementById('lightbox').style.display === 'none') return;
     e.preventDefault();
     var delta = e.deltaY > 0 ? -0.15 : 0.15;
-    var newScale = Math.max(0.5, Math.min(5, scale + delta));
-    if (newScale <= 1.05) { posX = 0; posY = 0; newScale = 1; }
+    var newScale = Math.max(1, Math.min(5, scale + delta));
+    if (newScale === 1) { posX = 0; posY = 0; }
     scale = newScale;
     applyTransform();
     var hint = document.getElementById('lbZoomHint');
@@ -6443,13 +5663,12 @@ window.closeLightbox = function() {
   var mouseDown = false;
   function onMouseDown(e) {
     if (scale <= 1) return;
-    if (e.target.closest('.lightbox-close,.lightbox-prev,.lightbox-next,.lightbox-reset-btn')) return;
+    if (e.target.closest('.lightbox-close,.lightbox-prev,.lightbox-next')) return;
     mouseDown = true;
     startX = e.clientX;
     startY = e.clientY;
     startPosX = posX;
     startPosY = posY;
-    getImg().classList.add('dragging');
     e.preventDefault();
   }
   function onMouseMove(e) {
@@ -6460,20 +5679,18 @@ window.closeLightbox = function() {
   }
   function onMouseUp() {
     mouseDown = false;
-    var img = getImg();
-    if (img) img.classList.remove('dragging');
     if (scale <= 1.05) {
       scale = 1; posX = 0; posY = 0;
       applyTransform();
     }
   }
 
-  // Double-click: toggle 2.5x zoom or reset
+  // Double-click to toggle zoom
   function onDblClick(e) {
     var lb = document.getElementById('lightbox');
     if (!lb || lb.style.display === 'none') return;
-    if (e.target.closest('.lightbox-close,.lightbox-prev,.lightbox-next,.lightbox-reset-btn')) return;
-    if (scale > 1.05) {
+    if (e.target.closest('.lightbox-close,.lightbox-prev,.lightbox-next')) return;
+    if (scale > 1) {
       scale = 1; posX = 0; posY = 0;
     } else {
       scale = 2.5;
@@ -6495,12 +5712,6 @@ window.closeLightbox = function() {
     document.addEventListener('mousemove', onMouseMove);
     document.addEventListener('mouseup', onMouseUp);
     lb.addEventListener('dblclick', onDblClick);
-
-    // Auto-hide zoom hint after 4s
-    var hint = document.getElementById('lbZoomHint');
-    if (hint) {
-      setTimeout(function() { hint.style.opacity = '0'; }, 4000);
-    }
   });
 })();
 
@@ -6573,15 +5784,7 @@ function initMobileAccordion() {
     var saved = {};
     try { saved = JSON.parse(localStorage.getItem('guizhou-accordion-state') || '{}'); } catch(e) {}
     if (saved[cfg.id] !== true) {
-      // Default: collapsed unless saved state says expanded
-    var _savedState = null;
-    try { _savedState = JSON.parse(localStorage.getItem('guizhou-accordion-state') || '{}'); } catch(e) {}
-    if (_savedState && _savedState[cfg.id] === true) {
-      section.classList.remove('accordion-collapsed');
-      trigger.setAttribute('aria-expanded', 'true');
-    } else {
       section.classList.add('accordion-collapsed');
-    }
     } else {
       trigger.setAttribute('aria-expanded', 'true');
     }
@@ -6637,1003 +5840,26 @@ window.addEventListener('resize', function() {
   _accResizeTimer = setTimeout(initMobileAccordion, 200);
 });
 
-
-// ============================================================
-// V12: 全局点击图片打开灯箱 + SVG地图支持
-// ============================================================
-(function() {
-  // Global click-to-open for all data-lightbox images
-  document.addEventListener('click', function(e) {
-    var img = e.target.closest('img[data-lightbox]');
-    if (!img) return;
-    // Skip if inside lightbox already
-    if (img.closest('#lightbox')) return;
-    // Skip tiny icons
-    if (img.offsetWidth < 50 || img.offsetHeight < 50) return;
-    e.preventDefault();
-    e.stopPropagation();
-    var src = img.src;
-    if (!src) return;
-
-    // Find sibling images in same gallery
-    var container = img.closest('.photo-gallery,.hotel-photos,.food-photos,.spot-photos,.itinerary-body-inner,.itinerary-body,section');
-    var siblings = [];
-    var clickedIdx = 0;
-    if (container) {
-      var allImgs = container.querySelectorAll('img[data-lightbox]');
-      allImgs.forEach(function(si) {
-        if (si.closest('#lightbox')) return;
-        if (si.offsetWidth < 50 || si.offsetHeight < 50) return;
-        siblings.push({ src: si.src, caption: si.alt || '' });
-        if (si === img) clickedIdx = siblings.length - 1;
-      });
-    }
-    if (siblings.length === 0) {
-      siblings = [{ src: src, caption: img.alt || '' }];
-      clickedIdx = 0;
-    }
-
-    window.v9LightboxImages = siblings;
-    window.v9CurrentIndex = clickedIdx;
-    if (window.showV9LightboxImage) window.showV9LightboxImage();
-    document.getElementById('lightbox').style.display = 'flex';
-    document.body.style.overflow = 'hidden';
-  });
-
-  // SVG map click-to-zoom
-  document.addEventListener('click', function(e) {
-    var svg = e.target.closest('svg.route-map');
-    if (!svg) return;
-    e.preventDefault();
-    e.stopPropagation();
-
-    var serializer = new XMLSerializer();
-    var svgStr = serializer.serializeToString(svg);
-    var svgBlob = new Blob([svgStr], {type: 'image/svg+xml;charset=utf-8'});
-    var url = URL.createObjectURL(svgBlob);
-
-    window.v9LightboxImages = [{ src: url, caption: '路线地图' }];
-    window.v9CurrentIndex = 0;
-    var lbImg = document.getElementById('lightbox-img');
-    if (lbImg) {
-      lbImg.src = url;
-      lbImg.style.width = 'auto';
-      lbImg.style.height = 'auto';
-      lbImg.style.maxWidth = '95vw';
-      lbImg.style.maxHeight = '85vh';
-      lbImg.style.minWidth = '300px';
-      lbImg.style.minHeight = '200px';
-    }
-    var cap = document.getElementById('lightbox-caption');
-    if (cap) cap.textContent = '路线地图';
-    var lb = document.getElementById('lightbox');
-    if (lb) lb.style.display = 'flex';
-    document.body.style.overflow = 'hidden';
-    if (window.resetLightboxZoom) window.resetLightboxZoom();
-  });
-})();
-
-
-// ============================================================
-// ============================================================
-
-
-// ===== 新增脚本开始 =====
-
-(function() {
-  'use strict';
-
-  // ===== 1.1 板块标题淡入上浮 =====
-  function add_initFadeUp() {
-    var headers = document.querySelectorAll('.section-header');
-    var isMobile = window.innerWidth <= 768;
-    for (var i = 0; i < headers.length; i++) {
-      // 手机端折叠区域内的header不添加fade-up，避免展开后不可见
-      if (isMobile && headers[i].closest('.mobile-accordion')) continue;
-      headers[i].classList.add('add-fade-up');
-    }
-    if (!('IntersectionObserver' in window)) {
-      for (var j = 0; j < headers.length; j++) {
-        headers[j].classList.add('add-visible');
-      }
-      return;
-    }
-    var observer = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('add-visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.2 });
-    for (var k = 0; k < headers.length; k++) {
-      observer.observe(headers[k]);
-    }
-  }
-
-  // ===== 1.2 按钮/卡片悬停微放大 =====
-  function add_initHoverLift() {
-    var selectors = '.tip-card, .hotel-card, .food-card, .must-do-card, .summary-card, .meal-card';
-    var cards = document.querySelectorAll(selectors);
-    for (var i = 0; i < cards.length; i++) {
-      cards[i].classList.add('add-hover-lift');
-    }
-  }
-
-
-  // ===== 1.4 行前清单勾选动画 =====
-  function add_initCheckAnim() {
-    var items = document.querySelectorAll('.checklist-item');
-    for (var i = 0; i < items.length; i++) {
-      items[i].classList.add('add-check-anim');
-    }
-  }
-
-  // ===== 2.2 贵州小知识轮播 =====
-  var add_knowledgeList = [
-    '贵州被誉为"中国凉都"，夏季平均气温仅23℃',
-    '贵州是全国唯一没有平原支撑的省份，素有"八山一水一分田"之说',
-    '茅台酒产自贵州遵义仁怀市，是中国国酒',
-    '黄果树瀑布是亚洲最大的瀑布，高77.8米，宽101米',
-    '贵州话"摆龙门阵"就是聊天、讲故事的意思',
-    '织金洞被誉为"中国溶洞之王"，洞内恒温16℃',
-    '贵州是世界知名山地旅游目的地，山地占比92.5%',
-    '"酸汤鱼"是贵州苗族特色名菜，酸汤由番茄发酵而成',
-    '乌蒙大草原是西南地区海拔最高、面积最大的高原草场',
-    '贵州荔波喀斯特是世界自然遗产，被称为"地球腰带上的绿宝石"'
-  ];
-  var add_knowledgeIndex = 0;
-  var add_knowledgeTimer = null;
-  var add_knowledgePaused = false;
-
-  function add_initKnowledge() {
-    var textEl = document.getElementById('addKnowledgeText');
-    if (!textEl) return;
-    add_knowledgeIndex = 0;
-    add_knowledgeTimer = setInterval(add_nextKnowledge, 5000);
-
-    // visibilitychange 暂停
-    document.addEventListener('visibilitychange', function() {
-      if (document.hidden) {
-        add_knowledgePaused = true;
-      } else {
-        add_knowledgePaused = false;
-      }
-    });
-  }
-
-  function add_nextKnowledge() {
-    if (add_knowledgePaused) return;
-    var textEl = document.getElementById('addKnowledgeText');
-    if (!textEl) return;
-    textEl.classList.remove('add-knowledge-show');
-    setTimeout(function() {
-      add_knowledgeIndex = (add_knowledgeIndex + 1) % add_knowledgeList.length;
-      textEl.textContent = add_knowledgeList[add_knowledgeIndex];
-      textEl.classList.add('add-knowledge-show');
-    }, 500);
-  }
-
-  // ===== 2.3 预算计算器人均/总计切换 =====
-  var add_budgetMode = 'total'; // total | per
-  var add_budgetOriginalTotal = 0;
-
-  function add_initBudgetToggle() {
-    var summaryLabel = document.querySelector('.budget-summary-label');
-    if (!summaryLabel) return;
-    var toggleHtml = '<span class="add-budget-toggle">' +
-      '<button class="add-budget-toggle-btn add-budget-toggle-active" onclick="add_switchBudget(\'total\')" id="addBudgetTotalBtn">总计</button>' +
-      '<button class="add-budget-toggle-btn" onclick="add_switchBudget(\'per\')" id="addBudgetPerBtn">人均</button>' +
-      '</span>';
-    summaryLabel.innerHTML = summaryLabel.innerHTML + toggleHtml;
-  }
-
-  function add_switchBudget(mode) {
-    if (add_budgetMode === mode) return;
-    add_budgetMode = mode;
-    var totalBtn = document.getElementById('addBudgetTotalBtn');
-    var perBtn = document.getElementById('addBudgetPerBtn');
-    var totalEl = document.getElementById('budget-total');
-    var perEl = document.getElementById('budget-per-person');
-    if (totalBtn && perBtn) {
-      if (mode === 'total') {
-        totalBtn.classList.add('add-budget-toggle-active');
-        perBtn.classList.remove('add-budget-toggle-active');
-      } else {
-        perBtn.classList.add('add-budget-toggle-active');
-        totalBtn.classList.remove('add-budget-toggle-active');
-      }
-    }
-    if (totalEl && perEl) {
-      if (mode === 'per') {
-        totalEl.style.display = 'none';
-        perEl.style.fontSize = '28px';
-        perEl.style.fontWeight = '900';
-      } else {
-        totalEl.style.display = '';
-        perEl.style.fontSize = '';
-        perEl.style.fontWeight = '';
-      }
-    }
-  }
-
-  // ===== 3.1 Hero背景Canvas粒子 (已移除) =====
-
-  // ===== 3.2 SVG地图城市悬停高亮 =====
-  function add_initMapHover() {
-    // 触屏设备跳过hover效果
-    if (window.matchMedia && window.matchMedia('(hover: none) and (pointer: coarse)').matches) return;
-    var maps = document.querySelectorAll('.route-map');
-    var tooltip = document.getElementById('addMapTooltip');
-    if (!tooltip) return;
-
-    for (var m = 0; m < maps.length; m++) {
-      var map = maps[m];
-      var container = map.closest('.route-map-container') || map.parentElement;
-      if (!container.style.position || container.style.position === 'static') {
-        container.style.position = 'relative';
-      }
-
-      var nodes = map.querySelectorAll('circle.route-node');
-      for (var i = 0; i < nodes.length; i++) {
-        (function(node) {
-          node.addEventListener('mouseenter', function(e) {
-            // 找附近text
-            var text = '';
-            var siblings = node.parentNode.querySelectorAll('text');
-            var cx = parseFloat(node.getAttribute('cx'));
-            var cy = parseFloat(node.getAttribute('cy'));
-            var closest = null;
-            var minDist = Infinity;
-            for (var j = 0; j < siblings.length; j++) {
-              var t = siblings[j];
-              var tx = parseFloat(t.getAttribute('x'));
-              var ty = parseFloat(t.getAttribute('y'));
-              if (isNaN(tx) || isNaN(ty)) continue;
-              var d = Math.sqrt((tx - cx) * (tx - cx) + (ty - cy) * (ty - cy));
-              if (d < minDist && d < 80) {
-                minDist = d;
-                closest = t;
-              }
-            }
-            if (closest) text = closest.textContent;
-
-            tooltip.textContent = text || '贵州景点';
-            tooltip.classList.add('add-map-tooltip-show');
-          });
-
-          node.addEventListener('mousemove', function(e) {
-            var rect = container.getBoundingClientRect();
-            tooltip.style.left = (e.clientX - rect.left) + 'px';
-            tooltip.style.top = (e.clientY - rect.top) + 'px';
-          });
-
-          node.addEventListener('mouseleave', function() {
-            tooltip.classList.remove('add-map-tooltip-show');
-          });
-        })(nodes[i]);
-      }
-    }
-  }
-
-  // ===== 4.1 旅行日记 =====
-  function add_initDiary() {
-    var dayCards = document.querySelectorAll('.day-card');
-    for (var i = 0; i < dayCards.length; i++) {
-      (function(card, idx) {
-        var dayNum = idx + 1;
-        var bodyInner = card.querySelector('.itinerary-body-inner');
-        if (!bodyInner) return;
-
-        var btn = document.createElement('button');
-        btn.className = 'add-diary-btn';
-        btn.innerHTML = '✏️ 写两句';
-        btn.onclick = function() {
-          var area = card.querySelector('.add-diary-area');
-          if (area) {
-            area.classList.toggle('add-diary-open');
-            var ta = area.querySelector('textarea');
-            if (ta && area.classList.contains('add-diary-open')) {
-              ta.focus();
-            }
-          }
-        };
-
-        var area = document.createElement('div');
-        area.className = 'add-diary-area';
-        area.innerHTML = '<textarea class="add-diary-textarea" placeholder="记录今天的旅行心情..." oninput="add_saveDiary(' + dayNum + ', this.value)"></textarea>' +
-                          '<div class="add-diary-status">💾 自动保存到本地</div>';
-
-        bodyInner.appendChild(btn);
-        bodyInner.appendChild(area);
-
-        // 恢复内容
-        var saved = null;
-        try {
-          saved = localStorage.getItem('guizhou_diary_D' + dayNum);
-        } catch (e) {}
-        if (saved) {
-          var ta = area.querySelector('textarea');
-          if (ta) ta.value = saved;
-        }
-      })(dayCards[i], i);
-    }
-  }
-
-  function add_saveDiary(dayNum, value) {
-    try {
-      localStorage.setItem('guizhou_diary_D' + dayNum, value);
-    } catch (e) {}
-  }
-
-  // ===== 4.2 景点打卡 =====
-  function add_initCheckin() {
-    // 给每个 day-title 景点标题添加打卡按钮
-    var dayTitles = document.querySelectorAll('.day-title');
-    for (var i = 0; i < dayTitles.length; i++) {
-      (function(titleEl, idx) {
-        var text = titleEl.textContent.trim().replace(/\s+/g, '_').substring(0, 30);
-        var key = 'guizhou_checkin_' + text;
-        var btn = document.createElement('button');
-        btn.className = 'add-checkin-btn';
-        btn.innerHTML = '📍 打卡';
-        var done = false;
-        try {
-          done = localStorage.getItem(key) === '1';
-        } catch (e) {}
-        if (done) {
-          btn.classList.add('add-checkin-done');
-          btn.innerHTML = '✓ 已打卡<span class="add-checkin-badge">✓</span>';
-        }
-        btn.onclick = function(e) {
-          e.stopPropagation();
-          var isDone = btn.classList.contains('add-checkin-done');
-          if (isDone) {
-            btn.classList.remove('add-checkin-done');
-            btn.innerHTML = '📍 打卡';
-            try { localStorage.removeItem(key); } catch (err) {}
-          } else {
-            btn.classList.add('add-checkin-done');
-            btn.innerHTML = '✓ 已打卡<span class="add-checkin-badge">✓</span>';
-            try { localStorage.setItem(key, '1'); } catch (err) {}
-          }
-        };
-        titleEl.appendChild(btn);
-      })(dayTitles[i], i);
-    }
-  }
-
-  // ===== 初始化 =====
-  function add_initAll() {
-    try { add_initFadeUp(); } catch (e) { console.warn('fadeUp init error', e); }
-    try { add_initHoverLift(); } catch (e) { console.warn('hoverLift init error', e); }
-    try { add_initCheckAnim(); } catch (e) { console.warn('checkAnim init error', e); }
-    try { add_initKnowledge(); } catch (e) { console.warn('knowledge init error', e); }
-    try { add_initBudgetToggle(); } catch (e) { console.warn('budgetToggle init error', e); }
-    try { add_initMapHover(); } catch (e) { console.warn('mapHover init error', e); }
-    try { add_initDiary(); } catch (e) { console.warn('diary init error', e); }
-    try { add_initCheckin(); } catch (e) { console.warn('checkin init error', e); }
-  }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', add_initAll);
-  } else {
-    add_initAll();
-  }
-
-  // 暴露到全局
-  window.add_switchBudget = add_switchBudget;
-  window.add_saveDiary = add_saveDiary;
-
-})();
-
-// ===== 新增脚本结束 =====
-
-// ===== V17 Portal View System 开始 =====
-
-// V17: 导航栈系统 - 多层钻入
-var add_navStack = [];
-// 每个元素: {level: number, sectionId: string, extra: object}
-// level 1 = 入口网格(不在栈中)
-// level 2 = 板块门户页
-// level 3 = 板块内详情（如某天行程详情）
-
-var add_isMobileView = false;
-var add_sectionParents = {};
-
-var add_portalConfig = {
-  route: { emoji: '\ud83d\uddfa\ufe0f', title: '\u8def\u7ebf\u603b\u89c8', sub: '7\u5929\u73af\u7ebf \u00b7 2000km' },
-  itinerary: { emoji: '\ud83d\udcc5', title: '\u6bcf\u65e5\u884c\u7a0b', sub: '7\u59296\u665a\u8be6\u60c5' },
-  temperature: { emoji: '\ud83c\udf21\ufe0f', title: '\u6c14\u6e29\u5bf9\u6bd4', sub: '\u907f\u669114-26\u2103' },
-  budget: { emoji: '\ud83d\udcb0', title: '\u9884\u7b97', sub: '6000-8000\u5143' },
-  drone: { emoji: '\ud83d\ude81', title: '\u822a\u62cd\u6307\u5357', sub: '\u98de\u884c\u6307\u5357' },
-  checklist: { emoji: '\u2705', title: '\u884c\u524d\u6e05\u5355', sub: '12\u9879\u5f85\u786e\u8ba4' },
-  summary: { emoji: '\ud83d\udc68\u200d\ud83d\udc69\u200d\ud83d\udc67\u200d\ud83d\udc66', title: '\u4eb2\u5b50\u91ce\u9493', sub: '\u6d3b\u52a8\u6c47\u603b' },
-  'must-do': { emoji: '\u2728', title: '\u6b64\u884c\u5fc5\u505a', sub: '8\u4e2a\u5fc5\u4f53\u9a8c' }
-};
-
-function add_checkMobile() {
-  add_isMobileView = window.innerWidth <= 768;
-}
-
-function add_storeParent(id) {
-  var el = document.getElementById(id);
-  if (el && !add_sectionParents[id]) {
-    add_sectionParents[id] = el.parentNode;
-  }
-}
-
-function add_storeAllParents() {
-  var keys = Object.keys(add_portalConfig);
-  for (var i = 0; i < keys.length; i++) {
-    add_storeParent(keys[i]);
-  }
-}
-
-function add_buildPortalHeader(sectionId, level) {
-  var cfg = add_portalConfig[sectionId];
-  if (!cfg) return null;
-  var header = document.createElement('div');
-  header.className = 'add-portal-header';
-  if (level >= 3) {
-    header.classList.add('add-header-l3');
-  }
-  // No inline style for gradient - unified CSS handles it
-
-  var emojiSpan = document.createElement('span');
-  emojiSpan.className = 'add-portal-header-emoji';
-  emojiSpan.textContent = cfg.emoji;
-
-  var backBtn = document.createElement('button');
-  backBtn.className = 'add-portal-back';
-  backBtn.textContent = '\u2190 \u8fd4\u56de';
-  backBtn.addEventListener('click', function() { add_goBack(); });
-
-  var title = document.createElement('h2');
-  title.className = 'add-portal-title';
-  title.textContent = cfg.title;
-
-  var subtitle = document.createElement('div');
-  subtitle.className = 'add-portal-subtitle';
-  subtitle.textContent = cfg.sub;
-
-  header.appendChild(emojiSpan);
-  header.appendChild(backBtn);
-  header.appendChild(title);
-  header.appendChild(subtitle);
-  return header;
-}
-
-function add_updateNav(sectionId) {
-  var navItems = document.querySelectorAll('.add-portal-nav-item');
-  for (var i = 0; i < navItems.length; i++) {
-    if (navItems[i].getAttribute('data-target') === sectionId) {
-      navItems[i].classList.add('add-nav-active');
-    } else {
-      navItems[i].classList.remove('add-nav-active');
-    }
-  }
-}
-
-function add_hideAllInWrapper() {
-  var wrapper = document.getElementById('add-sections-wrapper');
-  if (!wrapper) return;
-  var allSections = wrapper.querySelectorAll('.section.mobile-accordion');
-  var allDividers = wrapper.querySelectorAll('.mountain-divider, .wave-divider');
-  var allKnowledge = wrapper.querySelectorAll('.add-knowledge-bar');
-  for (var i = 0; i < allSections.length; i++) {
-    allSections[i].style.display = 'none';
-    allSections[i].classList.remove('add-section-active', 'add-itin-summary', 'add-itin-l2', 'add-in-portal');
-  }
-  for (var j = 0; j < allDividers.length; j++) {
-    allDividers[j].style.display = 'none';
-  }
-  for (var k = 0; k < allKnowledge.length; k++) {
-    allKnowledge[k].style.display = 'none';
-  }
-}
-
-function add_restoreAllInWrapper() {
-  var wrapper = document.getElementById('add-sections-wrapper');
-  if (!wrapper) return;
-  var allSections = wrapper.querySelectorAll('.section.mobile-accordion');
-  var allDividers = wrapper.querySelectorAll('.mountain-divider, .wave-divider');
-  var allKnowledge = wrapper.querySelectorAll('.add-knowledge-bar');
-  for (var i = 0; i < allSections.length; i++) {
-    allSections[i].style.display = '';
-    allSections[i].classList.remove('add-section-active', 'add-itin-summary', 'add-itin-l2', 'add-in-portal');
-  }
-  for (var j = 0; j < allDividers.length; j++) {
-    allDividers[j].style.display = '';
-  }
-  for (var k = 0; k < allKnowledge.length; k++) {
-    allKnowledge[k].style.display = '';
-  }
-}
-
-function add_prepareSection(sectionId) {
-  var section = document.getElementById(sectionId);
-  if (!section) return null;
-
-  add_storeParent(sectionId);
-
-  section.classList.add('add-section-active', 'add-in-portal');
-  section.classList.remove('accordion-collapsed');
-  section.style.display = '';
-
-  // For itinerary: add L2 summary mode (all folded, click to drill down)
-  if (sectionId === 'itinerary') {
-    section.classList.add('add-itin-l2');
-    // Remove any previous L3 state
-    var dayCards = section.querySelectorAll('.day-card');
-    for (var i = 0; i < dayCards.length; i++) {
-      dayCards[i].style.display = '';
-      dayCards[i].classList.remove('add-day-expanded');
-    }
-    // Bind header click for drill-down to L3
-    var dayHeaders = section.querySelectorAll('.day-card .itinerary-header');
-    for (var j = 0; j < dayHeaders.length; j++) {
-      (function(header, idx) {
-        if (header.dataset.addDrillBind) return;
-        header.dataset.addDrillBind = '1';
-        header.addEventListener('click', function(e) {
-          e.preventDefault();
-          e.stopPropagation();
-          add_drillDownItinerary(idx);
-        });
-      })(dayHeaders[j], j);
-    }
-  }
-
-  return section;
-}
-
-function add_returnSection(sectionId) {
-  var section = document.getElementById(sectionId);
-  if (!section) return;
-  section.classList.remove('add-section-active', 'add-itin-summary', 'add-itin-l2', 'add-in-portal');
-
-  // Reset itinerary cards
-  if (sectionId === 'itinerary') {
-    var dayCards = section.querySelectorAll('.day-card');
-    for (var i = 0; i < dayCards.length; i++) {
-      dayCards[i].style.display = '';
-      dayCards[i].classList.remove('add-day-expanded');
-    }
-  }
-
-  if (add_sectionParents[sectionId]) {
-    add_sectionParents[sectionId].appendChild(section);
-  }
-}
-
-// ============================================================
-// V17: Core navigation functions
-// ============================================================
-
-function add_openPortal(sectionId) {
-  if (!add_isMobileView) return;
-
-  add_storeAllParents();
-
-  var overlay = document.getElementById('add-portal-overlay');
-  var portalContent = document.getElementById('add-portal-content');
-  var section = document.getElementById(sectionId);
-  if (!overlay || !portalContent || !section) return;
-
-  // Reset nav stack
-  add_navStack = [{level: 2, sectionId: sectionId}];
-
-  // Hide all sections in wrapper
-  add_hideAllInWrapper();
-
-  // Prepare the section
-  var prepared = add_prepareSection(sectionId);
-  if (!prepared) return;
-
-  // Clear portal content
-  portalContent.innerHTML = '';
-
-  // Build and add portal header (level 2)
-  var header = add_buildPortalHeader(sectionId, 2);
-  if (header) {
-    portalContent.appendChild(header);
-  }
-
-  // Move section into portal
-  portalContent.appendChild(prepared);
-
-  // Add fade-in animation
-  prepared.classList.add('add-portal-section-enter');
-  setTimeout(function() {
-    prepared.classList.remove('add-portal-section-enter');
-  }, 300);
-
-  // Show overlay
-  overlay.classList.remove('add-portal-closing', 'add-no-bottom-nav');
-  overlay.classList.add('add-portal-open');
-
-  // Show bottom nav (L2 shows nav)
-  var nav = document.getElementById('add-portal-nav');
-  if (nav) nav.classList.add('add-nav-visible');
-
-  add_updateNav(sectionId);
-
-  // Prevent body scroll
-  document.body.style.overflow = 'hidden';
-
-  // Scroll overlay to top
-  overlay.scrollTop = 0;
-
-  // Re-trigger fade-in animations
-  var fadeEls = prepared.querySelectorAll('.fade-in');
-  for (var i = 0; i < fadeEls.length; i++) {
-    fadeEls[i].classList.add('visible');
-  }
-
-  // Animate temp bars if temperature section
-  if (sectionId === 'temperature' && typeof animateTempBars === 'function') {
-    setTimeout(animateTempBars, 300);
-  }
-
-  // Update checklist progress if checklist section
-  if (sectionId === 'checklist' && typeof updateChecklistProgress === 'function') {
-    setTimeout(updateChecklistProgress, 100);
-  }
-}
-
-function add_goBack() {
-  if (add_navStack.length <= 1) {
-    // Stack empty or only grid level -> close portal
-    add_closePortal();
-  } else {
-    // Pop current level
-    add_navStack.pop();
-    var prev = add_navStack[add_navStack.length - 1];
-
-    if (prev.level === 2) {
-      // Go back to section overview (L2)
-      add_showLevel2(prev.sectionId);
-    } else if (prev.level >= 3) {
-      // Go back to deeper level (unlikely in current design but supported)
-      add_showLevel3(prev.sectionId, prev.extra);
-    }
-  }
-}
-
-function add_showLevel2(sectionId) {
-  var overlay = document.getElementById('add-portal-overlay');
-  var portalContent = document.getElementById('add-portal-content');
-  if (!overlay || !portalContent) return;
-
-  // Get current section from portal content
-  var section = document.getElementById(sectionId);
-  if (!section) return;
-
-  // Reset section to L2 state
-  section.classList.remove('add-itin-l2');
-  var dayCards = section.querySelectorAll('.day-card');
-  for (var i = 0; i < dayCards.length; i++) {
-    dayCards[i].style.display = '';
-    dayCards[i].classList.remove('add-day-expanded');
-  }
-
-  // Re-apply L2 state
-  if (sectionId === 'itinerary') {
-    section.classList.add('add-itin-l2');
-  }
-
-  // Rebuild header at L2
-  portalContent.innerHTML = '';
-  var header = add_buildPortalHeader(sectionId, 2);
-  if (header) {
-    portalContent.appendChild(header);
-  }
-  portalContent.appendChild(section);
-
-  // Show bottom nav
-  overlay.classList.remove('add-no-bottom-nav');
-  var nav = document.getElementById('add-portal-nav');
-  if (nav) nav.classList.add('add-nav-visible');
-
-  add_updateNav(sectionId);
-
-  // Scroll to top
-  overlay.scrollTop = 0;
-}
-
-// V17: Drill down into itinerary day detail (Level 3)
-function add_drillDownItinerary(dayIndex) {
-  // Push to nav stack
-  add_navStack.push({level: 3, sectionId: 'itinerary', extra: {dayIndex: dayIndex}});
-
-  var overlay = document.getElementById('add-portal-overlay');
-  var portalContent = document.getElementById('add-portal-content');
-  var section = document.getElementById('itinerary');
-  if (!section) return;
-
-  var cards = section.querySelectorAll('.day-card');
-
-  // Hide all cards except the target
-  for (var i = 0; i < cards.length; i++) {
-    cards[i].style.display = (i === dayIndex) ? '' : 'none';
-  }
-
-  // Expand the target card
-  var targetCard = cards[dayIndex];
-  targetCard.classList.add('add-day-expanded');
-  if (targetCard.classList.contains('itinerary-card')) {
-    targetCard.classList.add('open');
-  }
-
-  // Remove L2 class
-  section.classList.remove('add-itin-l2');
-
-  // Update header to L3 style
-  var header = portalContent.querySelector('.add-portal-header');
-  if (header) {
-    header.classList.add('add-header-l3');
-    // Extract day info from the card header
-    var cardHeader = targetCard.querySelector('.itinerary-header');
-    if (cardHeader) {
-      var titleEl = header.querySelector('.add-portal-title');
-      var leftInfo = cardHeader.querySelector('.itinerary-header-left');
-      if (titleEl && leftInfo) {
-        titleEl.textContent = leftInfo.textContent.trim().replace(/\s+/g, ' ');
-      }
-      var subEl = header.querySelector('.add-portal-subtitle');
-      if (subEl) subEl.style.display = 'none';
-    }
-  }
-
-  // Hide bottom nav
-  if (overlay) overlay.classList.add('add-no-bottom-nav');
-  var nav = document.getElementById('add-portal-nav');
-  if (nav) nav.classList.remove('add-nav-visible');
-
-  // Scroll to top
-  if (overlay) overlay.scrollTop = 0;
-}
-
-// V17: Generic Level 3 drill-down (for future use)
-function add_showLevel3(sectionId, extra) {
-  if (sectionId === 'itinerary' && extra && extra.dayIndex !== undefined) {
-    // Re-show the specific day
-    var overlay = document.getElementById('add-portal-overlay');
-    var portalContent = document.getElementById('add-portal-content');
-    var section = document.getElementById('itinerary');
-    if (!section) return;
-
-    var cards = section.querySelectorAll('.day-card');
-    for (var i = 0; i < cards.length; i++) {
-      cards[i].style.display = (i === extra.dayIndex) ? '' : 'none';
-    }
-    var targetCard = cards[extra.dayIndex];
-    targetCard.classList.add('add-day-expanded');
-    section.classList.remove('add-itin-l2');
-
-    var header = portalContent.querySelector('.add-portal-header');
-    if (header) {
-      header.classList.add('add-header-l3');
-      var cardHeader = targetCard.querySelector('.itinerary-header');
-      if (cardHeader) {
-        var titleEl = header.querySelector('.add-portal-title');
-        var leftInfo = cardHeader.querySelector('.itinerary-header-left');
-        if (titleEl && leftInfo) {
-          titleEl.textContent = leftInfo.textContent.trim().replace(/\s+/g, ' ');
-        }
-        var subEl = header.querySelector('.add-portal-subtitle');
-        if (subEl) subEl.style.display = 'none';
-      }
-    }
-
-    if (overlay) overlay.classList.add('add-no-bottom-nav');
-    var nav = document.getElementById('add-portal-nav');
-    if (nav) nav.classList.remove('add-nav-visible');
-    if (overlay) overlay.scrollTop = 0;
-  }
-}
-
-function add_closePortal() {
-  var overlay = document.getElementById('add-portal-overlay');
-  var currentEntry = add_navStack.length > 0 ? add_navStack[0] : null;
-  var currentSectionId = currentEntry ? currentEntry.sectionId : null;
-
-  if (!overlay || !currentSectionId) return;
-
-  // Closing animation
-  overlay.classList.add('add-portal-closing');
-
-  setTimeout(function() {
-    // Return section to original parent
-    add_returnSection(currentSectionId);
-
-    // Restore all sections in wrapper
-    add_restoreAllInWrapper();
-
-    // Clear portal content
-    var portalContent = document.getElementById('add-portal-content');
-    if (portalContent) portalContent.innerHTML = '';
-
-    // Hide overlay
-    overlay.classList.remove('add-portal-open');
-    overlay.classList.remove('add-portal-closing');
-    overlay.classList.remove('add-no-bottom-nav');
-
-    // Hide bottom nav
-    var nav = document.getElementById('add-portal-nav');
-    if (nav) nav.classList.remove('add-nav-visible');
-
-    // Restore body scroll
-    document.body.style.overflow = '';
-
-    // Collapse expanded day cards
-    var expandedCards = document.querySelectorAll('.day-card.add-day-expanded');
-    for (var i = 0; i < expandedCards.length; i++) {
-      expandedCards[i].classList.remove('add-day-expanded');
-    }
-
-    // Reset nav stack
-    add_navStack = [];
-
-    // Scroll to top
-    window.scrollTo({ top: 0, behavior: 'instant' });
-  }, 300);
-}
-
-function add_switchPortalSection(sectionId) {
-  var currentEntry = add_navStack.length > 0 ? add_navStack[add_navStack.length - 1] : null;
-  var currentSectionId = currentEntry ? currentEntry.sectionId : null;
-
-  if (!currentSectionId || sectionId === currentSectionId) return;
-
-  var portalContent = document.getElementById('add-portal-content');
-  if (!portalContent) return;
-
-  // Return current section to original parent
-  add_returnSection(currentSectionId);
-
-  // Reset stack to new section at L2
-  add_navStack = [{level: 2, sectionId: sectionId}];
-
-  // Prepare new section
-  var prepared = add_prepareSection(sectionId);
-  if (!prepared) return;
-
-  // Clear portal content
-  portalContent.innerHTML = '';
-
-  // Build and add portal header
-  var header = add_buildPortalHeader(sectionId, 2);
-  if (header) {
-    portalContent.appendChild(header);
-  }
-
-  // Move section into portal
-  portalContent.appendChild(prepared);
-
-  // Add fade-in animation
-  prepared.classList.add('add-portal-section-enter');
-  setTimeout(function() {
-    prepared.classList.remove('add-portal-section-enter');
-  }, 300);
-
-  // Update nav
-  add_updateNav(sectionId);
-
-  // Show bottom nav (switching always goes to L2)
-  var overlay = document.getElementById('add-portal-overlay');
-  if (overlay) {
-    overlay.classList.remove('add-no-bottom-nav');
-  }
-  var nav = document.getElementById('add-portal-nav');
-  if (nav) nav.classList.add('add-nav-visible');
-
-  // Scroll overlay to top
-  if (overlay) overlay.scrollTop = 0;
-
-  // Re-trigger fade-in animations
-  var fadeEls = prepared.querySelectorAll('.fade-in');
-  for (var i = 0; i < fadeEls.length; i++) {
-    fadeEls[i].classList.add('visible');
-  }
-
-  // Animate temp bars if temperature section
-  if (sectionId === 'temperature' && typeof animateTempBars === 'function') {
-    setTimeout(animateTempBars, 300);
-  }
-
-  // Update checklist progress if checklist section
-  if (sectionId === 'checklist' && typeof updateChecklistProgress === 'function') {
-    setTimeout(updateChecklistProgress, 100);
-  }
-}
-
-function add_initPortal() {
-  add_checkMobile();
-
-  // Store all parents upfront
-  add_storeAllParents();
-
-  // Bind entry card clicks
-  var cards = document.querySelectorAll('.add-entry-card');
-  for (var i = 0; i < cards.length; i++) {
-    cards[i].addEventListener('click', function() {
-      var target = this.getAttribute('data-target');
-      if (target) add_openPortal(target);
-    });
-  }
-
-  // Bind bottom nav clicks
-  var navItems = document.querySelectorAll('.add-portal-nav-item');
-  for (var j = 0; j < navItems.length; j++) {
-    navItems[j].addEventListener('click', function() {
-      var target = this.getAttribute('data-target');
-      if (target) add_switchPortalSection(target);
-    });
-  }
-
-  // Handle resize: reset portal on desktop
-  var resizeTimer;
-  window.addEventListener('resize', function() {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(function() {
-      var wasMobile = add_isMobileView;
-      add_checkMobile();
-      if (!add_isMobileView && add_navStack.length > 0) {
-        add_closePortal();
-      }
-    }, 250);
-  });
-}
-
-// Init on DOMContentLoaded
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', function() {
-    add_initPortal();
-  });
-} else {
-  add_initPortal();
-}
-
-// ===== V17 Portal View System 结束 =====
-
 </script>
 
 <!-- V4-B2 #8: 灯箱组件 -->
 <div id="lightbox" class="lightbox" style="display:none;">
   <div class="lightbox-overlay"></div>
   <div class="lightbox-content">
-    <img id="lightbox-img" src="" alt="" data-lightbox="true">
+    <img id="lightbox-img" src="" alt="">
     <div class="lightbox-caption" id="lightbox-caption"></div>
     <div class="lightbox-zoom-hint" id="lbZoomHint">双指缩放 · 单指拖动 · 滚轮缩放</div>
     <div class="lightbox-zoom-level" id="lbZoomLevel">100%</div>
     <button class="lightbox-close" onclick="closeLightbox()">&#10005;</button>
-    <button class="lightbox-reset-btn" id="lightbox-reset-btn" onclick="resetLightboxZoom()">↺ 重置</button>
     <button class="lightbox-prev" onclick="navigateLightbox(-1)">&#8249;</button>
     <button class="lightbox-next" onclick="navigateLightbox(1)">&#8250;</button>
   </div>
 </div>
 
-
-<!-- ===== V13 SVG地图tooltip ===== -->
-<div class="add-map-tooltip" id="addMapTooltip"></div>
-
-<!-- V16 门户视图系统 -->
-<div id="add-portal-overlay" class="add-portal-overlay">
-  <div id="add-portal-content" class="add-portal-content">
-    <!-- portal header and section content inserted dynamically -->
-  </div>
-  <div class="add-portal-nav" id="add-portal-nav">
-    <button class="add-portal-nav-item" data-target="route">🗺️</button>
-    <button class="add-portal-nav-item" data-target="itinerary">📅</button>
-    <button class="add-portal-nav-item" data-target="temperature">🌡️</button>
-    <button class="add-portal-nav-item" data-target="budget">💰</button>
-    <button class="add-portal-nav-item" data-target="drone">🚁</button>
-    <button class="add-portal-nav-item" data-target="checklist">✅</button>
-    <button class="add-portal-nav-item" data-target="summary">👨‍👩‍👧‍👦</button>
-    <button class="add-portal-nav-item" data-target="must-do">✨</button>
-  </div>
+<!-- #14 底部CTA固定栏（仅手机端） -->
+<div class="mobile-cta" id="mobileCta">
+  <button class="cta-budget" onclick="document.getElementById('budget').scrollIntoView({behavior:'smooth'})">💰 查看预算</button>
+  <button class="cta-today" onclick="scrollToToday()">📅 今日行程</button>
 </div>
 </body>
 </html>

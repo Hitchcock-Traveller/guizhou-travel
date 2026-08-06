@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>黔山秘境 · 贵州避暑自驾之旅 7天6晚 V17</title>
+<title>黔山秘境 · 贵州避暑自驾之旅 7天6晚 V16</title>
 <style>
 
 /* ========== 全局重置与变量 ========== */
@@ -1382,6 +1382,7 @@ img[onclick*="openV9Lightbox"]:hover { transform: scale(1.02); }
   .mobile-accordion .accordion-body-inner { overflow: visible !important; min-height: auto !important; border: none !important; }
 }
 
+/* ========== #14 底部CTA固定栏 ========== */
 /* ========== #15 暗/亮主题切换 ========== */
 .theme-toggle {
   position: fixed; top: 80px; right: 20px; z-index: 10000;
@@ -1829,6 +1830,7 @@ svg.route-map { cursor: zoom-in; }
 }
 
 
+/* ========== V12 返回顶部按钮 ========== */
 
 /* ========== V12 此行必做 ========== */
 .must-do-grid {
@@ -2260,18 +2262,24 @@ svg.route-map { cursor: zoom-in; }
 /* --- Portal Header (Immersive) --- */
 .add-portal-header {
   position: relative;
-  padding: 44px 20px 16px;
+  padding: 50px 20px 20px;
   text-align: center;
-  min-height: 80px;
+  min-height: 120px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  background: linear-gradient(180deg, #1a2332 0%, #0f172a 100%);
 }
 .add-portal-header-emoji {
-  display: none;
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 4rem;
+  opacity: 0.15;
+  line-height: 1;
+  pointer-events: none;
 }
 .add-portal-back {
   position: absolute;
@@ -2416,57 +2424,7 @@ svg.route-map { cursor: zoom-in; }
   }
 }
 
-
-/* --- V17: Level 3+ Header (更精简) --- */
-.add-portal-header.add-header-l3 {
-  padding: 44px 20px 12px;
-  min-height: 56px;
-  background: #0f172a;
-}
-.add-header-l3 .add-portal-subtitle {
-  display: none;
-}
-.add-header-l3 .add-portal-title {
-  font-size: 1.1rem;
-}
-
-/* --- V17: L2 Itinerary - 所有day-card折叠，header可点击钻入L3 --- */
-.add-itin-l2 .day-card .itinerary-body {
-  display: none !important;
-}
-.add-itin-l2 .day-card .itinerary-header {
-  cursor: pointer;
-  position: relative;
-}
-.add-itin-l2 .day-card .itinerary-header .toggle-icon {
-  display: none;
-}
-.add-itin-l2 .day-card .itinerary-header::after {
-  content: '\203a';
-  position: absolute;
-  right: 16px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 1.6rem;
-  color: var(--primary);
-  opacity: 0.6;
-}
-.add-itin-l2 .itinerary-card.open .itinerary-body {
-  display: none !important;
-}
-
-/* --- V17: L3 单天展开样式 --- */
-.add-day-expanded .itinerary-body {
-  display: block !important;
-}
-
-/* --- V17: L3+ 隐藏底部导航 --- */
-.add-header-l3 ~ .add-portal-nav,
-.add-portal-overlay.add-no-bottom-nav .add-portal-nav {
-  display: none !important;
-}
-
-/* ===== V17 Portal View System End ===== */
+/* ===== V16 Portal View System End ===== */
 
 </style>
 </head>
@@ -6760,12 +6718,26 @@ window.addEventListener('resize', function() {
     }
   }
 
+  // ===== 1.3 当前阅读板块指示器 =====
+
 
   // ===== 1.4 行前清单勾选动画 =====
   function add_initCheckAnim() {
     var items = document.querySelectorAll('.checklist-item');
     for (var i = 0; i < items.length; i++) {
       items[i].classList.add('add-check-anim');
+    }
+  }
+
+  // ===== 2.1 行程总览浮层 (已移除) =====
+
+
+  function add_jumpToDay(index) {
+    var dayCards = document.querySelectorAll('#route-main-cards .day-card');
+    if (dayCards[index]) {
+      setTimeout(function() {
+        dayCards[index].scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 300);
     }
   }
 
@@ -7008,8 +6980,10 @@ window.addEventListener('resize', function() {
     try { add_initFadeUp(); } catch (e) { console.warn('fadeUp init error', e); }
     try { add_initHoverLift(); } catch (e) { console.warn('hoverLift init error', e); }
     try { add_initCheckAnim(); } catch (e) { console.warn('checkAnim init error', e); }
+    // add_initOverview 已移除
     try { add_initKnowledge(); } catch (e) { console.warn('knowledge init error', e); }
     try { add_initBudgetToggle(); } catch (e) { console.warn('budgetToggle init error', e); }
+    // add_initParticles 已移除
     try { add_initMapHover(); } catch (e) { console.warn('mapHover init error', e); }
     try { add_initDiary(); } catch (e) { console.warn('diary init error', e); }
     try { add_initCheckin(); } catch (e) { console.warn('checkin init error', e); }
@@ -7022,6 +6996,7 @@ window.addEventListener('resize', function() {
   }
 
   // 暴露到全局
+  window.add_jumpToDay = add_jumpToDay;
   window.add_switchBudget = add_switchBudget;
   window.add_saveDiary = add_saveDiary;
 
@@ -7029,27 +7004,22 @@ window.addEventListener('resize', function() {
 
 // ===== 新增脚本结束 =====
 
-// ===== V17 Portal View System 开始 =====
+// ===== V16 Portal View System 开始 =====
 
-// V17: 导航栈系统 - 多层钻入
-var add_navStack = [];
-// 每个元素: {level: number, sectionId: string, extra: object}
-// level 1 = 入口网格(不在栈中)
-// level 2 = 板块门户页
-// level 3 = 板块内详情（如某天行程详情）
-
+// V16: 门户视图系统 - 全屏页面切换
+var add_currentSection = null;
 var add_isMobileView = false;
 var add_sectionParents = {};
 
 var add_portalConfig = {
-  route: { emoji: '\ud83d\uddfa\ufe0f', title: '\u8def\u7ebf\u603b\u89c8', sub: '7\u5929\u73af\u7ebf \u00b7 2000km' },
-  itinerary: { emoji: '\ud83d\udcc5', title: '\u6bcf\u65e5\u884c\u7a0b', sub: '7\u59296\u665a\u8be6\u60c5' },
-  temperature: { emoji: '\ud83c\udf21\ufe0f', title: '\u6c14\u6e29\u5bf9\u6bd4', sub: '\u907f\u669114-26\u2103' },
-  budget: { emoji: '\ud83d\udcb0', title: '\u9884\u7b97', sub: '6000-8000\u5143' },
-  drone: { emoji: '\ud83d\ude81', title: '\u822a\u62cd\u6307\u5357', sub: '\u98de\u884c\u6307\u5357' },
-  checklist: { emoji: '\u2705', title: '\u884c\u524d\u6e05\u5355', sub: '12\u9879\u5f85\u786e\u8ba4' },
-  summary: { emoji: '\ud83d\udc68\u200d\ud83d\udc69\u200d\ud83d\udc67\u200d\ud83d\udc66', title: '\u4eb2\u5b50\u91ce\u9493', sub: '\u6d3b\u52a8\u6c47\u603b' },
-  'must-do': { emoji: '\u2728', title: '\u6b64\u884c\u5fc5\u505a', sub: '8\u4e2a\u5fc5\u4f53\u9a8c' }
+  route: { emoji: '\ud83d\uddfa\ufe0f', title: '路线总览', sub: '7天环线 \u00b7 2000km', gradient: 'linear-gradient(135deg, #0d9488, #065f46)' },
+  itinerary: { emoji: '\ud83d\udcc5', title: '每日行程', sub: '7天6晚详情', gradient: 'linear-gradient(135deg, #7c3aed, #4c1d95)' },
+  temperature: { emoji: '\ud83c\udf21\ufe0f', title: '气温对比', sub: '避暑14-26\u2103', gradient: 'linear-gradient(135deg, #ea580c, #9a3412)' },
+  budget: { emoji: '\ud83d\udcb0', title: '预算', sub: '6000-8000元', gradient: 'linear-gradient(135deg, #16a34a, #14532d)' },
+  drone: { emoji: '\ud83d\ude81', title: '航拍指南', sub: '飞行指南', gradient: 'linear-gradient(135deg, #2563eb, #1e3a5f)' },
+  checklist: { emoji: '\u2705', title: '行前清单', sub: '12项待确认', gradient: 'linear-gradient(135deg, #0891b2, #164e63)' },
+  summary: { emoji: '\ud83d\udc68\u200d\ud83d\udc69\u200d\ud83d\udc67\u200d\ud83d\udc66', title: '亲子野钓', sub: '活动汇总', gradient: 'linear-gradient(135deg, #db2777, #831843)' },
+  'must-do': { emoji: '\u2728', title: '此行必做', sub: '8个必体验', gradient: 'linear-gradient(135deg, #ca8a04, #713f12)' }
 };
 
 function add_checkMobile() {
@@ -7070,15 +7040,12 @@ function add_storeAllParents() {
   }
 }
 
-function add_buildPortalHeader(sectionId, level) {
+function add_buildPortalHeader(sectionId) {
   var cfg = add_portalConfig[sectionId];
   if (!cfg) return null;
   var header = document.createElement('div');
   header.className = 'add-portal-header';
-  if (level >= 3) {
-    header.classList.add('add-header-l3');
-  }
-  // No inline style for gradient - unified CSS handles it
+  header.style.background = cfg.gradient;
 
   var emojiSpan = document.createElement('span');
   emojiSpan.className = 'add-portal-header-emoji';
@@ -7086,8 +7053,8 @@ function add_buildPortalHeader(sectionId, level) {
 
   var backBtn = document.createElement('button');
   backBtn.className = 'add-portal-back';
-  backBtn.textContent = '\u2190 \u8fd4\u56de';
-  backBtn.addEventListener('click', function() { add_goBack(); });
+  backBtn.textContent = '\u2190 返回';
+  backBtn.addEventListener('click', function() { add_closePortal(); });
 
   var title = document.createElement('h2');
   title.className = 'add-portal-title';
@@ -7123,7 +7090,7 @@ function add_hideAllInWrapper() {
   var allKnowledge = wrapper.querySelectorAll('.add-knowledge-bar');
   for (var i = 0; i < allSections.length; i++) {
     allSections[i].style.display = 'none';
-    allSections[i].classList.remove('add-section-active', 'add-itin-summary', 'add-itin-l2', 'add-in-portal');
+    allSections[i].classList.remove('add-section-active', 'add-itin-summary', 'add-in-portal');
   }
   for (var j = 0; j < allDividers.length; j++) {
     allDividers[j].style.display = 'none';
@@ -7141,7 +7108,7 @@ function add_restoreAllInWrapper() {
   var allKnowledge = wrapper.querySelectorAll('.add-knowledge-bar');
   for (var i = 0; i < allSections.length; i++) {
     allSections[i].style.display = '';
-    allSections[i].classList.remove('add-section-active', 'add-itin-summary', 'add-itin-l2', 'add-in-portal');
+    allSections[i].classList.remove('add-section-active', 'add-itin-summary', 'add-in-portal');
   }
   for (var j = 0; j < allDividers.length; j++) {
     allDividers[j].style.display = '';
@@ -7155,33 +7122,29 @@ function add_prepareSection(sectionId) {
   var section = document.getElementById(sectionId);
   if (!section) return null;
 
+  // Store parent before moving
   add_storeParent(sectionId);
 
+  // Add classes for portal display
   section.classList.add('add-section-active', 'add-in-portal');
   section.classList.remove('accordion-collapsed');
   section.style.display = '';
 
-  // For itinerary: add L2 summary mode (all folded, click to drill down)
+  // For itinerary: add summary mode
   if (sectionId === 'itinerary') {
-    section.classList.add('add-itin-l2');
-    // Remove any previous L3 state
-    var dayCards = section.querySelectorAll('.day-card');
-    for (var i = 0; i < dayCards.length; i++) {
-      dayCards[i].style.display = '';
-      dayCards[i].classList.remove('add-day-expanded');
-    }
-    // Bind header click for drill-down to L3
+    section.classList.add('add-itin-summary');
     var dayHeaders = section.querySelectorAll('.day-card .itinerary-header');
-    for (var j = 0; j < dayHeaders.length; j++) {
-      (function(header, idx) {
-        if (header.dataset.addDrillBind) return;
-        header.dataset.addDrillBind = '1';
+    for (var i = 0; i < dayHeaders.length; i++) {
+      (function(header) {
+        if (header.dataset.addBind) return;
+        header.dataset.addBind = '1';
         header.addEventListener('click', function(e) {
-          e.preventDefault();
-          e.stopPropagation();
-          add_drillDownItinerary(idx);
+          var card = header.closest('.day-card');
+          if (card) {
+            card.classList.toggle('add-day-expanded');
+          }
         });
-      })(dayHeaders[j], j);
+      })(dayHeaders[i]);
     }
   }
 
@@ -7191,25 +7154,13 @@ function add_prepareSection(sectionId) {
 function add_returnSection(sectionId) {
   var section = document.getElementById(sectionId);
   if (!section) return;
-  section.classList.remove('add-section-active', 'add-itin-summary', 'add-itin-l2', 'add-in-portal');
+  section.classList.remove('add-section-active', 'add-itin-summary', 'add-in-portal');
 
-  // Reset itinerary cards
-  if (sectionId === 'itinerary') {
-    var dayCards = section.querySelectorAll('.day-card');
-    for (var i = 0; i < dayCards.length; i++) {
-      dayCards[i].style.display = '';
-      dayCards[i].classList.remove('add-day-expanded');
-    }
-  }
-
+  // Move back to original parent
   if (add_sectionParents[sectionId]) {
     add_sectionParents[sectionId].appendChild(section);
   }
 }
-
-// ============================================================
-// V17: Core navigation functions
-// ============================================================
 
 function add_openPortal(sectionId) {
   if (!add_isMobileView) return;
@@ -7221,9 +7172,6 @@ function add_openPortal(sectionId) {
   var section = document.getElementById(sectionId);
   if (!overlay || !portalContent || !section) return;
 
-  // Reset nav stack
-  add_navStack = [{level: 2, sectionId: sectionId}];
-
   // Hide all sections in wrapper
   add_hideAllInWrapper();
 
@@ -7234,8 +7182,8 @@ function add_openPortal(sectionId) {
   // Clear portal content
   portalContent.innerHTML = '';
 
-  // Build and add portal header (level 2)
-  var header = add_buildPortalHeader(sectionId, 2);
+  // Build and add portal header
+  var header = add_buildPortalHeader(sectionId);
   if (header) {
     portalContent.appendChild(header);
   }
@@ -7250,17 +7198,20 @@ function add_openPortal(sectionId) {
   }, 300);
 
   // Show overlay
-  overlay.classList.remove('add-portal-closing', 'add-no-bottom-nav');
+  overlay.classList.remove('add-portal-closing');
   overlay.classList.add('add-portal-open');
 
-  // Show bottom nav (L2 shows nav)
+  // Show bottom nav
   var nav = document.getElementById('add-portal-nav');
   if (nav) nav.classList.add('add-nav-visible');
 
+  // Update nav active state
   add_updateNav(sectionId);
 
   // Prevent body scroll
   document.body.style.overflow = 'hidden';
+
+  add_currentSection = sectionId;
 
   // Scroll overlay to top
   overlay.scrollTop = 0;
@@ -7282,171 +7233,16 @@ function add_openPortal(sectionId) {
   }
 }
 
-function add_goBack() {
-  if (add_navStack.length <= 1) {
-    // Stack empty or only grid level -> close portal
-    add_closePortal();
-  } else {
-    // Pop current level
-    add_navStack.pop();
-    var prev = add_navStack[add_navStack.length - 1];
-
-    if (prev.level === 2) {
-      // Go back to section overview (L2)
-      add_showLevel2(prev.sectionId);
-    } else if (prev.level >= 3) {
-      // Go back to deeper level (unlikely in current design but supported)
-      add_showLevel3(prev.sectionId, prev.extra);
-    }
-  }
-}
-
-function add_showLevel2(sectionId) {
-  var overlay = document.getElementById('add-portal-overlay');
-  var portalContent = document.getElementById('add-portal-content');
-  if (!overlay || !portalContent) return;
-
-  // Get current section from portal content
-  var section = document.getElementById(sectionId);
-  if (!section) return;
-
-  // Reset section to L2 state
-  section.classList.remove('add-itin-l2');
-  var dayCards = section.querySelectorAll('.day-card');
-  for (var i = 0; i < dayCards.length; i++) {
-    dayCards[i].style.display = '';
-    dayCards[i].classList.remove('add-day-expanded');
-  }
-
-  // Re-apply L2 state
-  if (sectionId === 'itinerary') {
-    section.classList.add('add-itin-l2');
-  }
-
-  // Rebuild header at L2
-  portalContent.innerHTML = '';
-  var header = add_buildPortalHeader(sectionId, 2);
-  if (header) {
-    portalContent.appendChild(header);
-  }
-  portalContent.appendChild(section);
-
-  // Show bottom nav
-  overlay.classList.remove('add-no-bottom-nav');
-  var nav = document.getElementById('add-portal-nav');
-  if (nav) nav.classList.add('add-nav-visible');
-
-  add_updateNav(sectionId);
-
-  // Scroll to top
-  overlay.scrollTop = 0;
-}
-
-// V17: Drill down into itinerary day detail (Level 3)
-function add_drillDownItinerary(dayIndex) {
-  // Push to nav stack
-  add_navStack.push({level: 3, sectionId: 'itinerary', extra: {dayIndex: dayIndex}});
-
-  var overlay = document.getElementById('add-portal-overlay');
-  var portalContent = document.getElementById('add-portal-content');
-  var section = document.getElementById('itinerary');
-  if (!section) return;
-
-  var cards = section.querySelectorAll('.day-card');
-
-  // Hide all cards except the target
-  for (var i = 0; i < cards.length; i++) {
-    cards[i].style.display = (i === dayIndex) ? '' : 'none';
-  }
-
-  // Expand the target card
-  var targetCard = cards[dayIndex];
-  targetCard.classList.add('add-day-expanded');
-  if (targetCard.classList.contains('itinerary-card')) {
-    targetCard.classList.add('open');
-  }
-
-  // Remove L2 class
-  section.classList.remove('add-itin-l2');
-
-  // Update header to L3 style
-  var header = portalContent.querySelector('.add-portal-header');
-  if (header) {
-    header.classList.add('add-header-l3');
-    // Extract day info from the card header
-    var cardHeader = targetCard.querySelector('.itinerary-header');
-    if (cardHeader) {
-      var titleEl = header.querySelector('.add-portal-title');
-      var leftInfo = cardHeader.querySelector('.itinerary-header-left');
-      if (titleEl && leftInfo) {
-        titleEl.textContent = leftInfo.textContent.trim().replace(/\s+/g, ' ');
-      }
-      var subEl = header.querySelector('.add-portal-subtitle');
-      if (subEl) subEl.style.display = 'none';
-    }
-  }
-
-  // Hide bottom nav
-  if (overlay) overlay.classList.add('add-no-bottom-nav');
-  var nav = document.getElementById('add-portal-nav');
-  if (nav) nav.classList.remove('add-nav-visible');
-
-  // Scroll to top
-  if (overlay) overlay.scrollTop = 0;
-}
-
-// V17: Generic Level 3 drill-down (for future use)
-function add_showLevel3(sectionId, extra) {
-  if (sectionId === 'itinerary' && extra && extra.dayIndex !== undefined) {
-    // Re-show the specific day
-    var overlay = document.getElementById('add-portal-overlay');
-    var portalContent = document.getElementById('add-portal-content');
-    var section = document.getElementById('itinerary');
-    if (!section) return;
-
-    var cards = section.querySelectorAll('.day-card');
-    for (var i = 0; i < cards.length; i++) {
-      cards[i].style.display = (i === extra.dayIndex) ? '' : 'none';
-    }
-    var targetCard = cards[extra.dayIndex];
-    targetCard.classList.add('add-day-expanded');
-    section.classList.remove('add-itin-l2');
-
-    var header = portalContent.querySelector('.add-portal-header');
-    if (header) {
-      header.classList.add('add-header-l3');
-      var cardHeader = targetCard.querySelector('.itinerary-header');
-      if (cardHeader) {
-        var titleEl = header.querySelector('.add-portal-title');
-        var leftInfo = cardHeader.querySelector('.itinerary-header-left');
-        if (titleEl && leftInfo) {
-          titleEl.textContent = leftInfo.textContent.trim().replace(/\s+/g, ' ');
-        }
-        var subEl = header.querySelector('.add-portal-subtitle');
-        if (subEl) subEl.style.display = 'none';
-      }
-    }
-
-    if (overlay) overlay.classList.add('add-no-bottom-nav');
-    var nav = document.getElementById('add-portal-nav');
-    if (nav) nav.classList.remove('add-nav-visible');
-    if (overlay) overlay.scrollTop = 0;
-  }
-}
-
 function add_closePortal() {
   var overlay = document.getElementById('add-portal-overlay');
-  var currentEntry = add_navStack.length > 0 ? add_navStack[0] : null;
-  var currentSectionId = currentEntry ? currentEntry.sectionId : null;
-
-  if (!overlay || !currentSectionId) return;
+  if (!overlay || !add_currentSection) return;
 
   // Closing animation
   overlay.classList.add('add-portal-closing');
 
   setTimeout(function() {
     // Return section to original parent
-    add_returnSection(currentSectionId);
+    add_returnSection(add_currentSection);
 
     // Restore all sections in wrapper
     add_restoreAllInWrapper();
@@ -7458,7 +7254,6 @@ function add_closePortal() {
     // Hide overlay
     overlay.classList.remove('add-portal-open');
     overlay.classList.remove('add-portal-closing');
-    overlay.classList.remove('add-no-bottom-nav');
 
     // Hide bottom nav
     var nav = document.getElementById('add-portal-nav');
@@ -7473,8 +7268,7 @@ function add_closePortal() {
       expandedCards[i].classList.remove('add-day-expanded');
     }
 
-    // Reset nav stack
-    add_navStack = [];
+    add_currentSection = null;
 
     // Scroll to top
     window.scrollTo({ top: 0, behavior: 'instant' });
@@ -7482,19 +7276,13 @@ function add_closePortal() {
 }
 
 function add_switchPortalSection(sectionId) {
-  var currentEntry = add_navStack.length > 0 ? add_navStack[add_navStack.length - 1] : null;
-  var currentSectionId = currentEntry ? currentEntry.sectionId : null;
-
-  if (!currentSectionId || sectionId === currentSectionId) return;
+  if (!add_currentSection || sectionId === add_currentSection) return;
 
   var portalContent = document.getElementById('add-portal-content');
   if (!portalContent) return;
 
   // Return current section to original parent
-  add_returnSection(currentSectionId);
-
-  // Reset stack to new section at L2
-  add_navStack = [{level: 2, sectionId: sectionId}];
+  add_returnSection(add_currentSection);
 
   // Prepare new section
   var prepared = add_prepareSection(sectionId);
@@ -7504,7 +7292,7 @@ function add_switchPortalSection(sectionId) {
   portalContent.innerHTML = '';
 
   // Build and add portal header
-  var header = add_buildPortalHeader(sectionId, 2);
+  var header = add_buildPortalHeader(sectionId);
   if (header) {
     portalContent.appendChild(header);
   }
@@ -7521,15 +7309,10 @@ function add_switchPortalSection(sectionId) {
   // Update nav
   add_updateNav(sectionId);
 
-  // Show bottom nav (switching always goes to L2)
-  var overlay = document.getElementById('add-portal-overlay');
-  if (overlay) {
-    overlay.classList.remove('add-no-bottom-nav');
-  }
-  var nav = document.getElementById('add-portal-nav');
-  if (nav) nav.classList.add('add-nav-visible');
+  add_currentSection = sectionId;
 
   // Scroll overlay to top
+  var overlay = document.getElementById('add-portal-overlay');
   if (overlay) overlay.scrollTop = 0;
 
   // Re-trigger fade-in animations
@@ -7580,7 +7363,8 @@ function add_initPortal() {
     resizeTimer = setTimeout(function() {
       var wasMobile = add_isMobileView;
       add_checkMobile();
-      if (!add_isMobileView && add_navStack.length > 0) {
+      if (!add_isMobileView && add_currentSection) {
+        // Close portal if switching to desktop
         add_closePortal();
       }
     }, 250);
@@ -7596,7 +7380,7 @@ if (document.readyState === 'loading') {
   add_initPortal();
 }
 
-// ===== V17 Portal View System 结束 =====
+// ===== V16 Portal View System 结束 =====
 
 </script>
 
@@ -7615,6 +7399,14 @@ if (document.readyState === 'loading') {
   </div>
 </div>
 
+
+<!-- #14 底部CTA固定栏（仅手机端） -->
+
+<!-- ===== V13 行程总览浮层 ===== -->
+  </div>
+</div>
+
+<!-- ===== V13 当前阅读指示器 ===== -->
 
 <!-- ===== V13 SVG地图tooltip ===== -->
 <div class="add-map-tooltip" id="addMapTooltip"></div>

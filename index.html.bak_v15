@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>黔山秘境 · 贵州避暑自驾之旅 7天6晚 V17</title>
+<title>黔山秘境 · 贵州避暑自驾之旅 7天6晚 V15</title>
 <style>
 
 /* ========== 全局重置与变量 ========== */
@@ -1382,6 +1382,7 @@ img[onclick*="openV9Lightbox"]:hover { transform: scale(1.02); }
   .mobile-accordion .accordion-body-inner { overflow: visible !important; min-height: auto !important; border: none !important; }
 }
 
+/* ========== #14 底部CTA固定栏 ========== */
 /* ========== #15 暗/亮主题切换 ========== */
 .theme-toggle {
   position: fixed; top: 80px; right: 20px; z-index: 10000;
@@ -1829,6 +1830,7 @@ svg.route-map { cursor: zoom-in; }
 }
 
 
+/* ========== V12 返回顶部按钮 ========== */
 
 /* ========== V12 此行必做 ========== */
 .must-do-grid {
@@ -2166,9 +2168,9 @@ svg.route-map { cursor: zoom-in; }
 /* ===== 新增样式结束 ===== */
 
 
-/* ===== V16 Portal View System ===== */
+/* ===== V14 新增样式开始 ===== */
 
-/* --- Entry Grid (Layer 1 - Main Interface) --- */
+/* --- Entry Grid (Layer 1) --- */
 .add-entry-grid {
   position: relative;
   z-index: 2;
@@ -2229,244 +2231,102 @@ svg.route-map { cursor: zoom-in; }
   margin-top: 4px;
 }
 
-/* --- Portal Overlay --- */
-.add-portal-overlay {
+/* --- Back Button (Layer 2 header) --- */
+.add-back-btn {
+  display: none;
   position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  z-index: 10000;
-  background: var(--bg-dark);
-  transform: translateY(100%);
-  transition: transform 0.4s cubic-bezier(0.32, 0.72, 0, 1);
-  will-change: transform;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-  display: none;
-}
-.add-portal-overlay.add-portal-open {
-  transform: translateY(0);
-}
-.add-portal-overlay.add-portal-closing {
-  transform: translateY(-20%);
-  opacity: 0;
-  transition: transform 0.3s ease-in, opacity 0.3s ease-in;
-}
-
-.add-portal-content {
-  min-height: calc(100vh - 56px);
-  padding-bottom: 20px;
-}
-
-/* --- Portal Header (Immersive) --- */
-.add-portal-header {
-  position: relative;
-  padding: 44px 20px 16px;
-  text-align: center;
-  min-height: 80px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  background: linear-gradient(180deg, #1a2332 0%, #0f172a 100%);
-}
-.add-portal-header-emoji {
-  display: none;
-}
-.add-portal-back {
-  position: absolute;
+  top: 68px;
   left: 16px;
-  top: 16px;
-  background: rgba(0,0,0,0.3);
-  border: none;
-  color: #fff;
-  font-size: 0.85rem;
-  font-weight: 600;
-  padding: 6px 14px;
+  z-index: 9998;
+  background: rgba(10, 14, 39, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border);
   border-radius: 50px;
+  padding: 8px 18px 8px 14px;
+  color: var(--primary);
+  font-size: 0.9rem;
+  font-weight: 600;
   cursor: pointer;
-  z-index: 2;
+  transition: transform 0.25s, opacity 0.25s;
   -webkit-tap-highlight-color: transparent;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.3);
 }
-.add-portal-back:active {
+.add-back-btn:active {
   transform: scale(0.95);
-  background: rgba(0,0,0,0.5);
 }
-.add-portal-title {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #fff;
-  margin: 0;
-  position: relative;
-  z-index: 1;
-}
-.add-portal-subtitle {
-  font-size: 0.85rem;
-  color: rgba(255,255,255,0.7);
-  margin-top: 4px;
-  position: relative;
-  z-index: 1;
-}
-
-/* --- Portal Bottom Nav --- */
-.add-portal-nav {
-  position: fixed;
-  bottom: 0; left: 0; right: 0;
-  height: 56px;
-  background: rgba(10,14,39,0.95);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  display: none;
-  justify-content: space-around;
-  align-items: center;
-  z-index: 10001;
-  border-top: 1px solid rgba(0,212,170,0.1);
-}
-.add-portal-nav.add-nav-visible {
+.add-back-btn.add-visible {
   display: flex;
+  align-items: center;
+  gap: 6px;
+  animation: addFadeSlideIn 0.3s ease;
 }
-.add-portal-nav-item {
-  font-size: 1.3rem;
-  background: none;
-  border: none;
-  padding: 8px;
-  cursor: pointer;
-  opacity: 0.5;
-  transition: opacity 0.2s, transform 0.2s;
-  -webkit-tap-highlight-color: transparent;
-}
-.add-portal-nav-item.add-nav-active {
-  opacity: 1;
-  transform: scale(1.2);
-}
-.add-portal-nav-item:active {
-  transform: scale(0.9);
-}
-
-/* --- Portal Content Animations --- */
-.add-portal-section-enter {
-  animation: addPortalFadeIn 0.25s ease forwards;
-}
-@keyframes addPortalFadeIn {
-  from { opacity: 0; transform: translateY(12px); }
+@keyframes addFadeSlideIn {
+  from { opacity: 0; transform: translateY(-10px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* --- Portal: hide original section-header when inside portal --- */
-.add-in-portal > .section-header,
-.add-in-portal > .route-switcher {
+/* --- Sections Wrapper --- */
+#add-sections-wrapper.add-hidden {
   display: none !important;
 }
 
-/* --- Portal: force expand accordion --- */
-.add-in-portal .accordion-trigger {
-  display: none !important;
-}
-.add-in-portal .accordion-body {
-  display: block !important;
-}
-.add-in-portal .accordion-body-inner {
-  overflow: visible !important;
-  min-height: auto !important;
-  border: none !important;
-}
-.add-in-portal.accordion-collapsed .accordion-body {
-  grid-template-rows: 1fr !important;
-}
-
-/* --- Portal: itinerary day card summary mode --- */
-.add-in-portal.add-itin-summary .day-card .itinerary-body {
-  display: none;
-}
-.add-in-portal.add-itin-summary .day-card.add-day-expanded .itinerary-body {
-  display: block;
-}
-.add-in-portal.add-itin-summary .day-card .itinerary-header {
-  cursor: pointer;
-}
-
-/* --- Portal: hide dividers inside portal content --- */
-.add-in-portal .mountain-divider,
-.add-in-portal .wave-divider {
-  display: none !important;
-}
-
-/* --- Mobile only: portal active --- */
+/* --- Mobile-only: hide sections by default, show grid --- */
 @media (max-width: 768px) {
-  .add-portal-overlay {
+  #add-sections-wrapper {
+    display: none;
+  }
+  #add-sections-wrapper.add-active {
     display: block;
   }
-  .add-in-portal .section {
-    padding-top: 0;
+  #add-entry-grid {
+    display: grid;
+  }
+  #add-entry-grid.add-hidden {
+    display: none !important;
+  }
+  /* In section view on mobile, override accordion to always expanded */
+  .add-section-active .accordion-trigger {
+    display: none !important;
+  }
+  .add-section-active .accordion-body {
+    display: block !important;
+  }
+  .add-section-active .accordion-body-inner {
+    overflow: visible !important;
+    min-height: auto !important;
+    border: none !important;
+  }
+  .add-section-active.accordion-collapsed .accordion-body {
+    grid-template-rows: 1fr !important;
+  }
+  /* Compact section header in layer view */
+  .add-section-active .section {
+    padding-top: 50px;
+  }
+  /* Itinerary day card summary mode */
+  .add-itin-summary .day-card .itinerary-body {
+    display: none;
+  }
+  .add-itin-summary .day-card.add-day-expanded .itinerary-body {
+    display: block;
+  }
+  .add-itin-summary .day-card .itinerary-header {
+    cursor: pointer;
   }
 }
 
-/* --- Desktop: grid hidden, sections always visible, no portal --- */
+/* --- Desktop: grid hidden, sections always visible --- */
 @media (min-width: 769px) {
   .add-entry-grid {
     display: none;
   }
-  .add-portal-overlay {
-    display: none !important;
-  }
-  .add-portal-nav {
+  .add-back-btn {
     display: none !important;
   }
 }
 
-
-/* --- V17: Level 3+ Header (更精简) --- */
-.add-portal-header.add-header-l3 {
-  padding: 44px 20px 12px;
-  min-height: 56px;
-  background: #0f172a;
-}
-.add-header-l3 .add-portal-subtitle {
-  display: none;
-}
-.add-header-l3 .add-portal-title {
-  font-size: 1.1rem;
-}
-
-/* --- V17: L2 Itinerary - 所有day-card折叠，header可点击钻入L3 --- */
-.add-itin-l2 .day-card .itinerary-body {
-  display: none !important;
-}
-.add-itin-l2 .day-card .itinerary-header {
-  cursor: pointer;
-  position: relative;
-}
-.add-itin-l2 .day-card .itinerary-header .toggle-icon {
-  display: none;
-}
-.add-itin-l2 .day-card .itinerary-header::after {
-  content: '\203a';
-  position: absolute;
-  right: 16px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 1.6rem;
-  color: var(--primary);
-  opacity: 0.6;
-}
-.add-itin-l2 .itinerary-card.open .itinerary-body {
-  display: none !important;
-}
-
-/* --- V17: L3 单天展开样式 --- */
-.add-day-expanded .itinerary-body {
-  display: block !important;
-}
-
-/* --- V17: L3+ 隐藏底部导航 --- */
-.add-header-l3 ~ .add-portal-nav,
-.add-portal-overlay.add-no-bottom-nav .add-portal-nav {
-  display: none !important;
-}
-
-/* ===== V17 Portal View System End ===== */
+/* ===== V14 新增样式结束 ===== */
 
 </style>
 </head>
@@ -2650,7 +2510,10 @@ svg.route-map { cursor: zoom-in; }
   </div>
 </div>
 
-<!-- V16: 浮动返回按钮已移除，改用门户视图系统 -->
+<!-- ===== V14 浮动返回按钮 ===== -->
+<button class="add-back-btn" id="add-back-btn">
+  <span style="font-size:1.1em;">←</span> 返回
+</button>
 
 
 <div id="add-sections-wrapper">
@@ -6760,12 +6623,26 @@ window.addEventListener('resize', function() {
     }
   }
 
+  // ===== 1.3 当前阅读板块指示器 =====
+
 
   // ===== 1.4 行前清单勾选动画 =====
   function add_initCheckAnim() {
     var items = document.querySelectorAll('.checklist-item');
     for (var i = 0; i < items.length; i++) {
       items[i].classList.add('add-check-anim');
+    }
+  }
+
+  // ===== 2.1 行程总览浮层 (已移除) =====
+
+
+  function add_jumpToDay(index) {
+    var dayCards = document.querySelectorAll('#route-main-cards .day-card');
+    if (dayCards[index]) {
+      setTimeout(function() {
+        dayCards[index].scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 300);
     }
   }
 
@@ -7008,8 +6885,10 @@ window.addEventListener('resize', function() {
     try { add_initFadeUp(); } catch (e) { console.warn('fadeUp init error', e); }
     try { add_initHoverLift(); } catch (e) { console.warn('hoverLift init error', e); }
     try { add_initCheckAnim(); } catch (e) { console.warn('checkAnim init error', e); }
+    // add_initOverview 已移除
     try { add_initKnowledge(); } catch (e) { console.warn('knowledge init error', e); }
     try { add_initBudgetToggle(); } catch (e) { console.warn('budgetToggle init error', e); }
+    // add_initParticles 已移除
     try { add_initMapHover(); } catch (e) { console.warn('mapHover init error', e); }
     try { add_initDiary(); } catch (e) { console.warn('diary init error', e); }
     try { add_initCheckin(); } catch (e) { console.warn('checkin init error', e); }
@@ -7022,6 +6901,7 @@ window.addEventListener('resize', function() {
   }
 
   // 暴露到全局
+  window.add_jumpToDay = add_jumpToDay;
   window.add_switchBudget = add_switchBudget;
   window.add_saveDiary = add_saveDiary;
 
@@ -7029,559 +6909,205 @@ window.addEventListener('resize', function() {
 
 // ===== 新增脚本结束 =====
 
-// ===== V17 Portal View System 开始 =====
+// ===== V14 新增脚本开始 =====
 
-// V17: 导航栈系统 - 多层钻入
-var add_navStack = [];
-// 每个元素: {level: number, sectionId: string, extra: object}
-// level 1 = 入口网格(不在栈中)
-// level 2 = 板块门户页
-// level 3 = 板块内详情（如某天行程详情）
-
+// V14: 三层递进导航系统
+var add_currentSection = null;
 var add_isMobileView = false;
-var add_sectionParents = {};
-
-var add_portalConfig = {
-  route: { emoji: '\ud83d\uddfa\ufe0f', title: '\u8def\u7ebf\u603b\u89c8', sub: '7\u5929\u73af\u7ebf \u00b7 2000km' },
-  itinerary: { emoji: '\ud83d\udcc5', title: '\u6bcf\u65e5\u884c\u7a0b', sub: '7\u59296\u665a\u8be6\u60c5' },
-  temperature: { emoji: '\ud83c\udf21\ufe0f', title: '\u6c14\u6e29\u5bf9\u6bd4', sub: '\u907f\u669114-26\u2103' },
-  budget: { emoji: '\ud83d\udcb0', title: '\u9884\u7b97', sub: '6000-8000\u5143' },
-  drone: { emoji: '\ud83d\ude81', title: '\u822a\u62cd\u6307\u5357', sub: '\u98de\u884c\u6307\u5357' },
-  checklist: { emoji: '\u2705', title: '\u884c\u524d\u6e05\u5355', sub: '12\u9879\u5f85\u786e\u8ba4' },
-  summary: { emoji: '\ud83d\udc68\u200d\ud83d\udc69\u200d\ud83d\udc67\u200d\ud83d\udc66', title: '\u4eb2\u5b50\u91ce\u9493', sub: '\u6d3b\u52a8\u6c47\u603b' },
-  'must-do': { emoji: '\u2728', title: '\u6b64\u884c\u5fc5\u505a', sub: '8\u4e2a\u5fc5\u4f53\u9a8c' }
-};
 
 function add_checkMobile() {
   add_isMobileView = window.innerWidth <= 768;
 }
 
-function add_storeParent(id) {
-  var el = document.getElementById(id);
-  if (el && !add_sectionParents[id]) {
-    add_sectionParents[id] = el.parentNode;
-  }
-}
-
-function add_storeAllParents() {
-  var keys = Object.keys(add_portalConfig);
-  for (var i = 0; i < keys.length; i++) {
-    add_storeParent(keys[i]);
-  }
-}
-
-function add_buildPortalHeader(sectionId, level) {
-  var cfg = add_portalConfig[sectionId];
-  if (!cfg) return null;
-  var header = document.createElement('div');
-  header.className = 'add-portal-header';
-  if (level >= 3) {
-    header.classList.add('add-header-l3');
-  }
-  // No inline style for gradient - unified CSS handles it
-
-  var emojiSpan = document.createElement('span');
-  emojiSpan.className = 'add-portal-header-emoji';
-  emojiSpan.textContent = cfg.emoji;
-
-  var backBtn = document.createElement('button');
-  backBtn.className = 'add-portal-back';
-  backBtn.textContent = '\u2190 \u8fd4\u56de';
-  backBtn.addEventListener('click', function() { add_goBack(); });
-
-  var title = document.createElement('h2');
-  title.className = 'add-portal-title';
-  title.textContent = cfg.title;
-
-  var subtitle = document.createElement('div');
-  subtitle.className = 'add-portal-subtitle';
-  subtitle.textContent = cfg.sub;
-
-  header.appendChild(emojiSpan);
-  header.appendChild(backBtn);
-  header.appendChild(title);
-  header.appendChild(subtitle);
-  return header;
-}
-
-function add_updateNav(sectionId) {
-  var navItems = document.querySelectorAll('.add-portal-nav-item');
-  for (var i = 0; i < navItems.length; i++) {
-    if (navItems[i].getAttribute('data-target') === sectionId) {
-      navItems[i].classList.add('add-nav-active');
-    } else {
-      navItems[i].classList.remove('add-nav-active');
-    }
-  }
-}
-
-function add_hideAllInWrapper() {
-  var wrapper = document.getElementById('add-sections-wrapper');
-  if (!wrapper) return;
-  var allSections = wrapper.querySelectorAll('.section.mobile-accordion');
-  var allDividers = wrapper.querySelectorAll('.mountain-divider, .wave-divider');
-  var allKnowledge = wrapper.querySelectorAll('.add-knowledge-bar');
-  for (var i = 0; i < allSections.length; i++) {
-    allSections[i].style.display = 'none';
-    allSections[i].classList.remove('add-section-active', 'add-itin-summary', 'add-itin-l2', 'add-in-portal');
-  }
-  for (var j = 0; j < allDividers.length; j++) {
-    allDividers[j].style.display = 'none';
-  }
-  for (var k = 0; k < allKnowledge.length; k++) {
-    allKnowledge[k].style.display = 'none';
-  }
-}
-
-function add_restoreAllInWrapper() {
-  var wrapper = document.getElementById('add-sections-wrapper');
-  if (!wrapper) return;
-  var allSections = wrapper.querySelectorAll('.section.mobile-accordion');
-  var allDividers = wrapper.querySelectorAll('.mountain-divider, .wave-divider');
-  var allKnowledge = wrapper.querySelectorAll('.add-knowledge-bar');
-  for (var i = 0; i < allSections.length; i++) {
-    allSections[i].style.display = '';
-    allSections[i].classList.remove('add-section-active', 'add-itin-summary', 'add-itin-l2', 'add-in-portal');
-  }
-  for (var j = 0; j < allDividers.length; j++) {
-    allDividers[j].style.display = '';
-  }
-  for (var k = 0; k < allKnowledge.length; k++) {
-    allKnowledge[k].style.display = '';
-  }
-}
-
-function add_prepareSection(sectionId) {
-  var section = document.getElementById(sectionId);
-  if (!section) return null;
-
-  add_storeParent(sectionId);
-
-  section.classList.add('add-section-active', 'add-in-portal');
-  section.classList.remove('accordion-collapsed');
-  section.style.display = '';
-
-  // For itinerary: add L2 summary mode (all folded, click to drill down)
-  if (sectionId === 'itinerary') {
-    section.classList.add('add-itin-l2');
-    // Remove any previous L3 state
-    var dayCards = section.querySelectorAll('.day-card');
-    for (var i = 0; i < dayCards.length; i++) {
-      dayCards[i].style.display = '';
-      dayCards[i].classList.remove('add-day-expanded');
-    }
-    // Bind header click for drill-down to L3
-    var dayHeaders = section.querySelectorAll('.day-card .itinerary-header');
-    for (var j = 0; j < dayHeaders.length; j++) {
-      (function(header, idx) {
-        if (header.dataset.addDrillBind) return;
-        header.dataset.addDrillBind = '1';
-        header.addEventListener('click', function(e) {
-          e.preventDefault();
-          e.stopPropagation();
-          add_drillDownItinerary(idx);
-        });
-      })(dayHeaders[j], j);
-    }
-  }
-
-  return section;
-}
-
-function add_returnSection(sectionId) {
-  var section = document.getElementById(sectionId);
-  if (!section) return;
-  section.classList.remove('add-section-active', 'add-itin-summary', 'add-itin-l2', 'add-in-portal');
-
-  // Reset itinerary cards
-  if (sectionId === 'itinerary') {
-    var dayCards = section.querySelectorAll('.day-card');
-    for (var i = 0; i < dayCards.length; i++) {
-      dayCards[i].style.display = '';
-      dayCards[i].classList.remove('add-day-expanded');
-    }
-  }
-
-  if (add_sectionParents[sectionId]) {
-    add_sectionParents[sectionId].appendChild(section);
-  }
-}
-
-// ============================================================
-// V17: Core navigation functions
-// ============================================================
-
-function add_openPortal(sectionId) {
+function add_showSection(id) {
   if (!add_isMobileView) return;
+  var grid = document.getElementById('add-entry-grid');
+  var wrapper = document.getElementById('add-sections-wrapper');
+  var backBtn = document.getElementById('add-back-btn');
+  var section = document.getElementById(id);
 
-  add_storeAllParents();
+  if (!grid || !wrapper || !section) return;
 
-  var overlay = document.getElementById('add-portal-overlay');
-  var portalContent = document.getElementById('add-portal-content');
-  var section = document.getElementById(sectionId);
-  if (!overlay || !portalContent || !section) return;
+  // Hide grid
+  grid.classList.add('add-hidden');
 
-  // Reset nav stack
-  add_navStack = [{level: 2, sectionId: sectionId}];
+  // Show wrapper
+  wrapper.classList.remove('add-hidden');
+  wrapper.classList.add('add-active');
 
-  // Hide all sections in wrapper
-  add_hideAllInWrapper();
-
-  // Prepare the section
-  var prepared = add_prepareSection(sectionId);
-  if (!prepared) return;
-
-  // Clear portal content
-  portalContent.innerHTML = '';
-
-  // Build and add portal header (level 2)
-  var header = add_buildPortalHeader(sectionId, 2);
-  if (header) {
-    portalContent.appendChild(header);
+  // Hide all sections and dividers inside wrapper
+  var allSections = wrapper.querySelectorAll('.section.mobile-accordion');
+  var allDividers = wrapper.querySelectorAll('.mountain-divider, .wave-divider');
+  var allKnowledge = wrapper.querySelectorAll('.add-knowledge-bar');
+  var i;
+  for (i = 0; i < allSections.length; i++) {
+    allSections[i].style.display = 'none';
+    allSections[i].classList.remove('add-section-active', 'add-itin-summary');
+  }
+  for (i = 0; i < allDividers.length; i++) {
+    allDividers[i].style.display = 'none';
+  }
+  for (i = 0; i < allKnowledge.length; i++) {
+    allKnowledge[i].style.display = 'none';
   }
 
-  // Move section into portal
-  portalContent.appendChild(prepared);
+  // Show target section
+  section.style.display = '';
+  section.classList.add('add-section-active');
+  // Force expand accordion
+  section.classList.remove('accordion-collapsed');
 
-  // Add fade-in animation
-  prepared.classList.add('add-portal-section-enter');
-  setTimeout(function() {
-    prepared.classList.remove('add-portal-section-enter');
-  }, 300);
+  // For itinerary: add summary mode class
+  if (id === 'itinerary') {
+    section.classList.add('add-itin-summary');
+    // Bind day card tap to expand
+    var dayHeaders = section.querySelectorAll('.day-card .itinerary-header');
+    for (i = 0; i < dayHeaders.length; i++) {
+      (function(header) {
+        if (header.dataset.addBind) return;
+        header.dataset.addBind = '1';
+        header.addEventListener('click', function(e) {
+          var card = header.closest('.day-card');
+          if (card) {
+            card.classList.toggle('add-day-expanded');
+          }
+        });
+      })(dayHeaders[i]);
+    }
+  }
 
-  // Show overlay
-  overlay.classList.remove('add-portal-closing', 'add-no-bottom-nav');
-  overlay.classList.add('add-portal-open');
+  // Show back button
+  backBtn.classList.add('add-visible');
 
-  // Show bottom nav (L2 shows nav)
-  var nav = document.getElementById('add-portal-nav');
-  if (nav) nav.classList.add('add-nav-visible');
+  add_currentSection = id;
 
-  add_updateNav(sectionId);
-
-  // Prevent body scroll
-  document.body.style.overflow = 'hidden';
-
-  // Scroll overlay to top
-  overlay.scrollTop = 0;
+  // Scroll to top
+  window.scrollTo({ top: 0, behavior: 'instant' });
 
   // Re-trigger fade-in animations
-  var fadeEls = prepared.querySelectorAll('.fade-in');
-  for (var i = 0; i < fadeEls.length; i++) {
+  var fadeEls = section.querySelectorAll('.fade-in');
+  for (i = 0; i < fadeEls.length; i++) {
     fadeEls[i].classList.add('visible');
   }
 
   // Animate temp bars if temperature section
-  if (sectionId === 'temperature' && typeof animateTempBars === 'function') {
+  if (id === 'temperature' && typeof animateTempBars === 'function') {
     setTimeout(animateTempBars, 300);
   }
 
   // Update checklist progress if checklist section
-  if (sectionId === 'checklist' && typeof updateChecklistProgress === 'function') {
+  if (id === 'checklist' && typeof updateChecklistProgress === 'function') {
     setTimeout(updateChecklistProgress, 100);
   }
 }
 
-function add_goBack() {
-  if (add_navStack.length <= 1) {
-    // Stack empty or only grid level -> close portal
-    add_closePortal();
-  } else {
-    // Pop current level
-    add_navStack.pop();
-    var prev = add_navStack[add_navStack.length - 1];
+function add_backToGrid() {
+  if (!add_isMobileView) return;
+  var grid = document.getElementById('add-entry-grid');
+  var wrapper = document.getElementById('add-sections-wrapper');
+  var backBtn = document.getElementById('add-back-btn');
 
-    if (prev.level === 2) {
-      // Go back to section overview (L2)
-      add_showLevel2(prev.sectionId);
-    } else if (prev.level >= 3) {
-      // Go back to deeper level (unlikely in current design but supported)
-      add_showLevel3(prev.sectionId, prev.extra);
-    }
+  if (!grid || !wrapper) return;
+
+  // Hide wrapper
+  wrapper.classList.remove('add-active');
+  wrapper.classList.add('add-hidden');
+
+  // Restore all sections and dividers
+  var allSections = wrapper.querySelectorAll('.section.mobile-accordion');
+  var allDividers = wrapper.querySelectorAll('.mountain-divider, .wave-divider');
+  var allKnowledge = wrapper.querySelectorAll('.add-knowledge-bar');
+  var i;
+  for (i = 0; i < allSections.length; i++) {
+    allSections[i].style.display = '';
+    allSections[i].classList.remove('add-section-active', 'add-itin-summary');
   }
-}
-
-function add_showLevel2(sectionId) {
-  var overlay = document.getElementById('add-portal-overlay');
-  var portalContent = document.getElementById('add-portal-content');
-  if (!overlay || !portalContent) return;
-
-  // Get current section from portal content
-  var section = document.getElementById(sectionId);
-  if (!section) return;
-
-  // Reset section to L2 state
-  section.classList.remove('add-itin-l2');
-  var dayCards = section.querySelectorAll('.day-card');
-  for (var i = 0; i < dayCards.length; i++) {
-    dayCards[i].style.display = '';
-    dayCards[i].classList.remove('add-day-expanded');
+  for (i = 0; i < allDividers.length; i++) {
+    allDividers[i].style.display = '';
+  }
+  for (i = 0; i < allKnowledge.length; i++) {
+    allKnowledge[i].style.display = '';
   }
 
-  // Re-apply L2 state
-  if (sectionId === 'itinerary') {
-    section.classList.add('add-itin-l2');
+  // Show grid
+  grid.classList.remove('add-hidden');
+
+  // Hide back button
+  backBtn.classList.remove('add-visible');
+
+  // Collapse expanded day cards
+  var expandedCards = document.querySelectorAll('.day-card.add-day-expanded');
+  for (i = 0; i < expandedCards.length; i++) {
+    expandedCards[i].classList.remove('add-day-expanded');
   }
 
-  // Rebuild header at L2
-  portalContent.innerHTML = '';
-  var header = add_buildPortalHeader(sectionId, 2);
-  if (header) {
-    portalContent.appendChild(header);
-  }
-  portalContent.appendChild(section);
-
-  // Show bottom nav
-  overlay.classList.remove('add-no-bottom-nav');
-  var nav = document.getElementById('add-portal-nav');
-  if (nav) nav.classList.add('add-nav-visible');
-
-  add_updateNav(sectionId);
+  add_currentSection = null;
 
   // Scroll to top
-  overlay.scrollTop = 0;
+  window.scrollTo({ top: 0, behavior: 'instant' });
 }
 
-// V17: Drill down into itinerary day detail (Level 3)
-function add_drillDownItinerary(dayIndex) {
-  // Push to nav stack
-  add_navStack.push({level: 3, sectionId: 'itinerary', extra: {dayIndex: dayIndex}});
-
-  var overlay = document.getElementById('add-portal-overlay');
-  var portalContent = document.getElementById('add-portal-content');
-  var section = document.getElementById('itinerary');
-  if (!section) return;
-
-  var cards = section.querySelectorAll('.day-card');
-
-  // Hide all cards except the target
-  for (var i = 0; i < cards.length; i++) {
-    cards[i].style.display = (i === dayIndex) ? '' : 'none';
-  }
-
-  // Expand the target card
-  var targetCard = cards[dayIndex];
-  targetCard.classList.add('add-day-expanded');
-  if (targetCard.classList.contains('itinerary-card')) {
-    targetCard.classList.add('open');
-  }
-
-  // Remove L2 class
-  section.classList.remove('add-itin-l2');
-
-  // Update header to L3 style
-  var header = portalContent.querySelector('.add-portal-header');
-  if (header) {
-    header.classList.add('add-header-l3');
-    // Extract day info from the card header
-    var cardHeader = targetCard.querySelector('.itinerary-header');
-    if (cardHeader) {
-      var titleEl = header.querySelector('.add-portal-title');
-      var leftInfo = cardHeader.querySelector('.itinerary-header-left');
-      if (titleEl && leftInfo) {
-        titleEl.textContent = leftInfo.textContent.trim().replace(/\s+/g, ' ');
-      }
-      var subEl = header.querySelector('.add-portal-subtitle');
-      if (subEl) subEl.style.display = 'none';
-    }
-  }
-
-  // Hide bottom nav
-  if (overlay) overlay.classList.add('add-no-bottom-nav');
-  var nav = document.getElementById('add-portal-nav');
-  if (nav) nav.classList.remove('add-nav-visible');
-
-  // Scroll to top
-  if (overlay) overlay.scrollTop = 0;
-}
-
-// V17: Generic Level 3 drill-down (for future use)
-function add_showLevel3(sectionId, extra) {
-  if (sectionId === 'itinerary' && extra && extra.dayIndex !== undefined) {
-    // Re-show the specific day
-    var overlay = document.getElementById('add-portal-overlay');
-    var portalContent = document.getElementById('add-portal-content');
-    var section = document.getElementById('itinerary');
-    if (!section) return;
-
-    var cards = section.querySelectorAll('.day-card');
-    for (var i = 0; i < cards.length; i++) {
-      cards[i].style.display = (i === extra.dayIndex) ? '' : 'none';
-    }
-    var targetCard = cards[extra.dayIndex];
-    targetCard.classList.add('add-day-expanded');
-    section.classList.remove('add-itin-l2');
-
-    var header = portalContent.querySelector('.add-portal-header');
-    if (header) {
-      header.classList.add('add-header-l3');
-      var cardHeader = targetCard.querySelector('.itinerary-header');
-      if (cardHeader) {
-        var titleEl = header.querySelector('.add-portal-title');
-        var leftInfo = cardHeader.querySelector('.itinerary-header-left');
-        if (titleEl && leftInfo) {
-          titleEl.textContent = leftInfo.textContent.trim().replace(/\s+/g, ' ');
-        }
-        var subEl = header.querySelector('.add-portal-subtitle');
-        if (subEl) subEl.style.display = 'none';
-      }
-    }
-
-    if (overlay) overlay.classList.add('add-no-bottom-nav');
-    var nav = document.getElementById('add-portal-nav');
-    if (nav) nav.classList.remove('add-nav-visible');
-    if (overlay) overlay.scrollTop = 0;
-  }
-}
-
-function add_closePortal() {
-  var overlay = document.getElementById('add-portal-overlay');
-  var currentEntry = add_navStack.length > 0 ? add_navStack[0] : null;
-  var currentSectionId = currentEntry ? currentEntry.sectionId : null;
-
-  if (!overlay || !currentSectionId) return;
-
-  // Closing animation
-  overlay.classList.add('add-portal-closing');
-
-  setTimeout(function() {
-    // Return section to original parent
-    add_returnSection(currentSectionId);
-
-    // Restore all sections in wrapper
-    add_restoreAllInWrapper();
-
-    // Clear portal content
-    var portalContent = document.getElementById('add-portal-content');
-    if (portalContent) portalContent.innerHTML = '';
-
-    // Hide overlay
-    overlay.classList.remove('add-portal-open');
-    overlay.classList.remove('add-portal-closing');
-    overlay.classList.remove('add-no-bottom-nav');
-
-    // Hide bottom nav
-    var nav = document.getElementById('add-portal-nav');
-    if (nav) nav.classList.remove('add-nav-visible');
-
-    // Restore body scroll
-    document.body.style.overflow = '';
-
-    // Collapse expanded day cards
-    var expandedCards = document.querySelectorAll('.day-card.add-day-expanded');
-    for (var i = 0; i < expandedCards.length; i++) {
-      expandedCards[i].classList.remove('add-day-expanded');
-    }
-
-    // Reset nav stack
-    add_navStack = [];
-
-    // Scroll to top
-    window.scrollTo({ top: 0, behavior: 'instant' });
-  }, 300);
-}
-
-function add_switchPortalSection(sectionId) {
-  var currentEntry = add_navStack.length > 0 ? add_navStack[add_navStack.length - 1] : null;
-  var currentSectionId = currentEntry ? currentEntry.sectionId : null;
-
-  if (!currentSectionId || sectionId === currentSectionId) return;
-
-  var portalContent = document.getElementById('add-portal-content');
-  if (!portalContent) return;
-
-  // Return current section to original parent
-  add_returnSection(currentSectionId);
-
-  // Reset stack to new section at L2
-  add_navStack = [{level: 2, sectionId: sectionId}];
-
-  // Prepare new section
-  var prepared = add_prepareSection(sectionId);
-  if (!prepared) return;
-
-  // Clear portal content
-  portalContent.innerHTML = '';
-
-  // Build and add portal header
-  var header = add_buildPortalHeader(sectionId, 2);
-  if (header) {
-    portalContent.appendChild(header);
-  }
-
-  // Move section into portal
-  portalContent.appendChild(prepared);
-
-  // Add fade-in animation
-  prepared.classList.add('add-portal-section-enter');
-  setTimeout(function() {
-    prepared.classList.remove('add-portal-section-enter');
-  }, 300);
-
-  // Update nav
-  add_updateNav(sectionId);
-
-  // Show bottom nav (switching always goes to L2)
-  var overlay = document.getElementById('add-portal-overlay');
-  if (overlay) {
-    overlay.classList.remove('add-no-bottom-nav');
-  }
-  var nav = document.getElementById('add-portal-nav');
-  if (nav) nav.classList.add('add-nav-visible');
-
-  // Scroll overlay to top
-  if (overlay) overlay.scrollTop = 0;
-
-  // Re-trigger fade-in animations
-  var fadeEls = prepared.querySelectorAll('.fade-in');
-  for (var i = 0; i < fadeEls.length; i++) {
-    fadeEls[i].classList.add('visible');
-  }
-
-  // Animate temp bars if temperature section
-  if (sectionId === 'temperature' && typeof animateTempBars === 'function') {
-    setTimeout(animateTempBars, 300);
-  }
-
-  // Update checklist progress if checklist section
-  if (sectionId === 'checklist' && typeof updateChecklistProgress === 'function') {
-    setTimeout(updateChecklistProgress, 100);
-  }
-}
-
-function add_initPortal() {
+function add_initLayeredNav() {
   add_checkMobile();
 
-  // Store all parents upfront
-  add_storeAllParents();
+  var wrapper = document.getElementById('add-sections-wrapper');
+  if (!wrapper) return;
 
   // Bind entry card clicks
   var cards = document.querySelectorAll('.add-entry-card');
   for (var i = 0; i < cards.length; i++) {
     cards[i].addEventListener('click', function() {
       var target = this.getAttribute('data-target');
-      if (target) add_openPortal(target);
+      if (target) add_showSection(target);
     });
   }
 
-  // Bind bottom nav clicks
-  var navItems = document.querySelectorAll('.add-portal-nav-item');
-  for (var j = 0; j < navItems.length; j++) {
-    navItems[j].addEventListener('click', function() {
-      var target = this.getAttribute('data-target');
-      if (target) add_switchPortalSection(target);
-    });
+  // Bind back button
+  var backBtn = document.getElementById('add-back-btn');
+  if (backBtn) {
+    backBtn.addEventListener('click', add_backToGrid);
   }
 
-  // Handle resize: reset portal on desktop
+  // On mobile, set initial state
+  if (add_isMobileView) {
+    wrapper.classList.add('add-hidden');
+  }
+
+  // Handle resize
   var resizeTimer;
   window.addEventListener('resize', function() {
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(function() {
       var wasMobile = add_isMobileView;
       add_checkMobile();
-      if (!add_isMobileView && add_navStack.length > 0) {
-        add_closePortal();
+      if (!add_isMobileView) {
+        // Switched to desktop: reset all
+        var grid = document.getElementById('add-entry-grid');
+        var backBtnEl = document.getElementById('add-back-btn');
+        if (grid) grid.classList.remove('add-hidden');
+        if (wrapper) {
+          wrapper.classList.remove('add-hidden', 'add-active');
+          var allSecs = wrapper.querySelectorAll('.section.mobile-accordion');
+          var allDivs = wrapper.querySelectorAll('.mountain-divider, .wave-divider');
+          var allKnow = wrapper.querySelectorAll('.add-knowledge-bar');
+          for (var j = 0; j < allSecs.length; j++) {
+            allSecs[j].style.display = '';
+            allSecs[j].classList.remove('add-section-active', 'add-itin-summary');
+          }
+          for (var k = 0; k < allDivs.length; k++) {
+            allDivs[k].style.display = '';
+          }
+          for (var l = 0; l < allKnow.length; l++) {
+            allKnow[l].style.display = '';
+          }
+        }
+        if (backBtnEl) backBtnEl.classList.remove('add-visible');
+        add_currentSection = null;
+      } else if (!wasMobile) {
+        // Switched to mobile
+        if (!add_currentSection) {
+          wrapper.classList.add('add-hidden');
+        }
       }
     }, 250);
   });
@@ -7590,13 +7116,13 @@ function add_initPortal() {
 // Init on DOMContentLoaded
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', function() {
-    add_initPortal();
+    add_initLayeredNav();
   });
 } else {
-  add_initPortal();
+  add_initLayeredNav();
 }
 
-// ===== V17 Portal View System 结束 =====
+// ===== V14 新增脚本结束 =====
 
 </script>
 
@@ -7616,24 +7142,15 @@ if (document.readyState === 'loading') {
 </div>
 
 
-<!-- ===== V13 SVG地图tooltip ===== -->
-<div class="add-map-tooltip" id="addMapTooltip"></div>
+<!-- #14 底部CTA固定栏（仅手机端） -->
 
-<!-- V16 门户视图系统 -->
-<div id="add-portal-overlay" class="add-portal-overlay">
-  <div id="add-portal-content" class="add-portal-content">
-    <!-- portal header and section content inserted dynamically -->
-  </div>
-  <div class="add-portal-nav" id="add-portal-nav">
-    <button class="add-portal-nav-item" data-target="route">🗺️</button>
-    <button class="add-portal-nav-item" data-target="itinerary">📅</button>
-    <button class="add-portal-nav-item" data-target="temperature">🌡️</button>
-    <button class="add-portal-nav-item" data-target="budget">💰</button>
-    <button class="add-portal-nav-item" data-target="drone">🚁</button>
-    <button class="add-portal-nav-item" data-target="checklist">✅</button>
-    <button class="add-portal-nav-item" data-target="summary">👨‍👩‍👧‍👦</button>
-    <button class="add-portal-nav-item" data-target="must-do">✨</button>
+<!-- ===== V13 行程总览浮层 ===== -->
   </div>
 </div>
+
+<!-- ===== V13 当前阅读指示器 ===== -->
+
+<!-- ===== V13 SVG地图tooltip ===== -->
+<div class="add-map-tooltip" id="addMapTooltip"></div>
 </body>
 </html>
