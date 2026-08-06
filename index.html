@@ -2468,6 +2468,127 @@ svg.route-map { cursor: zoom-in; }
 
 /* ===== V17 Portal View System End ===== */
 
+
+/* ========== Must-Do Detail Modal ========== */
+.must-do-modal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.must-do-modal-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(8px);
+}
+.must-do-modal-content {
+  position: relative;
+  z-index: 1;
+  width: 92%;
+  max-width: 600px;
+  max-height: 85vh;
+  background: linear-gradient(180deg, #1a2332, #0f172a);
+  border: 1px solid rgba(0,212,170,0.15);
+  border-radius: 16px;
+  overflow-y: auto;
+  padding: 24px 20px;
+}
+.must-do-modal-close {
+  position: absolute;
+  top: 12px; right: 16px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.4rem;
+  cursor: pointer;
+  z-index: 2;
+  padding: 4px 8px;
+}
+.must-do-modal-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.must-do-modal-emoji { font-size: 2rem; }
+.must-do-modal-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin: 0;
+}
+.must-do-modal-desc {
+  font-size: 0.9rem;
+  color: var(--text-sub);
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+.must-do-modal-images {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.must-do-modal-images img {
+  width: calc(50% - 4px);
+  max-height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  cursor: pointer;
+}
+.must-do-modal-video {
+  margin-bottom: 16px;
+}
+.must-do-modal-video iframe {
+  width: 100%;
+  height: 200px;
+  border: none;
+  border-radius: 8px;
+}
+.must-do-modal-video a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255,107,53,0.15);
+  border: 1px solid rgba(255,107,53,0.3);
+  color: var(--accent);
+  border-radius: 8px;
+  padding: 6px 14px;
+  font-size: 0.85rem;
+  text-decoration: none;
+}
+.must-do-modal-tips {
+  background: rgba(0,212,170,0.08);
+  border: 1px solid rgba(0,212,170,0.15);
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 0.82rem;
+  color: var(--text-sub);
+  line-height: 1.6;
+}
+.must-do-modal-tips::before {
+  content: 'Tips';
+  display: block;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 6px;
+}
+@media (max-width: 768px) {
+  .must-do-modal-content {
+    width: 96%;
+    padding: 20px 16px;
+    max-height: 90vh;
+  }
+  .must-do-modal-images img {
+    width: 100%;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -5012,42 +5133,42 @@ svg.route-map { cursor: zoom-in; }
   </div>
   <div class="section-body">
     <div class="must-do-grid">
-      <div class="must-do-card">
+      <div class="must-do-card" data-id="wumeng-sunrise">
         <span class="must-do-emoji">🌅</span>
         <div class="must-do-title">乌蒙草原日出</div>
         <div class="must-do-desc">清晨5:30起床，看云海翻涌</div>
       </div>
-      <div class="must-do-card">
+      <div class="must-do-card" data-id="huangguoshu-drone">
         <span class="must-do-emoji">🚁</span>
         <div class="must-do-title">黄果树航拍</div>
         <div class="must-do-desc">从高空俯瞰亚洲最大瀑布的震撼</div>
       </div>
-      <div class="must-do-card">
+      <div class="must-do-card" data-id="zhijin-cave">
         <span class="must-do-emoji">💎</span>
         <div class="must-do-title">织金洞钟乳石</div>
         <div class="must-do-desc">在地下宫殿拍光影大片</div>
       </div>
-      <div class="must-do-card">
+      <div class="must-do-card" data-id="baichehe-spring">
         <span class="must-do-emoji">♨️</span>
         <div class="must-do-title">百车河温泉</div>
         <div class="must-do-desc">星空下的露天温泉体验</div>
       </div>
-      <div class="must-do-card">
+      <div class="must-do-card" data-id="wanfenglin-fishing">
         <span class="must-do-emoji">🎣</span>
         <div class="must-do-title">万峰林野钓</div>
         <div class="must-do-desc">喀斯特峰林间的宁静时光</div>
       </div>
-      <div class="must-do-card">
+      <div class="must-do-card" data-id="guiyang-night">
         <span class="must-do-emoji">🍜</span>
         <div class="must-do-title">贵阳夜市</div>
         <div class="must-do-desc">二七路小吃街扫街打卡</div>
       </div>
-      <div class="must-do-card">
+      <div class="must-do-card" data-id="wanfenglin-riding">
         <span class="must-do-emoji">📸</span>
         <div class="must-do-title">万峰林骑行</div>
         <div class="must-do-desc">租电动车穿越八卦田</div>
       </div>
-      <div class="must-do-card">
+      <div class="must-do-card" data-id="grassland-stars">
         <span class="must-do-emoji">🌌</span>
         <div class="must-do-title">草原星空</div>
         <div class="must-do-desc">海拔2800m无光污染银河观测</div>
@@ -5057,6 +5178,25 @@ svg.route-map { cursor: zoom-in; }
 </section>
 
 </div><!-- /add-sections-wrapper -->
+
+
+<!-- ========== Must-Do Detail Modal ========== -->
+<div id="must-do-modal" class="must-do-modal" style="display:none;">
+  <div class="must-do-modal-overlay"></div>
+  <div class="must-do-modal-content">
+    <button class="must-do-modal-close" onclick="add_closeMustDoModal()">&#10005;</button>
+    <div class="must-do-modal-header">
+      <span class="must-do-modal-emoji" id="mdm-emoji"></span>
+      <h3 class="must-do-modal-title" id="mdm-title"></h3>
+    </div>
+    <div class="must-do-modal-body">
+      <div class="must-do-modal-desc" id="mdm-desc"></div>
+      <div class="must-do-modal-images" id="mdm-images"></div>
+      <div class="must-do-modal-video" id="mdm-video"></div>
+      <div class="must-do-modal-tips" id="mdm-tips"></div>
+    </div>
+  </div>
+</div>
 
 <!-- ========== Footer ========== -->
 <footer class="footer">
@@ -7635,5 +7775,163 @@ if (document.readyState === 'loading') {
     <button class="add-portal-nav-item" data-target="must-do">✨</button>
   </div>
 </div>
+
+<script>
+// ========== Must-Do Detail Data ==========
+var add_mustDoData = {
+  'wumeng-sunrise': {
+    title: '乌蒙草原日出',
+    emoji: '\ud83c\udf05',
+    desc: '海拔2800米的乌蒙大草原，是贵州最壮阔的高山草甸。清晨5:30起床，站在草原最高处，看金色阳光从云海中喷薄而出，群山如黛，天地辽阔。8月的草原温度仅18度左右，是天然的避暑胜地。建议提前一天住在草原上，方便早起观赏。',
+    images: [
+      { url: 'https://s.coze.cn/image/EhDWB1jXPOA/', alt: '乌蒙草原航拍' }
+    ],
+    tips: '日出时间约6:00，建议5:30到位；草原昼夜温差大，带厚外套；注意防风防晒'
+  },
+  'huangguoshu-drone': {
+    title: '黄果树航拍',
+    emoji: '\ud83d\ude81',
+    desc: '黄果树瀑布是亚洲最大的瀑布，落差77.8米，宽101米。从空中俯瞰，瀑布如银河倒挂，水雾弥漫，气势磅礴。用DJI Mini 4 Pro或Air 3S从侧面或后方拍摄，可以捕捉到彩虹与水雾交织的绝美画面。注意景区有禁飞限制，需在允许区域飞行。',
+    images: [
+      { url: 'https://s.coze.cn/image/sCUTRrQ9aDY/', alt: '黄果树瀑布' }
+    ],
+    tips: '景区内部分区域禁飞，起飞前查看DJI Fly地图；最佳拍摄时间为上午9-11点，光线柔和'
+  },
+  'zhijin-cave': {
+    title: '织金洞钟乳石',
+    emoji: '\ud83d\udc8e',
+    desc: '织金洞是中国最美的溶洞之一，被誉为"地下艺术宫殿"。洞内钟乳石千姿百态，在灯光映照下如梦似幻。霸王盔、银雨树等奇观令人叹为观止。洞内恒温14度，即使盛夏也需穿长袖。全程游览约2小时，台阶较多注意脚下。',
+    images: [
+      { url: 'https://s.coze.cn/image/QYGMyNZbMM8/', alt: '织金洞钟乳石' },
+      { url: 'https://s.coze.cn/image/H8fndhZojCU/', alt: '织金洞' },
+      { url: 'https://s.coze.cn/image/rIv3BObs7hY/', alt: '织金洞' },
+      { url: 'https://s.coze.cn/image/_cwcKr3J-P8/', alt: '织金洞' }
+    ],
+    video: { bvid: 'BV1pxa5zyEzN', title: '织金洞航拍' },
+    tips: '洞内潮湿，地面湿滑，穿防滑鞋；禁止使用闪光灯拍照；全程约2km步行'
+  },
+  'baichehe-spring': {
+    title: '百车河温泉',
+    emoji: '\u2668\ufe0f',
+    desc: '百车河温泉位于安顺市，是贵州少有的露天天然温泉。夜晚泡在温泉池中，仰望星空，四周群山环抱，是此行最放松的时刻。温泉水富含偏硅酸等矿物质，对皮肤有益。建议安排在行程后半段，让疲惫的身体充分放松。',
+    images: [],
+    tips: '自备泳衣；晚上泡温泉观星效果最佳；注意水温不宜过高，每次15-20分钟为宜'
+  },
+  'wanfenglin-fishing': {
+    title: '万峰林野钓',
+    emoji: '\ud83c\udfa3',
+    desc: '万峰林的纳灰河畔，喀斯特峰林倒映在碧绿的河水中，在此处野钓是人生难得的体验。河边绿树成荫，水清鱼跃，孩子们可以在岸边嬉戏，大人悠闲垂钓。纳灰河盛产鲤鱼、鲫鱼，钓到的鱼可以在附近农家乐加工品尝。',
+    images: [
+      { url: 'https://s.coze.cn/image/dc3Lqd04vW8/', alt: '万峰林峰林田园' }
+    ],
+    tips: '自备钓具或现场租；注意防晒和防蚊；选择阴凉处更佳；孩子钓鱼需大人陪同'
+  },
+  'guiyang-night': {
+    title: '贵阳夜市',
+    emoji: '\ud83c\udf5c',
+    desc: '贵阳是西南美食之都，二七路小吃街、青云路夜市、太平路是三大美食聚集地。肠旺面、丝娃娃、恋爱豆腐果、花溪牛肉粉、洋芋粑...每一样都让人欲罢不能。夜市从傍晚持续到凌晨，是感受贵阳烟火气的最佳方式。',
+    images: [
+      { url: 'https://s.coze.cn/image/rOo4KFFHhLA/', alt: '贵阳美食' },
+      { url: 'https://s.coze.cn/image/we3dv8-acJQ/', alt: '贵阳美食' },
+      { url: 'https://s.coze.cn/image/XgFP8u-gE20/', alt: '贵阳美食' }
+    ],
+    tips: '二七路小吃街种类最全；人均30-50元可吃到撑；注意肠胃，不要一次吃太多'
+  },
+  'wanfenglin-riding': {
+    title: '万峰林骑行',
+    emoji: '\ud83d\udcf8',
+    desc: '租一辆电动车或自行车，穿行在万峰林的八卦田间，两侧是连绵的喀斯特峰林，脚下是金黄的稻田。这条骑行路线约10公里，沿途经过纳灰村、万福山等景点，是体验万峰林田园风光的最佳方式。骑行途中随时可以停下来拍照。',
+    images: [
+      { url: 'https://s.coze.cn/image/dc3Lqd04vW8/', alt: '万峰林田园风光' }
+    ],
+    tips: '电动车租金约30-50元/天；建议上午骑行，光线好且不太热；注意田间小路较窄，慢行'
+  },
+  'grassland-stars': {
+    title: '草原星空',
+    emoji: '\ud83c\udf0c',
+    desc: '乌蒙大草原海拔2800米，远离城市光污染，是贵州最佳的观星地点之一。夏季银河清晰可见，繁星如钻石般洒满夜空。带上三脚架和相机，可以拍摄到壮丽的星轨照片。如果运气好，还能看到流星划过天际。',
+    images: [],
+    tips: '最佳观星时间22:00-凌晨2:00；带厚外套和防潮垫；手机可下载星图APP辨认星座；注意保暖防虫'
+  }
+};
+
+function add_openMustDoModal(dataId) {
+  var data = add_mustDoData[dataId];
+  if (!data) return;
+  document.getElementById('mdm-emoji').textContent = data.emoji;
+  document.getElementById('mdm-title').textContent = data.title;
+  document.getElementById('mdm-desc').textContent = data.desc;
+
+  var imgContainer = document.getElementById('mdm-images');
+  imgContainer.innerHTML = '';
+  if (data.images && data.images.length > 0) {
+    for (var i = 0; i < data.images.length; i++) {
+      var img = document.createElement('img');
+      img.src = data.images[i].url;
+      img.alt = data.images[i].alt;
+      img.loading = 'lazy';
+      (function(src, alt) {
+        img.onclick = function() { openV9Lightbox({ src: src, alt: alt }); };
+      })(data.images[i].url, data.images[i].alt);
+      imgContainer.appendChild(img);
+    }
+  }
+
+  var vidContainer = document.getElementById('mdm-video');
+  vidContainer.innerHTML = '';
+  if (data.video) {
+    var iframe = document.createElement('iframe');
+    iframe.src = 'https://player.bilibili.com/player.html?bvid=' + data.video.bvid + '&high_quality=1&danmaku=0';
+    iframe.setAttribute('allowfullscreen', '');
+    iframe.setAttribute('loading', 'lazy');
+    iframe.setAttribute('sandbox', 'allow-scripts allow-same-origin allow-popups');
+    vidContainer.appendChild(iframe);
+    var link = document.createElement('a');
+    link.href = 'https://www.bilibili.com/video/' + data.video.bvid + '/';
+    link.target = '_blank';
+    link.rel = 'noopener';
+    link.textContent = 'B站观看 - ' + data.video.title;
+    vidContainer.appendChild(link);
+  }
+
+  var tipsEl = document.getElementById('mdm-tips');
+  if (data.tips) {
+    tipsEl.textContent = data.tips;
+    tipsEl.style.display = '';
+  } else {
+    tipsEl.style.display = 'none';
+  }
+
+  document.getElementById('must-do-modal').style.display = 'flex';
+}
+
+function add_closeMustDoModal() {
+  var modal = document.getElementById('must-do-modal');
+  modal.style.display = 'none';
+  var iframe = modal.querySelector('iframe');
+  if (iframe) { iframe.src = ''; }
+}
+
+(function() {
+  var overlay = document.querySelector('.must-do-modal-overlay');
+  if (overlay) {
+    overlay.addEventListener('click', function() { add_closeMustDoModal(); });
+  }
+})();
+
+(function() {
+  var cards = document.querySelectorAll('.must-do-card');
+  for (var i = 0; i < cards.length; i++) {
+    cards[i].style.cursor = 'pointer';
+    (function(card) {
+      card.addEventListener('click', function() {
+        var id = card.getAttribute('data-id');
+        if (id) add_openMustDoModal(id);
+      });
+    })(cards[i]);
+  }
+})();
+</script>
+
 </body>
 </html>
