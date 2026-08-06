@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>黔山秘境 · 贵州避暑自驾之旅 7天6晚 V19</title>
+<title>黔山秘境 · 贵州避暑自驾之旅 7天6晚 V17.1</title>
 <style>
 
 /* ========== 全局重置与变量 ========== */
@@ -93,6 +93,44 @@ body {
   box-shadow: 0 0 8px var(--primary-glow);
 }
 
+/* ========== 导航栏 ========== */
+.navbar {
+  position: fixed;
+  top: 0; left: 0; width: 100%;
+  z-index: 10000;
+  background: rgba(10, 14, 39, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  transition: var(--transition);
+}
+.navbar-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 20px; height: 60px;
+}
+.navbar-logo {
+  font-size: var(--fs-lg); font-weight: 800;
+  background: linear-gradient(135deg, var(--primary), var(--gold));
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+  white-space: nowrap;
+}
+.navbar-links { display: flex; gap: 6px; list-style: none; }
+.navbar-links a {
+  color: var(--text-sub); text-decoration: none;
+  font-size: var(--fs-base); padding: 6px 14px;
+  border-radius: 8px; transition: var(--transition);
+  white-space: nowrap;
+}
+.navbar-links a:hover, .navbar-links a.active {
+  color: var(--primary); background: rgba(0, 212, 170, 0.1);
+}
+.navbar-toggle {
+  display: none; background: none; border: none;
+  color: var(--text-main); font-size: var(--fs-xl); cursor: pointer;
+}
+
 /* ========== 底部悬浮导航胶囊 ========== */
 .floating-nav {
   position: fixed; bottom: 20px; left: 50%;
@@ -134,7 +172,7 @@ body {
   display: flex; flex-direction: column;
   align-items: center; justify-content: center;
   text-align: center;
-  padding: 40px 20px 60px;
+  padding: 80px 20px 60px;
   overflow: hidden;
   z-index: 2;
 }
@@ -722,6 +760,19 @@ body {
 
 /* ========== 响应式 ========== */
 @media (max-width: 768px) {
+  .navbar-toggle { display: block; }
+  .navbar-links {
+    position: fixed; top: 60px; right: -100%;
+    width: 70%; max-width: 300px;
+    height: calc(100vh - 60px);
+    background: rgba(10, 14, 39, 0.95);
+    backdrop-filter: blur(20px);
+    flex-direction: column; padding: 20px; gap: 4px;
+    transition: right 0.3s ease;
+    border-left: 1px solid var(--border);
+  }
+  .navbar-links.open { right: 0; }
+  .navbar-links a { display: block; padding: 12px 16px; font-size: var(--fs-base); }
   .countdown-item { min-width: 70px; padding: 12px 16px; }
   .countdown-number { font-size: var(--fs-2xl); }
   .budget-grid { grid-template-columns: 1fr; }
@@ -790,13 +841,14 @@ h1, h2, h3, h4, h5, h6,
 .summary-card h3, .summary-list li, .summary-list .item-location,
 .tip-title, .tip-text,
 .footer-text, .scroll-hint, .hero-info-item,
-.fn-item,
+.navbar-links a, .fn-item,
 .section-icon,
 .temp-climate-desc {
   text-shadow: 0 1px 4px rgba(0,0,0,0.7), 0 0 8px rgba(0,0,0,0.4);
 }
 /* 渐变文字不添加 text-shadow（避免透明填充导致异常阴影） */
 .hero-title .gradient-text,
+.navbar-logo,
 .budget-total,
 .day-badge .day-num {
   text-shadow: none;
@@ -1209,7 +1261,7 @@ img[onclick*="openV9Lightbox"]:hover { transform: scale(1.02); }
   }
 
   /* 导航栏在手机端降低模糊强度 */
-  .route-switcher {
+  .navbar, .route-switcher {
     backdrop-filter: blur(8px) !important;
     -webkit-backdrop-filter: blur(8px) !important;
   }
@@ -1359,6 +1411,10 @@ img[onclick*="openV9Lightbox"]:hover { transform: scale(1.02); }
   background: rgba(255,255,255,0.85); color: #1a1a1a;
   border-color: rgba(0,0,0,0.1);
 }
+[data-theme="light"] .navbar { background: rgba(255,255,255,0.85); border-color: rgba(0,0,0,0.08); }
+[data-theme="light"] .navbar-links a { color: #555; }
+[data-theme="light"] .navbar-links a:hover,
+[data-theme="light"] .navbar-links a.active { color: var(--primary); background: rgba(0,212,170,0.08); }
 [data-theme="light"] .floating-nav { background: rgba(255,255,255,0.85); border-color: rgba(0,0,0,0.08); }
 [data-theme="light"] .section-subtitle,
 [data-theme="light"] .hero-subtitle { color: #555; }
@@ -1416,16 +1472,16 @@ img[onclick*="openV9Lightbox"]:hover { transform: scale(1.02); }
 }
 
 /* 2c: 导航链接悬浮发光效果 */
-.fn-item {
+.navbar-links a, .fn-item {
   position: relative; overflow: hidden;
 }
-.fn-item::after {
+.navbar-links a::after, .fn-item::after {
   content: ''; position: absolute; bottom: 0; left: 50%;
   width: 0; height: 2px;
   background: linear-gradient(90deg, var(--primary), var(--gold));
   transition: width 0.3s ease, left 0.3s ease;
 }
-.fn-item:hover::after {
+.navbar-links a:hover::after, .fn-item:hover::after {
   width: 80%; left: 10%;
 }
 
@@ -2572,6 +2628,25 @@ svg.route-map { cursor: zoom-in; }
   <div class="bg-layer" data-section="checklist" data-speed="0.5" style="background-image: url('https://s.coze.cn/image/LQpTitvSvb0/');"></div>
 </div>
 <div class="bg-overlay"></div>
+
+<!-- ========== 导航栏 ========== -->
+<nav class="navbar">
+  <div class="navbar-inner">
+    <div class="navbar-logo">🏔️ 黔山秘境</div>
+    <ul class="navbar-links" id="navLinks">
+      <li><a href="#hero" class="active">首页</a></li>
+      <li><a href="#route">路线</a></li>
+      <li><a href="#itinerary">行程</a></li>
+      <li><a href="#temperature">气候</a></li>
+      <li><a href="#budget">预算</a></li>
+      <li><a href="#drone">航拍</a></li>
+      <li><a href="#checklist">清单</a></li>
+      <li><a href="#summary">汇总</a></li>
+      <li><a href="#tips">须知</a></li>
+    </ul>
+    <button class="navbar-toggle" id="navToggle">☰</button>
+  </div>
+</nav>
 
 <!-- ========== 底部悬浮导航 ========== -->
 <nav class="floating-nav" id="floatingNav">
@@ -5307,7 +5382,9 @@ function animateTempBars() {
 // ============================================================
 (function() {
   var floatingNav = document.getElementById('floatingNav');
+  var navLinks = document.getElementById('navLinks');
   var sections = document.querySelectorAll('section[id]');
+  var navItems = document.querySelectorAll('.navbar-links a');
   var fnItems = document.querySelectorAll('.fn-item');
   var lastScrollY = 0;
   var ticking = false;
@@ -5325,11 +5402,19 @@ function animateTempBars() {
     // 导航高亮
     var current = '';
     sections.forEach(function(section) {
-      var sectionTop = section.offsetTop - 20;
+      var sectionTop = section.offsetTop - 100;
       if (scrollY >= sectionTop) {
         current = section.getAttribute('id');
       }
     });
+
+    navItems.forEach(function(item) {
+      item.classList.remove('active');
+      if (item.getAttribute('href') === '#' + current) {
+        item.classList.add('active');
+      }
+    });
+
     fnItems.forEach(function(item) {
       item.classList.remove('active');
       if (item.dataset.target === current) {
@@ -5357,13 +5442,31 @@ function animateTempBars() {
       vibrate(10);
       var target = document.getElementById(this.dataset.target);
       if (target) {
-        window.scrollTo({ top: target.offsetTop - 20, behavior: 'smooth' });
+        window.scrollTo({ top: target.offsetTop - 60, behavior: 'smooth' });
       }
     });
   });
 })();
 
+// ============================================================
+// 导航栏移动端菜单
+// ============================================================
+(function() {
+  var navToggle = document.getElementById('navToggle');
+  var navLinks = document.getElementById('navLinks');
+  if (!navToggle || !navLinks) return;
 
+  navToggle.addEventListener('click', function() {
+    navLinks.classList.toggle('open');
+    vibrate(10);
+  });
+
+  navLinks.querySelectorAll('a').forEach(function(link) {
+    link.addEventListener('click', function() {
+      navLinks.classList.remove('open');
+    });
+  });
+})();
 
 // ============================================================
 // 倒计时
@@ -5589,7 +5692,7 @@ document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
       e.preventDefault();
       vibrate(10);
       window.scrollTo({
-        top: target.offsetTop - 20,
+        top: target.offsetTop - 60,
         behavior: 'smooth'
       });
     }
@@ -6043,7 +6146,7 @@ function scrollToToday() {
 // 2a: Ripple 点击水波纹效果
 (function() {
   document.addEventListener('click', function(e) {
-    var target = e.target.closest('.itinerary-header, .checklist-item, .drone-point, .tip-card, .meal-card, .hotel-card, .fn-item, .view-full-btn');
+    var target = e.target.closest('.itinerary-header, .checklist-item, .drone-point, .tip-card, .meal-card, .hotel-card, .fn-item, .navbar-links a, .view-full-btn');
     if (!target) return;
     if (!target.classList.contains('ripple-effect')) target.classList.add('ripple-effect');
     var rect = target.getBoundingClientRect();
