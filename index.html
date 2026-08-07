@@ -595,6 +595,42 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 /* ===== Budget Section ===== */
+.budget-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    margin-bottom: 32px;
+}
+.budget-card {
+    background: rgba(20,20,20,0.55);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: var(--radius-m);
+    padding: 24px;
+    text-align: center;
+}
+.budget-icon { font-size: 32px; margin-bottom: 8px; }
+.budget-label { font-size: 14px; color: var(--text-dim); margin-bottom: 4px; }
+.budget-amount { font-size: 28px; font-weight: 800; color: var(--accent); }
+.budget-amount.warm { color: var(--warm); }
+.budget-total {
+    text-align: center;
+    padding: 32px;
+    background: linear-gradient(135deg, rgba(78,205,196,0.1), rgba(212,165,116,0.1));
+    border: 1px solid rgba(78,205,196,0.2);
+    border-radius: var(--radius-m);
+}
+.budget-total-label { font-size: 16px; color: var(--text-dim); margin-bottom: 8px; }
+.budget-total-amount {
+    font-size: 48px; font-weight: 800;
+    background: linear-gradient(135deg, var(--accent), var(--warm));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+.budget-total-detail { font-size: 13px; color: var(--text-muted); margin-top: 8px; }
+
 /* ===== Tips Section ===== */
 .tips-grid {
     display: grid;
@@ -720,14 +756,17 @@ img { max-width: 100%; height: auto; display: block; }
     .map-container { grid-template-columns: 1fr; }
     .spot-images { grid-template-columns: 1fr; }
     .hotel-grid { grid-template-columns: 1fr; }
+    .budget-grid { grid-template-columns: 1fr 1fr; }
     .tips-grid { grid-template-columns: 1fr; }
     .alt-grid { grid-template-columns: 1fr; }
     .day-meta { flex-direction: column; gap: 8px; }
-    }
+    .budget-total-amount { font-size: 36px; }
+}
 @media (max-width: 480px) {
     .hero-stat-num { font-size: 28px; }
     .section { padding: 60px 0; }
     .day-section { padding: 60px 0; }
+    .budget-grid { grid-template-columns: 1fr; }
 }
 
 /* ===== Packing Checklist ===== */
@@ -3500,7 +3539,72 @@ body:not(.view-home) .home-nav-wrap { display: none; }
 </section>
 
 <!-- ===== Budget Section ===== -->
-
+<section class="section" id="budget" data-view="budget">
+    <div class="section-bg" style="background-image: url('https://s.coze.cn/image/AqJQSg4WA8k/'); opacity: 0.25;"></div>
+    <div class="section-overlay"></div>
+    <div class="section-inner">
+        <div class="section-header fade-in">
+            <div class="section-tag">Budget</div>
+            <h2 class="section-title">预算明细</h2>
+            <p class="section-desc">6人3车出行，人均仅需约1,301元，性价比极高的避暑之旅</p>
+        </div>
+        <div class="budget-grid fade-in">
+            <div class="budget-card">
+                <div class="budget-icon">&#127968;</div>
+                <div class="budget-label">住宿（2间 &times; 5晚）</div>
+                <div class="budget-amount">&yen;4,370</div>
+            </div>
+            <div class="budget-card">
+                <div class="budget-icon">&#9981;</div>
+                <div class="budget-label">油费 + 过路费</div>
+                <div class="budget-amount">&yen;1,000</div>
+            </div>
+            <div class="budget-card">
+                <div class="budget-icon">&#127860;</div>
+                <div class="budget-label">餐饮（6人 &times; 5天）</div>
+                <div class="budget-amount">&yen;2,400</div>
+            </div>
+            <div class="budget-card">
+                <div class="budget-icon">&#127903;</div>
+                <div class="budget-label">门票</div>
+                <div class="budget-amount warm">&yen;36</div>
+            </div>
+        </div>
+        <div class="budget-total fade-in">
+            <div class="budget-total-label">总预算（6人3车）</div>
+            <div class="budget-total-amount">&yen;7,806</div>
+            <div class="budget-total-detail">人均约 &yen;1,301 &middot; 车均约 &yen;2,602</div>
+        </div>
+        <div style="margin-top: 24px;" class="fade-in">
+            <div class="glass-card" style="padding: 24px;">
+                <h3 style="color: var(--accent); font-size: 16px; margin-bottom: 16px;">&#128202; 预算说明</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px;">
+                    <div>
+                        <h4 style="color: var(--warm); font-size: 14px; margin-bottom: 8px;">住宿明细</h4>
+                        <p class="spot-desc" style="font-size: 13px; margin: 0;">
+                            D1 清镇漫湖居民宿 &yen;285 &times; 2间 = &yen;570<br>
+                            D2 陶源林宿 &yen;400 &times; 2间 = &yen;800<br>
+                            D3 夜郎福地酒店 &yen;400 &times; 2间 = &yen;800<br>
+                            D4 渊府&middot;霞渡 &yen;800 &times; 2间 = &yen;1,600<br>
+                            D5 安顺城市印象 &yen;300 &times; 2间 = &yen;600<br>
+                            <strong style="color: var(--accent);">合计：&yen;4,370</strong>
+                        </p>
+                    </div>
+                    <div>
+                        <h4 style="color: var(--warm); font-size: 14px; margin-bottom: 8px;">其他费用</h4>
+                        <p class="spot-desc" style="font-size: 13px; margin: 0;">
+                            <strong>油费+过路费：</strong>全程约1800km，3辆车分摊<br>
+                            <strong>餐饮：</strong>6人 &times; 5天 &times; &yen;80/人/天 = &yen;2,400<br>
+                            贵州物价亲民，正餐人均30-50元可以吃得很好<br>
+                            <strong>门票：</strong>大圣之眼6元&times;6人=&yen;36，其余景点免费！<br>
+                            <em>注：大部分景点为野生小众景点，无需门票</em>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 <!-- ===== Alternative Spots ===== -->
 
@@ -3509,8 +3613,8 @@ body:not(.view-home) .home-nav-wrap { display: none; }
     <div class="section-overlay"></div>
     <div class="section-inner">
         <div class="section-header fade-in">
-            <div class="section-tag">Stay</div>
-            <h2 class="section-title">住宿推荐</h2>
+            <div class="section-tag">Stay & Budget</div>
+            <h2 class="section-title">住宿与预算</h2>
             <p class="section-desc">精选湖畔民宿·悬崖温泉·森林隐舍，每晚都是风景</p>
         </div>
         <div class="hub-cards">
@@ -3519,6 +3623,14 @@ body:not(.view-home) .home-nav-wrap { display: none; }
                 <div class="hub-card-body">
                     <div class="hub-card-title">酒店推荐</div>
                     <div class="hub-card-desc">5晚精选温泉度假酒店，亲子友好，品质保障</div>
+                </div>
+                <div class="hub-card-arrow">&#8250;</div>
+            </div>
+            <div class="hub-card" onclick="navTo('budget')">
+                <div class="hub-card-icon">&#128176;</div>
+                <div class="hub-card-body">
+                    <div class="hub-card-title">预算明细</div>
+                    <div class="hub-card-desc">全程费用一目了然，总计约¥8,200</div>
                 </div>
                 <div class="hub-card-arrow">&#8250;</div>
             </div>
@@ -5105,8 +5217,8 @@ window.onscroll = handleScroll;
         'daily-maps': 'route-overview',
         'day1': 'route-overview', 'day2': 'route-overview', 'day3': 'route-overview',
         'day4': 'route-overview', 'day5': 'route-overview', 'day6': 'route-overview',
-        'hotels-budget': '住宿推荐',
-        'hotels': 'home', 'alternatives': 'home',
+        'hotels-budget': 'home',
+        'hotels': 'hotels-budget', 'budget': 'hotels-budget', 'alternatives': 'hotels-budget',
         'travel-guide': 'home',
         'tips': 'travel-guide', 'gallery': 'travel-guide', 'highlights': 'travel-guide',
         'packing': 'travel-guide', 'timeline': 'travel-guide', 'knowledge': 'travel-guide',
@@ -5123,8 +5235,9 @@ window.onscroll = handleScroll;
         'day4': 'D4 \u516d\u76d8\u6c34\u2192\u5173\u5cad \u00b7 \u51b0\u81fc\u7fa4',
         'day5': 'D5 \u5173\u5cad\u2192\u5b89\u987a \u00b7 \u94dc\u9f13\u8361',
         'day6': 'D6 \u5b89\u987a\u2192\u6d1e\u53e3 \u00b7 \u8fd4\u7a0b',
-        'hotels-budget': '住宿推荐',
+        'hotels-budget': '住宿与预算',
         'hotels': '\u9152\u5e97\u63a8\u8350',
+        'budget': '预算明细',
         'alternatives': '\u5907\u9009\u65b9\u6848',
         'travel-guide': '\u5b9e\u7528\u653b\u7565',
         'tips': '\u65c5\u884c\u8d34\u58eb',
