@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>黔味寻踪 | 贵州避暑自驾美食攻略</title>
+<style>
+:root{--bg:#0a0a0a;--bg-card:#141414;--bg-elevated:#1a1a1a;--text:#f0f0f0;--text-dim:rgba(255,255,255,0.55);--text-muted:rgba(255,255,255,0.3);--chili:#e74c3c;--warm:#e67e22;--gold:#f1c40f;--teal:#4ecdc4;--radius-s:8px;--radius-m:16px;--radius-l:24px}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--text);line-height:1.7;overflow-x:hidden}
+a{color:var(--teal);text-decoration:none}
+a:hover{text-decoration:underline}
+img{max-width:100%;height:auto;display:block}
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--chili);border-radius:3px}
+
+/* Hero */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,#1a0a00 0%,#2d1206 30%,#0a0a0a 70%,#0d1a18 100%);z-index:0}
+.hero-overlay{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 40%,rgba(231,76,60,0.12) 0%,transparent 60%),radial-gradient(ellipse at 30% 70%,rgba(230,126,34,0.08) 0%,transparent 50%);z-index:1}
+.hero-particles{position:absolute;inset:0;z-index:1;overflow:hidden}
+.hero-particle{position:absolute;border-radius:50%;opacity:0;animation:heroFloat 8s infinite ease-in-out}
+@keyframes heroFloat{0%{opacity:0;transform:translateY(100vh) scale(0)}20%{opacity:0.6}80%{opacity:0.3}100%{opacity:0;transform:translateY(-20vh) scale(1)}}
+.hero-content{position:relative;z-index:2;padding:2rem}
+.hero-emoji{font-size:4rem;margin-bottom:1rem;animation:heroEmoji 3s ease-in-out infinite}
+@keyframes heroEmoji{0%,100%{transform:scale(1) rotate(0deg)}50%{transform:scale(1.1) rotate(5deg)}}
+.hero-title{font-size:clamp(2.5rem,7vw,5rem);font-weight:900;letter-spacing:0.15em;background:linear-gradient(135deg,var(--chili),var(--warm),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:0.5rem;text-shadow:none}
+.hero-sub{font-size:clamp(0.9rem,2.5vw,1.3rem);color:var(--text-dim);letter-spacing:0.08em;margin-bottom:2rem}
+.hero-tags{display:flex;flex-wrap:wrap;justify-content:center;gap:0.6rem;margin-bottom:2.5rem}
+.hero-tag{padding:0.35rem 1rem;border-radius:20px;font-size:0.8rem;border:1px solid rgba(231,76,60,0.3);color:var(--warm);background:rgba(231,76,60,0.08)}
+.hero-scroll{display:inline-flex;align-items:center;gap:0.5rem;padding:0.8rem 2rem;border-radius:30px;background:linear-gradient(135deg,var(--chili),var(--warm));color:#fff;font-size:0.95rem;cursor:pointer;border:none;transition:transform 0.3s,box-shadow 0.3s}
+.hero-scroll:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(231,76,60,0.3)}
+
+/* Section common */
+.section{padding:4rem 1.5rem;max-width:1100px;margin:0 auto}
+.section-title{text-align:center;font-size:clamp(1.5rem,4vw,2.2rem);font-weight:800;margin-bottom:0.5rem}
+.section-desc{text-align:center;color:var(--text-dim);font-size:0.95rem;margin-bottom:3rem;max-width:600px;margin-left:auto;margin-right:auto}
+
+/* Overview map */
+.overview-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1rem;margin-bottom:2rem}
+.overview-item{background:var(--bg-card);border-radius:var(--radius-m);padding:1.2rem;text-align:center;border:1px solid rgba(255,255,255,0.05);transition:transform 0.3s,border-color 0.3s}
+.overview-item:hover{transform:translateY(-4px);border-color:rgba(231,76,60,0.3)}
+.overview-day{font-size:0.75rem;color:var(--chili);font-weight:700;letter-spacing:0.1em;margin-bottom:0.3rem}
+.overview-city{font-size:1.1rem;font-weight:700;margin-bottom:0.5rem}
+.overview-foods{font-size:0.78rem;color:var(--text-dim);line-height:1.6}
+
+/* Food cards (day sections) */
+.day-card{background:var(--bg-card);border-radius:var(--radius-l);margin-bottom:1.5rem;border:1px solid rgba(255,255,255,0.05);overflow:hidden;transition:border-color 0.3s}
+.day-card.active{border-color:rgba(231,76,60,0.25)}
+.day-header{display:flex;align-items:center;justify-content:space-between;padding:1.2rem 1.5rem;cursor:pointer;transition:background 0.3s;user-select:none}
+.day-header:hover{background:rgba(255,255,255,0.03)}
+.day-header-left{display:flex;align-items:center;gap:1rem}
+.day-badge{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:12px;font-weight:800;font-size:0.85rem;color:#fff;flex-shrink:0}
+.day-header-info h3{font-size:1.1rem;font-weight:700;margin-bottom:0.15rem}
+.day-header-info p{font-size:0.8rem;color:var(--text-dim)}
+.day-toggle{width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:center;transition:transform 0.3s,background 0.3s;flex-shrink:0}
+.day-card.active .day-toggle{transform:rotate(180deg);background:rgba(231,76,60,0.15)}
+.day-toggle svg{width:16px;height:16px;fill:var(--text-dim)}
+.day-body{max-height:0;overflow:hidden;transition:max-height 0.5s cubic-bezier(0.4,0,0.2,1)}
+.day-card.active .day-body{max-height:8000px}
+.day-content{padding:0 1.5rem 1.5rem}
+
+/* Day gallery images */
+.day-gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:0.8rem;margin-bottom:1.5rem;border-radius:var(--radius-m);overflow:hidden}
+.day-gallery img{width:100%;height:160px;object-fit:cover;border-radius:var(--radius-s);transition:transform 0.3s}
+.day-gallery img:hover{transform:scale(1.03)}
+
+/* Food item */
+.food-item{background:var(--bg-elevated);border-radius:var(--radius-m);padding:1.2rem;margin-bottom:1rem;border:1px solid rgba(255,255,255,0.04);transition:border-color 0.3s,transform 0.3s}
+.food-item:hover{border-color:rgba(231,76,60,0.2);transform:translateY(-2px)}
+.food-top{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;margin-bottom:0.6rem}
+.food-name{font-size:1.05rem;font-weight:700;display:flex;align-items:center;gap:0.5rem}
+.food-stars{color:var(--gold);font-size:0.85rem;white-space:nowrap}
+.food-meta{display:flex;flex-wrap:wrap;gap:0.6rem;margin-bottom:0.6rem;font-size:0.8rem;color:var(--text-dim)}
+.food-meta span{display:inline-flex;align-items:center;gap:0.25rem}
+.food-desc{font-size:0.85rem;color:var(--text-dim);line-height:1.6;margin-bottom:0.6rem}
+.food-tags{display:flex;flex-wrap:wrap;gap:0.4rem}
+.food-tag{padding:0.15rem 0.6rem;border-radius:12px;font-size:0.7rem;font-weight:600}
+.tag-must{background:rgba(231,76,60,0.15);color:var(--chili)}
+.tag-old{background:rgba(230,126,34,0.15);color:var(--warm)}
+.tag-night{background:rgba(78,205,196,0.12);color:var(--teal)}
+.tag-snack{background:rgba(241,196,15,0.12);color:var(--gold)}
+.tag-breakfast{background:rgba(155,89,182,0.15);color:#bb8fce}
+.tag-special{background:rgba(46,204,113,0.12);color:#2ecc71}
+.tag-family{background:rgba(52,152,219,0.12);color:#5dade2}
+
+/* Tips section */
+.tips-section{background:linear-gradient(135deg,rgba(231,76,60,0.06),rgba(230,126,34,0.04));border-radius:var(--radius-l);padding:2.5rem 2rem;margin:3rem auto;max-width:1100px;border:1px solid rgba(231,76,60,0.1)}
+.tips-title{text-align:center;font-size:1.5rem;font-weight:800;margin-bottom:1.5rem}
+.tips-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem}
+.tip-card{background:rgba(0,0,0,0.3);border-radius:var(--radius-m);padding:1.2rem;border:1px solid rgba(255,255,255,0.04)}
+.tip-card h4{font-size:0.95rem;font-weight:700;margin-bottom:0.5rem;display:flex;align-items:center;gap:0.4rem}
+.tip-card p{font-size:0.82rem;color:var(--text-dim);line-height:1.6}
+
+/* Footer */
+.footer{text-align:center;padding:3rem 1.5rem;border-top:1px solid rgba(255,255,255,0.05)}
+.footer a{display:inline-flex;align-items:center;gap:0.5rem;padding:0.6rem 1.5rem;border-radius:20px;border:1px solid rgba(78,205,196,0.3);color:var(--teal);font-size:0.85rem;transition:background 0.3s}
+.footer a:hover{background:rgba(78,205,196,0.08);text-decoration:none}
+.footer p{color:var(--text-muted);font-size:0.75rem;margin-top:1rem}
+
+/* Color themes per day */
+.d1 .day-badge{background:linear-gradient(135deg,#e74c3c,#c0392b)}
+.d2 .day-badge{background:linear-gradient(135deg,#e67e22,#d35400)}
+.d3 .day-badge{background:linear-gradient(135deg,#f1c40f,#f39c12)}
+.d4 .day-badge{background:linear-gradient(135deg,#2ecc71,#27ae60)}
+.d5 .day-badge{background:linear-gradient(135deg,#9b59b6,#8e44ad)}
+.d6 .day-badge{background:linear-gradient(135deg,#3498db,#2980b9)}
+
+/* Responsive */
+@media(max-width:768px){
+.hero{min-height:85vh}
+.section{padding:2.5rem 1rem}
+.day-header{padding:1rem}
+.day-content{padding:0 1rem 1rem}
+.overview-grid{grid-template-columns:repeat(3,1fr);gap:0.6rem}
+.overview-item{padding:0.8rem 0.5rem}
+.overview-city{font-size:0.9rem}
+.overview-foods{font-size:0.7rem}
+.day-gallery{grid-template-columns:repeat(2,1fr)}
+.day-gallery img{height:120px}
+.tips-section{padding:1.5rem 1rem;margin:2rem 1rem}
+.food-top{flex-direction:column;gap:0.3rem}
+}
+@media(max-width:480px){
+.overview-grid{grid-template-columns:repeat(2,1fr)}
+.hero-emoji{font-size:3rem}
+.tips-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-particles" id="heroParticles"></div>
+    <div class="hero-content">
+        <div class="hero-emoji">🍜</div>
+        <h1 class="hero-title">黔 味 寻 踪</h1>
+        <p class="hero-sub">6天5晚 · 从烙锅之都到小吃天堂 · 跟着嘴巴去旅行</p>
+        <div class="hero-tags">
+            <span class="hero-tag">🌶️ 烙锅之都</span>
+            <span class="hero-tag">🐟 酸汤鱼</span>
+            <span class="hero-tag">🍚 怪噜饭</span>
+            <span class="hero-tag">🫕 夺夺粉</span>
+            <span class="hero-tag">🥟 裹卷丝娃娃</span>
+            <span class="hero-tag">🍜 羊肉粉</span>
+        </div>
+        <button class="hero-scroll" onclick="var el=document.getElementById('overview');el.scrollIntoView({behavior:'smooth'})">开始寻味 ↓</button>
+    </div>
+</section>
+
+<!-- ===== OVERVIEW ===== -->
+<section class="section" id="overview">
+    <h2 class="section-title" style="background:linear-gradient(90deg,var(--chili),var(--warm));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">🗺️ 美食地图总览</h2>
+    <p class="section-desc">从清镇烙锅到安顺小吃街，每一天都有新的味蕾惊喜。一家四口（2大2小）的贵州寻味之旅。</p>
+    <div class="overview-grid">
+        <div class="overview-item">
+            <div class="overview-day">D1 · 8/8</div>
+            <div class="overview-city">🔥 清镇</div>
+            <div class="overview-foods">烙锅 · 黄粑 · 怪噜粉<br>热汤丝娃娃 · 辣子鸡</div>
+        </div>
+        <div class="overview-item">
+            <div class="overview-day">D2 · 8/9</div>
+            <div class="overview-city">🍄 织金/纳雍</div>
+            <div class="overview-foods">织金烙锅 · 荞凉粉<br>发粑 · 竹荪炖鸡 · 滚山鸡</div>
+        </div>
+        <div class="overview-item">
+            <div class="overview-day">D3 · 8/10</div>
+            <div class="overview-city">🫕 六盘水</div>
+            <div class="overview-foods">水城烙锅 · 羊肉粉<br>怪噜饭 · 盘县火腿</div>
+        </div>
+        <div class="overview-item">
+            <div class="overview-day">D4 · 8/11</div>
+            <div class="overview-city">🐂 关岭</div>
+            <div class="overview-foods">花江活鱼 · 剪粉<br>牛肉粉 · 辣子鸡 · 腊排骨</div>
+        </div>
+        <div class="overview-item">
+            <div class="overview-day">D5 · 8/12</div>
+            <div class="overview-city">🎯 安顺</div>
+            <div class="overview-foods">裹卷 · 夺夺粉 · 破酥包<br>小锅凉粉 · 冲冲糕 · 烤小肠</div>
+        </div>
+        <div class="overview-item">
+            <div class="overview-day">D6 · 8/13</div>
+            <div class="overview-city">🏠 返程</div>
+            <div class="overview-foods">特产打包 · 沿途风味<br>黄粑 · 火腿 · 波波糖</div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== D1-D6 DAY CARDS ===== -->
+<section class="section" id="dayCards">
+    <h2 class="section-title" style="background:linear-gradient(90deg,var(--chili),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">🌶️ 每日美食推荐</h2>
+    <p class="section-desc">每天精选3-5家当地口碑餐馆，附上地址、人均、招牌菜和推荐指数，轻松照着吃！</p>
+
+    <!-- D1 清镇 -->
+    <div class="day-card d1 active" id="d1">
+        <div class="day-header" onclick="toggleFoodCard('d1')">
+            <div class="day-header-left">
+                <div class="day-badge">D1</div>
+                <div class="day-header-info">
+                    <h3>🔥 清镇 — 烙锅之行的起点</h3>
+                    <p>8/8 洞口→清镇（6h/370km）· 住 乡愁贵州·澜山酒店</p>
+                </div>
+            </div>
+            <div class="day-toggle"><svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></div>
+        </div>
+        <div class="day-body">
+            <div class="day-content">
+                <div class="day-gallery">
+                    <img src="https://s.coze.cn/image/1tOj32HVngY/" alt="贵州烙锅">
+                    <img src="https://s.coze.cn/image/dNqkLcjAzkM/" alt="丝娃娃">
+                    <img src="https://s.coze.cn/image/9L9ks7GKnAE/" alt="酸汤鱼">
+                </div>
+
+                <div class="food-item">
+                    <div class="food-top">
+                        <div class="food-name">🌶️ 何记烙锅（中环烙锅城）</div>
+                        <div class="food-stars">★★★★★</div>
+                    </div>
+                    <div class="food-meta">
+                        <span>📍 清镇市中环广场B组团一层</span>
+                        <span>💰 人均40-55元</span>
+                    </div>
+                    <div class="food-desc">清镇烙锅老字号！食材先炒熟再上锅烙，三种秘制辣椒面是灵魂。牛肉嫩滑多汁，五花肉肥而不腻，烙到边缘微焦再蘸料，一口下去才懂什么叫"万物皆可烙"。带小朋友必点洋芋粑和黄粑，不辣且香糯。</div>
+                    <div class="food-tags">
+                        <span class="food-tag tag-must">必吃</span>
+                        <span class="food-tag tag-old">老字号</span>
+                        <span class="food-tag tag-night">夜市</span>
+                    </div>
+                </div>
+
+                <div class="food-item">
+                    <div class="food-top">
+                        <div class="food-name">🌽 刘姨妈黄粑</div>
+                        <div class="food-stars">★★★★★</div>
+                    </div>
+                    <div class="food-meta">
+                        <span>📍 清镇市接官厅黄粑一条街</span>
+                        <span>💰 人均10-20元</span>
+                    </div>
+                    <div class="food-desc">贵州省级非遗！糯米+粳米+黄豆用玉米叶包扎，蒸制17小时以上。口感软糯香甜，有糯米、小米、五仁等多种口味。小朋友超爱，可买真空包装带走当伴手礼。</div>
+                    <div class="food-tags">
+                        <span class="food-tag tag-must">必吃</span>
+                        <span class="food-tag tag-snack">小吃</span>
+                        <span class="food-tag tag-family">亲子友好</span>
+                    </div>
+                </div>
+
+                <div class="food-item">
+                    <div class="food-top">
+                        <div class="food-name">🥗 宋记热汤丝娃娃（水沟边）</div>
+                        <div class="food-stars">★★★★☆</div>
+                    </div>
+                    <div class="food-meta">
+                        <span>📍 清镇市水沟边巷口</span>
+                        <span>💰 人均20-30元</span>
+                    </div>
+                    <div class="food-desc">45年老字号！清镇丝娃娃最大特色是"热汤"——不同于贵阳的冷蘸水，这里用温热酸汤浇淋，更适合小朋友和老人。薄如蝉翼的面皮裹着豆芽、海带丝、萝卜丝等十余种配菜，唇齿间清脆爽朗。</div>
+                    <div class="food-tags">
+                        <span class="food-tag tag-old">老字号</span>
+                        <span class="food-tag tag-special">清镇特色</span>
+                        <span class="food-tag tag-family">亲子友好</span>
+                    </div>
+                </div>
+
+                <div class="food-item">
+                    <div class="food-top">
+                        <div class="food-name">🍜 焦记怪噜粉</div>
+                        <div class="food-stars">★★★★☆</div>
+                    </div>
+                    <div class="food-meta">
+                        <span>📍 清镇市天水花园西1门旁</span>
+                        <span>💰 人均12-18元</span>
+                    </div>
+                    <div class="food-desc">清镇独创的"怪噜粉"——一碗米粉里加入酸菜、洋芋、脆哨、黄豆、花生、折耳根、海带丝等十多种配料，拌以秘制酱汁，一口享受十多种美味。早餐来一碗，唤醒沉睡的味蕾！</div>
+                    <div class="food-tags">
+                        <span class="food-tag tag-breakfast">早餐</span>
+                        <span class="food-tag tag-special">清镇独创</span>
+                    </div>
+                </div>
+
+                <div class="food-item">
+                    <div class="food-top">
+                        <div class="food-name">🐔 王马儿辣子鸡</div>
+                        <div class="food-stars">★★★★☆</div>
+                    </div>
+                    <div class="food-meta">
+                        <span>📍 清镇市红树东方·中央公园商圈</span>
+                        <span>💰 人均60-80元</span>
+                    </div>
+                    <div class="food-desc">选用本地土鸡搭配糍粑辣椒精心炒制，鸡肉外酥里嫩，辣椒的香味与鸡肉完美融合。红通通的辣椒中夹杂香脆鸡丁，是贵州传统名菜的代表。大人下饭神器，小朋友可以吃旁边的配菜。</div>
+                    <div class="food-tags">
+                        <span class="food-tag tag-must">必吃</span>
+                        <span class="food-tag tag-special">贵州名菜</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- D2 织金/纳雍 -->
+    <div class="day-card d2" id="d2">
+        <div class="day-header" onclick="toggleFoodCard('d2')">
+            <div class="day-header-left">
+                <div class="day-badge">D2</div>
+                <div class="day-header-info">
+                    <h3>🍄 织金/纳雍 — 竹荪之乡的惊喜</h3>
+                    <p>8/9 清镇→纳雍（2.5h/180km）途经织金洞 · 住 总溪河陶源林宿</p>
+                </div>
+            </div>
+            <div class="day-toggle"><svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></div>
+        </div>
+        <div class="day-body">
+            <div class="day-content">
+
+                <div class="food-item">
+                    <div class="food-top">
+                        <div class="food-name">🫕 刘记土烙锅（织金九对头）</div>
+                        <div class="food-stars">★★★★★</div>
+                    </div>
+                    <div class="food-meta">
+                        <span>📍 织金县和平路九对头巷子</span>
+                        <span>💰 人均35-50元</span>
+                    </div>
+                    <div class="food-desc">织金烙锅比清镇更"原始"——用本地砂锅、菜油和辣椒，吃起来更香！臭豆腐来自织金八步镇，烙老的臭豆腐外脆里嫩，吃嫩的有奶酪般的口感。老板超有趣，一口织金口音"窝嘴巴叼得很！"</div>
+                    <div class="food-tags">
+                        <span class="food-tag tag-must">必吃</span>
+                        <span class="food-tag tag-night">夜市</span>
+                        <span class="food-tag tag-special">砂锅烙制</span>
+                    </div>
+                </div>
+
+                <div class="food-item">
+                    <div class="food-top">
+                        <div class="food-name">🥢 谢家荞凉粉（大府头回龙桥）</div>
+                        <div class="food-stars">★★★★★</div>
+                    </div>
+                    <div class="food-meta">
+                        <span>📍 织金县大府头回龙桥旁</span>
+                        <span>💰 人均8-15元</span>
+                    </div>
+                    <div class="food-desc">织金最具特色的小吃！荞麦制成的凉粉用特制刮子刮成细长条，灵魂在于那碗蘸水——酥黄豆、酸萝卜丁、黑大头菜、自制腐乳、红油、花椒油等十余种调料兑成。加一个爆浆皮蛋更是惊艳！夏天来一碗，清爽开胃。</div>
+                    <div class="food-tags">
+                        <span class="food-tag tag-must">必吃</span>
+                        <span class="food-tag tag-snack">小吃</span>
+                        <span class="food-tag tag-special">织金独有</span>
+                    </div>
+                </div>
+
+                <div class="food-item">
+                    <div class="food-top">
+                        <div class="food-name">🍚 马记发粑（财神庙旁）</div>
+                        <div class="food-stars">★★★★★</div>
+                    </div>
+                    <div class="food-meta">
+                        <span>📍 织金县九对头财神庙旁小巷</span>
+                        <span>💰 人均5-10元</span>
+                    </div>
+                    <div class="food-desc">百年老字号！一锅只出30斤，门口排队等着出锅就全部买光。用织金本地粘米磨浆发酵蒸制，刚出锅时飘着浓浓米香，撒上芝麻，摇摇晃晃的发粑特别诱人。口感香、软、韧，入口糥而粘。</div>
+                    <div class="food-tags">
+                        <span class="food-tag tag-old">百年老字号</span>
+                        <span class="food-tag tag-breakfast">早餐</span>
+                        <span class="food-tag tag-family">亲子友好</span>
+                    </div>
+                </div>
+
+                <div class="food-item">
+                    <div class="food-top">
+                        <div class="food-name">🍄 竹荪炖鸡</div>
+                        <div class="food-stars">★★★★★</div>
+                    </div>
+                    <div class="food-meta">
+                        <span>📍 织金县城各餐馆均有 · 推荐织金饭店餐厅</span>
+                        <span>💰 人均60-100元</span>
+                    </div>
+                    <div class="food-desc">织金是"中国竹荪之乡"！竹荪被称为"菌中皇后"，形似网状纱裙，口感脆嫩鲜美。配上本地土鸡慢炖，汤鲜味美，营养丰富。这道菜不辣，非常适合小朋友和老人，是织金最值得品尝的养生佳肴。</div>
+                    <div class="food-tags">
+                        <span class="food-tag tag-must">必吃</span>
+                        <span class="food-tag tag-special">织金特产</span>
+                        <span class="food-tag tag-family">亲子友好</span>
+                    </div>
+                </div>
+
+                <div class="food-item">
+                    <div class="food-top">
+                        <div class="food-name">🐔 纳雍滚山鸡</div>
+                        <div class="food-stars">★★★★☆</div>
+                    </div>
+                    <div class="food-meta">
+                        <span>📍 纳雍县城各餐馆 · 到总溪河沿途可寻</span>
+                        <span>💰 人均50-80元</span>
+                    </div>
+                    <div class="food-desc">纳雍的"滚山鸡"是林下散养的土鸡，在山间奔跑觅食，肉质紧实鲜弹。白切或清炖最佳，蘸本地辣椒蘸水，鸡肉的鲜甜与蘸水的香辣完美融合。已走出贵州闯深圳，是纳雍的骄傲！</div>
+                    <div class="food-tags">
+                        <span class="food-tag tag-special">纳雍特产</span>
+                        <span class="food-tag tag-special">散养土鸡</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- D3 六盘水 -->
+    <div class="day-card d3" id="d3">
+        <div class="day-header" onclick="toggleFoodCard('d3')">
+            <div class="day-header-left">
+                <div class="day-badge">D3</div>
+                <div class="day-header-info">
+                    <h3>🫕 六盘水 — 烙锅之都·中国凉都</h3>
+                    <p>8/10 纳雍→六盘水（3.5h/200km）· 住 夜郎福地酒店</p>
+                </div>
+            </div>
+            <div class="day-toggle"><svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></div>
+        </div>
+        <div class="day-body">
+            <div class="day-content">
+                <div class="day-gallery">
+                    <img src="https://s.coze.cn/image/Fkui1N4QNvI/" alt="水城烙锅">
+                    <img src="https://s.coze.cn/image/ccHo6MtNNDU/" alt="水城羊肉粉">
+                </div>
+
+                <div class="food-item">
+                    <div class="food-top">
+                        <div class="food-name">🔥 三线人家·老水城烙锅</div>
+                        <div class="food-stars">★★★★★</div>
+                    </div>
+                    <div class="food-meta">
+                        <span>📍 六盘水市钟山区唐人街与钟山大道交叉口东北</span>
+                        <span>💰 人均40-55元</span>
+                    </div>
+                    <div class="food-desc">复刻90年代瓦片烙锅吃法！中间凸起的黑砂锅是灵魂，淋上菜籽油，万物皆可烙。五花肉、野生菌、乌洋芋、臭豆腐、饵壳、鲜虾在猪板油里滋滋作响。糊辣椒面+花椒+折耳根碎+花生碎的蘸水是灵魂。当地人戏称：水城烙锅，烙鞋底都好吃！</div>
+                    <div class="food-tags">
+                        <span class="food-tag tag-must">必吃</span>
+                        <span class="food-tag tag-night">夜市</span>
+                        <span class="food-tag tag-special">凉都招牌</span>
+                    </div>
+                </div>
+
+                <div class="food-item">
+                    <div class="food-top">
+                        <div class="food-name">🐑 尝回头羊肉粉（总店）</div>
+                        <div class="food-stars">★★★★★</div>
+                    </div>
+                    <div class="food-meta">
+                        <span>📍 六盘水市钟山区人民中路133号</span>
+                        <span>💰 人均12-15元</span>
+                    </div>
+                    <div class="food-desc">30年老店，贵州非遗美食！本地高山黑山羊慢炖8小时，汤色奶白无膻味。粗圆米粉爽滑，铺上薄切带皮羊肉，配酸菜、薄荷、手工舂制糍粑辣椒油。清晨来一碗，鲜辣过瘾，是六盘水人的早餐灵魂。</div>
+                    <div class="food-tags">
+                        <span class="food-tag tag-must">必吃</span>
+                        <span class="food-tag tag-old">30年老店</span>
+                        <span class="food-tag tag-breakfast">早餐</span>
+                    </div>
+                </div>
+
+                <div class="food-item">
+                    <div class="food-top">
+                        <div class="food-name">🍳 怪噜饭</div>
+                        <div class="food-stars">★★★★☆</div>
+                    </div>
+                    <div class="food-meta">
+                        <span>📍 推荐 老城思韵特色小吃 / 刘记怪噜饭店</span>
+                        <span>💰 人均10-15元</span>
+                    </div>
+                    <div class="food-desc">"怪噜"在贵州话里是复杂多变的意思。米饭配上四季豆、腊肉、酸萝卜、折耳根、洋葱等五彩配料爆炒，麻辣酸鲜口味复合。一口妈妈做的怪噜饭，是每个贵州人心中永远的白月光。10元管饱！</div>
+                    <div class="food-tags">
+                        <span class="food-tag tag-special">贵州家常</span>
+                        <span class="food-tag tag-snack">小吃</span>
+                        <span class="food-tag tag-family">亲子友好</span>
+                    </div>
+                </div>
+
+                <div class="food-item">
+                    <div class="food-top">
+                        <div class="food-name">🥩 盘县火腿</div>
+                        <div class="food-stars">★★★★★</div>
+                    </div>
+                    <div class="food-meta">
+                        <span>📍 推荐 山村园原生态老火腿 / 盘县罗记老火腿</span>
+                        <span>💰 人均40-60元（可冷切/炒菜）</span>
+                    </div>
+                    <div class="food-desc">中国国家地理标志产品！源自元朝，选用本地乌金猪后腿，盐腌、柴火熏制、自然发酵2年以上。肉质玫瑰红，咸中回甜，可冷切下酒、炒青椒、蒸糯米饭。在六盘水一定要尝一尝这"岁月定格的记忆"。</div>
+                    <div class="food-tags">
+                        <span class="food-tag tag-must">必吃</span>
+                        <span class="food-tag tag-old">国家地理标志</span>
+                        <span class="food-tag tag-special">伴手礼</span>
+                    </div>
+                </div>
+
+                <div class="food-item">
+                    <div class="food-top">
+                        <div class="food-name">🍡 蒸蒸糕 + 冰粉</div>
+                        <div class="food-stars">★★★★☆</div>
+                    </div>
+                    <div class="food-meta">
+                        <span>📍 推荐 王家蒸蒸糕烙锅 / 水城古镇各摊位</span>
+                        <span>💰 人均5-10元</span>
+                    </div>
+                    <div class="food-desc">蒸蒸糕是六盘水童年的回忆——糯米面蒸制，软糯绵密不黏牙，顶上配芝麻、花生碎、白糖。吃完烙锅后来一份，再配手搓冰粉（红糖浆+山楂+糍粑+玫瑰酱），夏夜的凉都，惬意无比！</div>
+                    <div class="food-tags">
+                        <span class="food-tag tag-snack">小吃</span>
+                        <span class="food-tag tag-family">亲子友好</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- D4 关岭 -->
+    <div class="day-card d4" id="d4">
+        <div class="day-header" onclick="toggleFoodCard('d4')">
+            <div class="day-header-left">
+                <div class="day-badge">D4</div>
+                <div class="day-header-info">
+                    <h3>🐂 关岭 — 世界第一高桥下的美味</h3>
+                    <p>8/11 六盘水→关岭（2.5h/160km）· 住 渊府·霞渡</p>
+                </div>
+            </div>
+            <div class="day-toggle"><svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></div>
+        </div>
+        <div class="day-body">
+            <div class="day-content">
+
+                <div class="food-item">
+                    <div class="food-top">
+                        <div class="food-name">🐟 花江活鱼</div>
+                        <div class="food-stars">★★★★★</div>
+                    </div>
+                    <div class="food-meta">
+                        <span>📍 关岭县花江镇（花江峡谷大桥下方）</span>
+                        <span>💰 人均50-80元</span>
+                    </div>
+                    <div class="food-desc">依托北盘江清澈江水，花江活鱼以"鲜"字当头。鱼肉紧实细嫩，几乎无土腥味。青椒鱼是招牌——橙黄豁亮的鱼汤缀着颗颗青花椒，麻而不辣、辣而不燥，鱼肉滑嫩中带着紧实韧性。看完世界第一高桥后来一份，美景美食相得益彰！</div>
+                    <div class="food-tags">
+                        <span class="food-tag tag-must">必吃</span>
+                        <span class="food-tag tag-special">关岭招牌</span>
+                    </div>
+                </div>
+
+                <div class="food-item">
+                    <div class="food-top">
+                        <div class="food-name">✂️ 花江剪粉</div>
+                        <div class="food-stars">★★★★★</div>
+                    </div>
+                    <div class="food-meta">
+                        <span>📍 关岭县花江镇政府附近</span>
+                        <span>💰 人均6-10元</span>
+                    </div>
+                    <div class="food-desc">关岭早餐之王！大米磨浆蒸制成薄如纸、韧如筋的粉皮，用剪刀剪成小段，加入酸汤、红油、花生、黄豆、海带丝、萝卜丝。酸汤用本地番茄和泡椒发酵而成，酸中带鲜。一碗只要几块钱，吃完元气满满！</div>
+                    <div class="food-tags">
+                        <span class="food-tag tag-must">必吃</span>
+                        <span class="food-tag tag-breakfast">早餐</span>
+                        <span class="food-tag tag-special">花江特色</span>
+                    </div>
+                </div>
+
+                <div class="food-item">
+                    <div class="food-top">
+                        <div class="food-name">🐂 关岭牛肉粉 / 涮牛肉</div>
+                        <div class="food-stars">★★★★☆</div>
+                    </div>
+                    <div class="food-meta">
+                        <span>📍 推荐 吉记带皮牛肉粉 / 花江镇涮牛肉店</span>
+                        <span>💰 人均15-50元</span>
+                    </div>
+                    <div class="food-desc">关岭黄牛饮山泉、食百草，肉质紧实鲜弹。牛肉粉用本地手工米粉，口感Q弹爽滑，"汤鲜、肉嫩、粉滑"三重享受。涮牛肉则是牛油红汤翻滚，现切牛肉片8秒涮煮蘸蒜泥香油，鲜辣交融。带皮牛肉粉更是关岭独有！</div>
+                    <div class="food-tags">
+                        <span class="food-tag tag-must">必吃</span>
+                        <span class="food-tag tag-special">关岭黄牛</span>
+                    </div>
+                </div>
+
+                <div class="food-item">
+                    <div class="food-top">
+                        <div class="food-name">🐔 上关辣子鸡</div>
+                        <div class="food-stars">★★★★☆</div>
+                    </div>
+                    <div class="food-meta">
+                        <span>📍 关岭县上关镇</span>
+                        <span>💰 人均50-70元</span>
+                    </div>
+                    <div class="food-desc">关岭美食版图中独树一帜的"硬菜担当"！一锅油红诱人的浓汤，棕红油亮的鸡肉，麻辣鲜香。本地人宴请宾客、游客打卡关岭的必点美味。与清镇辣子鸡风格不同，上关版更偏汤浓型，适合拌饭。</div>
+                    <div class="food-tags">
+                        <span class="food-tag tag-special">关岭硬菜</span>
+                        <span class="food-tag tag-must">必吃</span>
+                    </div>
+                </div>
+
+                <div class="food-item">
+                    <div class="food-top">
+                        <div class="food-name">🍖 花江腊排骨</div>
+                        <div class="food-stars">★★★★☆</div>
+                    </div>
+                    <div class="food-meta">
+                        <span>📍 关岭县花江镇文山村路口</span>
+                        <span>💰 人均40-60元</span>
+                    </div>
+                    <div class="food-desc">布依族人待客的盛宴！在喀斯特山间，时间与烟火悄然雕琢的风味。排骨经腌制、烟熏，穿越寒冬的咸香，诠释着山里人对自然的敬畏。炖煮后肉质酥烂、烟熏香气四溢，是穿越时光的味觉典藏。</div>
+                    <div class="food-tags">
+                        <span class="food-tag tag-special">布依族特色</span>
+                        <span class="food-tag tag-old">传统工艺</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- D5 安顺 -->
+    <div class="day-card d5" id="d5">
+        <div class="day-header" onclick="toggleFoodCard('d5')">
+            <div class="day-header-left">
+                <div class="day-badge">D5</div>
+                <div class="day-header-info">
+                    <h3>🎯 安顺 — 小吃天堂·顾府街逛吃</h3>
+                    <p>8/12 关岭→安顺（1h/80km）· 住 安顺城市印象酒店（紧邻美食街和安顺古城）</p>
+                </div>
+            </div>
+            <div class="day-toggle"><svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></div>
+        </div>
+        <div class="day-body">
+            <div class="day-content">
+                <div class="day-gallery">
+                    <img src="https://s.coze.cn/image/64GLCPOBcWI/" alt="夺夺粉">
+                    <img src="https://s.coze.cn/image/32biG5UFld0/" alt="小锅凉粉">
+                    <img src="https://s.coze.cn/image/NQMch5UVGHo/" alt="裹卷丝娃娃">
+                </div>
+
+                <div class="food-item">
+                    <div class="food-top">
+                        <div class="food-name">🌯 何记裹卷 / 杨姨妈裹卷（顾府街）</div>
+                        <div class="food-stars">★★★★★</div>
+                    </div>
+                    <div class="food-meta">
+                        <span>📍 安顺市西秀区顾府街（何记在安顺古城也有分店）</span>
+                        <span>💰 人均10-15元</span>
+                    </div>
+                    <div class="food-desc">安顺小吃No.1！薄如蝉翼的米皮，裹上酸萝卜丝、豆芽、黄瓜丝等清爽配菜，刷上秘制多口味辣椒酱。口味推荐：麻辣味（糊辣椒香而不燥）、番茄味（酸甜适合小朋友）。别处很难吃到如此正宗的！2026年新开古城分店，开业当天营业额上万元。</div>
+                    <div class="food-tags">
+                        <span class="food-tag tag-must">必吃</span>
+                        <span class="food-tag tag-old">老字号</span>
+                        <span class="food-tag tag-family">亲子友好</span>
+                    </div>
+                </div>
+
+                <div class="food-item">
+                    <div class="food-top">
+                        <div class="food-name">🫕 龙老太夺夺粉</div>
+                        <div class="food-stars">★★★★★</div>
+                    </div>
+                    <div class="food-meta">
+                        <span>📍 安顺市西秀区普定路（儒林路老字号）</span>
+                        <span>💰 人均15-25元</span>
+                    </div>
+                    <div class="food-desc">安顺独有的什锦小火锅！酸辣汤底用番茄、辣椒、豆瓣酱熬制，用竹签"夺"（戳）着米豆腐、洋芋、豆腐皮等食材吃。有辣子鸡锅、清汤锅、麻辣锅、酸辣锅和鸳鸯锅可选。必点方块凉粉和饵块粑，煮在酸辣汤里软糯入味！10元小锅够2人吃。</div>
+                    <div class="food-tags">
+                        <span class="food-tag tag-must">必吃</span>
+                        <span class="food-tag tag-old">老字号</span>
+                        <span class="food-tag tag-night">夜市</span>
+                    </div>
+                </div>
+
+                <div class="food-item">
+                    <div class="food-top">
+                        <div class="food-name">🥘 小芳砂锅凉粉</div>
+                        <div class="food-stars">★★★★★</div>
+                    </div>
+                    <div class="food-meta">
+                        <span>📍 安顺市西秀区顾府街南侧小巷子</span>
+                        <span>💰 人均10-15元</span>
+                    </div>
+                    <div class="food-desc">经营20多年的老店！Q弹的本地米豆腐切成方块，搭配火腿、洋芋等配菜在小砂锅里现煮，汤底加入霉豆腐调出独特的"臭香"风味。别忘了搭配一杯凉爽的玫瑰水。安顺代表性小吃，吃完浑身暖乎乎。</div>
+                    <div class="food-tags">
+                        <span class="food-tag tag-must">必吃</span>
+                        <span class="food-tag tag-old">20年老店</span>
+                        <span class="food-tag tag-snack">小吃</span>
+                    </div>
+                </div>
+
+                <div class="food-item">
+                    <div class="food-top">
+                        <div class="food-name">🥟 红翔破酥包</div>
+                        <div class="food-stars">★★★★★</div>
+                    </div>
+                    <div class="food-meta">
+                        <span>📍 安顺市西秀区顾府街</span>
+                        <span>💰 人均3-8元</span>
+                    </div>
+                    <div class="food-desc">安顺早餐界的天花板！包子皮经过反复擀压抹猪油形成层层酥层，暄软酥松。三鲜破酥包和洗沙花卷是热销单品，每天不到下午就销售一空。一口下去油而不腻，层层如纸、丝丝如纤。来安顺一定要早起排队！</div>
+                    <div class="food-tags">
+                        <span class="food-tag tag-must">必吃</span>
+                        <span class="food-tag tag-breakfast">早餐</span>
+                        <span class="food-tag tag-family">亲子友好</span>
+                    </div>
+                </div>
+
+                <div class="food-item">
+                    <div class="food-top">
+                        <div class="food-name">🍡 鑫荣甜品·冲冲糕</div>
+                        <div class="food-stars">★★★★☆</div>
+                    </div>
+                    <div class="food-meta">
+                        <span>📍 安顺市西秀区顾府街中段（小舒冰浆旁）</span>
+                        <span>💰 人均5-10元</span>
+                    </div>
+                    <div class="food-desc">安顺人童年的甜蜜记忆！出品稳定，很多人专程来买，连小朋友都打包生包带走。旁边还有小舒冰浆（三代老字号），黄瓜牛奶糯米冰浆清新爽口，是逛吃顾府街的最佳搭配。</div>
+                    <div class="food-tags">
+                        <span class="food-tag tag-snack">小吃</span>
+                        <span class="food-tag tag-family">亲子友好</span>
+                        <span class="food-tag tag-old">老字号</span>
+                    </div>
+                </div>
+
+                <div class="food-item">
+                    <div class="food-top">
+                        <div class="food-name">🍢 安顺烤小肠 + 左记豆腐圆子</div>
+                        <div class="food-stars">★★★★☆</div>
+                    </div>
+                    <div class="food-meta">
+                        <span>📍 顾府街沿线摊位</span>
+                        <span>💰 人均10-20元</span>
+                    </div>
+                    <div class="food-desc">安顺烧烤招牌！烤小肠外焦里糯、油香不腻，炭烤后焦脆弹牙。左记豆腐圆子一口一个，刚炸出锅又香又脆，用筷子戳开夹上折耳根拌料（或辣椒面），外脆里嫩。逛顾府街边走边吃，这才是正确的打开方式！</div>
+                    <div class="food-tags">
+                        <span class="food-tag tag-night">夜市</span>
+                        <span class="food-tag tag-snack">街头小吃</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- D6 返程 -->
+    <div class="day-card d6" id="d6">
+        <div class="day-header" onclick="toggleFoodCard('d6')">
+            <div class="day-header-left">
+                <div class="day-badge">D6</div>
+                <div class="day-header-info">
+                    <h3>🏠 返程路上 — 打包带走的美味</h3>
+                    <p>8/13 安顺→洞口（8h/550km）沿途美食与特产推荐</p>
+                </div>
+            </div>
+            <div class="day-toggle"><svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></div>
+        </div>
+        <div class="day-body">
+            <div class="day-content">
+
+                <div class="food-item">
+                    <div class="food-top">
+                        <div class="food-name">📦 刘姨妈黄粑（真空包装）</div>
+                        <div class="food-stars">★★★★★</div>
+                    </div>
+                    <div class="food-meta">
+                        <span>📍 清镇购买 · 安顺各大超市也有</span>
+                        <span>💰 约15-30元/袋</span>
+                    </div>
+                    <div class="food-desc">返程伴手礼首选！真空包装可保鲜数日，回家蒸热即可食用。有糯米、黑糯米、小米、五仁、熏肉等多种口味，是贵州省级非遗美食。送人自用两相宜，产品远销北京上海等十几个省市。</div>
+                    <div class="food-tags">
+                        <span class="food-tag tag-special">伴手礼</span>
+                        <span class="food-tag tag-family">全家爱吃</span>
+                    </div>
+                </div>
+
+                <div class="food-item">
+                    <div class="food-top">
+                        <div class="food-name">🥩 盘县火腿（真空包装）</div>
+                        <div class="food-stars">★★★★★</div>
+                    </div>
+                    <div class="food-meta">
+                        <span>📍 六盘水购买 · 各专卖店和超市</span>
+                        <span>💰 约60-120元/斤</span>
+                    </div>
+                    <div class="food-desc">中国国家地理标志产品！真空包装方便携带。回家可冷切下酒、炒青椒、蒸糯米饭，或直接煲汤提鲜。发酵2年以上的火腿，咸中回甜，是最有档次的贵州伴手礼之一。</div>
+                    <div class="food-tags">
+                        <span class="food-tag tag-special">伴手礼</span>
+                        <span class="food-tag tag-old">国家地理标志</span>
+                    </div>
+                </div>
+
+                <div class="food-item">
+                    <div class="food-top">
+                        <div class="food-name">🍬 安顺波波糖</div>
+                        <div class="food-stars">★★★★☆</div>
+                    </div>
+                    <div class="food-meta">
+                        <span>📍 安顺市中华南路 陈记波波糖 / 安顺古城</span>
+                        <span>💰 约15元/斤</span>
+                    </div>
+                    <div class="food-desc">安顺的甜口代表！芝麻、花生、麦芽糖熬制拉成细丝，口感酥脆甜而不腻。买真空包装方便携带，颜色淡黄色的才是正宗，太亮可能加了色素。试吃后满意再买，老板都很热情。</div>
+                    <div class="food-tags">
+                        <span class="food-tag tag-special">伴手礼</span>
+                        <span class="food-tag tag-snack">甜食</span>
+                    </div>
+                </div>
+
+                <div class="food-item">
+                    <div class="food-top">
+                        <div class="food-name">🌶️ 贵州辣椒面 / 折耳根蘸水料</div>
+                        <div class="food-stars">★★★★☆</div>
+                    </div>
+                    <div class="food-meta">
+                        <span>📍 沿途各菜市场/超市 · 织金九对头市场</span>
+                        <span>💰 约10-30元/袋</span>
+                    </div>
+                    <div class="food-desc">把贵州味道带回家！在织金九对头菜市场可以买到正宗的辣椒面和霉豆腐，在安顺可以买波波糖和裹卷用的辣酱。回家后用这些蘸水料做一顿烙锅，重温贵州之旅的美好记忆。</div>
+                    <div class="food-tags">
+                        <span class="food-tag tag-special">伴手礼</span>
+                        <span class="food-tag tag-special">调料干货</span>
+                    </div>
+                </div>
+
+                <div class="food-item">
+                    <div class="food-top">
+                        <div class="food-name">🍜 沿途服务区推荐</div>
+                        <div class="food-stars">★★★☆☆</div>
+                    </div>
+                    <div class="food-meta">
+                        <span>📍 安顺→贵阳→怀化→洞口 沿线服务区</span>
+                        <span>💰 人均20-40元</span>
+                    </div>
+                    <div class="food-desc">8小时返程路，建议在贵阳绕城附近的服务区休息用午餐。贵州境内服务区一般都有羊肉粉、酸汤粉等本地特色快餐，品质比外省服务区好很多。也可以自备一些黄粑、波波糖在车上，小朋友饿了随时补给。</div>
+                    <div class="food-tags">
+                        <span class="food-tag tag-family">亲子补给</span>
+                        <span class="food-tag tag-snack">路上零食</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== TIPS ===== -->
+<section class="tips-section">
+    <h2 class="tips-title">🌶️ 贵州美食小贴士</h2>
+    <div class="tips-grid">
+        <div class="tip-card">
+            <h4>🌶️ 关于辣度</h4>
+            <p>贵州菜以"酸辣"为主，辣度整体中等偏上。给小朋友点菜时可以说"微辣"或"不辣"，大部分餐馆都能调整。烙锅的蘸水可以单独给小朋友调不辣的。酸汤鱼的酸汤不辣，非常适合小朋友。</p>
+        </div>
+        <div class="tip-card">
+            <h4>🐟 折耳根预警</h4>
+            <p>折耳根（鱼腥草）是贵州小吃的"灵魂配料"，有独特的辛香气味。喜欢的甘之如饴，初次尝试可能不适应。建议先少量尝试，小朋友不爱吃可以要求不加。蘸水中通常含折耳根，点菜时提前说明。</p>
+        </div>
+        <div class="tip-card">
+            <h4>🫕 烙锅正确打开方式</h4>
+            <p>围锅而坐，先刷油再放食材。肉类放中间高温区，蔬菜放边上。烙到边缘微焦再翻面，蘸料是灵魂（糊辣椒+折耳根+花生碎）。建议先点洋芋粑、黄粑给小朋友试，再慢慢加肉类。人均40-55元可以吃得很好。</p>
+        </div>
+        <div class="tip-card">
+            <h4>🕐 用餐时间建议</h4>
+            <p>早餐（7:00-9:00）：羊肉粉、牛肉粉、破酥包、糯米饭<br>午餐（11:30-13:00）：辣子鸡、酸汤鱼、竹荪炖鸡<br>晚餐（17:30-19:00）：烙锅、夺夺粉、豆豉火锅<br>夜市（20:00+）：烤小肠、豆腐圆子、冰粉冰浆</p>
+        </div>
+        <div class="tip-card">
+            <h4>💰 消费参考</h4>
+            <p>贵州美食性价比极高！早餐人均10-15元，正餐人均40-80元，小吃人均5-20元。一家四口每天餐饮预算约150-300元就能吃得非常好。6天下来大约1000-1800元（含零食特产）。</p>
+        </div>
+        <div class="tip-card">
+            <h4>👶 亲子友好推荐</h4>
+            <p>不辣且适合小朋友的美食：黄粑、发粑、竹荪炖鸡、波波糖、蒸蒸糕、糯米饭、破酥包（三鲜味）、酸汤鱼（不辣版）、冲的糕、冰粉冰浆。烙锅时给小朋友单独蘸不辣调料即可。</p>
+        </div>
+    </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<div class="footer">
+    <a href="index.html">← 返回主页</a>
+    <p>🍜 黔味寻踪 · 贵州避暑自驾美食攻略 · 一家四口的味蕾之旅</p>
+    <p style="margin-top:0.5rem">信息来源：贵州省文化和旅游厅、各地融媒、携程、马蜂窝等公开资料 · 仅供参考</p>
+</div>
+
+<script>
+/* Toggle food day cards */
+function toggleFoodCard(id) {
+    var card = document.getElementById(id);
+    if (!card) return;
+    var isActive = card.className.indexOf('active') > -1;
+    /* Close all */
+    var cards = document.getElementsByClassName('day-card');
+    for (var i = 0; i < cards.length; i++) {
+        cards[i].className = cards[i].className.replace(' active', '');
+    }
+    /* Toggle clicked */
+    if (!isActive) {
+        card.className = card.className + ' active';
+    }
+}
+
+/* Hero particles */
+(function() {
+    var container = document.getElementById('heroParticles');
+    if (!container) return;
+    var emojis = ['🌶️','🍜','🥘','🫕','🍲','🍚','🥟','🍢'];
+    for (var i = 0; i < 15; i++) {
+        var span = document.createElement('span');
+        span.className = 'hero-particle';
+        span.style.left = (Math.random() * 100) + '%';
+        span.style.fontSize = (14 + Math.random() * 18) + 'px';
+        span.style.animationDelay = (Math.random() * 8) + 's';
+        span.style.animationDuration = (6 + Math.random() * 6) + 's';
+        span.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+        container.appendChild(span);
+    }
+})();
+
+/* Scroll animation */
+(function() {
+    var items = document.querySelectorAll('.food-item, .overview-item, .tip-card');
+    var observer = new IntersectionObserver(function(entries) {
+        for (var i = 0; i < entries.length; i++) {
+            if (entries[i].isIntersecting) {
+                entries[i].target.style.opacity = '1';
+                entries[i].target.style.transform = 'translateY(0)';
+            }
+        }
+    }, { threshold: 0.1 });
+    for (var i = 0; i < items.length; i++) {
+        items[i].style.opacity = '0';
+        items[i].style.transform = 'translateY(20px)';
+        items[i].style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        observer.observe(items[i]);
+    }
+})();
+</script>
+</body>
+</html>
