@@ -1257,69 +1257,148 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 
-/* ===== 3-Layer Navigation System ===== */
-body { overflow-x: hidden; }
+/* ===== 3-Layer Navigation System v2 ===== */
+body { overflow-x: hidden; padding-bottom: 70px; }
 
-/* Nav header bar */
+/* === Top Navigation Bar === */
 .nav-header {
     position: fixed;
     top: 0; left: 0; right: 0;
     z-index: 1000;
-    background: rgba(10,10,10,0.95);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(78,205,196,0.12);
+    background: rgba(10,10,10,0.96);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(78,205,196,0.15);
     display: flex;
     align-items: center;
-    padding: 10px 16px;
-    transition: transform 0.3s ease;
+    padding: 8px 12px;
+    height: 60px;
+    box-sizing: border-box;
 }
-.nav-header.hidden { transform: translateY(-100%); }
+/* Back button - big and clear */
 .nav-back {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    height: 40px;
+    padding: 0 14px 0 10px;
+    border-radius: 20px;
     background: rgba(78,205,196,0.12);
     border: 1px solid rgba(78,205,196,0.3);
     color: #4ecdc4;
-    font-size: 18px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    font-size: 15px;
+    font-weight: 600;
     cursor: pointer;
     flex-shrink: 0;
     transition: all 0.2s;
+    font-family: inherit;
+    white-space: nowrap;
 }
 .nav-back:hover { background: rgba(78,205,196,0.25); }
-.nav-title {
+.nav-back:active { transform: scale(0.94); }
+.nav-back .back-arrow { font-size: 22px; line-height: 1; }
+.nav-back .back-text { font-size: 13px; }
+body.view-home .nav-back { opacity: 0.3; pointer-events: none; }
+
+/* Title area */
+.nav-title-wrap {
     flex: 1;
     text-align: center;
+    overflow: hidden;
+    padding: 0 8px;
+}
+.nav-title {
     color: #f0f0f0;
     font-size: 15px;
     font-weight: 600;
-    margin: 0 8px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    line-height: 1.3;
 }
+.nav-breadcrumb {
+    color: rgba(255,255,255,0.35);
+    font-size: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.2;
+    margin-top: 2px;
+}
+.nav-breadcrumb span { color: rgba(78,205,196,0.5); }
+
+/* Home button - big and clear */
 .nav-home-btn {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background: rgba(78,205,196,0.12);
-    border: 1px solid rgba(78,205,196,0.3);
-    color: #4ecdc4;
-    font-size: 16px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    gap: 4px;
+    height: 40px;
+    padding: 0 14px 0 10px;
+    border-radius: 20px;
+    background: rgba(212,165,116,0.1);
+    border: 1px solid rgba(212,165,116,0.25);
+    color: #d4a574;
+    font-size: 15px;
+    font-weight: 600;
     cursor: pointer;
     flex-shrink: 0;
     transition: all 0.2s;
+    font-family: inherit;
+    white-space: nowrap;
 }
-.nav-home-btn:hover { background: rgba(78,205,196,0.25); }
+.nav-home-btn:hover { background: rgba(212,165,116,0.2); }
+.nav-home-btn:active { transform: scale(0.94); }
+.nav-home-btn .home-icon { font-size: 18px; }
+.nav-home-btn .home-text { font-size: 13px; }
 
-/* Section visibility control */
+/* === Bottom Navigation Bar === */
+.nav-bottom {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    z-index: 1000;
+    background: rgba(10,10,10,0.96);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-top: 1px solid rgba(78,205,196,0.12);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 60px;
+    padding: 0 8px;
+    box-sizing: border-box;
+}
+.nav-bottom-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    padding: 6px 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: none;
+    background: none;
+    font-family: inherit;
+    min-width: 56px;
+}
+.nav-bottom-btn:hover { background: rgba(78,205,196,0.08); }
+.nav-bottom-btn:active { transform: scale(0.92); }
+.nb-icon {
+    font-size: 20px;
+    line-height: 1;
+    color: rgba(255,255,255,0.5);
+    transition: color 0.2s;
+}
+.nb-label {
+    font-size: 10px;
+    color: rgba(255,255,255,0.4);
+    font-weight: 500;
+    transition: color 0.2s;
+}
+.nav-bottom-btn.active .nb-icon { color: #4ecdc4; }
+.nav-bottom-btn.active .nb-label { color: #4ecdc4; }
+
+/* Section visibility */
 section[data-view] { display: none !important; }
 section[data-view].view-active { display: block !important; }
 
@@ -1365,22 +1444,9 @@ section[data-view].view-active { display: block !important; }
     border-radius: 12px;
 }
 .hnb-text { flex: 1; }
-.hnb-title {
-    color: #f0f0f0;
-    font-size: 16px;
-    font-weight: bold;
-    margin-bottom: 4px;
-}
-.hnb-desc {
-    color: rgba(255,255,255,0.4);
-    font-size: 12px;
-    line-height: 1.4;
-}
-.hnb-arrow {
-    color: rgba(78,205,196,0.4);
-    font-size: 20px;
-    flex-shrink: 0;
-}
+.hnb-title { color: #f0f0f0; font-size: 16px; font-weight: bold; margin-bottom: 4px; }
+.hnb-desc { color: rgba(255,255,255,0.4); font-size: 12px; line-height: 1.4; }
+.hnb-arrow { color: rgba(78,205,196,0.4); font-size: 20px; flex-shrink: 0; }
 
 /* Sub-navigation buttons */
 .sub-nav-wrap {
@@ -1403,56 +1469,94 @@ section[data-view].view-active { display: block !important; }
     text-align: center;
     font-family: inherit;
 }
-.sub-nav-btn:hover {
-    background: rgba(78,205,196,0.1);
-    border-color: rgba(78,205,196,0.3);
-}
+.sub-nav-btn:hover { background: rgba(78,205,196,0.1); border-color: rgba(78,205,196,0.3); }
 .sub-nav-btn:active { transform: scale(0.96); }
 .sn-icon { font-size: 24px; display: block; margin-bottom: 6px; }
-.sn-label {
-    color: #f0f0f0;
-    font-size: 12px;
-    font-weight: 600;
-    display: block;
-    line-height: 1.3;
-}
-.sn-sub {
-    color: rgba(255,255,255,0.35);
-    font-size: 10px;
-    display: block;
-    margin-top: 2px;
-}
-.sub-nav-btn.active-sub {
-    background: rgba(78,205,196,0.15);
-    border-color: rgba(78,205,196,0.4);
-}
+.sn-label { color: #f0f0f0; font-size: 12px; font-weight: 600; display: block; line-height: 1.3; }
+.sn-sub { color: rgba(255,255,255,0.35); font-size: 10px; display: block; margin-top: 2px; }
+.sub-nav-btn.active-sub { background: rgba(78,205,196,0.15); border-color: rgba(78,205,196,0.4); }
 
-/* Top spacer for fixed header */
-.nav-spacer { height: 56px; }
+/* Nav spacer */
+.nav-spacer { height: 60px; }
 
-/* Smooth section transitions */
+/* Section fade-in animation */
 section[data-view].view-active {
-    animation: viewFadeIn 0.35s ease;
+    animation: viewFadeIn 0.3s ease;
 }
 @keyframes viewFadeIn {
-    from { opacity: 0; transform: translateY(12px); }
-    to { opacity: 1; transform: translateY(0); }
+    from { opacity: 0; transform: translateX(20px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+body.view-home section[data-view].view-active {
+    animation: viewFadeInHome 0.4s ease;
+}
+@keyframes viewFadeInHome {
+    from { opacity: 0; transform: scale(0.98); }
+    to { opacity: 1; transform: scale(1); }
 }
 
-/* Hide old global nav if it exists on non-home views */
+/* Hide home nav on non-home views */
 body:not(.view-home) .home-nav-wrap { display: none; }
-body.view-home .nav-back { visibility: hidden; }
-body.view-home .nav-home-btn { visibility: hidden; }
+
+/* Swipe hint (mobile) */
+.swipe-hint {
+    position: fixed;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 60px;
+    background: rgba(78,205,196,0.2);
+    border-radius: 0 4px 4px 0;
+    z-index: 999;
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+}
+.swipe-hint.show { opacity: 1; }
 
 </style>
 </head>
 <body>
 <div class="nav-header" id="navHeader">
-    <button class="nav-back" id="navBack" onclick="navBack()">&#8249;</button>
-    <div class="nav-title" id="navTitle">&#36149;&#24030;&#36991;&#26257;&#33258;&#39550;&#28216;</div>
-    <button class="nav-home-btn" onclick="navTo('home')">&#8962;</button>
+    <button class="nav-back" id="navBack" onclick="navBack()">
+        <span class="back-arrow">&#8249;</span>
+        <span class="back-text">&#36820;&#22238;</span>
+    </button>
+    <div class="nav-title-wrap">
+        <div class="nav-title" id="navTitle">&#36149;&#24030;&#36991;&#26257;&#33258;&#39550;&#28216;</div>
+        <div class="nav-breadcrumb" id="navBreadcrumb"></div>
+    </div>
+    <button class="nav-home-btn" onclick="navTo('home')">
+        <span class="home-icon">&#8962;</span>
+        <span class="home-text">&#39318;&#39029;</span>
+    </button>
 </div>
 <div class="nav-spacer"></div>
+<!-- Bottom navigation bar -->
+<div class="nav-bottom" id="navBottom">
+    <button class="nav-bottom-btn" data-bottom="home" onclick="navTo('home')">
+        <span class="nb-icon">&#127968;</span>
+        <span class="nb-label">&#39318;&#39029;</span>
+    </button>
+    <button class="nav-bottom-btn" data-bottom="route-overview" onclick="navTo('route-overview')">
+        <span class="nb-icon">&#128506;</span>
+        <span class="nb-label">&#34892;&#31243;</span>
+    </button>
+    <button class="nav-bottom-btn" data-bottom="hotels-budget" onclick="navTo('hotels-budget')">
+        <span class="nb-icon">&#127969;</span>
+        <span class="nb-label">&#20303;&#23487;</span>
+    </button>
+    <button class="nav-bottom-btn" data-bottom="travel-guide" onclick="navTo('travel-guide')">
+        <span class="nb-icon">&#127897;</span>
+        <span class="nb-label">&#25915;&#30053;</span>
+    </button>
+    <button class="nav-bottom-btn" id="navBottomBack" onclick="navBack()">
+        <span class="nb-icon">&#8617;</span>
+        <span class="nb-label">&#36864;&#20986;</span>
+    </button>
+</div>
+<div class="swipe-hint" id="swipeHint"></div>
 
 
 <!-- Navigation -->
@@ -4690,6 +4794,12 @@ window.onscroll = handleScroll;
         // Update header
         updateNavHeader(viewId);
 
+        // Update breadcrumb
+        updateBreadcrumb(viewId);
+
+        // Update bottom bar active state
+        updateBottomBar(viewId);
+
         // Update body class
         document.body.className = 'view-' + viewId;
 
@@ -4795,6 +4905,69 @@ window.onscroll = handleScroll;
         }
     }
 
+    // Breadcrumb updater
+    function updateBreadcrumb(viewId) {
+        var el = document.getElementById('navBreadcrumb');
+        if (!el) return;
+        var path = [];
+        var current = viewId;
+        while (current && viewParent[current]) {
+            var parent = viewParent[current];
+            if (viewTitles[parent]) path.unshift(viewTitles[parent]);
+            current = parent;
+        }
+        if (path.length > 0 && viewId !== 'home') {
+            path.push(viewTitles[viewId] || viewId);
+            el.innerHTML = '<span>' + path.join(' &rsaquo; ') + '</span>';
+        } else {
+            el.innerHTML = '';
+        }
+    }
+
+    // Bottom bar active state
+    function updateBottomBar(viewId) {
+        var btns = document.querySelectorAll('.nav-bottom-btn[data-bottom]');
+        for (var i = 0; i < btns.length; i++) {
+            var target = btns[i].getAttribute('data-bottom');
+            var parent = viewParent[viewId] || viewId;
+            if (target === viewId || target === parent || (viewId === 'home' && target === 'home')) {
+                btns[i].className = 'nav-bottom-btn active';
+            } else {
+                btns[i].className = 'nav-bottom-btn';
+            }
+        }
+        // Show/hide bottom back button
+        var backBtn = document.getElementById('navBottomBack');
+        if (backBtn) {
+            backBtn.style.display = (viewId === 'home') ? 'none' : '';
+        }
+    }
+
+    // Swipe gesture (mobile): swipe right from left edge = go back
+    var touchStartX = 0, touchStartY = 0, swiping = false;
+    document.addEventListener('touchstart', function(e) {
+        if (e.touches[0].clientX < 30) {
+            touchStartX = e.touches[0].clientX;
+            touchStartY = e.touches[0].clientY;
+            swiping = true;
+            var hint = document.getElementById('swipeHint');
+            if (hint) hint.className = 'swipe-hint show';
+        }
+    }, {passive: true});
+    document.addEventListener('touchmove', function(e) {
+        if (swiping && e.touches[0].clientX - touchStartX > 60) {
+            navBack();
+            swiping = false;
+            var hint = document.getElementById('swipeHint');
+            if (hint) hint.className = 'swipe-hint';
+        }
+    }, {passive: true});
+    document.addEventListener('touchend', function() {
+        swiping = false;
+        var hint = document.getElementById('swipeHint');
+        if (hint) hint.className = 'swipe-hint';
+    }, {passive: true});
+
     // Initialize: show home view
     function init() {
         // Hide all view sections
@@ -4816,6 +4989,8 @@ window.onscroll = handleScroll;
 
         document.body.className = 'view-home';
         updateNavHeader('home');
+        updateBreadcrumb('home');
+        updateBottomBar('home');
     }
 
     // Run on load
