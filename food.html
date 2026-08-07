@@ -47,7 +47,9 @@ img{max-width:100%;height:auto;display:block}
 .overview-foods{font-size:0.78rem;color:var(--text-dim);line-height:1.6}
 
 /* Food cards (day sections) */
-.day-card{background:var(--bg-card);border-radius:var(--radius-l);margin-bottom:1.5rem;border:1px solid rgba(255,255,255,0.05);overflow:hidden;transition:border-color 0.3s}
+.day-card{background:var(--bg-card);border-radius:var(--radius-l);margin-bottom:1.5rem;border:1px solid rgba(255,255,255,0.05);overflow:hidden;transition:border-color 0.3s
+    word-wrap: break-word;
+    overflow-wrap: break-word;}
 .day-card.active{border-color:rgba(231,76,60,0.25)}
 .day-header{display:flex;align-items:center;justify-content:space-between;padding:1.2rem 1.5rem;cursor:pointer;transition:background 0.3s;user-select:none}
 .day-header:hover{background:rgba(255,255,255,0.03)}
@@ -128,6 +130,15 @@ img{max-width:100%;height:auto;display:block}
 .hero-emoji{font-size:3rem}
 .tips-grid{grid-template-columns:1fr}
 }
+
+    /* Global text wrap safety: prevent text cutoff in all section content */
+    .section-inner p, .section-inner h1, .section-inner h2, .section-inner h3, .section-inner h4, .section-inner h5, .section-inner h6, .section-inner span, .section-inner div { word-wrap: break-word; overflow-wrap: break-word; max-width: 100%; }
+    .section-inner { overflow-x: hidden; }
+
+    /* Mobile text overflow protection */
+    @media (max-width: 480px) {
+        .section-inner { padding: 0 16px !important; }
+    }
 </style>
 </head>
 <body>

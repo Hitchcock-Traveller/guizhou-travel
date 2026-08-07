@@ -174,7 +174,8 @@ img { max-width: 100%; display: block; }
   margin-bottom: 1.5rem;
   overflow: hidden;
   transition: border-color 0.3s ease;
-}
+    word-wrap: break-word;
+    overflow-wrap: break-word;}
 .adventure-card:hover {
   border-color: #333;
 }
@@ -523,6 +524,15 @@ img { max-width: 100%; display: block; }
   opacity: 1;
   transform: translateY(0);
 }
+
+    /* Global text wrap safety: prevent text cutoff in all section content */
+    .section-inner p, .section-inner h1, .section-inner h2, .section-inner h3, .section-inner h4, .section-inner h5, .section-inner h6, .section-inner span, .section-inner div { word-wrap: break-word; overflow-wrap: break-word; max-width: 100%; }
+    .section-inner { overflow-x: hidden; }
+
+    /* Mobile text overflow protection */
+    @media (max-width: 480px) {
+        .section-inner { padding: 0 16px !important; }
+    }
 </style>
 </head>
 <body>

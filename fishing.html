@@ -51,7 +51,9 @@ a:hover{color:#d4a574}
 .day-sep-route{font-size:13px;color:rgba(255,255,255,0.45);margin-top:6px}
 
 /* Fishing Card */
-.fish-card{background:#141414;border-radius:16px;margin-bottom:16px;overflow:hidden;border:1px solid rgba(255,255,255,0.06);transition:border-color .3s,box-shadow .3s}
+.fish-card{background:#141414;border-radius:16px;margin-bottom:16px;overflow:hidden;border:1px solid rgba(255,255,255,0.06);transition:border-color .3s,box-shadow .3s
+    word-wrap: break-word;
+    overflow-wrap: break-word;}
 .fish-card:hover{border-color:rgba(78,205,196,0.2);box-shadow:0 8px 40px rgba(78,205,196,0.06)}
 .fish-card-header{display:flex;align-items:center;justify-content:space-between;padding:20px 24px;cursor:pointer;user-select:none;transition:background .3s}
 .fish-card-header:hover{background:rgba(78,205,196,0.03)}
@@ -127,6 +129,15 @@ a:hover{color:#d4a574}
   .fish-card-inner{padding:0 18px 24px}
   .stat-item{min-width:100px}
 }
+
+    /* Global text wrap safety: prevent text cutoff in all section content */
+    .section-inner p, .section-inner h1, .section-inner h2, .section-inner h3, .section-inner h4, .section-inner h5, .section-inner h6, .section-inner span, .section-inner div { word-wrap: break-word; overflow-wrap: break-word; max-width: 100%; }
+    .section-inner { overflow-x: hidden; }
+
+    /* Mobile text overflow protection */
+    @media (max-width: 480px) {
+        .section-inner { padding: 0 16px !important; }
+    }
 </style>
 </head>
 <body>
