@@ -1087,8 +1087,9 @@ img { max-width: 100%; height: auto; display: block; }
     transform: translate(-50%, -50%) scale(1.1);
 }
 .dmc-play-btn.playing {
-    opacity: 0.3;
+    opacity: 0;
     pointer-events: none;
+    transform: translate(-50%, -50%) scale(0.5);
 }
 /* Route animation */
 .daily-route-path {
@@ -1586,6 +1587,79 @@ body:not(.view-home) .home-nav-wrap { display: none; }
     background: rgba(78,205,196,0.2);
     color: #4ecdc4;
 }
+
+/* ===== Overview Map Animation ===== */
+#overview-route-line {
+    stroke-dasharray: 2000;
+    stroke-dashoffset: 2000;
+    transition: stroke-dashoffset 5s ease-in-out;
+}
+#overview-route-line.animated {
+    stroke-dashoffset: 0;
+}
+.overview-stop-marker {
+    opacity: 0.3;
+    transition: opacity 0.6s ease, r 0.3s ease;
+}
+.overview-stop-marker.show {
+    opacity: 1;
+}
+.overview-stop-marker.show {
+    animation: markerPulse 0.6s ease forwards;
+}
+@keyframes markerPulse {
+    0% { r: 5; opacity: 0.3; }
+    50% { r: 9; opacity: 1; }
+    100% { r: 5; opacity: 1; }
+}
+
+/* ===== Overview Map Interaction Effects ===== */
+.map-svg-wrap {
+    position: relative;
+}
+.map-svg-wrap::before {
+    content: '';
+    position: absolute;
+    top: -2px; left: -2px; right: -2px; bottom: -2px;
+    border-radius: 20px;
+    background: transparent;
+    border: 1px solid rgba(78,205,196,0);
+    transition: border-color 0.6s ease, box-shadow 0.6s ease;
+    pointer-events: none;
+    z-index: 1;
+}
+.map-svg-wrap.active::before {
+    border-color: rgba(78,205,196,0.3);
+    box-shadow: 0 0 30px rgba(78,205,196,0.1), inset 0 0 30px rgba(78,205,196,0.05);
+}
+.map-svg-wrap.active svg {
+    filter: drop-shadow(0 0 8px rgba(78,205,196,0.15));
+}
+
+/* Flowing route animation */
+@keyframes routeFlow {
+    0% { stroke-dashoffset: 0; }
+    100% { stroke-dashoffset: -24; }
+}
+#overview-route-line.flowing {
+    stroke-dasharray: 12, 12;
+    stroke-dashoffset: 0;
+    animation: routeFlow 1.5s linear infinite;
+}
+
+/* Stop markers breathing glow */
+@keyframes stopBreath {
+    0%, 100% { filter: drop-shadow(0 0 2px rgba(212,165,116,0.3)); }
+    50% { filter: drop-shadow(0 0 8px rgba(212,165,116,0.7)); }
+}
+.overview-stop-marker.show {
+    animation: none;
+    filter: drop-shadow(0 0 3px rgba(212,165,116,0.5));
+}
+.overview-stop-marker.breathing {
+    animation: stopBreath 2.5s ease-in-out infinite;
+}
+
 </style>
 </head>
 <body>
@@ -1819,26 +1893,26 @@ body:not(.view-home) .home-nav-wrap { display: none; }
 <text x="227.0" y="437.5" text-anchor="middle" fill="rgba(255,255,255,0.35)" font-size="11" font-family="sans-serif">黔西南</text>
 <text x="548.7" y="320.2" text-anchor="middle" fill="rgba(255,255,255,0.35)" font-size="11" font-family="sans-serif">黔东南</text>
 <text x="414.2" y="355.3" text-anchor="middle" fill="rgba(255,255,255,0.35)" font-size="11" font-family="sans-serif">黔南</text>
-<polyline points="28.0,256.9 331.7,312.7 210.8,291.5 165.1,309.8 245.4,367.5 276.9,342.5 356.1,304.0" fill="none" stroke="#d4a574" stroke-width="2.5" stroke-dasharray="8,4" stroke-linecap="round"/>
-<circle cx="28.0" cy="256.9" r="5" fill="#d4a574" stroke="#0a0a0a" stroke-width="2"/>
-<text x="28.0" y="244.9" text-anchor="middle" fill="#f0f0f0" font-size="13" font-weight="bold" font-family="sans-serif" paint-order="stroke" stroke="#0a0a0a" stroke-width="3">洞口</text>
-<text x="28.0" y="274.9" text-anchor="middle" fill="rgba(212,165,116,0.8)" font-size="10" font-family="sans-serif">D0 出发</text>
-<circle cx="331.7" cy="312.7" r="5" fill="#d4a574" stroke="#0a0a0a" stroke-width="2"/>
+<polyline id="overview-route-line" points="660,278 331.7,312.7 210.8,291.5 165.1,309.8 245.4,367.5 276.9,342.5 356.1,304.0" fill="none" stroke="#d4a574" stroke-width="2.5" stroke-dasharray="8,4" stroke-linecap="round"/>
+<circle cx="660" cy="278" r="5" fill="#d4a574" stroke="#0a0a0a" stroke-width="2" class="overview-stop-marker" data-stop="0"/>
+<text x="660" y="266" text-anchor="middle" fill="#f0f0f0" font-size="13" font-weight="bold" font-family="sans-serif" paint-order="stroke" stroke="#0a0a0a" stroke-width="3">洞口</text>
+<text x="660" y="296" text-anchor="middle" fill="rgba(212,165,116,0.8)" font-size="10" font-family="sans-serif">D0 出发</text>
+<circle cx="331.7" cy="312.7" r="5" fill="#d4a574" stroke="#0a0a0a" stroke-width="2" class="overview-stop-marker" data-stop="1"/>
 <text x="331.7" y="300.7" text-anchor="middle" fill="#f0f0f0" font-size="13" font-weight="bold" font-family="sans-serif" paint-order="stroke" stroke="#0a0a0a" stroke-width="3">清镇</text>
 <text x="331.7" y="330.7" text-anchor="middle" fill="rgba(212,165,116,0.8)" font-size="10" font-family="sans-serif">D1</text>
-<circle cx="210.8" cy="291.5" r="5" fill="#d4a574" stroke="#0a0a0a" stroke-width="2"/>
+<circle cx="210.8" cy="291.5" r="5" fill="#d4a574" stroke="#0a0a0a" stroke-width="2" class="overview-stop-marker" data-stop="2"/>
 <text x="210.8" y="279.5" text-anchor="middle" fill="#f0f0f0" font-size="13" font-weight="bold" font-family="sans-serif" paint-order="stroke" stroke="#0a0a0a" stroke-width="3">纳雍</text>
 <text x="210.8" y="309.5" text-anchor="middle" fill="rgba(212,165,116,0.8)" font-size="10" font-family="sans-serif">D2</text>
-<circle cx="165.1" cy="309.8" r="5" fill="#d4a574" stroke="#0a0a0a" stroke-width="2"/>
+<circle cx="165.1" cy="309.8" r="5" fill="#d4a574" stroke="#0a0a0a" stroke-width="2" class="overview-stop-marker" data-stop="3"/>
 <text x="165.1" y="297.8" text-anchor="middle" fill="#f0f0f0" font-size="13" font-weight="bold" font-family="sans-serif" paint-order="stroke" stroke="#0a0a0a" stroke-width="3">六盘水</text>
 <text x="165.1" y="327.8" text-anchor="middle" fill="rgba(212,165,116,0.8)" font-size="10" font-family="sans-serif">D3</text>
-<circle cx="245.4" cy="367.5" r="5" fill="#d4a574" stroke="#0a0a0a" stroke-width="2"/>
+<circle cx="245.4" cy="367.5" r="5" fill="#d4a574" stroke="#0a0a0a" stroke-width="2" class="overview-stop-marker" data-stop="4"/>
 <text x="245.4" y="355.5" text-anchor="middle" fill="#f0f0f0" font-size="13" font-weight="bold" font-family="sans-serif" paint-order="stroke" stroke="#0a0a0a" stroke-width="3">关岭</text>
 <text x="245.4" y="385.5" text-anchor="middle" fill="rgba(212,165,116,0.8)" font-size="10" font-family="sans-serif">D4</text>
-<circle cx="276.9" cy="342.5" r="5" fill="#d4a574" stroke="#0a0a0a" stroke-width="2"/>
+<circle cx="276.9" cy="342.5" r="5" fill="#d4a574" stroke="#0a0a0a" stroke-width="2" class="overview-stop-marker" data-stop="5"/>
 <text x="276.9" y="330.5" text-anchor="middle" fill="#f0f0f0" font-size="13" font-weight="bold" font-family="sans-serif" paint-order="stroke" stroke="#0a0a0a" stroke-width="3">安顺</text>
 <text x="276.9" y="360.5" text-anchor="middle" fill="rgba(212,165,116,0.8)" font-size="10" font-family="sans-serif">D5</text>
-<circle cx="356.1" cy="304.0" r="5" fill="#d4a574" stroke="#0a0a0a" stroke-width="2"/>
+<circle cx="356.1" cy="304.0" r="5" fill="#d4a574" stroke="#0a0a0a" stroke-width="2" class="overview-stop-marker" data-stop="6"/>
 <text x="356.1" y="292.0" text-anchor="middle" fill="#f0f0f0" font-size="13" font-weight="bold" font-family="sans-serif" paint-order="stroke" stroke="#0a0a0a" stroke-width="3">贵阳</text>
 <text x="356.1" y="322.0" text-anchor="middle" fill="rgba(212,165,116,0.8)" font-size="10" font-family="sans-serif">D6 返程</text>
 <line x1="50" y1="540" x2="163.7" y2="540" stroke="rgba(255,255,255,0.7)" stroke-width="2"/>
@@ -4852,23 +4926,32 @@ window.onscroll = handleScroll;
         var btn = card.querySelector('.dmc-play-btn');
         if (btn) btn.className = 'dmc-play-btn playing';
 
-        // Animate route path
+        // Animate route path - use setAttribute for SVG elements
         var paths = card.querySelectorAll('.daily-route-path, .daily-route-glow');
         for (var i = 0; i < paths.length; i++) {
-            paths[i].className = paths[i].className.baseVal + ' animated';
+            var cls = paths[i].getAttribute('class') || '';
+            if (cls.indexOf('animated') === -1) {
+                paths[i].setAttribute('class', cls + ' animated');
+            }
         }
 
         // Animate markers and labels sequentially
         var markers = card.querySelectorAll('.daily-marker');
         var labels = card.querySelectorAll('.daily-label');
         var total = markers.length;
-        var delay = 400; // ms between each marker
+        var delay = 400;
 
         for (var j = 0; j < total; j++) {
             (function(idx) {
                 setTimeout(function() {
-                    if (markers[idx]) markers[idx].className.baseVal = 'daily-marker show';
-                    if (labels[idx]) labels[idx].className.baseVal = 'daily-label show';
+                    if (markers[idx]) {
+                        var mc = markers[idx].getAttribute('class') || '';
+                        if (mc.indexOf('show') === -1) markers[idx].setAttribute('class', mc + ' show');
+                    }
+                    if (labels[idx]) {
+                        var lc = labels[idx].getAttribute('class') || '';
+                        if (lc.indexOf('show') === -1) labels[idx].setAttribute('class', lc + ' show');
+                    }
                 }, delay * (idx + 1) + 300);
             })(j);
         }
@@ -4891,7 +4974,6 @@ window.onscroll = handleScroll;
         }
     }
 
-    // Throttled scroll listener
     var scrollTimer = null;
     window.addEventListener('scroll', function() {
         if (scrollTimer) return;
@@ -4901,8 +4983,72 @@ window.onscroll = handleScroll;
         }, 200);
     }, {passive: true});
 
-    // Check on load
     setTimeout(checkVisibility, 1000);
+})();
+
+// Overview map scroll animation + interaction effects
+(function() {
+    var overviewAnimated = false;
+
+    function animateOverviewRoute() {
+        if (overviewAnimated) return;
+        overviewAnimated = true;
+
+        var wrap = document.querySelector('.map-svg-wrap');
+        var routeLine = document.getElementById('overview-route-line');
+        if (!routeLine) return;
+
+        // Add active glow to map container
+        if (wrap) wrap.className = wrap.className + ' active';
+
+        // Animate the route line drawing
+        routeLine.setAttribute('class', 'animated');
+
+        // Sequentially show stop markers
+        var markers = document.querySelectorAll('.overview-stop-marker');
+        var stopNames = ['\u6d1e\u53e3', '\u6e05\u9547', '\u7eb3\u96cd', '\u516d\u76d8\u6c34', '\u5173\u5cad', '\u5b89\u987a', '\u8d35\u9633'];
+        var delay = 700;
+
+        for (var i = 0; i < markers.length; i++) {
+            (function(idx) {
+                setTimeout(function() {
+                    markers[idx].setAttribute('class', 'overview-stop-marker show');
+                }, delay * (idx + 1) + 500);
+            })(i);
+        }
+
+        // After route is drawn, switch to flowing animation + breathing glow
+        setTimeout(function() {
+            routeLine.setAttribute('class', 'flowing');
+            for (var k = 0; k < markers.length; k++) {
+                var mc = markers[k].getAttribute('class') || '';
+                if (mc.indexOf('breathing') === -1) {
+                    markers[k].setAttribute('class', mc + ' breathing');
+                }
+            }
+        }, delay * (markers.length + 1) + 1000);
+    }
+
+    function checkOverviewVisibility() {
+        var mapSection = document.getElementById('map');
+        if (!mapSection) return;
+        var rect = mapSection.getBoundingClientRect();
+        var viewH = window.innerHeight || document.documentElement.clientHeight;
+        if (rect.top < viewH * 0.5 && rect.bottom > 0) {
+            animateOverviewRoute();
+        }
+    }
+
+    var ovScrollTimer = null;
+    window.addEventListener('scroll', function() {
+        if (ovScrollTimer) return;
+        ovScrollTimer = setTimeout(function() {
+            ovScrollTimer = null;
+            checkOverviewVisibility();
+        }, 250);
+    }, {passive: true});
+
+    setTimeout(checkOverviewVisibility, 800);
 })();
 </script>
 
