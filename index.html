@@ -1665,520 +1665,107 @@ body:not(.view-home) .home-nav-wrap { display: none; }
 }
 
 
-/* ===== Fishing Section ===== */
-.fishing-hero {
+
+/* ===== More Topics Section ===== */
+.more-topics {
+    padding: 60px 0 40px;
     position: relative;
-    width: 100%;
-    min-height: 340px;
-    background: linear-gradient(135deg, rgba(10,40,60,0.92) 0%, rgba(10,10,10,0.75) 100%),
-                url('https://s.coze.cn/image/zg4Yxvga86A/') center/cover no-repeat;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+}
+.more-topics .section-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+.more-topics-header {
     text-align: center;
-    border-radius: var(--radius-l);
-    overflow: hidden;
     margin-bottom: 40px;
 }
-.fishing-hero::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: linear-gradient(180deg, transparent 40%, rgba(10,10,10,0.95) 100%);
-    pointer-events: none;
-}
-.fishing-hero-content {
-    position: relative;
-    z-index: 2;
-    padding: 48px 24px;
-}
-.fishing-hero-icon {
-    font-size: 56px;
-    margin-bottom: 16px;
-    display: block;
-    animation: fishingBob 3s ease-in-out infinite;
-}
-@keyframes fishingBob {
-    0%, 100% { transform: translateY(0) rotate(-5deg); }
-    50% { transform: translateY(-8px) rotate(5deg); }
-}
-.fishing-hero h2 {
-    font-size: 42px;
+.more-topics-title {
+    font-size: clamp(24px, 4vw, 36px);
     font-weight: 800;
-    color: var(--warm);
-    letter-spacing: 6px;
-    margin-bottom: 12px;
-    text-shadow: 0 2px 20px rgba(212,165,116,0.3);
-}
-.fishing-hero .fishing-subtitle {
-    font-size: 16px;
-    color: var(--text-dim);
-    max-width: 560px;
-    margin: 0 auto;
-    line-height: 1.8;
-}
-.fishing-hero .fishing-badge {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 8px 24px;
-    background: rgba(212,165,116,0.15);
-    border: 1px solid rgba(212,165,116,0.3);
-    border-radius: 24px;
-    color: var(--warm);
-    font-size: 14px;
-    font-weight: 600;
-}
-
-/* Fishing spot cards */
-.fishing-card {
-    background: rgba(20,20,20,0.7);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: var(--radius-m);
-    margin-bottom: 20px;
-    overflow: hidden;
-    transition: transform 0.3s, opacity 0.3s;
-}
-.fishing-card:hover {
-    transform: translateY(-2px);
-    border-color: rgba(212,165,116,0.2);
-}
-.fishing-card-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 18px 24px;
-    background: none;
-    border: none;
-    color: var(--text);
-    font-size: 17px;
-    font-weight: 600;
-    cursor: pointer;
-    width: 100%;
-    text-align: left;
-    transition: background 0.3s;
-}
-.fishing-card-header:hover {
-    background: rgba(212,165,116,0.06);
-}
-.fishing-card-header .fc-day {
-    color: var(--warm);
-    font-size: 13px;
-    font-weight: 500;
-    margin-right: 12px;
-    white-space: nowrap;
-}
-.fishing-card-header .fc-title {
-    flex: 1;
-}
-.fishing-card-header .fc-arrow {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    transition: transform 0.35s ease;
-    color: var(--warm);
-    flex-shrink: 0;
-}
-.fishing-card-header.active .fc-arrow {
-    transform: rotate(90deg);
-}
-.fishing-card-body {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.5s ease;
-}
-.fishing-card-inner {
-    padding: 0 24px 24px;
-    display: flex;
-    gap: 24px;
-}
-.fishing-card-img {
-    flex-shrink: 0;
-    width: 240px;
-    height: 180px;
-    border-radius: var(--radius-s);
-    overflow: hidden;
-    background: rgba(20,20,20,0.5);
-}
-.fishing-card-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-.fishing-card-info {
-    flex: 1;
-    min-width: 0;
-}
-.fishing-card-info .fc-location {
-    font-size: 13px;
-    color: var(--accent);
-    margin-bottom: 6px;
-}
-.fishing-card-info .fc-desc {
-    font-size: 14px;
-    line-height: 1.8;
-    color: var(--text-dim);
+    background: linear-gradient(135deg, var(--accent), var(--warm));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     margin-bottom: 12px;
 }
-.fishing-card-info .fc-fish {
-    font-size: 13px;
+.more-topics-subtitle {
+    font-size: 14px;
     color: var(--text-muted);
-    margin-bottom: 8px;
-}
-.fishing-card-info .fc-stars {
-    font-size: 13px;
-    color: var(--text-dim);
-    margin-bottom: 12px;
-    line-height: 1.8;
-}
-.fishing-card-info .spot-tags {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-    margin-top: 8px;
-}
-.fishing-card-info .spot-tag {
-    background: var(--accent-glow);
-    color: var(--accent);
-    padding: 3px 10px;
-    border-radius: 12px;
-    font-size: 12px;
-}
-.fishing-card-info .spot-tag.warm {
-    background: var(--warm-glow);
-    color: var(--warm);
-}
-
-/* Fishing video section */
-.fishing-video-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-    margin: 32px 0;
-}
-.fishing-video-item {
-    background: rgba(20,20,20,0.6);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: var(--radius-m);
-    overflow: hidden;
-}
-.fishing-video-item .fv-title {
-    padding: 16px 20px 12px;
-    font-size: 15px;
-    font-weight: 600;
-    color: var(--warm);
-}
-.fishing-video-item .fv-desc {
-    padding: 0 20px 16px;
-    font-size: 13px;
-    color: var(--text-dim);
-}
-
-/* Toggle all button */
-.fishing-toggle-all {
-    display: flex;
-    justify-content: center;
-    margin: 28px 0;
-}
-.fishing-toggle-all button {
-    padding: 12px 36px;
-    background: rgba(212,165,116,0.12);
-    border: 1px solid rgba(212,165,116,0.3);
-    border-radius: 24px;
-    color: var(--warm);
-    font-size: 15px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.3s, transform 0.2s;
-}
-.fishing-toggle-all button:hover {
-    background: rgba(212,165,116,0.2);
-    transform: translateY(-1px);
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .fishing-hero h2 { font-size: 28px; letter-spacing: 3px; }
-    .fishing-hero { min-height: 260px; }
-    .fishing-card-inner { flex-direction: column; }
-    .fishing-card-img { width: 100%; height: 200px; }
-    .fishing-video-grid { grid-template-columns: 1fr; }
-    .fishing-card-header { font-size: 15px; padding: 14px 16px; }
-}
-
-
-/* ===== Adventure / Outdoor Section ===== */
-:root {
-    --adventure: #ff6b35;
-    --adventure-glow: rgba(255,107,53,0.15);
-    --adventure-warm: #ff8c5a;
-}
-.adventure-hero {
-    position: relative;
-    width: 100%;
-    min-height: 380px;
-    background: linear-gradient(135deg, rgba(60,20,10,0.92) 0%, rgba(10,10,10,0.75) 100%),
-                url('https://s.coze.cn/image/xvjNzA-u05k/') center/cover no-repeat;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    border-radius: var(--radius-l);
-    overflow: hidden;
-    margin-bottom: 40px;
-}
-.adventure-hero::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: linear-gradient(180deg, transparent 40%, rgba(10,10,10,0.95) 100%);
-    pointer-events: none;
-}
-.adventure-hero-content {
-    position: relative;
-    z-index: 2;
-    padding: 48px 24px;
-}
-.adventure-hero-icon {
-    font-size: 56px;
-    margin-bottom: 16px;
-    display: block;
-    animation: adventurePulse 2s ease-in-out infinite;
-}
-@keyframes adventurePulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-}
-.adventure-hero h2 {
-    font-size: 40px;
-    font-weight: 800;
-    color: var(--adventure);
-    letter-spacing: 6px;
-    margin-bottom: 12px;
-    text-shadow: 0 2px 20px rgba(255,107,53,0.3);
-}
-.adventure-hero .adv-subtitle {
-    font-size: 16px;
-    color: var(--text-dim);
-    max-width: 580px;
-    margin: 0 auto;
-    line-height: 1.8;
-}
-.adventure-hero .adv-badge {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 8px 24px;
-    background: rgba(255,107,53,0.15);
-    border: 1px solid rgba(255,107,53,0.3);
-    border-radius: 24px;
-    color: var(--adventure);
-    font-size: 14px;
-    font-weight: 600;
-}
-
-/* Adventure cards */
-.adventure-card {
-    background: rgba(20,20,20,0.7);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: var(--radius-m);
-    margin-bottom: 24px;
-    overflow: hidden;
-    transition: transform 0.3s, opacity 0.3s;
-}
-.adventure-card:hover {
-    transform: translateY(-2px);
-    border-color: rgba(255,107,53,0.2);
-}
-.adventure-card-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 18px 24px;
-    background: none;
-    border: none;
-    color: var(--text);
-    font-size: 17px;
-    font-weight: 600;
-    cursor: pointer;
-    width: 100%;
-    text-align: left;
-    transition: background 0.3s;
-}
-.adventure-card-header:hover {
-    background: rgba(255,107,53,0.06);
-}
-.adventure-card-header .ac-day {
-    color: var(--adventure);
-    font-size: 13px;
-    font-weight: 500;
-    margin-right: 12px;
-    white-space: nowrap;
-}
-.adventure-card-header .ac-title {
-    flex: 1;
-}
-.adventure-card-header .ac-arrow {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    transition: transform 0.35s ease;
-    color: var(--adventure);
-    flex-shrink: 0;
-}
-.adventure-card-header.active .ac-arrow {
-    transform: rotate(90deg);
-}
-.adventure-card-body {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.5s ease;
-}
-.adventure-card-inner {
-    padding: 0 24px 24px;
-}
-.adventure-card-img-top {
-    width: 100%;
-    height: 260px;
-    border-radius: var(--radius-s);
-    overflow: hidden;
-    margin-bottom: 20px;
-    background: rgba(20,20,20,0.5);
-}
-.adventure-card-img-top img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-.adventure-card-meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px 24px;
-    margin-bottom: 16px;
-    font-size: 14px;
-    color: var(--text-dim);
-}
-.adventure-card-meta .ac-meta-item {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-}
-.adventure-card-meta .ac-price {
-    color: var(--adventure);
-    font-weight: 700;
-    font-size: 16px;
-}
-.adventure-card-meta .ac-stars {
-    color: var(--adventure-warm);
     letter-spacing: 2px;
 }
-.adventure-card-desc {
-    font-size: 14px;
-    line-height: 1.9;
-    color: var(--text-dim);
-    margin-bottom: 16px;
+.more-topics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    max-width: 700px;
+    margin: 0 auto;
 }
-.adventure-card-features {
-    font-size: 13px;
-    color: var(--text-muted);
-    margin-bottom: 12px;
-    line-height: 1.8;
-}
-.adventure-card-route {
-    font-size: 13px;
-    color: var(--text-muted);
-    margin-bottom: 16px;
-    padding: 8px 14px;
-    background: rgba(255,107,53,0.06);
-    border-left: 3px solid var(--adventure);
-    border-radius: 0 8px 8px 0;
-}
-.adv-tags {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-    margin-top: 12px;
-    margin-bottom: 16px;
-}
-.adv-tag {
-    background: var(--adventure-glow);
-    color: var(--adventure);
-    padding: 4px 12px;
-    border-radius: 12px;
-    font-size: 12px;
-    font-weight: 500;
-}
-.adv-tag.warm {
-    background: var(--warm-glow);
-    color: var(--warm);
-}
-
-/* Adventure photo gallery row */
-.adv-photo-row {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
-    overflow-x: auto;
-    padding-bottom: 4px;
-}
-.adv-photo-row img {
-    width: 200px;
-    height: 140px;
-    object-fit: cover;
-    border-radius: var(--radius-s);
-    flex-shrink: 0;
-    border: 1px solid rgba(255,255,255,0.06);
-}
-
-/* Adventure video embed */
-.adv-video-wrap {
-    margin: 20px 0;
-    border-radius: var(--radius-s);
-    overflow: hidden;
-    background: #000;
+.more-topic-card {
     position: relative;
-    padding-top: 56.25%;
+    display: block;
+    background: var(--bg-card);
+    border: 1px solid rgba(78,205,196,0.12);
+    border-radius: 16px;
+    padding: 36px 28px;
+    text-align: center;
+    text-decoration: none;
+    transition: transform 0.3s, opacity 0.3s;
+    overflow: hidden;
 }
-.adv-video-wrap iframe {
+.more-topic-card::before {
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    border: none;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 50% 0%, var(--accent-glow) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s;
 }
-
-/* Adventure footer note */
-.adventure-note {
-    text-align: center;
-    padding: 32px 24px;
-    margin-top: 20px;
-    background: rgba(255,107,53,0.06);
-    border: 1px solid rgba(255,107,53,0.15);
-    border-radius: var(--radius-m);
+.more-topic-card:hover {
+    transform: translateY(-4px);
+    text-decoration: none;
+    border-color: rgba(78,205,196,0.3);
 }
-.adventure-note p {
-    font-size: 14px;
-    color: var(--text-dim);
-    line-height: 2;
+.more-topic-card:hover::before {
+    opacity: 1;
 }
-.adventure-note .adv-note-title {
-    color: var(--adventure);
-    font-weight: 600;
-    font-size: 15px;
+.more-topic-icon {
+    font-size: 48px;
+    margin-bottom: 16px;
+    display: block;
+    position: relative;
+    z-index: 1;
+}
+.more-topic-name {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text);
     margin-bottom: 8px;
+    position: relative;
+    z-index: 1;
 }
-
-/* Adventure responsive */
-@media (max-width: 768px) {
-    .adventure-hero h2 { font-size: 26px; letter-spacing: 3px; }
-    .adventure-hero { min-height: 280px; }
-    .adventure-card-header { font-size: 15px; padding: 14px 16px; }
-    .adventure-card-img-top { height: 200px; }
-    .adv-photo-row img { width: 160px; height: 110px; }
-    .adventure-card-meta { gap: 8px 16px; font-size: 13px; }
+.more-topic-desc {
+    font-size: 13px;
+    color: var(--text-dim);
+    line-height: 1.6;
+    position: relative;
+    z-index: 1;
+}
+.more-topic-arrow {
+    display: inline-block;
+    margin-top: 16px;
+    font-size: 13px;
+    color: var(--accent);
+    letter-spacing: 1px;
+    position: relative;
+    z-index: 1;
+    transition: opacity 0.3s;
+}
+.more-topic-card:hover .more-topic-arrow {
+    opacity: 0.8;
 }
 
 </style>
@@ -5074,473 +4661,30 @@ body:not(.view-home) .home-nav-wrap { display: none; }
 </section>
 
 
-<!-- ===== Fishing Section ===== -->
-<section class="section" id="fishing" style="padding: 60px 0;" data-view="fishing">
-<div class="section-inner">
-
-<!-- Hero Header -->
-<div class="fishing-hero">
-    <div class="fishing-hero-content">
-        <span class="fishing-hero-icon">🎣</span>
-        <h2>垂 钓 秘 境</h2>
-        <p class="fishing-subtitle">
-            贵州山水之间，藏着无数未被发现的野钓天堂。<br>
-            8个精选钓点，全部免费，从喀斯特山谷到峡谷 deep water，<br>
-            为两位钓鱼爱好者量身定制的「沿途钓鱼指南」。
-        </p>
-        <span class="fishing-badge">🐟 全程8个野钓点 · 全部免费 · 鱼种超100种</span>
-    </div>
-</div>
-
-<!-- Fishing Spot 1: 暗流河 -->
-<div class="fishing-card" id="fc-1">
-    <button class="fishing-card-header active" onclick="toggleFishingCard(this)">
-        <span class="fc-day">D1 清镇</span>
-        <span class="fc-title">🎣 暗流河 — 喀斯特山谷中的秘密基地</span>
-        <span class="fc-arrow">▶</span>
-    </button>
-    <div class="fishing-card-body" style="max-height: 600px;">
-        <div class="fishing-card-inner">
-            <div class="fishing-card-img">
-                <img src="https://s.coze.cn/image/TnUclhT4jAA/" alt="暗流河野钓" loading="lazy">
-            </div>
-            <div class="fishing-card-info">
-                <div class="fc-location">📍 清镇市暗流乡暗流村 · 距酒店15分钟 · 免费野钓</div>
-                <div class="fc-desc">
-                    这是清镇本地钓友的"秘密基地"。河流穿行在喀斯特山谷中，两岸植被茂密，水面平静如镜。鱼种极其丰富，尤其以鲫鱼和黄辣丁（黄颡鱼）为多。因位置偏僻，周末也不超过5-6人，是真正可以"包场"的野钓天堂。
-                </div>
-                <div class="fc-fish">🐟 鱼种：鲫鱼、鲤鱼、草鱼、青鱼、鲢鳙、鳊鱼、黑鱼、黄颡鱼、鲶鱼、翘嘴、马口鱼等12种</div>
-                <div class="fc-stars">
-                    👤 人少指数：★★★★★<br>
-                    🏞️ 风景指数：★★★★
-                </div>
-                <div class="spot-tags">
-                    <span class="spot-tag warm">🎣 免费</span>
-                    <span class="spot-tag">🐟 12种鱼</span>
-                    <span class="spot-tag">📍 D1清镇</span>
-                    <span class="spot-tag">👤 极少人</span>
-                </div>
-            </div>
+<!-- ===== More Topics Section ===== -->
+<section class="more-topics">
+    <div class="section-inner">
+        <div class="more-topics-header">
+            <h2 class="more-topics-title">更多专题</h2>
+            <p class="more-topics-subtitle">EXPLORE MORE</p>
+        </div>
+        <div class="more-topics-grid">
+            <a href="fishing.html" class="more-topic-card">
+                <span class="more-topic-icon">🎣</span>
+                <div class="more-topic-name">垂钓秘境</div>
+                <div class="more-topic-desc">贵州绝美野钓点，藏在大山深处的秘境钓场</div>
+                <span class="more-topic-arrow">查看详情 →</span>
+            </a>
+            <a href="adventure.html" class="more-topic-card">
+                <span class="more-topic-icon">⚡</span>
+                <div class="more-topic-name">惊险户外</div>
+                <div class="more-topic-desc">攀岩、溯溪、探洞，肾上腺素飙升的户外体验</div>
+                <span class="more-topic-arrow">查看详情 →</span>
+            </a>
         </div>
     </div>
-</div>
-
-<!-- Fishing Spot 2: 迎燕水库 -->
-<div class="fishing-card" id="fc-2">
-    <button class="fishing-card-header active" onclick="toggleFishingCard(this)">
-        <span class="fc-day">D1→D2 清镇</span>
-        <span class="fc-title">🎣 迎燕水库 — 丛林深处的冷水大物</span>
-        <span class="fc-arrow">▶</span>
-    </button>
-    <div class="fishing-card-body" style="max-height: 600px;">
-        <div class="fishing-card-inner">
-            <div class="fishing-card-img">
-                <img src="https://s.coze.cn/image/v3-SU4kwGk8/" alt="迎燕水库野钓" loading="lazy">
-            </div>
-            <div class="fishing-card-info">
-                <div class="fc-location">📍 清镇市站街镇往卫城方向5公里 · 酒店出发20分钟 · 免费野钓</div>
-                <div class="fc-desc">
-                    藏在丛林深处的冷水水库，需要走一段林间小路才能到达，正因如此钓鱼人极少。水质清冽，属于冷水环境，这里的鱼个体普遍偏大。有钓友在此钓起过12斤的鲤鱼！钓位选择在水库南岸的岩石平台上，抛竿即可感受到深水大物的拉力。
-                </div>
-                <div class="fc-fish">🐟 鱼种：鲫鱼、鲤鱼、草鱼、鲶鱼等，以大鱼著称</div>
-                <div class="fc-stars">
-                    👤 人少指数：★★★★★（需走丛林路，多数人不愿走）<br>
-                    🏞️ 风景指数：★★★★
-                </div>
-                <div class="spot-tags">
-                    <span class="spot-tag warm">🎣 免费</span>
-                    <span class="spot-tag">🐟 大鱼出没</span>
-                    <span class="spot-tag">📍 D1/D2清镇</span>
-                    <span class="spot-tag">🌲 丛林秘境</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Toggle button for remaining spots -->
-<div class="fishing-toggle-all" id="fishingToggleWrap">
-    <button id="fishingToggleBtn" onclick="toggleAllFishing()">展开全部钓点 ▼</button>
-</div>
-
-<!-- Fishing Spot 3: 红枫湖·花鱼洞大桥 -->
-<div class="fishing-card fishing-hidden" id="fc-3" style="display:none;">
-    <button class="fishing-card-header" onclick="toggleFishingCard(this)">
-        <span class="fc-day">D1 清镇</span>
-        <span class="fc-title">🎣 红枫湖·花鱼洞大桥 — 经典水域红尾爆护</span>
-        <span class="fc-arrow">▶</span>
-    </button>
-    <div class="fishing-card-body">
-        <div class="fishing-card-inner">
-            <div class="fishing-card-img">
-                <img src="https://s.coze.cn/image/MF6e-5qNskY/" alt="红枫湖花鱼洞大桥野钓" loading="lazy">
-            </div>
-            <div class="fishing-card-info">
-                <div class="fc-location">📍 清镇市红枫湖风景区花鱼洞大桥 · 免费野钓</div>
-                <div class="fc-desc">
-                    红枫湖是贵州最经典的野钓水域之一。花鱼洞大桥一带水深5-6米，草鱼、鲤鱼出没频繁。2026年夏有钓友在此2.5小时内钓获4条红尾、2条马口、1条太阳鱼和1条白条，红尾拉力凶猛，手感极佳。早晨6-11点是最佳作钓时段。
-                </div>
-                <div class="fc-fish">🐟 鱼种：鲫鱼、鲤鱼、草鱼、青鱼、黄颡鱼、红尾鱼、马口鱼、太阳鱼</div>
-                <div class="fc-stars">
-                    👤 人少指数：★★★（清晨人少，周末下午稍多）<br>
-                    🏞️ 风景指数：★★★★★
-                </div>
-                <div class="spot-tags">
-                    <span class="spot-tag warm">🎣 免费</span>
-                    <span class="spot-tag">🐟 红尾爆护</span>
-                    <span class="spot-tag">📍 D1清镇</span>
-                    <span class="spot-tag">🌅 经典水域</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Fishing Spot 4: 织金·纳雍河木底河 -->
-<div class="fishing-card fishing-hidden" id="fc-4" style="display:none;">
-    <button class="fishing-card-header" onclick="toggleFishingCard(this)">
-        <span class="fc-day">D2 途经</span>
-        <span class="fc-title">🎣 织金·纳雍河木底河 — 荒野秘境大板鲫</span>
-        <span class="fc-arrow">▶</span>
-    </button>
-    <div class="fishing-card-body">
-        <div class="fishing-card-inner">
-            <div class="fishing-card-img">
-                <img src="https://s.coze.cn/image/3XHmdCTkEfI/" alt="纳雍河木底河野钓" loading="lazy">
-            </div>
-            <div class="fishing-card-info">
-                <div class="fc-location">📍 织金县鸡场乡木底河 · 距路线500米 · 免费野钓</div>
-                <div class="fc-desc">
-                    这是纳雍河上游的一处蓄水区，已蓄水5年多，下游冷水鱼顺流而下，鱼种极其丰富（10种以上）。最惊艳的是大板鲫，半斤以上的极为常见。饵料不讲究，腥味商品饵即可，酒米打窝。建议早上6-11点作钓，有钓友一天钓获27条大板鲫、总重超10斤。人迹罕至，是真正的"荒野秘境"。
-                </div>
-                <div class="fc-fish">🐟 鱼种：鲫鱼（大板鲫为主，半斤以上）、冷水鱼、稀有鱼种</div>
-                <div class="fc-stars">
-                    👤 人少指数：★★★★★（极偏僻，几乎没有竞争钓位）<br>
-                    🏞️ 风景指数：★★★★
-                </div>
-                <div class="spot-tags">
-                    <span class="spot-tag warm">🎣 免费</span>
-                    <span class="spot-tag">🐟 大板鲫</span>
-                    <span class="spot-tag">📍 D2途经</span>
-                    <span class="spot-tag">🏔️ 荒野秘境</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- ===== Video Embed 1 ===== -->
-<div class="fishing-video-grid">
-    <div class="fishing-video-item">
-        <div class="fv-title">🎬 世界第一高桥下，藏着怎样的鱼情？</div>
-        <div style="padding: 0 20px 20px;">
-            <iframe src=&autoplay=0"https://player.bilibili.com/player.html?isOutside=true&bvid=BV13eMM6hEg7&p=1&high_quality=1&danmaku=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width:100%;height:280px;border-radius:12px;"></iframe>
-        </div>
-        <div class="fv-desc">花江大峡谷探钓 · 69.2万播放</div>
-    </div>
-    <div class="fishing-video-item">
-        <div class="fv-title">🎬 探钓贵州关岭｜北盘江，据说有100多鱼种</div>
-        <div style="padding: 0 20px 20px;">
-            <iframe src=&autoplay=0"https://player.bilibili.com/player.html?isOutside=true&bvid=BV1izxEzfE2D&p=1&high_quality=1&danmaku=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width:100%;height:280px;border-radius:12px;"></iframe>
-        </div>
-        <div class="fv-desc">北盘江探钓 · 1.8万播放</div>
-    </div>
-</div>
-
-<!-- Fishing Spot 5: 牂牁江·三岔河 -->
-<div class="fishing-card fishing-hidden" id="fc-5" style="display:none;">
-    <button class="fishing-card-header" onclick="toggleFishingCard(this)">
-        <span class="fc-day">D3 六枝</span>
-        <span class="fc-title">🎣 牂牁江·三岔河 — 峡谷秘境路亚天堂</span>
-        <span class="fc-arrow">▶</span>
-    </button>
-    <div class="fishing-card-body">
-        <div class="fishing-card-inner">
-            <div class="fishing-card-img">
-                <img src="https://s.coze.cn/image/zg4Yxvga86A/" alt="牂牁江三岔河野钓" loading="lazy">
-            </div>
-            <div class="fishing-card-info">
-                <div class="fc-location">📍 六盘水市六枝特区龙河镇迎风村 · 距酒店30分钟 · 免费野钓</div>
-                <div class="fc-desc">
-                    牂牁江是乌江南源三岔河的中游段，水域面积广阔，是路亚和台钓的绝佳场所。三岔河段免费开放，鱼种极为丰富。这里的鲤鱼和翘嘴力气极大，中鱼后的拉力感让人肾上腺素飙升。清晨和傍晚鱼口最好，可以台钓也可以路亚。
-                </div>
-                <div class="fc-fish">🐟 鱼种：鲫鱼、鲤鱼、草鱼、青鱼、鲢鳙、黑鱼、黄颡鱼、鲶鱼、翘嘴、马口鱼等</div>
-                <div class="fc-stars">
-                    👤 人少指数：★★★★（水域广阔，即使有人也互不干扰）<br>
-                    🏞️ 风景指数：★★★★★（碧水青山，峡谷风光如画）
-                </div>
-                <div class="spot-tags">
-                    <span class="spot-tag warm">🎣 免费</span>
-                    <span class="spot-tag">🐟 路亚天堂</span>
-                    <span class="spot-tag">📍 D3六枝</span>
-                    <span class="spot-tag">🏞️ 峡谷秘境</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Fishing Spot 6: 北盘江·花江大峡谷 -->
-<div class="fishing-card fishing-hidden" id="fc-6" style="display:none;">
-    <button class="fishing-card-header" onclick="toggleFishingCard(this)">
-        <span class="fc-day">D4 关岭</span>
-        <span class="fc-title">🎣 北盘江·花江大峡谷 — 世界第一高桥下百种鱼</span>
-        <span class="fc-arrow">▶</span>
-    </button>
-    <div class="fishing-card-body">
-        <div class="fishing-card-inner">
-            <div class="fishing-card-img">
-                <img src="https://s.coze.cn/image/8fcMAOuKSYE/" alt="花江大峡谷野钓" loading="lazy">
-            </div>
-            <div class="fishing-card-info">
-                <div class="fc-location">📍 关岭县花江镇 · 距酒店25分钟 · 免费野钓</div>
-                <div class="fc-desc">
-                    花江大峡谷是北盘江最壮观的河段，2025年世界第一高桥——花江峡谷大桥在此通车。桥下峡谷深邃，水质清澈见底，据说拥有超过100种鱼类。这里刚举办过"北盘江山水杯"垂钓大赛，来自全国百余钓手参赛。夜钓更佳，花江峡谷的星空下钓鱼，是人生一大乐事。水质极好，鱼肉质细腻无腥味。
-                </div>
-                <div class="fc-fish">🐟 鱼种：鲫鱼、鲤鱼、草鱼、青鱼、鲢鳙、黄颡鱼、鲮鱼、鲶鱼、翘嘴、马口鱼等100+种</div>
-                <div class="fc-stars">
-                    👤 人少指数：★★★★（峡谷漫长，钓位充足）<br>
-                    🏞️ 风景指数：★★★★★（世界第一高桥+峡谷绝景）
-                </div>
-                <div class="spot-tags">
-                    <span class="spot-tag warm">🎣 免费</span>
-                    <span class="spot-tag">🐟 100+鱼种</span>
-                    <span class="spot-tag">📍 D4关岭</span>
-                    <span class="spot-tag">🌉 世界第一高桥</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Fishing Spot 7: 打帮河 -->
-<div class="fishing-card fishing-hidden" id="fc-7" style="display:none;">
-    <button class="fishing-card-header" onclick="toggleFishingCard(this)">
-        <span class="fc-day">D5 安顺</span>
-        <span class="fc-title">🎣 打帮河 — 天然野河草鱼群</span>
-        <span class="fc-arrow">▶</span>
-    </button>
-    <div class="fishing-card-body">
-        <div class="fishing-card-inner">
-            <div class="fishing-card-img">
-                <img src="https://s.coze.cn/image/bmma64xO3fA/" alt="打帮河野钓" loading="lazy">
-            </div>
-            <div class="fishing-card-info">
-                <div class="fc-location">📍 安顺市镇宁县打帮乡 · 距酒店40分钟 · 免费野钓</div>
-                <div class="fc-desc">
-                    打帮河是镇宁到关岭之间的一条天然河流，水域宽广，鱼种丰富。高速路桥下那一段草鱼特别多，经常能看到草鱼浮在水面吃草。下游镇宁县打帮乡段水域更宽，钓点更多。白条和罗非数量极多，适合喜欢钓小鱼的钓友。如果想钓大物，可以用玉米粒守草鱼。
-                </div>
-                <div class="fc-fish">🐟 鱼种：鲫鱼、鲤鱼、草鱼、青鱼、鲢鳙、罗非鱼、黄颡鱼、鲮鱼、鲶鱼、翘嘴、马口鱼等12种</div>
-                <div class="fc-stars">
-                    👤 人少指数：★★★★<br>
-                    🏞️ 风景指数：★★★
-                </div>
-                <div class="spot-tags">
-                    <span class="spot-tag warm">🎣 免费</span>
-                    <span class="spot-tag">🐟 草鱼群</span>
-                    <span class="spot-tag">📍 D5安顺</span>
-                    <span class="spot-tag">🌿 天然野河</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Fishing Spot 8: 翁寨村宰相塘 -->
-<div class="fishing-card fishing-hidden" id="fc-8" style="display:none;">
-    <button class="fishing-card-header" onclick="toggleFishingCard(this)">
-        <span class="fc-day">D5 备选</span>
-        <span class="fc-title">🎣 翁寨村宰相塘 — 布依族村寨田园秘境</span>
-        <span class="fc-arrow">▶</span>
-    </button>
-    <div class="fishing-card-body">
-        <div class="fishing-card-inner">
-            <div class="fishing-card-img">
-                <img src="https://s.coze.cn/image/Rr6pgEauydc/" alt="翁寨村宰相塘野钓" loading="lazy">
-            </div>
-            <div class="fishing-card-info">
-                <div class="fc-location">📍 安顺市镇宁县X460翁寨村 · 备选方案 · 免费</div>
-                <div class="fc-desc">
-                    隐藏在布依族村寨中的秘境野塘，四周风景秀丽，布依族民居错落有致。塘水清澈见底，适合休闲野钓。这里最大的魅力在于"安静"——没有喧嚣，只有鸟鸣和微风。钓累了可以在村中走走，感受布依族的田园生活。
-                </div>
-                <div class="fc-fish">🐟 鱼种：鲫鱼、鲤鱼、马口鱼等</div>
-                <div class="fc-stars">
-                    👤 人少指数：★★★★★（极小众，只有本地人知道）<br>
-                    🏞️ 风景指数：★★★★★（布依族田园风光）
-                </div>
-                <div class="spot-tags">
-                    <span class="spot-tag warm">🎣 免费</span>
-                    <span class="spot-tag">🐟 田园秘境</span>
-                    <span class="spot-tag">📍 D5备选</span>
-                    <span class="spot-tag">🏡 布依族村寨</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-</div>
 </section>
 
-
-<section class="section" id="adventure" style="padding: 60px 0;" data-view="adventure">
-<div class="section-inner">
-
-<!-- Adventure Hero Header -->
-<div class="adventure-hero">
-    <div class="adventure-hero-content">
-        <span class="adventure-hero-icon">&#9889;</span>
-        <h2>肾上腺素飙升 &middot; 惊险户外</h2>
-        <p class="adv-subtitle">
-            地心探险、洞穴漂流、峡谷激流&hellip;&hellip;<br>
-            3个精选户外体验项目，让你的贵州之旅彻底沸腾。<br>
-            全网曝光量超10亿次的地下暗河桨板，入选全球新玩法TOP100。
-        </p>
-        <span class="adv-badge">&#9889; 以下项目均为自费可选 &middot; 不纳入行程预算</span>
-    </div>
-</div>
-
-<!-- Adventure 1: 清镇石龙洞 -->
-<div class="adventure-card" id="ac-1">
-    <button class="adventure-card-header active" onclick="toggleAdventureCard(this)">
-        <span class="ac-day">D1 清镇</span>
-        <span class="ac-title">&#127754; 石龙洞 &middot; 地下桨板探洞</span>
-        <span class="ac-arrow">&#9654;</span>
-    </button>
-    <div class="adventure-card-body" style="max-height: 2000px;">
-        <div class="adventure-card-inner">
-            <div class="adventure-card-img-top">
-                <img src="https://s.coze.cn/image/xvjNzA-u05k/" alt="石龙洞地下桨板探险" loading="lazy">
-            </div>
-            <div class="adventure-card-meta">
-                <span class="ac-meta-item">&#128205; 贵阳市清镇市麦格乡观游村</span>
-                <span class="ac-meta-item ac-price">&#165;1,280/人</span>
-                <span class="ac-meta-item">&#9200; 3-4小时</span>
-                <span class="ac-meta-item ac-stars">&#11088;&#11088;&#11088;&#11088;&#11088;</span>
-            </div>
-            <div class="adventure-card-desc">
-                4公里地下暗河桨板探险，穿行30+翡翠碧潭，登上《中国国家地理》封面的"水溶洞天花板"。穿戴湿衣头盔，划桨板进入亿年溶洞，途经80cm低矮岩缝需趴在板上滑过，4米瀑坎需攀绳而上。关掉头灯后是绝对的黑暗，只听水滴回响。全网曝光量超10亿次，入选全球新玩法TOP100。
-            </div>
-            <div class="adventure-card-features">
-                &#127775; 特色：地下暗河桨板 + 钙化池瑶池 + 绳索攀爬 + 蓝洞冥想<br>
-                &#128101; 适合人群：各类户外玩家/亲子家庭（无高强度徒步）
-            </div>
-            <div class="adv-photo-row">
-                <img src="https://s.coze.cn/image/TdjbZwgjTSs/" alt="翡翠碧潭钙化池全景" loading="lazy">
-                <img src="https://s.coze.cn/image/c6RRhGhmPBQ/" alt="洞穴秘境蓝绿色渐变水域" loading="lazy">
-                <img src="https://s.coze.cn/image/xvjNzA-u05k/" alt="桨板探险者蓝绿水域" loading="lazy">
-            </div>
-            <div class="adv-video-wrap">
-                <iframe src=&autoplay=0"https://player.bilibili.com/player.html?isOutside=true&bvid=BV1Kg411x7xK&p=1&high_quality=1&danmaku=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
-            </div>
-            <div class="adventure-card-route">
-                &#128663; 就在D1住宿地清镇，贵阳自驾1小时即可到达
-            </div>
-            <div class="adv-tags">
-                <span class="adv-tag">&#127758; 地心探险 &#11088;&#11088;&#11088;&#11088;&#11088;</span>
-                <span class="adv-tag warm">&#128165; 视觉震撼 &#11088;&#11088;&#11088;&#11088;&#11088;</span>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Adventure 2: 关岭九仙洞漂流 -->
-<div class="adventure-card" id="ac-2">
-    <button class="adventure-card-header active" onclick="toggleAdventureCard(this)">
-        <span class="ac-day">D4 关岭</span>
-        <span class="ac-title">&#127754; 九仙洞漂流 &mdash; 亿年溶洞中的速度与激情</span>
-        <span class="ac-arrow">&#9654;</span>
-    </button>
-    <div class="adventure-card-body" style="max-height: 2000px;">
-        <div class="adventure-card-inner">
-            <div class="adventure-card-img-top">
-                <img src="https://s.coze.cn/image/HG6Bki-obMs/" alt="九仙洞溶洞漂流" loading="lazy">
-            </div>
-            <div class="adventure-card-meta">
-                <span class="ac-meta-item">&#128205; 安顺市关岭县（距黄果树约20公里）</span>
-                <span class="ac-meta-item ac-price">&#165;150-200/人</span>
-                <span class="ac-meta-item">&#9200; 3-4小时（含溶洞观光）</span>
-                <span class="ac-meta-item ac-stars">&#11088;&#11088;&#11088;&#11088;</span>
-            </div>
-            <div class="adventure-card-desc">
-                全长3.9公里的洞穴漂流，59米垂直落差，11处急弯。集洞穴漂、黑洞漂流、峡谷漂流、石林漂、高空漂等7种漂流于一体。在亿年溶洞中穿行，七彩灯光映照奇石怪岩，黑洞段伸手不见五指只剩水声和尖叫。漂流后还有8000&#13221;造浪水世界可玩。国家4A级景区。
-            </div>
-            <div class="adventure-card-features">
-                &#127775; 特色：溶洞漂流 + 梦幻溶洞观光 + 造浪水世界<br>
-                &#128101; 适合人群：全家老小都能玩（刺激但安全）
-            </div>
-            <div class="adv-photo-row">
-                <img src="https://s.coze.cn/image/GizSAxAi148/" alt="漂流船在水道中飞驰" loading="lazy">
-                <img src="https://s.coze.cn/image/C064HBZ8MQI/" alt="漂流船载着游客" loading="lazy">
-                <img src="https://s.coze.cn/image/HG6Bki-obMs/" alt="溶洞漂流特写" loading="lazy">
-            </div>
-            <div class="adventure-card-route">
-                &#128663; D4住宿地关岭附近，距渊府&middot;霞渡民宿约30分钟车程
-            </div>
-            <div class="adv-tags">
-                <span class="adv-tag">&#127754; 洞穴漂流 &#11088;&#11088;&#11088;&#11088;</span>
-                <span class="adv-tag warm">&#128106; 全家适用 &#11088;&#11088;&#11088;&#11088;&#11088;</span>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Adventure 3: 南江大峡谷漂流 -->
-<div class="adventure-card" id="ac-3">
-    <button class="adventure-card-header active" onclick="toggleAdventureCard(this)">
-        <span class="ac-day">D1 可选</span>
-        <span class="ac-title">&#127754; 南江大峡谷 &middot; 激情漂流 &amp; 飞拉达攀岩</span>
-        <span class="ac-arrow">&#9654;</span>
-    </button>
-    <div class="adventure-card-body" style="max-height: 2000px;">
-        <div class="adventure-card-inner">
-            <div class="adventure-card-img-top">
-                <img src="https://s.coze.cn/image/RD7rhSXkfMo/" alt="南江大峡谷漂流" loading="lazy">
-            </div>
-            <div class="adventure-card-meta">
-                <span class="ac-meta-item">&#128205; 贵阳市开阳县南江乡龙广村</span>
-                <span class="ac-meta-item ac-price">&#165;170/人（激情漂）&middot; &#165;208/人（飞拉达）</span>
-                <span class="ac-meta-item">&#9200; 激情漂约2-2.5小时</span>
-                <span class="ac-meta-item ac-stars">&#11088;&#11088;&#11088;&#11088;&#11088;</span>
-            </div>
-            <div class="adventure-card-desc">
-                贵州版"香格里拉"，7公里激情漂流河道，218米总落差，穿行于喀斯特峡谷之中。从南江大佛到石上森林，急流、险滩、漩涡一个接一个，150米高的奢香瀑布从漂流艇上方倾泻而下。景区还有飞拉达铁道攀岩（208元/人）、丛林探险（126元/人）、玻璃栈道等项目。国家4A级景区。
-            </div>
-            <div class="adventure-card-features">
-                &#127775; 特色：峡谷激情漂流 + 飞拉达攀岩 + 玻璃栈道<br>
-                &#128101; 适合人群：追求刺激的户外爱好者（休闲漂也适合家庭）
-            </div>
-            <div class="adv-photo-row">
-                <img src="https://s.coze.cn/image/Kdb96FDpC8Q/" alt="漂流艇在激流中" loading="lazy">
-                <img src="https://s.coze.cn/image/XopjHM3IwOo/" alt="峡谷漂流全景" loading="lazy">
-                <img src="https://s.coze.cn/image/RD7rhSXkfMo/" alt="两人漂流艇冲过急流" loading="lazy">
-            </div>
-            <div class="adv-video-wrap">
-                <iframe src=&autoplay=0"https://player.bilibili.com/player.html?isOutside=true&bvid=BV1dkeEedEJ4&p=1&high_quality=1&danmaku=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
-            </div>
-            <div class="adventure-card-route">
-                &#128663; 从D1清镇出发约2小时车程，可作为额外日程安排
-            </div>
-            <div class="adv-tags">
-                <span class="adv-tag">&#128165; 肾上腺素 &#11088;&#11088;&#11088;&#11088;&#11088;</span>
-                <span class="adv-tag warm">&#127754; 贵州顶级漂流 &#11088;&#11088;&#11088;&#11088;&#11088;</span>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Adventure Footer Note -->
-<div class="adventure-note">
-    <p class="adv-note-title">&#9889; 温馨提示</p>
-    <p>
-        &#10148; 以上项目均为自费可选，费用不包含在行程预算中<br>
-        &#10148; 请根据个人身体状况和兴趣自由选择<br>
-        &#10148; 建议提前在官方平台预约，部分项目受天气影响
-    </p>
-</div>
-
-</div>
-</section>
 
 <!-- ===== Footer ===== -->
 <footer class="footer">
@@ -5558,61 +4702,6 @@ body:not(.view-home) .home-nav-wrap { display: none; }
 
 <script>
 
-/* ===== Fishing Section Toggle ===== */
-function toggleFishingCard(btn) {
-    var body = btn.nextElementSibling;
-    var isActive = btn.className.indexOf('active') > -1;
-    
-    if (isActive) {
-        btn.className = btn.className.replace(' active', '');
-        body.style.maxHeight = '0';
-    } else {
-        btn.className += ' active';
-        body.style.maxHeight = body.scrollHeight + 'px';
-        setTimeout(function() {
-            body.style.maxHeight = body.scrollHeight + 'px';
-        }, 100);
-    }
-}
-
-function toggleAllFishing() {
-    var btn = document.getElementById('fishingToggleBtn');
-    var hiddenCards = document.querySelectorAll('.fishing-hidden');
-    var isExpanded = btn.getAttribute('data-expanded') === 'true';
-    
-    if (isExpanded) {
-        /* Collapse all hidden cards and hide them */
-        for (var i = 0; i < hiddenCards.length; i++) {
-            var header = hiddenCards[i].querySelector('.fishing-card-header');
-            var body = hiddenCards[i].querySelector('.fishing-card-body');
-            if (header.className.indexOf('active') > -1) {
-                header.className = header.className.replace(' active', '');
-                body.style.maxHeight = '0';
-            }
-            hiddenCards[i].style.display = 'none';
-        }
-        btn.textContent = '\u5c55\u5f00\u5168\u90e8\u9493\u70b9 \u25bc';
-        btn.setAttribute('data-expanded', 'false');
-    } else {
-        /* Show all hidden cards */
-        for (var i = 0; i < hiddenCards.length; i++) {
-            hiddenCards[i].style.display = 'block';
-        }
-        btn.textContent = '\u6536\u8d77\u9493\u70b9 \u25b2';
-        btn.setAttribute('data-expanded', 'true');
-        /* Recalculate after display change */
-        setTimeout(function() {
-            /* Expand all newly shown cards */
-            for (var i = 0; i < hiddenCards.length; i++) {
-                var header = hiddenCards[i].querySelector('.fishing-card-header');
-                var body = hiddenCards[i].querySelector('.fishing-card-body');
-                if (header.className.indexOf('active') > -1) {
-                    body.style.maxHeight = body.scrollHeight + 'px';
-                }
-            }
-        }, 50);
-    }
-}
 /* ===== Navigation Toggle (Mobile) ===== */
 function toggleNav() {
     var links = document.getElementById('navLinks');
@@ -6343,23 +5432,6 @@ window.onscroll = handleScroll;
         init();
     }
 })();
-
-
-/* ===== Adventure Section Toggle ===== */
-function toggleAdventureCard(btn) {
-    var body = btn.nextElementSibling;
-    var isActive = btn.className.indexOf('active') > -1;
-    if (isActive) {
-        btn.className = btn.className.replace(' active', '');
-        body.style.maxHeight = '0';
-    } else {
-        btn.className += ' active';
-        body.style.maxHeight = body.scrollHeight + 'px';
-        setTimeout(function() {
-            body.style.maxHeight = body.scrollHeight + 'px';
-        }, 100);
-    }
-}
 
 </script>
 
