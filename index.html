@@ -1443,33 +1443,6 @@ section[data-view].view-active { display: block !important; }
 .hnb-desc { color: rgba(255,255,255,0.4); font-size: 12px; line-height: 1.4; }
 .hnb-arrow { color: rgba(78,205,196,0.4); font-size: 20px; flex-shrink: 0; }
 
-/* Sub-navigation buttons */
-.sub-nav-wrap {
-    display: none; /* Hidden by default, shown via JS when needed */
-    flex-wrap: wrap;
-    gap: 10px;
-    padding: 16px;
-    max-width: 680px;
-    margin: 0 auto;
-}
-.sub-nav-btn {
-    flex: 1 1 calc(33.33% - 10px);
-    min-width: 90px;
-    padding: 14px 8px;
-    background: rgba(20,20,20,0.9);
-    border: 1px solid rgba(78,205,196,0.12);
-    border-radius: 12px;
-    cursor: pointer;
-    transition: all 0.25s ease;
-    text-align: center;
-    font-family: inherit;
-}
-.sub-nav-btn:hover { background: rgba(78,205,196,0.1); border-color: rgba(78,205,196,0.3); }
-.sub-nav-btn:active { transform: scale(0.96); }
-.sn-icon { font-size: 24px; display: block; margin-bottom: 6px; }
-.sn-label { color: #f0f0f0; font-size: 12px; font-weight: 600; display: block; line-height: 1.3; }
-.sn-sub { color: rgba(255,255,255,0.35); font-size: 10px; display: block; margin-top: 2px; }
-.sub-nav-btn.active-sub { background: rgba(78,205,196,0.15); border-color: rgba(78,205,196,0.4); }
 
 /* Nav spacer */
 .nav-spacer { height: 60px; }
@@ -1868,51 +1841,75 @@ body:not(.view-home) .home-nav-wrap { display: none; }
                 </div>
             </div>
         </div>
+    
+        <div style="padding: 30px 20px 10px;">
+            <h3 style="text-align:center; color:var(--accent); font-size:18px; margin-bottom:8px;">每日详细行程</h3>
+            <p style="text-align:center; color:var(--text-dim); font-size:14px; margin-bottom:20px;">点击查看每天的路线、景点、美食和住宿</p>
+            <div class="hub-cards">
+                <div class="hub-card" onclick="navTo('daily-maps')">
+                    <div class="hub-card-icon">&#128506;</div>
+                    <div class="hub-card-body">
+                        <div class="hub-card-title">全部轨迹地图</div>
+                        <div class="hub-card-desc">6天动态SVG轨迹地图总览</div>
+                    </div>
+                    <div class="hub-card-arrow">&#8250;</div>
+                </div>
+                <div class="hub-card" onclick="navTo('day1')">
+                    <div class="hub-card-icon">&#9312;</div>
+                    <div class="hub-card-body">
+                        <div class="hub-card-title">D1 洞口→清镇</div>
+                        <div class="hub-card-desc">羊皮洞瀑布 · 6h · 370km</div>
+                    </div>
+                    <div class="hub-card-arrow">&#8250;</div>
+                </div>
+                <div class="hub-card" onclick="navTo('day2')">
+                    <div class="hub-card-icon">&#9313;</div>
+                    <div class="hub-card-body">
+                        <div class="hub-card-title">D2 清镇→纳雍</div>
+                        <div class="hub-card-desc">吊水岩瀑布 · 2.5h · 180km</div>
+                    </div>
+                    <div class="hub-card-arrow">&#8250;</div>
+                </div>
+                <div class="hub-card" onclick="navTo('day3')">
+                    <div class="hub-card-icon">&#9314;</div>
+                    <div class="hub-card-body">
+                        <div class="hub-card-title">D3 纳雍→六盘水</div>
+                        <div class="hub-card-desc">牂牁江·龙脊山 · 3.5h · 200km</div>
+                    </div>
+                    <div class="hub-card-arrow">&#8250;</div>
+                </div>
+                <div class="hub-card" onclick="navTo('day4')">
+                    <div class="hub-card-icon">&#9315;</div>
+                    <div class="hub-card-body">
+                        <div class="hub-card-title">D4 六盘水→关岭</div>
+                        <div class="hub-card-desc">冰臼群+滴水潭 · 2.5h · 160km</div>
+                    </div>
+                    <div class="hub-card-arrow">&#8250;</div>
+                </div>
+                <div class="hub-card" onclick="navTo('day5')">
+                    <div class="hub-card-icon">&#9316;</div>
+                    <div class="hub-card-body">
+                        <div class="hub-card-title">D5 关岭→安顺</div>
+                        <div class="hub-card-desc">铜鼓荡+大圣之眼 · 1h · 80km</div>
+                    </div>
+                    <div class="hub-card-arrow">&#8250;</div>
+                </div>
+                <div class="hub-card" onclick="navTo('day6')">
+                    <div class="hub-card-icon">&#9317;</div>
+                    <div class="hub-card-body">
+                        <div class="hub-card-title">D6 安顺→洞口</div>
+                        <div class="hub-card-desc">返程 · 8h · 550km</div>
+                    </div>
+                    <div class="hub-card-arrow">&#8250;</div>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
 
 
 <!-- ===== DAILY DYNAMIC MAPS ===== -->
-
-<div class="sub-nav-wrap" id="dailySubnav">
-    <button class="sub-nav-btn" onclick="navTo('daily-maps')" data-sub="daily-maps">
-        <span class="sn-icon">&#128506;</span>
-        <span class="sn-label">&#20840;&#37096;&#36712;&#36857;</span>
-        <span class="sn-sub">6&#22825;&#21160;&#24577;&#22320;&#22270;</span>
-    </button>
-    <button class="sub-nav-btn" onclick="navTo('day1')" data-sub="day1">
-        <span class="sn-icon">&#9312;</span>
-        <span class="sn-label">D1 &#28165;&#38215;</span>
-        <span class="sn-sub">&#32650;&#30382;&#27934;&#28687;&#24067;</span>
-    </button>
-    <button class="sub-nav-btn" onclick="navTo('day2')" data-sub="day2">
-        <span class="sn-icon">&#9313;</span>
-        <span class="sn-label">D2 &#32435;&#38594;</span>
-        <span class="sn-sub">&#21514;&#27700;&#23721;&#28687;&#24067;</span>
-    </button>
-    <button class="sub-nav-btn" onclick="navTo('day3')" data-sub="day3">
-        <span class="sn-icon">&#9314;</span>
-        <span class="sn-label">D3 &#20845;&#30424;&#27700;</span>
-        <span class="sn-sub">&#29298;&#29275;&#27743;</span>
-    </button>
-    <button class="sub-nav-btn" onclick="navTo('day4')" data-sub="day4">
-        <span class="sn-icon">&#9315;</span>
-        <span class="sn-label">D4 &#20851;&#23936;</span>
-        <span class="sn-sub">&#20912;&#33267;&#32676;</span>
-    </button>
-    <button class="sub-nav-btn" onclick="navTo('day5')" data-sub="day5">
-        <span class="sn-icon">&#9316;</span>
-        <span class="sn-label">D5 &#23433;&#39034;</span>
-        <span class="sn-sub">&#38134;&#40723;&#33633;</span>
-    </button>
-    <button class="sub-nav-btn" onclick="navTo('day6')" data-sub="day6">
-        <span class="sn-icon">&#9317;</span>
-        <span class="sn-label">D6 &#36820;&#31243;</span>
-        <span class="sn-sub">&#23433;&#39034;&#8594;&#27934;&#21475;</span>
-    </button>
-</div>
-
 <section id="daily-maps" data-view="daily-maps">
 <div class="dm-bg"></div>
 <div class="dm-inner">
@@ -3230,22 +3227,6 @@ body:not(.view-home) .home-nav-wrap { display: none; }
 </section>
 
 <!-- ===== Hotel Section ===== -->
-
-<div class="sub-nav-wrap" id="hotelsSubnav">
-    <button class="sub-nav-btn" onclick="navTo('hotels')" data-sub="hotels">
-        <span class="sn-icon">&#127969;</span>
-        <span class="sn-label">&#37202;&#24215;&#25512;&#33616;</span>
-    </button>
-    <button class="sub-nav-btn" onclick="navTo('budget')" data-sub="budget">
-        <span class="sn-icon">&#128176;</span>
-        <span class="sn-label">&#39044;&#31639;&#26126;&#32454;</span>
-    </button>
-    <button class="sub-nav-btn" onclick="navTo('alternatives')" data-sub="alternatives">
-        <span class="sn-icon">&#128204;</span>
-        <span class="sn-label">&#22791;&#36873;&#26041;&#26696;</span>
-    </button>
-</div>
-
 <section class="section" id="hotels" data-view="hotels">
     <div class="section-bg" style="background-image: url('https://s.coze.cn/image/alI3n5oPfY8/'); opacity: 0.3;"></div>
     <div class="section-overlay"></div>
@@ -3593,46 +3574,6 @@ body:not(.view-home) .home-nav-wrap { display: none; }
 </section>
 
 <!-- ===== Tips Section ===== -->
-
-<div class="sub-nav-wrap" id="guideSubnav">
-    <button class="sub-nav-btn" onclick="navTo('tips')" data-sub="tips">
-        <span class="sn-icon">&#128161;</span>
-        <span class="sn-label">&#26053;&#34892;&#36148;&#22763;</span>
-    </button>
-    <button class="sub-nav-btn" onclick="navTo('gallery')" data-sub="gallery">
-        <span class="sn-icon">&#128247;</span>
-        <span class="sn-label">&#39118;&#26223;&#22270;&#24211;</span>
-    </button>
-    <button class="sub-nav-btn" onclick="navTo('packing')" data-sub="packing">
-        <span class="sn-icon">&#127890;</span>
-        <span class="sn-label">&#32972;&#21253;&#28165;&#21333;</span>
-    </button>
-    <button class="sub-nav-btn" onclick="navTo('timeline')" data-sub="timeline">
-        <span class="sn-icon">&#128197;</span>
-        <span class="sn-label">&#34892;&#31243;&#26085;&#21382;</span>
-    </button>
-    <button class="sub-nav-btn" onclick="navTo('knowledge')" data-sub="knowledge">
-        <span class="sn-icon">&#127891;</span>
-        <span class="sn-label">&#30693;&#35782;&#31185;&#26222;</span>
-    </button>
-    <button class="sub-nav-btn" onclick="navTo('highlights')" data-sub="highlights">
-        <span class="sn-icon">&#11088;</span>
-        <span class="sn-label">&#20142;&#28857;&#24635;&#32467;</span>
-    </button>
-    <button class="sub-nav-btn" onclick="navTo('foodguide')" data-sub="foodguide">
-        <span class="sn-icon">&#127858;</span>
-        <span class="sn-label">&#32972;&#39135;&#25351;&#21335;</span>
-    </button>
-    <button class="sub-nav-btn" onclick="navTo('faq')" data-sub="faq">
-        <span class="sn-icon">&#10067;</span>
-        <span class="sn-label">FAQ</span>
-    </button>
-    <button class="sub-nav-btn" onclick="navTo('emergency')" data-sub="emergency">
-        <span class="sn-icon">&#128680;</span>
-        <span class="sn-label">&#24212;&#24613;&#20449;&#24687;</span>
-    </button>
-</div>
-
 <section class="section" id="tips" data-view="tips">
     <div class="section-bg" style="background-image: url('https://s.coze.cn/image/ew6_GivT0iM/'); opacity: 0.25;"></div>
     <div class="section-overlay"></div>
@@ -4948,12 +4889,7 @@ window.onscroll = handleScroll;
         'emergency': '\u5e94\u6025\u4fe1\u606f'
     };
 
-    // Sub-nav sections that should show sub-navigation
-    var subNavGroups = {
-        'route-overview': ['daily-maps', 'day1', 'day2', 'day3', 'day4', 'day5', 'day6'],
-        'hotels-budget': ['hotels', 'budget', 'alternatives'],
-        'travel-guide': ['tips', 'gallery', 'highlights', 'packing', 'timeline', 'knowledge', 'faq', 'foodguide', 'emergency']
-    };
+
 
     var currentView = 'home';
     var viewHistory = [];
@@ -4999,16 +4935,7 @@ window.onscroll = handleScroll;
             homeNav.style.display = (viewId === 'home') ? '' : 'none';
         }
 
-        // Show/hide sub-navs
-        hideAllSubNavs();
-        var parent = viewParent[viewId];
-        if (subNavGroups[viewId]) {
-            // Hub view: show its own sub-nav, no active highlight
-            showSubNav(viewId, null);
-        } else if (parent && subNavGroups[parent]) {
-            // Show parent's sub-nav and highlight current
-            showSubNav(parent, viewId);
-        }
+
 
         // Scroll to top
         window.scrollTo(0, 0);
@@ -5048,13 +4975,7 @@ window.onscroll = handleScroll;
             var homeNav = document.getElementById('homeNav');
             if (homeNav) homeNav.style.display = (prevView === 'home') ? '' : 'none';
 
-            hideAllSubNavs();
-            var parent = viewParent[prevView];
-            if (subNavGroups[prevView]) {
-                showSubNav(prevView, null);
-            } else if (parent && subNavGroups[parent]) {
-                showSubNav(parent, prevView);
-            }
+
 
             viewHistory = tempHistory;
             window.scrollTo(0, 0);
@@ -5070,34 +4991,9 @@ window.onscroll = handleScroll;
         }
     }
 
-    function hideAllSubNavs() {
-        var navs = document.querySelectorAll('.sub-nav-wrap');
-        for (var i = 0; i < navs.length; i++) {
-            navs[i].style.display = 'none';
-        }
-    }
 
-    function showSubNav(parentGroup, activeView) {
-        // Map parent to actual nav element id
-        var navEl = null;
-        if (parentGroup === 'route-overview') navEl = document.getElementById('dailySubnav');
-        else if (parentGroup === 'hotels-budget') navEl = document.getElementById('hotelsSubnav');
-        else if (parentGroup === 'travel-guide') navEl = document.getElementById('guideSubnav');
 
-        if (navEl) {
-            navEl.style.display = 'flex';
-            // Highlight active button (null = no highlight for hub view)
-            var btns = navEl.querySelectorAll('.sub-nav-btn');
-            for (var i = 0; i < btns.length; i++) {
-                var sub = btns[i].getAttribute('data-sub');
-                if (activeView && sub === activeView) {
-                    btns[i].className = 'sub-nav-btn active-sub';
-                } else {
-                    btns[i].className = 'sub-nav-btn';
-                }
-            }
-        }
-    }
+
 
     // Breadcrumb updater
     function updateBreadcrumb(viewId) {
@@ -5123,7 +5019,7 @@ window.onscroll = handleScroll;
         var btns = document.querySelectorAll('.nav-bottom-btn[data-bottom]');
         for (var i = 0; i < btns.length; i++) {
             var target = btns[i].getAttribute('data-bottom');
-            var parent = subNavGroups[viewId] ? viewId : (viewParent[viewId] || viewId);
+            var parent = viewParent[viewId] || viewId;
             if (target === viewId || target === parent || (viewId === 'home' && target === 'home')) {
                 btns[i].className = 'nav-bottom-btn active';
             } else {
@@ -5178,8 +5074,7 @@ window.onscroll = handleScroll;
         var homeNav = document.getElementById('homeNav');
         if (homeNav) homeNav.style.display = '';
 
-        // Hide sub-navs
-        hideAllSubNavs();
+
 
         document.body.className = 'view-home';
         updateNavHeader('home');
