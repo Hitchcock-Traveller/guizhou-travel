@@ -960,6 +960,302 @@ img { max-width: 100%; height: auto; display: block; }
     pointer-events: none;
 }
 
+
+/* ===== Daily Dynamic Maps ===== */
+#daily-maps {
+    position: relative;
+    padding: 60px 0 40px;
+}
+.dm-bg {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(180deg, #0a0a0a 0%, #0d1515 30%, #0a1010 70%, #0a0a0a 100%);
+    z-index: 0;
+}
+.dm-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+.dm-section-header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+.dm-section-header h2 {
+    color: var(--text, #f0f0f0);
+    font-size: 22px;
+    font-weight: bold;
+    margin: 0 0 8px;
+}
+.dm-section-header p {
+    color: rgba(255,255,255,0.45);
+    font-size: 13px;
+    margin: 0;
+    line-height: 1.6;
+}
+/* Day map card */
+.daily-map-card {
+    background: rgba(20,20,20,0.9);
+    border: 1px solid rgba(78,205,196,0.12);
+    border-radius: 16px;
+    margin-bottom: 24px;
+    overflow: hidden;
+}
+.dmc-header {
+    padding: 20px 20px 16px;
+    background: rgba(78,205,196,0.04);
+    border-bottom: 1px solid rgba(78,205,196,0.08);
+}
+.dmc-day {
+    display: inline-block;
+    background: rgba(78,205,196,0.15);
+    color: #4ecdc4;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 3px 10px;
+    border-radius: 10px;
+    margin-bottom: 6px;
+    letter-spacing: 1px;
+}
+.dmc-date {
+    color: rgba(255,255,255,0.4);
+    font-size: 12px;
+    margin-bottom: 4px;
+}
+.dmc-title {
+    color: #f0f0f0;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+.dmc-summary {
+    color: rgba(255,255,255,0.55);
+    font-size: 13px;
+}
+.dmc-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 12px;
+}
+.dmc-stat {
+    display: flex;
+    flex-direction: column;
+    min-width: 70px;
+}
+.dmc-stat-val {
+    color: #4ecdc4;
+    font-size: 14px;
+    font-weight: bold;
+}
+.dmc-stat-key {
+    color: rgba(255,255,255,0.35);
+    font-size: 11px;
+}
+/* Map container */
+.dmc-map-wrap {
+    position: relative;
+    height: 260px;
+    background: #0a0f0f;
+    border-bottom: 1px solid rgba(78,205,196,0.08);
+    overflow: hidden;
+}
+.dmc-map-wrap svg {
+    width: 100%;
+    height: 100%;
+}
+.dmc-play-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: rgba(78,205,196,0.2);
+    border: 2px solid rgba(78,205,196,0.6);
+    color: #4ecdc4;
+    font-size: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    z-index: 5;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+.dmc-play-btn:hover {
+    background: rgba(78,205,196,0.35);
+    transform: translate(-50%, -50%) scale(1.1);
+}
+.dmc-play-btn.playing {
+    opacity: 0.3;
+    pointer-events: none;
+}
+/* Route animation */
+.daily-route-path {
+    transition: stroke-dashoffset 3s ease-in-out;
+}
+.daily-route-path.animated {
+    stroke-dashoffset: 0;
+}
+.daily-route-glow {
+    transition: stroke-dashoffset 3s ease-in-out;
+}
+.daily-route-glow.animated {
+    stroke-dashoffset: 0;
+}
+.daily-marker {
+    transition: opacity 0.5s ease;
+}
+.daily-marker.show {
+    opacity: 1;
+}
+.daily-label {
+    transition: opacity 0.5s ease;
+}
+.daily-label.show {
+    opacity: 1;
+}
+.daily-pulse {
+    animation: dailyPulse 2s ease-in-out infinite;
+}
+@keyframes dailyPulse {
+    0%, 100% { opacity: 0.15; r: 10; }
+    50% { opacity: 0.35; r: 14; }
+}
+/* Info section */
+.dmc-info {
+    padding: 20px;
+}
+.dmc-info-title {
+    color: #4ecdc4;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 14px;
+}
+/* Timeline */
+.dm-timeline {
+    position: relative;
+    padding-left: 28px;
+    margin-bottom: 20px;
+}
+.dm-timeline::before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 4px;
+    bottom: 4px;
+    width: 2px;
+    background: rgba(78,205,196,0.15);
+    border-radius: 1px;
+}
+.dm-tl-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 12px;
+    position: relative;
+}
+.dm-tl-item:last-child {
+    margin-bottom: 0;
+}
+.dm-tl-time {
+    position: absolute;
+    left: -28px;
+    top: 0;
+    color: rgba(255,255,255,0.35);
+    font-size: 11px;
+    font-weight: bold;
+    width: 24px;
+    text-align: right;
+    display: none;
+}
+.dm-tl-icon {
+    position: absolute;
+    left: -28px;
+    top: 0;
+    font-size: 12px;
+    width: 18px;
+    text-align: center;
+}
+.dm-tl-content {
+    flex: 1;
+}
+.dm-tl-label {
+    color: #f0f0f0;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.4;
+}
+.dm-tl-desc {
+    color: rgba(255,255,255,0.45);
+    font-size: 12px;
+    line-height: 1.5;
+    margin-top: 2px;
+}
+/* Food and hotel cards */
+.dmc-cards-row {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 16px;
+}
+.dm-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(78,205,196,0.1);
+    border-radius: 12px;
+    padding: 14px;
+}
+.dm-card-title {
+    color: #d4a574;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.dm-food-item {
+    margin-bottom: 8px;
+}
+.dm-food-item:last-child {
+    margin-bottom: 0;
+}
+.dm-food-name {
+    color: #f0f0f0;
+    font-size: 13px;
+    font-weight: 600;
+}
+.dm-food-desc {
+    color: rgba(255,255,255,0.4);
+    font-size: 11px;
+    line-height: 1.4;
+}
+.dm-hotel-card {
+    border-color: rgba(212,165,116,0.2);
+}
+.dm-hotel-price {
+    color: #4ecdc4;
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+.dm-hotel-tags {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+}
+.dm-hotel-tags span {
+    display: inline-block;
+}
+.dm-hotel-desc {
+    color: rgba(255,255,255,0.45);
+    font-size: 12px;
+    line-height: 1.5;
+}
+
 </style>
 </head>
 <body>
@@ -1184,6 +1480,158 @@ img { max-width: 100%; height: auto; display: block; }
             </div>
         </div>
     </div>
+</section>
+
+
+
+<!-- ===== DAILY DYNAMIC MAPS ===== -->
+<section id="daily-maps">
+<div class="dm-bg"></div>
+<div class="dm-inner">
+    <div class="dm-section-header">
+        <h2>🗺️ 每日动态轨迹地图</h2>
+        <p>每天的行程路线、停靠点、美食住宿一目了然。点击 ▶ 播放动态轨迹</p>
+    </div>
+    <div class="daily-map-card" id="daily-map-1"><div class="dmc-header"><div class="dmc-day">DAY 1</div><div class="dmc-date">8月8日（周五）</div><div class="dmc-title">洞口 → 清镇</div><div class="dmc-summary">长途行驶 + 瀑布惊艳</div><div class="dmc-stats"><div class="dmc-stat"><span class="dmc-stat-val">~370km</span><span class="dmc-stat-key">车程</span></div><div class="dmc-stat"><span class="dmc-stat-val">~6h</span><span class="dmc-stat-key">车时</span></div><div class="dmc-stat"><span class="dmc-stat-val">羊皮洞瀑布</span><span class="dmc-stat-key">景点</span></div><div class="dmc-stat"><span class="dmc-stat-val">四季贵州温泉水世界</span><span class="dmc-stat-key">住宿</span></div></div></div><div class="dmc-map-wrap"><svg viewBox="152 167 766 196" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">
+<defs><radialGradient id="dmr1"><stop offset="0%" stop-color="#1a2a2a"/><stop offset="100%" stop-color="#0a0a0a"/></radialGradient></defs>
+<rect x="152" y="167" width="766" height="196" fill="url(#dmr1)"/>
+<path d="M118,80 L145,68 172,72 200,58 230,62 258,55 285,65 312,72 340,60 365,68 390,75 418,82 445,78 470,88 498,95 525,105 548,118 568,132 582,148 595,165 605,185 612,208 615,232 610,258 600,282 588,305 575,325 558,342 538,358 515,372 490,385 462,395 435,402 408,408 380,402 355,395 328,388 302,378 278,368 255,355 235,342 218,325 202,308 188,288 178,268 168,248 158,228 148,208 140,188 132,168 125,148 120,128 118,108 Z" fill="none" stroke="rgba(78,205,196,0.08)" stroke-width="1.5"/>
+<path d="M748.2,266.5 Q724.1,232.6 685.2,217.5 Q503.2,246.3 331.7,313.7 Q329.0,306.0 322.6,301.2 Q326.4,308.6 333.7,312.7 Q334.4,312.4 334.8,311.7" fill="none" stroke="#4ecdc4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1000" stroke-dashoffset="1000" class="daily-route-path" opacity="0.9"/>
+<path d="M748.2,266.5 Q724.1,232.6 685.2,217.5 Q503.2,246.3 331.7,313.7 Q329.0,306.0 322.6,301.2 Q326.4,308.6 333.7,312.7 Q334.4,312.4 334.8,311.7" fill="none" stroke="#4ecdc4" stroke-width="6" stroke-linecap="round" opacity="0.15" stroke-dasharray="1000" stroke-dashoffset="1000" class="daily-route-glow"/>
+<circle cx="748.2" cy="266.5" r="10" fill="#4ecdc4" opacity="0.2" class="daily-pulse"/>
+<circle cx="748.2" cy="266.5" r="6.0" fill="#4ecdc4" stroke="#fff" stroke-width="1" opacity="0" class="daily-marker"/>
+<text x="748.2" y="284.5" fill="#fff" font-size="9" text-anchor="middle" opacity="0" class="daily-label" font-weight="bold">洞口出发</text>
+<circle cx="685.2" cy="217.5" r="4.5" fill="#888" stroke="#fff" stroke-width="1" opacity="0" class="daily-marker"/>
+<text x="685.2" y="208.0" fill="#fff" font-size="9" text-anchor="middle" opacity="0" class="daily-label" font-weight="normal">怀化服务区</text>
+<circle cx="331.7" cy="313.7" r="4.5" fill="#ff8c42" stroke="#fff" stroke-width="1" opacity="0" class="daily-marker"/>
+<text x="331.7" y="304.2" fill="#fff" font-size="9" text-anchor="middle" opacity="0" class="daily-label" font-weight="normal">抵达清镇</text>
+<circle cx="322.6" cy="301.2" r="10" fill="#4ecdc4" opacity="0.2" class="daily-pulse"/>
+<circle cx="322.6" cy="301.2" r="6.0" fill="#4ecdc4" stroke="#fff" stroke-width="1" opacity="0" class="daily-marker"/>
+<text x="322.6" y="290.2" fill="#fff" font-size="9" text-anchor="middle" opacity="0" class="daily-label" font-weight="bold">羊皮洞瀑布</text>
+<circle cx="333.7" cy="312.7" r="4.5" fill="#ff8c42" stroke="#fff" stroke-width="1" opacity="0" class="daily-marker"/>
+<text x="333.7" y="303.2" fill="#fff" font-size="9" text-anchor="middle" opacity="0" class="daily-label" font-weight="normal">清镇晚餐</text>
+<circle cx="334.8" cy="311.7" r="10" fill="#ffd700" opacity="0.2" class="daily-pulse"/>
+<circle cx="334.8" cy="311.7" r="6.0" fill="#ffd700" stroke="#fff" stroke-width="1" opacity="0" class="daily-marker"/>
+<text x="334.8" y="300.7" fill="#fff" font-size="9" text-anchor="middle" opacity="0" class="daily-label" font-weight="bold">入住</text>
+</svg><div class="dmc-play-btn" onclick="playDayMap(1)">▶</div></div><div class="dmc-info"><div class="dmc-info-title">📋 行程时间线</div><div class="dm-timeline"><div class="dm-tl-item"><span class="dm-tl-time">06:00</span><span class="dm-tl-icon">▶</span><div class="dm-tl-content"><div class="dm-tl-label">洞口出发</div><div class="dm-tl-desc">早起出发，G60沪昆高速西行</div></div></div><div class="dm-tl-item"><span class="dm-tl-time">08:30</span><span class="dm-tl-icon">☕</span><div class="dm-tl-content"><div class="dm-tl-label">怀化服务区</div><div class="dm-tl-desc">稍作休息，补给能量</div></div></div><div class="dm-tl-item"><span class="dm-tl-time">12:00</span><span class="dm-tl-icon">🍜</span><div class="dm-tl-content"><div class="dm-tl-label">抵达清镇</div><div class="dm-tl-desc">午餐：花溪牛肉粉、洛锅</div></div></div><div class="dm-tl-item"><span class="dm-tl-time">14:00</span><span class="dm-tl-icon">🏞</span><div class="dm-tl-content"><div class="dm-tl-label">羊皮洞瀑布</div><div class="dm-tl-desc">徒步探险，清澈瀑布水潭</div></div></div><div class="dm-tl-item"><span class="dm-tl-time">17:30</span><span class="dm-tl-icon">🍽</span><div class="dm-tl-content"><div class="dm-tl-label">清镇晚餐</div><div class="dm-tl-desc">酸汤鱼、丝娃娃、豆腐果</div></div></div><div class="dm-tl-item"><span class="dm-tl-time">19:00</span><span class="dm-tl-icon">🏨</span><div class="dm-tl-content"><div class="dm-tl-label">入住</div><div class="dm-tl-desc">四季贵州温泉水世界｜温泉+泳池+水上乐园</div></div></div></div><div class="dmc-cards-row"><div class="dm-card"><div class="dm-card-title">🍜 清镇美食</div><div class="dm-food-item"><div class="dm-food-name">花溪牛肉粉</div><div class="dm-food-desc">清汤牛肉，粉质细滑，汤头鲜香</div></div><div class="dm-food-item"><div class="dm-food-name">洛锅</div><div class="dm-food-desc">贵州特色烤盘，豆腐+折耳根+酸辣蓖汁</div></div><div class="dm-food-item"><div class="dm-food-name">丝娃娃</div><div class="dm-food-desc">米糕皮包裹菜丝，酸辣爽口</div></div></div><div class="dm-card dm-hotel-card"><div class="dm-card-title">🏨 四季贵州温泉水世界</div><div class="dm-hotel-price">~￥450/间</div><div class="dm-hotel-tags">温泉 · 泳池 · 水上乐园</div><div class="dm-hotel-desc">就近清镇市区，国内罕见的综合温泉度假村，有室内外温泉池、儿童泳池和水上乐园。开车紧张后泡温泉是最大享受。</div></div></div></div></div>
+<div class="daily-map-card" id="daily-map-2"><div class="dmc-header"><div class="dmc-day">DAY 2</div><div class="dmc-date">8月9日（周六）</div><div class="dmc-title">清镇 → 织金 → 纳雍</div><div class="dmc-summary">天下第一洞 + 小众瀑布</div><div class="dmc-stats"><div class="dmc-stat"><span class="dmc-stat-val">~180km</span><span class="dmc-stat-key">车程</span></div><div class="dmc-stat"><span class="dmc-stat-val">~2.5h(不含织金洞)</span><span class="dmc-stat-key">车时</span></div><div class="dmc-stat"><span class="dmc-stat-val">吊水岩瀑布</span><span class="dmc-stat-key">景点</span></div><div class="dmc-stat"><span class="dmc-stat-val">纳雍华熙酒店</span><span class="dmc-stat-key">住宿</span></div></div></div><div class="dmc-map-wrap"><svg viewBox="154 199 229 164" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">
+<defs><radialGradient id="dmr2"><stop offset="0%" stop-color="#1a2a2a"/><stop offset="100%" stop-color="#0a0a0a"/></radialGradient></defs>
+<rect x="154" y="199" width="229" height="164" fill="url(#dmr2)"/>
+<path d="M118,80 L145,68 172,72 200,58 230,62 258,55 285,65 312,72 340,60 365,68 390,75 418,82 445,78 470,88 498,95 525,105 548,118 568,132 582,148 595,165 605,185 612,208 615,232 610,258 600,282 588,305 575,325 558,342 538,358 515,372 490,385 462,395 435,402 408,408 380,402 355,395 328,388 302,378 278,368 255,355 235,342 218,325 202,308 188,288 178,268 168,248 158,228 148,208 140,188 132,168 125,148 120,128 118,108 Z" fill="none" stroke="rgba(78,205,196,0.08)" stroke-width="1.5"/>
+<path d="M331.7,313.7 Q297.9,297.2 260.6,302.1 Q242.9,270.6 210.8,254.0 Q208.5,250.7 204.7,249.2 Q207.7,252.2 211.8,253.1 Q212.3,253.2 212.9,253.1" fill="none" stroke="#4ecdc4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1000" stroke-dashoffset="1000" class="daily-route-path" opacity="0.9"/>
+<path d="M331.7,313.7 Q297.9,297.2 260.6,302.1 Q242.9,270.6 210.8,254.0 Q208.5,250.7 204.7,249.2 Q207.7,252.2 211.8,253.1 Q212.3,253.2 212.9,253.1" fill="none" stroke="#4ecdc4" stroke-width="6" stroke-linecap="round" opacity="0.15" stroke-dasharray="1000" stroke-dashoffset="1000" class="daily-route-glow"/>
+<circle cx="331.7" cy="313.7" r="10" fill="#4ecdc4" opacity="0.2" class="daily-pulse"/>
+<circle cx="331.7" cy="313.7" r="6.0" fill="#4ecdc4" stroke="#fff" stroke-width="1" opacity="0" class="daily-marker"/>
+<text x="331.7" y="331.7" fill="#fff" font-size="9" text-anchor="middle" opacity="0" class="daily-label" font-weight="bold">清镇出发</text>
+<circle cx="260.6" cy="302.1" r="10" fill="#4ecdc4" opacity="0.2" class="daily-pulse"/>
+<circle cx="260.6" cy="302.1" r="6.0" fill="#4ecdc4" stroke="#fff" stroke-width="1" opacity="0" class="daily-marker"/>
+<text x="260.6" y="291.1" fill="#fff" font-size="9" text-anchor="middle" opacity="0" class="daily-label" font-weight="bold">织金洞</text>
+<circle cx="210.8" cy="254.0" r="4.5" fill="#ff8c42" stroke="#fff" stroke-width="1" opacity="0" class="daily-marker"/>
+<text x="210.8" y="244.5" fill="#fff" font-size="9" text-anchor="middle" opacity="0" class="daily-label" font-weight="normal">纳雍午餐</text>
+<circle cx="204.7" cy="249.2" r="10" fill="#4ecdc4" opacity="0.2" class="daily-pulse"/>
+<circle cx="204.7" cy="249.2" r="6.0" fill="#4ecdc4" stroke="#fff" stroke-width="1" opacity="0" class="daily-marker"/>
+<text x="204.7" y="238.2" fill="#fff" font-size="9" text-anchor="middle" opacity="0" class="daily-label" font-weight="bold">吊水岩瀑布</text>
+<circle cx="211.8" cy="253.1" r="4.5" fill="#ff8c42" stroke="#fff" stroke-width="1" opacity="0" class="daily-marker"/>
+<text x="211.8" y="243.6" fill="#fff" font-size="9" text-anchor="middle" opacity="0" class="daily-label" font-weight="normal">纳雍晚餐</text>
+<circle cx="212.9" cy="253.1" r="10" fill="#ffd700" opacity="0.2" class="daily-pulse"/>
+<circle cx="212.9" cy="253.1" r="6.0" fill="#ffd700" stroke="#fff" stroke-width="1" opacity="0" class="daily-marker"/>
+<text x="212.9" y="242.1" fill="#fff" font-size="9" text-anchor="middle" opacity="0" class="daily-label" font-weight="bold">入住</text>
+</svg><div class="dmc-play-btn" onclick="playDayMap(2)">▶</div></div><div class="dmc-info"><div class="dmc-info-title">📋 行程时间线</div><div class="dm-timeline"><div class="dm-tl-item"><span class="dm-tl-time">08:00</span><span class="dm-tl-icon">▶</span><div class="dm-tl-content"><div class="dm-tl-label">清镇出发</div><div class="dm-tl-desc">清织高速西行</div></div></div><div class="dm-tl-item"><span class="dm-tl-time">09:30</span><span class="dm-tl-icon">🏞</span><div class="dm-tl-content"><div class="dm-tl-label">织金洞</div><div class="dm-tl-desc">“天下第一洞”，游览~1.5h</div></div></div><div class="dm-tl-item"><span class="dm-tl-time">12:00</span><span class="dm-tl-icon">🍜</span><div class="dm-tl-content"><div class="dm-tl-label">纳雍午餐</div><div class="dm-tl-desc">豆花面、洛锅、纳雍烤肉</div></div></div><div class="dm-tl-item"><span class="dm-tl-time">14:00</span><span class="dm-tl-icon">🏞</span><div class="dm-tl-content"><div class="dm-tl-label">吊水岩瀑布</div><div class="dm-tl-desc">小众瀑布，水帘如绸缎</div></div></div><div class="dm-tl-item"><span class="dm-tl-time">17:30</span><span class="dm-tl-icon">🍽</span><div class="dm-tl-content"><div class="dm-tl-label">纳雍晚餐</div><div class="dm-tl-desc">水爬岩豆花、娃娃鱼、折耳根拌菜</div></div></div><div class="dm-tl-item"><span class="dm-tl-time">19:00</span><span class="dm-tl-icon">🏨</span><div class="dm-tl-content"><div class="dm-tl-label">入住</div><div class="dm-tl-desc">纳雍华熙酒店｜县城最好，健身房</div></div></div></div><div class="dmc-cards-row"><div class="dm-card"><div class="dm-card-title">🍜 纳雍美食</div><div class="dm-food-item"><div class="dm-food-name">豆花面</div><div class="dm-food-desc">纳雍特色早餐，豆瓣炒香+精细面条</div></div><div class="dm-food-item"><div class="dm-food-name">娃娃鱼</div><div class="dm-food-desc">酸汤小鱼，软嫩入味，当地人爱吃</div></div><div class="dm-food-item"><div class="dm-food-name">纳雍烤肉</div><div class="dm-food-desc">小火慢烤，撒上贵州特产辣椒面</div></div></div><div class="dm-card dm-hotel-card"><div class="dm-card-title">🏨 纳雍华熙酒店</div><div class="dm-hotel-price">~￥280/间</div><div class="dm-hotel-tags">县城最好 · 健身房</div><div class="dm-hotel-desc">纳雍县城最高档的酒店，设施新全，有健身房。县城中心位置，周边吃喝方便。</div></div></div></div></div>
+<div class="daily-map-card" id="daily-map-3"><div class="dmc-header"><div class="dmc-day">DAY 3</div><div class="dmc-date">8月10日（周日）</div><div class="dmc-title">纳雍 → 六枝 → 六盘水</div><div class="dmc-summary">云湖峡谷 + 牦牛江天际线</div><div class="dmc-stats"><div class="dmc-stat"><span class="dmc-stat-val">~200km</span><span class="dmc-stat-key">车程</span></div><div class="dmc-stat"><span class="dmc-stat-val">~3.5h</span><span class="dmc-stat-key">车时</span></div><div class="dmc-stat"><span class="dmc-stat-val">牦牛江·龙脊山</span><span class="dmc-stat-key">景点</span></div><div class="dmc-stat"><span class="dmc-stat-val">凉都酒店</span><span class="dmc-stat-key">住宿</span></div></div></div><div class="dmc-map-wrap"><svg viewBox="61 204 200 208" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">
+<defs><radialGradient id="dmr3"><stop offset="0%" stop-color="#1a2a2a"/><stop offset="100%" stop-color="#0a0a0a"/></radialGradient></defs>
+<rect x="61" y="204" width="200" height="208" fill="url(#dmr3)"/>
+<path d="M118,80 L145,68 172,72 200,58 230,62 258,55 285,65 312,72 340,60 365,68 390,75 418,82 445,78 470,88 498,95 525,105 548,118 568,132 582,148 595,165 605,185 612,208 615,232 610,258 600,282 588,305 575,325 558,342 538,358 515,372 490,385 462,395 435,402 408,408 380,402 355,395 328,388 302,378 278,368 255,355 235,342 218,325 202,308 188,288 178,268 168,248 158,228 148,208 140,188 132,168 125,148 120,128 118,108 Z" fill="none" stroke="rgba(78,205,196,0.08)" stroke-width="1.5"/>
+<path d="M210.8,254.0 Q181.6,277.8 170.2,313.7 Q167.8,330.8 175.3,346.3 Q141.0,344.4 111.3,361.7 Q146.0,343.8 165.1,309.8 Q166.3,309.6 167.1,308.8" fill="none" stroke="#4ecdc4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1000" stroke-dashoffset="1000" class="daily-route-path" opacity="0.9"/>
+<path d="M210.8,254.0 Q181.6,277.8 170.2,313.7 Q167.8,330.8 175.3,346.3 Q141.0,344.4 111.3,361.7 Q146.0,343.8 165.1,309.8 Q166.3,309.6 167.1,308.8" fill="none" stroke="#4ecdc4" stroke-width="6" stroke-linecap="round" opacity="0.15" stroke-dasharray="1000" stroke-dashoffset="1000" class="daily-route-glow"/>
+<circle cx="210.8" cy="254.0" r="10" fill="#4ecdc4" opacity="0.2" class="daily-pulse"/>
+<circle cx="210.8" cy="254.0" r="6.0" fill="#4ecdc4" stroke="#fff" stroke-width="1" opacity="0" class="daily-marker"/>
+<text x="210.8" y="272.0" fill="#fff" font-size="9" text-anchor="middle" opacity="0" class="daily-label" font-weight="bold">纳雍出发</text>
+<circle cx="170.2" cy="313.7" r="10" fill="#4ecdc4" opacity="0.2" class="daily-pulse"/>
+<circle cx="170.2" cy="313.7" r="6.0" fill="#4ecdc4" stroke="#fff" stroke-width="1" opacity="0" class="daily-marker"/>
+<text x="170.2" y="302.7" fill="#fff" font-size="9" text-anchor="middle" opacity="0" class="daily-label" font-weight="bold">云湖峡谷</text>
+<circle cx="175.3" cy="346.3" r="4.5" fill="#ff8c42" stroke="#fff" stroke-width="1" opacity="0" class="daily-marker"/>
+<text x="175.3" y="336.8" fill="#fff" font-size="9" text-anchor="middle" opacity="0" class="daily-label" font-weight="normal">六枝午餐</text>
+<circle cx="111.3" cy="361.7" r="10" fill="#4ecdc4" opacity="0.2" class="daily-pulse"/>
+<circle cx="111.3" cy="361.7" r="6.0" fill="#4ecdc4" stroke="#fff" stroke-width="1" opacity="0" class="daily-marker"/>
+<text x="111.3" y="350.7" fill="#fff" font-size="9" text-anchor="middle" opacity="0" class="daily-label" font-weight="bold">牦牛江·龙脊山</text>
+<circle cx="165.1" cy="309.8" r="4.5" fill="#ff8c42" stroke="#fff" stroke-width="1" opacity="0" class="daily-marker"/>
+<text x="165.1" y="300.3" fill="#fff" font-size="9" text-anchor="middle" opacity="0" class="daily-label" font-weight="normal">六盘水晚餐</text>
+<circle cx="167.1" cy="308.8" r="10" fill="#ffd700" opacity="0.2" class="daily-pulse"/>
+<circle cx="167.1" cy="308.8" r="6.0" fill="#ffd700" stroke="#fff" stroke-width="1" opacity="0" class="daily-marker"/>
+<text x="167.1" y="297.8" fill="#fff" font-size="9" text-anchor="middle" opacity="0" class="daily-label" font-weight="bold">入住</text>
+</svg><div class="dmc-play-btn" onclick="playDayMap(3)">▶</div></div><div class="dmc-info"><div class="dmc-info-title">📋 行程时间线</div><div class="dm-timeline"><div class="dm-tl-item"><span class="dm-tl-time">08:00</span><span class="dm-tl-icon">▶</span><div class="dm-tl-content"><div class="dm-tl-label">纳雍出发</div><div class="dm-tl-desc">都香高速西行</div></div></div><div class="dm-tl-item"><span class="dm-tl-time">10:00</span><span class="dm-tl-icon">🏞</span><div class="dm-tl-content"><div class="dm-tl-label">云湖峡谷</div><div class="dm-tl-desc">峡谷漫步~1h，清山秀水</div></div></div><div class="dm-tl-item"><span class="dm-tl-time">12:00</span><span class="dm-tl-icon">🍜</span><div class="dm-tl-content"><div class="dm-tl-label">六枝午餐</div><div class="dm-tl-desc">六枝烤土豆、洛锅、羊肉粉</div></div></div><div class="dm-tl-item"><span class="dm-tl-time">14:00</span><span class="dm-tl-icon">🏞</span><div class="dm-tl-content"><div class="dm-tl-label">牦牛江·龙脊山</div><div class="dm-tl-desc">高江景观、龙脊山眸望</div></div></div><div class="dm-tl-item"><span class="dm-tl-time">17:30</span><span class="dm-tl-icon">🍽</span><div class="dm-tl-content"><div class="dm-tl-label">六盘水晚餐</div><div class="dm-tl-desc">水城羊肉粉、落土鸡、洛锅</div></div></div><div class="dm-tl-item"><span class="dm-tl-time">19:00</span><span class="dm-tl-icon">🏨</span><div class="dm-tl-content"><div class="dm-tl-label">入住</div><div class="dm-tl-desc">凉都酒店｜“中国凉都”，夏天只有19℃</div></div></div></div><div class="dmc-cards-row"><div class="dm-card"><div class="dm-card-title">🍜 六盘水美食</div><div class="dm-food-item"><div class="dm-food-name">水城羊肉粉</div><div class="dm-food-desc">中国凉都第一碗，羊汤浓郁粉滑</div></div><div class="dm-food-item"><div class="dm-food-name">六盘水烤土豆</div><div class="dm-food-desc">小土豆砸烤，撒辣椒面折耳根，贵州必吃</div></div><div class="dm-food-item"><div class="dm-food-name">落土鸡</div><div class="dm-food-desc">土灶慢炖，汤汁鲜美，大人小孩都爱</div></div></div><div class="dm-card dm-hotel-card"><div class="dm-card-title">🏨 凉都酒店</div><div class="dm-hotel-price">~￥280/间</div><div class="dm-hotel-tags">“中国凉都” · 夏天19℃</div><div class="dm-hotel-desc">六盘水被称为“中国凉都”，夏季平均气温仅19℃，晚上盖被子睡觉。酒店配套完善，休息很舒服。</div></div></div></div></div>
+<div class="daily-map-card" id="daily-map-4"><div class="dmc-header"><div class="dmc-day">DAY 4</div><div class="dmc-date">8月11日（周一）</div><div class="dmc-title">六盘水 → 关岭</div><div class="dmc-summary">冰臼群奇观 + 隐藏瀑布</div><div class="dmc-stats"><div class="dmc-stat"><span class="dmc-stat-val">~160km</span><span class="dmc-stat-key">车程</span></div><div class="dmc-stat"><span class="dmc-stat-val">~2.5h</span><span class="dmc-stat-key">车时</span></div><div class="dmc-stat"><span class="dmc-stat-val">冰臼群+滴水潭瀑布</span><span class="dmc-stat-key">景点</span></div><div class="dmc-stat"><span class="dmc-stat-val">黄果树开元名都</span><span class="dmc-stat-key">住宿</span></div></div></div><div class="dmc-map-wrap"><svg viewBox="115 260 183 163" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">
+<defs><radialGradient id="dmr4"><stop offset="0%" stop-color="#1a2a2a"/><stop offset="100%" stop-color="#0a0a0a"/></radialGradient></defs>
+<rect x="115" y="260" width="183" height="163" fill="url(#dmr4)"/>
+<path d="M118,80 L145,68 172,72 200,58 230,62 258,55 285,65 312,72 340,60 365,68 390,75 418,82 445,78 470,88 498,95 525,105 548,118 568,132 582,148 595,165 605,185 612,208 615,232 610,258 600,282 588,305 575,325 558,342 538,358 515,372 490,385 462,395 435,402 408,408 380,402 355,395 328,388 302,378 278,368 255,355 235,342 218,325 202,308 188,288 178,268 168,248 158,228 148,208 140,188 132,168 125,148 120,128 118,108 Z" fill="none" stroke="rgba(78,205,196,0.08)" stroke-width="1.5"/>
+<path d="M165.1,309.8 Q196.0,352.6 245.4,371.3 Q243.1,369.6 240.3,369.4 Q237.2,370.6 235.2,373.3 Q241.2,373.5 246.4,370.4 Q247.4,370.7 248.4,370.4" fill="none" stroke="#4ecdc4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1000" stroke-dashoffset="1000" class="daily-route-path" opacity="0.9"/>
+<path d="M165.1,309.8 Q196.0,352.6 245.4,371.3 Q243.1,369.6 240.3,369.4 Q237.2,370.6 235.2,373.3 Q241.2,373.5 246.4,370.4 Q247.4,370.7 248.4,370.4" fill="none" stroke="#4ecdc4" stroke-width="6" stroke-linecap="round" opacity="0.15" stroke-dasharray="1000" stroke-dashoffset="1000" class="daily-route-glow"/>
+<circle cx="165.1" cy="309.8" r="10" fill="#4ecdc4" opacity="0.2" class="daily-pulse"/>
+<circle cx="165.1" cy="309.8" r="6.0" fill="#4ecdc4" stroke="#fff" stroke-width="1" opacity="0" class="daily-marker"/>
+<text x="165.1" y="327.8" fill="#fff" font-size="9" text-anchor="middle" opacity="0" class="daily-label" font-weight="bold">六盘水出发</text>
+<circle cx="245.4" cy="371.3" r="4.5" fill="#ff8c42" stroke="#fff" stroke-width="1" opacity="0" class="daily-marker"/>
+<text x="245.4" y="361.8" fill="#fff" font-size="9" text-anchor="middle" opacity="0" class="daily-label" font-weight="normal">抵达关岭</text>
+<circle cx="240.3" cy="369.4" r="10" fill="#4ecdc4" opacity="0.2" class="daily-pulse"/>
+<circle cx="240.3" cy="369.4" r="6.0" fill="#4ecdc4" stroke="#fff" stroke-width="1" opacity="0" class="daily-marker"/>
+<text x="240.3" y="358.4" fill="#fff" font-size="9" text-anchor="middle" opacity="0" class="daily-label" font-weight="bold">关岭冰臼群</text>
+<circle cx="235.2" cy="373.3" r="10" fill="#4ecdc4" opacity="0.2" class="daily-pulse"/>
+<circle cx="235.2" cy="373.3" r="6.0" fill="#4ecdc4" stroke="#fff" stroke-width="1" opacity="0" class="daily-marker"/>
+<text x="235.2" y="362.3" fill="#fff" font-size="9" text-anchor="middle" opacity="0" class="daily-label" font-weight="bold">滴水潭瀑布</text>
+<circle cx="246.4" cy="370.4" r="4.5" fill="#ff8c42" stroke="#fff" stroke-width="1" opacity="0" class="daily-marker"/>
+<text x="246.4" y="360.9" fill="#fff" font-size="9" text-anchor="middle" opacity="0" class="daily-label" font-weight="normal">关岭晚餐</text>
+<circle cx="248.4" cy="370.4" r="10" fill="#ffd700" opacity="0.2" class="daily-pulse"/>
+<circle cx="248.4" cy="370.4" r="6.0" fill="#ffd700" stroke="#fff" stroke-width="1" opacity="0" class="daily-marker"/>
+<text x="248.4" y="359.4" fill="#fff" font-size="9" text-anchor="middle" opacity="0" class="daily-label" font-weight="bold">入住</text>
+</svg><div class="dmc-play-btn" onclick="playDayMap(4)">▶</div></div><div class="dmc-info"><div class="dmc-info-title">📋 行程时间线</div><div class="dm-timeline"><div class="dm-tl-item"><span class="dm-tl-time">08:30</span><span class="dm-tl-icon">▶</span><div class="dm-tl-content"><div class="dm-tl-label">六盘水出发</div><div class="dm-tl-desc">沪昆高速东行转关岭</div></div></div><div class="dm-tl-item"><span class="dm-tl-time">11:00</span><span class="dm-tl-icon">🍜</span><div class="dm-tl-content"><div class="dm-tl-label">抵达关岭</div><div class="dm-tl-desc">关岭午餐：黄牛干锅、冰浆</div></div></div><div class="dm-tl-item"><span class="dm-tl-time">13:30</span><span class="dm-tl-icon">🏞</span><div class="dm-tl-content"><div class="dm-tl-label">关岭冰臼群</div><div class="dm-tl-desc">1500万年形成的天然地质奇观</div></div></div><div class="dm-tl-item"><span class="dm-tl-time">15:30</span><span class="dm-tl-icon">🏞</span><div class="dm-tl-content"><div class="dm-tl-label">滴水潭瀑布</div><div class="dm-tl-desc">隐藏瀑布，41米高差，无人知晓</div></div></div><div class="dm-tl-item"><span class="dm-tl-time">17:30</span><span class="dm-tl-icon">🍽</span><div class="dm-tl-content"><div class="dm-tl-label">关岭晚餐</div><div class="dm-tl-desc">关岭黄牛肉火锅、拌粉、烤豆腐</div></div></div><div class="dm-tl-item"><span class="dm-tl-time">19:00</span><span class="dm-tl-icon">🏨</span><div class="dm-tl-content"><div class="dm-tl-label">入住</div><div class="dm-tl-desc">黄果树开元名都｜泳池+儿童乐园</div></div></div></div><div class="dmc-cards-row"><div class="dm-card"><div class="dm-card-title">🍜 关岭美食</div><div class="dm-food-item"><div class="dm-food-name">关岭黄牛肉</div><div class="dm-food-desc">贵州最好的黄牛肉出产地，干锅/火锅都绝</div></div><div class="dm-food-item"><div class="dm-food-name">冰浆</div><div class="dm-food-desc">将冰块+水果打成沙冰，夏日解暑神器</div></div><div class="dm-food-item"><div class="dm-food-name">拌粉</div><div class="dm-food-desc">酸辣开胃，加美味酋+花生碗，当地日常</div></div></div><div class="dm-card dm-hotel-card"><div class="dm-card-title">🏨 黄果树开元名都酒店</div><div class="dm-hotel-price">~￥500/间</div><div class="dm-hotel-tags">泳池 · 儿童乐园 · 档次高</div><div class="dm-hotel-desc">黄果树景区最好的酒店之一，有室内泳池和儿童乐园。距离关岭景区只有20分钟车程，方便第二天继续行程。</div></div></div></div></div>
+<div class="daily-map-card" id="daily-map-5"><div class="dmc-header"><div class="dmc-day">DAY 5</div><div class="dmc-date">8月12日（周二）</div><div class="dmc-title">关岭 → 安顺</div><div class="dmc-summary">小众秘境三连发现</div><div class="dmc-stats"><div class="dmc-stat"><span class="dmc-stat-val">~80km</span><span class="dmc-stat-key">车程</span></div><div class="dmc-stat"><span class="dmc-stat-val">~1h</span><span class="dmc-stat-key">车时</span></div><div class="dmc-stat"><span class="dmc-stat-val">铜鼓荡+大圣之眼+牛倒岩</span><span class="dmc-stat-key">景点</span></div><div class="dmc-stat"><span class="dmc-stat-val">安顺百灵酒店</span><span class="dmc-stat-key">住宿</span></div></div></div><div class="dmc-map-wrap"><svg viewBox="195 293 136 129" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">
+<defs><radialGradient id="dmr5"><stop offset="0%" stop-color="#1a2a2a"/><stop offset="100%" stop-color="#0a0a0a"/></radialGradient></defs>
+<rect x="195" y="293" width="136" height="129" fill="url(#dmr5)"/>
+<path d="M118,80 L145,68 172,72 200,58 230,62 258,55 285,65 312,72 340,60 365,68 390,75 418,82 445,78 470,88 498,95 525,105 548,118 568,132 582,148 595,165 605,185 612,208 615,232 610,258 600,282 588,305 575,325 558,342 538,358 515,372 490,385 462,395 435,402 408,408 380,402 355,395 328,388 302,378 278,368 255,355 235,342 218,325 202,308 188,288 178,268 168,248 158,228 148,208 140,188 132,168 125,148 120,128 118,108 Z" fill="none" stroke="rgba(78,205,196,0.08)" stroke-width="1.5"/>
+<path d="M245.4,371.3 Q261.2,366.7 271.8,354.0 Q274.5,352.2 275.8,349.2 Q278.4,346.3 278.9,342.5 Q279.2,345.2 280.9,347.3 Q279.5,344.8 276.9,343.5 Q277.5,343.1 277.9,342.5" fill="none" stroke="#4ecdc4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1000" stroke-dashoffset="1000" class="daily-route-path" opacity="0.9"/>
+<path d="M245.4,371.3 Q261.2,366.7 271.8,354.0 Q274.5,352.2 275.8,349.2 Q278.4,346.3 278.9,342.5 Q279.2,345.2 280.9,347.3 Q279.5,344.8 276.9,343.5 Q277.5,343.1 277.9,342.5" fill="none" stroke="#4ecdc4" stroke-width="6" stroke-linecap="round" opacity="0.15" stroke-dasharray="1000" stroke-dashoffset="1000" class="daily-route-glow"/>
+<circle cx="245.4" cy="371.3" r="10" fill="#4ecdc4" opacity="0.2" class="daily-pulse"/>
+<circle cx="245.4" cy="371.3" r="6.0" fill="#4ecdc4" stroke="#fff" stroke-width="1" opacity="0" class="daily-marker"/>
+<text x="245.4" y="389.3" fill="#fff" font-size="9" text-anchor="middle" opacity="0" class="daily-label" font-weight="bold">关岭出发</text>
+<circle cx="271.8" cy="354.0" r="10" fill="#4ecdc4" opacity="0.2" class="daily-pulse"/>
+<circle cx="271.8" cy="354.0" r="6.0" fill="#4ecdc4" stroke="#fff" stroke-width="1" opacity="0" class="daily-marker"/>
+<text x="271.8" y="343.0" fill="#fff" font-size="9" text-anchor="middle" opacity="0" class="daily-label" font-weight="bold">铜鼓荡</text>
+<circle cx="275.8" cy="349.2" r="10" fill="#4ecdc4" opacity="0.2" class="daily-pulse"/>
+<circle cx="275.8" cy="349.2" r="6.0" fill="#4ecdc4" stroke="#fff" stroke-width="1" opacity="0" class="daily-marker"/>
+<text x="275.8" y="338.2" fill="#fff" font-size="9" text-anchor="middle" opacity="0" class="daily-label" font-weight="bold">大圣之眼</text>
+<circle cx="278.9" cy="342.5" r="4.5" fill="#ff8c42" stroke="#fff" stroke-width="1" opacity="0" class="daily-marker"/>
+<text x="278.9" y="333.0" fill="#fff" font-size="9" text-anchor="middle" opacity="0" class="daily-label" font-weight="normal">安顺午餐</text>
+<circle cx="280.9" cy="347.3" r="10" fill="#4ecdc4" opacity="0.2" class="daily-pulse"/>
+<circle cx="280.9" cy="347.3" r="6.0" fill="#4ecdc4" stroke="#fff" stroke-width="1" opacity="0" class="daily-marker"/>
+<text x="280.9" y="336.3" fill="#fff" font-size="9" text-anchor="middle" opacity="0" class="daily-label" font-weight="bold">牛倒岩</text>
+<circle cx="276.9" cy="343.5" r="4.5" fill="#ff8c42" stroke="#fff" stroke-width="1" opacity="0" class="daily-marker"/>
+<text x="276.9" y="334.0" fill="#fff" font-size="9" text-anchor="middle" opacity="0" class="daily-label" font-weight="normal">安顺晚餐</text>
+<circle cx="277.9" cy="342.5" r="10" fill="#ffd700" opacity="0.2" class="daily-pulse"/>
+<circle cx="277.9" cy="342.5" r="6.0" fill="#ffd700" stroke="#fff" stroke-width="1" opacity="0" class="daily-marker"/>
+<text x="277.9" y="331.5" fill="#fff" font-size="9" text-anchor="middle" opacity="0" class="daily-label" font-weight="bold">入住</text>
+</svg><div class="dmc-play-btn" onclick="playDayMap(5)">▶</div></div><div class="dmc-info"><div class="dmc-info-title">📋 行程时间线</div><div class="dm-timeline"><div class="dm-tl-item"><span class="dm-tl-time">08:00</span><span class="dm-tl-icon">▶</span><div class="dm-tl-content"><div class="dm-tl-label">关岭出发</div><div class="dm-tl-desc">沪昆高速东行</div></div></div><div class="dm-tl-item"><span class="dm-tl-time">08:45</span><span class="dm-tl-icon">🏞</span><div class="dm-tl-content"><div class="dm-tl-label">铜鼓荡</div><div class="dm-tl-desc">小众徒步，山野草甸连天</div></div></div><div class="dm-tl-item"><span class="dm-tl-time">11:00</span><span class="dm-tl-icon">🏞</span><div class="dm-tl-content"><div class="dm-tl-label">大圣之眼</div><div class="dm-tl-desc">天生岩石大圣脸，神奇地质奇观</div></div></div><div class="dm-tl-item"><span class="dm-tl-time">12:30</span><span class="dm-tl-icon">🍜</span><div class="dm-tl-content"><div class="dm-tl-label">安顺午餐</div><div class="dm-tl-desc">丝娃娃、裹卷、冲冲糕</div></div></div><div class="dm-tl-item"><span class="dm-tl-time">14:00</span><span class="dm-tl-icon">🏞</span><div class="dm-tl-content"><div class="dm-tl-label">牛倒岩</div><div class="dm-tl-desc">峡谷瀑布群，清澈见底</div></div></div><div class="dm-tl-item"><span class="dm-tl-time">17:30</span><span class="dm-tl-icon">🍽</span><div class="dm-tl-content"><div class="dm-tl-label">安顺晚餐</div><div class="dm-tl-desc">夺夺粉火锅、破酥包、豆花面</div></div></div><div class="dm-tl-item"><span class="dm-tl-time">19:00</span><span class="dm-tl-icon">🏨</span><div class="dm-tl-content"><div class="dm-tl-label">入住</div><div class="dm-tl-desc">安顺百灵酒店｜市区高档</div></div></div></div><div class="dmc-cards-row"><div class="dm-card"><div class="dm-card-title">🍜 安顺美食</div><div class="dm-food-item"><div class="dm-food-name">丝娃娃</div><div class="dm-food-desc">安顺特色小吃，米糕皮包菜丝汁</div></div><div class="dm-food-item"><div class="dm-food-name">夺夺粉火锅</div><div class="dm-food-desc">安顺版火锅，粉丝+豆腐+酸汤底，很爭</div></div><div class="dm-food-item"><div class="dm-food-name">破酥包</div><div class="dm-food-desc">外酥里嫩的炸面点，安顺早餐之王</div></div></div><div class="dm-card dm-hotel-card"><div class="dm-card-title">🏨 安顺百灵酒店</div><div class="dm-hotel-price">~￥250/间</div><div class="dm-hotel-tags">市区高档 · 性价比高</div><div class="dm-hotel-desc">安顺市区档次较高的酒店，房间宽整洁净，周边吃喝购物方便。价格却很实在，性价比极高。</div></div></div></div></div>
+<div class="daily-map-card" id="daily-map-6"><div class="dmc-header"><div class="dmc-day">DAY 6</div><div class="dmc-date">8月13日（周三）</div><div class="dmc-title">安顺 → 洞口（返程）</div><div class="dmc-summary">满载而归，途中可逗花江明月古城</div><div class="dmc-stats"><div class="dmc-stat"><span class="dmc-stat-val">~550km</span><span class="dmc-stat-key">车程</span></div><div class="dmc-stat"><span class="dmc-stat-val">~8h(含休息)</span><span class="dmc-stat-key">车时</span></div><div class="dmc-stat"><span class="dmc-stat-val">花江/芷江</span><span class="dmc-stat-key">途中</span></div><div class="dmc-stat"><span class="dmc-stat-val">无</span><span class="dmc-stat-key">住宿</span></div></div></div><div class="dmc-map-wrap"><svg viewBox="88 167 848 227" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">
+<defs><radialGradient id="dmr6"><stop offset="0%" stop-color="#1a2a2a"/><stop offset="100%" stop-color="#0a0a0a"/></radialGradient></defs>
+<rect x="88" y="167" width="848" height="227" fill="url(#dmr6)"/>
+<path d="M118,80 L145,68 172,72 200,58 230,62 258,55 285,65 312,72 340,60 365,68 390,75 418,82 445,78 470,88 498,95 525,105 548,118 568,132 582,148 595,165 605,185 612,208 615,232 610,258 600,282 588,305 575,325 558,342 538,358 515,372 490,385 462,395 435,402 408,408 380,402 355,395 328,388 302,378 278,368 255,355 235,342 218,325 202,308 188,288 178,268 168,248 158,228 148,208 140,188 132,168 125,148 120,128 118,108 Z" fill="none" stroke="rgba(78,205,196,0.08)" stroke-width="1.5"/>
+<path d="M276.9,343.5 Q355.8,346.7 426.2,310.8 Q538.3,283.9 634.4,220.4 Q660.3,226.6 685.2,217.5 Q685.6,225.5 690.3,231.9 Q714.1,257.9 748.2,266.5" fill="none" stroke="#4ecdc4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1000" stroke-dashoffset="1000" class="daily-route-path" opacity="0.9"/>
+<path d="M276.9,343.5 Q355.8,346.7 426.2,310.8 Q538.3,283.9 634.4,220.4 Q660.3,226.6 685.2,217.5 Q685.6,225.5 690.3,231.9 Q714.1,257.9 748.2,266.5" fill="none" stroke="#4ecdc4" stroke-width="6" stroke-linecap="round" opacity="0.15" stroke-dasharray="1000" stroke-dashoffset="1000" class="daily-route-glow"/>
+<circle cx="276.9" cy="343.5" r="10" fill="#4ecdc4" opacity="0.2" class="daily-pulse"/>
+<circle cx="276.9" cy="343.5" r="6.0" fill="#4ecdc4" stroke="#fff" stroke-width="1" opacity="0" class="daily-marker"/>
+<text x="276.9" y="361.5" fill="#fff" font-size="9" text-anchor="middle" opacity="0" class="daily-label" font-weight="bold">安顺出发</text>
+<circle cx="426.2" cy="310.8" r="4.5" fill="#888" stroke="#fff" stroke-width="1" opacity="0" class="daily-marker"/>
+<text x="426.2" y="301.3" fill="#fff" font-size="9" text-anchor="middle" opacity="0" class="daily-label" font-weight="normal">凯里服务区</text>
+<circle cx="634.4" cy="220.4" r="10" fill="#4ecdc4" opacity="0.2" class="daily-pulse"/>
+<circle cx="634.4" cy="220.4" r="6.0" fill="#4ecdc4" stroke="#fff" stroke-width="1" opacity="0" class="daily-marker"/>
+<text x="634.4" y="209.4" fill="#fff" font-size="9" text-anchor="middle" opacity="0" class="daily-label" font-weight="bold">花江明月古城</text>
+<circle cx="685.2" cy="217.5" r="4.5" fill="#ff8c42" stroke="#fff" stroke-width="1" opacity="0" class="daily-marker"/>
+<text x="685.2" y="208.0" fill="#fff" font-size="9" text-anchor="middle" opacity="0" class="daily-label" font-weight="normal">怀化午餐</text>
+<circle cx="690.3" cy="231.9" r="4.5" fill="#888" stroke="#fff" stroke-width="1" opacity="0" class="daily-marker"/>
+<text x="690.3" y="222.4" fill="#fff" font-size="9" text-anchor="middle" opacity="0" class="daily-label" font-weight="normal">继续返程</text>
+<circle cx="748.2" cy="266.5" r="10" fill="#4ecdc4" opacity="0.2" class="daily-pulse"/>
+<circle cx="748.2" cy="266.5" r="6.0" fill="#4ecdc4" stroke="#fff" stroke-width="1" opacity="0" class="daily-marker"/>
+<text x="748.2" y="255.5" fill="#fff" font-size="9" text-anchor="middle" opacity="0" class="daily-label" font-weight="bold">抵达洞口</text>
+</svg><div class="dmc-play-btn" onclick="playDayMap(6)">▶</div></div><div class="dmc-info"><div class="dmc-info-title">📋 行程时间线</div><div class="dm-timeline"><div class="dm-tl-item"><span class="dm-tl-time">07:00</span><span class="dm-tl-icon">▶</span><div class="dm-tl-content"><div class="dm-tl-label">安顺出发</div><div class="dm-tl-desc">早起返程，G60沪昆高速东行</div></div></div><div class="dm-tl-item"><span class="dm-tl-time">09:30</span><span class="dm-tl-icon">☕</span><div class="dm-tl-content"><div class="dm-tl-label">凯里服务区</div><div class="dm-tl-desc">稍作休息，赶赶路</div></div></div><div class="dm-tl-item"><span class="dm-tl-time">11:30</span><span class="dm-tl-icon">🏞</span><div class="dm-tl-content"><div class="dm-tl-label">花江明月古城</div><div class="dm-tl-desc">可选：古城漫步1h+午餐酸汤鱼</div></div></div><div class="dm-tl-item"><span class="dm-tl-time">13:00</span><span class="dm-tl-icon">🍜</span><div class="dm-tl-content"><div class="dm-tl-label">怀化午餐</div><div class="dm-tl-desc">怀化粉、辳阳美食，补充能量</div></div></div><div class="dm-tl-item"><span class="dm-tl-time">15:00</span><span class="dm-tl-icon">☕</span><div class="dm-tl-content"><div class="dm-tl-label">继续返程</div><div class="dm-tl-desc">最后一段路程，稳开慢行</div></div></div><div class="dm-tl-item"><span class="dm-tl-time">17:00</span><span class="dm-tl-icon">🏁</span><div class="dm-tl-content"><div class="dm-tl-label">抵达洞口</div><div class="dm-tl-desc">安全到家！结束愉快的贵州之旅</div></div></div></div><div class="dmc-cards-row"><div class="dm-card"><div class="dm-card-title">🍜 返程补给</div><div class="dm-food-item"><div class="dm-food-name">花江酸汤鱼</div><div class="dm-food-desc">途中经过花江，必尝当地酸汤鱼</div></div><div class="dm-food-item"><div class="dm-food-name">怀化粉</div><div class="dm-food-desc">怀化特色米粉，汤头浓郁，和湘西口味不同</div></div><div class="dm-food-item"><div class="dm-food-name">服务区小吃</div><div class="dm-food-desc">贵州服务区的烤土豆、烤豆腐也很好吃</div></div></div></div></div></div>
+</div>
 </section>
 
 
@@ -3771,6 +4219,76 @@ window.onscroll = handleScroll;
             if (e.target === overlay) { closeMapModal(); }
         });
     }
+})();
+</script>
+
+
+<script>
+// Daily map animation controller
+(function() {
+    var playedDays = {};
+
+    window.playDayMap = function(dayNum) {
+        if (playedDays[dayNum]) return;
+        playedDays[dayNum] = true;
+
+        var card = document.getElementById('daily-map-' + dayNum);
+        if (!card) return;
+
+        var btn = card.querySelector('.dmc-play-btn');
+        if (btn) btn.className = 'dmc-play-btn playing';
+
+        // Animate route path
+        var paths = card.querySelectorAll('.daily-route-path, .daily-route-glow');
+        for (var i = 0; i < paths.length; i++) {
+            paths[i].className = paths[i].className.baseVal + ' animated';
+        }
+
+        // Animate markers and labels sequentially
+        var markers = card.querySelectorAll('.daily-marker');
+        var labels = card.querySelectorAll('.daily-label');
+        var total = markers.length;
+        var delay = 400; // ms between each marker
+
+        for (var j = 0; j < total; j++) {
+            (function(idx) {
+                setTimeout(function() {
+                    if (markers[idx]) markers[idx].className.baseVal = 'daily-marker show';
+                    if (labels[idx]) labels[idx].className.baseVal = 'daily-label show';
+                }, delay * (idx + 1) + 300);
+            })(j);
+        }
+    };
+
+    // Auto-play when scrolling into view
+    function checkVisibility() {
+        var cards = document.querySelectorAll('.daily-map-card');
+        for (var i = 0; i < cards.length; i++) {
+            var card = cards[i];
+            var rect = card.getBoundingClientRect();
+            var viewH = window.innerHeight || document.documentElement.clientHeight;
+            if (rect.top < viewH * 0.75 && rect.bottom > 0) {
+                var id = card.id;
+                var num = parseInt(id.replace('daily-map-', ''));
+                if (!playedDays[num]) {
+                    playDayMap(num);
+                }
+            }
+        }
+    }
+
+    // Throttled scroll listener
+    var scrollTimer = null;
+    window.addEventListener('scroll', function() {
+        if (scrollTimer) return;
+        scrollTimer = setTimeout(function() {
+            scrollTimer = null;
+            checkVisibility();
+        }, 200);
+    }, {passive: true});
+
+    // Check on load
+    setTimeout(checkVisibility, 1000);
 })();
 </script>
 
