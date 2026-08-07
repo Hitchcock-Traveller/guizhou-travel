@@ -1660,6 +1660,523 @@ body:not(.view-home) .home-nav-wrap { display: none; }
     animation: stopBreath 2.5s ease-in-out infinite;
 }
 
+
+/* ===== Fishing Section ===== */
+.fishing-hero {
+    position: relative;
+    width: 100%;
+    min-height: 340px;
+    background: linear-gradient(135deg, rgba(10,40,60,0.92) 0%, rgba(10,10,10,0.75) 100%),
+                url('https://s.coze.cn/image/zg4Yxvga86A/') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: var(--radius-l);
+    overflow: hidden;
+    margin-bottom: 40px;
+}
+.fishing-hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(180deg, transparent 40%, rgba(10,10,10,0.95) 100%);
+    pointer-events: none;
+}
+.fishing-hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 48px 24px;
+}
+.fishing-hero-icon {
+    font-size: 56px;
+    margin-bottom: 16px;
+    display: block;
+    animation: fishingBob 3s ease-in-out infinite;
+}
+@keyframes fishingBob {
+    0%, 100% { transform: translateY(0) rotate(-5deg); }
+    50% { transform: translateY(-8px) rotate(5deg); }
+}
+.fishing-hero h2 {
+    font-size: 42px;
+    font-weight: 800;
+    color: var(--warm);
+    letter-spacing: 6px;
+    margin-bottom: 12px;
+    text-shadow: 0 2px 20px rgba(212,165,116,0.3);
+}
+.fishing-hero .fishing-subtitle {
+    font-size: 16px;
+    color: var(--text-dim);
+    max-width: 560px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+.fishing-hero .fishing-badge {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 8px 24px;
+    background: rgba(212,165,116,0.15);
+    border: 1px solid rgba(212,165,116,0.3);
+    border-radius: 24px;
+    color: var(--warm);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* Fishing spot cards */
+.fishing-card {
+    background: rgba(20,20,20,0.7);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: var(--radius-m);
+    margin-bottom: 20px;
+    overflow: hidden;
+    transition: transform 0.3s, opacity 0.3s;
+}
+.fishing-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(212,165,116,0.2);
+}
+.fishing-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 24px;
+    background: none;
+    border: none;
+    color: var(--text);
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    transition: background 0.3s;
+}
+.fishing-card-header:hover {
+    background: rgba(212,165,116,0.06);
+}
+.fishing-card-header .fc-day {
+    color: var(--warm);
+    font-size: 13px;
+    font-weight: 500;
+    margin-right: 12px;
+    white-space: nowrap;
+}
+.fishing-card-header .fc-title {
+    flex: 1;
+}
+.fishing-card-header .fc-arrow {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    transition: transform 0.35s ease;
+    color: var(--warm);
+    flex-shrink: 0;
+}
+.fishing-card-header.active .fc-arrow {
+    transform: rotate(90deg);
+}
+.fishing-card-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+}
+.fishing-card-inner {
+    padding: 0 24px 24px;
+    display: flex;
+    gap: 24px;
+}
+.fishing-card-img {
+    flex-shrink: 0;
+    width: 240px;
+    height: 180px;
+    border-radius: var(--radius-s);
+    overflow: hidden;
+    background: rgba(20,20,20,0.5);
+}
+.fishing-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.fishing-card-info {
+    flex: 1;
+    min-width: 0;
+}
+.fishing-card-info .fc-location {
+    font-size: 13px;
+    color: var(--accent);
+    margin-bottom: 6px;
+}
+.fishing-card-info .fc-desc {
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--text-dim);
+    margin-bottom: 12px;
+}
+.fishing-card-info .fc-fish {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+}
+.fishing-card-info .fc-stars {
+    font-size: 13px;
+    color: var(--text-dim);
+    margin-bottom: 12px;
+    line-height: 1.8;
+}
+.fishing-card-info .spot-tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+}
+.fishing-card-info .spot-tag {
+    background: var(--accent-glow);
+    color: var(--accent);
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+}
+.fishing-card-info .spot-tag.warm {
+    background: var(--warm-glow);
+    color: var(--warm);
+}
+
+/* Fishing video section */
+.fishing-video-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin: 32px 0;
+}
+.fishing-video-item {
+    background: rgba(20,20,20,0.6);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: var(--radius-m);
+    overflow: hidden;
+}
+.fishing-video-item .fv-title {
+    padding: 16px 20px 12px;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--warm);
+}
+.fishing-video-item .fv-desc {
+    padding: 0 20px 16px;
+    font-size: 13px;
+    color: var(--text-dim);
+}
+
+/* Toggle all button */
+.fishing-toggle-all {
+    display: flex;
+    justify-content: center;
+    margin: 28px 0;
+}
+.fishing-toggle-all button {
+    padding: 12px 36px;
+    background: rgba(212,165,116,0.12);
+    border: 1px solid rgba(212,165,116,0.3);
+    border-radius: 24px;
+    color: var(--warm);
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+.fishing-toggle-all button:hover {
+    background: rgba(212,165,116,0.2);
+    transform: translateY(-1px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .fishing-hero h2 { font-size: 28px; letter-spacing: 3px; }
+    .fishing-hero { min-height: 260px; }
+    .fishing-card-inner { flex-direction: column; }
+    .fishing-card-img { width: 100%; height: 200px; }
+    .fishing-video-grid { grid-template-columns: 1fr; }
+    .fishing-card-header { font-size: 15px; padding: 14px 16px; }
+}
+
+
+/* ===== Adventure / Outdoor Section ===== */
+:root {
+    --adventure: #ff6b35;
+    --adventure-glow: rgba(255,107,53,0.15);
+    --adventure-warm: #ff8c5a;
+}
+.adventure-hero {
+    position: relative;
+    width: 100%;
+    min-height: 380px;
+    background: linear-gradient(135deg, rgba(60,20,10,0.92) 0%, rgba(10,10,10,0.75) 100%),
+                url('https://s.coze.cn/image/xvjNzA-u05k/') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: var(--radius-l);
+    overflow: hidden;
+    margin-bottom: 40px;
+}
+.adventure-hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(180deg, transparent 40%, rgba(10,10,10,0.95) 100%);
+    pointer-events: none;
+}
+.adventure-hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 48px 24px;
+}
+.adventure-hero-icon {
+    font-size: 56px;
+    margin-bottom: 16px;
+    display: block;
+    animation: adventurePulse 2s ease-in-out infinite;
+}
+@keyframes adventurePulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+.adventure-hero h2 {
+    font-size: 40px;
+    font-weight: 800;
+    color: var(--adventure);
+    letter-spacing: 6px;
+    margin-bottom: 12px;
+    text-shadow: 0 2px 20px rgba(255,107,53,0.3);
+}
+.adventure-hero .adv-subtitle {
+    font-size: 16px;
+    color: var(--text-dim);
+    max-width: 580px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+.adventure-hero .adv-badge {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 8px 24px;
+    background: rgba(255,107,53,0.15);
+    border: 1px solid rgba(255,107,53,0.3);
+    border-radius: 24px;
+    color: var(--adventure);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* Adventure cards */
+.adventure-card {
+    background: rgba(20,20,20,0.7);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: var(--radius-m);
+    margin-bottom: 24px;
+    overflow: hidden;
+    transition: transform 0.3s, opacity 0.3s;
+}
+.adventure-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(255,107,53,0.2);
+}
+.adventure-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 24px;
+    background: none;
+    border: none;
+    color: var(--text);
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    transition: background 0.3s;
+}
+.adventure-card-header:hover {
+    background: rgba(255,107,53,0.06);
+}
+.adventure-card-header .ac-day {
+    color: var(--adventure);
+    font-size: 13px;
+    font-weight: 500;
+    margin-right: 12px;
+    white-space: nowrap;
+}
+.adventure-card-header .ac-title {
+    flex: 1;
+}
+.adventure-card-header .ac-arrow {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    transition: transform 0.35s ease;
+    color: var(--adventure);
+    flex-shrink: 0;
+}
+.adventure-card-header.active .ac-arrow {
+    transform: rotate(90deg);
+}
+.adventure-card-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+}
+.adventure-card-inner {
+    padding: 0 24px 24px;
+}
+.adventure-card-img-top {
+    width: 100%;
+    height: 260px;
+    border-radius: var(--radius-s);
+    overflow: hidden;
+    margin-bottom: 20px;
+    background: rgba(20,20,20,0.5);
+}
+.adventure-card-img-top img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.adventure-card-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 24px;
+    margin-bottom: 16px;
+    font-size: 14px;
+    color: var(--text-dim);
+}
+.adventure-card-meta .ac-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+.adventure-card-meta .ac-price {
+    color: var(--adventure);
+    font-weight: 700;
+    font-size: 16px;
+}
+.adventure-card-meta .ac-stars {
+    color: var(--adventure-warm);
+    letter-spacing: 2px;
+}
+.adventure-card-desc {
+    font-size: 14px;
+    line-height: 1.9;
+    color: var(--text-dim);
+    margin-bottom: 16px;
+}
+.adventure-card-features {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+    line-height: 1.8;
+}
+.adventure-card-route {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+    padding: 8px 14px;
+    background: rgba(255,107,53,0.06);
+    border-left: 3px solid var(--adventure);
+    border-radius: 0 8px 8px 0;
+}
+.adv-tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 12px;
+    margin-bottom: 16px;
+}
+.adv-tag {
+    background: var(--adventure-glow);
+    color: var(--adventure);
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 500;
+}
+.adv-tag.warm {
+    background: var(--warm-glow);
+    color: var(--warm);
+}
+
+/* Adventure photo gallery row */
+.adv-photo-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+}
+.adv-photo-row img {
+    width: 200px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: var(--radius-s);
+    flex-shrink: 0;
+    border: 1px solid rgba(255,255,255,0.06);
+}
+
+/* Adventure video embed */
+.adv-video-wrap {
+    margin: 20px 0;
+    border-radius: var(--radius-s);
+    overflow: hidden;
+    background: #000;
+    position: relative;
+    padding-top: 56.25%;
+}
+.adv-video-wrap iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Adventure footer note */
+.adventure-note {
+    text-align: center;
+    padding: 32px 24px;
+    margin-top: 20px;
+    background: rgba(255,107,53,0.06);
+    border: 1px solid rgba(255,107,53,0.15);
+    border-radius: var(--radius-m);
+}
+.adventure-note p {
+    font-size: 14px;
+    color: var(--text-dim);
+    line-height: 2;
+}
+.adventure-note .adv-note-title {
+    color: var(--adventure);
+    font-weight: 600;
+    font-size: 15px;
+    margin-bottom: 8px;
+}
+
+/* Adventure responsive */
+@media (max-width: 768px) {
+    .adventure-hero h2 { font-size: 26px; letter-spacing: 3px; }
+    .adventure-hero { min-height: 280px; }
+    .adventure-card-header { font-size: 15px; padding: 14px 16px; }
+    .adventure-card-img-top { height: 200px; }
+    .adv-photo-row img { width: 160px; height: 110px; }
+    .adventure-card-meta { gap: 8px 16px; font-size: 13px; }
+}
+
 </style>
 </head>
 <body>
@@ -2039,15 +2556,15 @@ body:not(.view-home) .home-nav-wrap { display: none; }
 <circle cx="655" cy="210" r="4.5" fill="#888" stroke="#fff" stroke-width="1" opacity="0" class="daily-marker"/>
 <text x="650.0" y="200.0" fill="#fff" font-size="9" text-anchor="middle" opacity="0" class="daily-label" font-weight="normal">怀化服务区</text>
 <circle cx="315" cy="315" r="4.5" fill="#ff8c42" stroke="#fff" stroke-width="1" opacity="0" class="daily-marker"/>
-<text x="320.0" y="310.0" fill="#fff" font-size="9" text-anchor="middle" opacity="0" class="daily-label" font-weight="normal">抵达清镇</text>
+<text x="270" y="340" fill="#fff" font-size="9" text-anchor="middle" opacity="0" class="daily-label" font-weight="normal">抵达清镇</text>
 <circle cx="322.6" cy="301.2" r="10" fill="#4ecdc4" opacity="0.2" class="daily-pulse"/>
 <circle cx="295" cy="280" r="6.0" fill="#4ecdc4" stroke="#fff" stroke-width="1" opacity="0" class="daily-marker"/>
-<text x="310.0" y="278.0" fill="#fff" font-size="9" text-anchor="middle" opacity="0" class="daily-label" font-weight="bold">羊皮洞瀑布</text>
+<text x="260" y="260" fill="#fff" font-size="9" text-anchor="middle" opacity="0" class="daily-label" font-weight="bold">羊皮洞瀑布</text>
 <circle cx="355" cy="315" r="4.5" fill="#ff8c42" stroke="#fff" stroke-width="1" opacity="0" class="daily-marker"/>
-<text x="355.0" y="310.0" fill="#fff" font-size="9" text-anchor="middle" opacity="0" class="daily-label" font-weight="normal">清镇晚餐</text>
+<text x="375" y="305" fill="#fff" font-size="9" text-anchor="middle" opacity="0" class="daily-label" font-weight="normal">清镇晚餐</text>
 <circle cx="334.8" cy="311.7" r="10" fill="#ffd700" opacity="0.2" class="daily-pulse"/>
 <circle cx="355" cy="295" r="6.0" fill="#ffd700" stroke="#fff" stroke-width="1" opacity="0" class="daily-marker"/>
-<text x="355.0" y="290.0" fill="#fff" font-size="9" text-anchor="middle" opacity="0" class="daily-label" font-weight="bold">入住</text>
+<text x="375" y="280" fill="#fff" font-size="9" text-anchor="middle" opacity="0" class="daily-label" font-weight="bold">入住</text>
 </svg><div class="dmc-play-btn" onclick="playDayMap(1)">▶</div></div><div class="dmc-info"><div class="dmc-info-title">📋 行程时间线</div><div class="dm-timeline"><div class="dm-tl-item"><span class="dm-tl-time">06:00</span><span class="dm-tl-icon">▶</span><div class="dm-tl-content"><div class="dm-tl-label">洞口出发</div><div class="dm-tl-desc">早起出发，G60沪昆高速西行</div></div></div><div class="dm-tl-item"><span class="dm-tl-time">08:30</span><span class="dm-tl-icon">☕</span><div class="dm-tl-content"><div class="dm-tl-label">怀化服务区</div><div class="dm-tl-desc">稍作休息，补给能量</div></div></div><div class="dm-tl-item"><span class="dm-tl-time">12:00</span><span class="dm-tl-icon">🍜</span><div class="dm-tl-content"><div class="dm-tl-label">抵达清镇</div><div class="dm-tl-desc">午餐：花溪牛肉粉、洛锅</div></div></div><div class="dm-tl-item"><span class="dm-tl-time">14:00</span><span class="dm-tl-icon">🏞</span><div class="dm-tl-content"><div class="dm-tl-label">羊皮洞瀑布</div><div class="dm-tl-desc">徒步探险，清澈瀑布水潭</div></div></div><div class="dm-tl-item"><span class="dm-tl-time">17:30</span><span class="dm-tl-icon">🍽</span><div class="dm-tl-content"><div class="dm-tl-label">清镇晚餐</div><div class="dm-tl-desc">酸汤鱼、丝娃娃、豆腐果</div></div></div><div class="dm-tl-item"><span class="dm-tl-time">19:00</span><span class="dm-tl-icon">🏨</span><div class="dm-tl-content"><div class="dm-tl-label">入住</div><div class="dm-tl-desc">乡愁贵州·澜山酒店｜稻田风光·野奢度假·亲子农耕</div></div></div></div><div class="dmc-cards-row"><div class="dm-card"><div class="dm-card-title">🍜 清镇美食</div><div class="dm-food-item"><div class="dm-food-name">花溪牛肉粉</div><div class="dm-food-desc">清汤牛肉，粉质细滑，汤头鲜香</div></div><div class="dm-food-item"><div class="dm-food-name">洛锅</div><div class="dm-food-desc">贵州特色烤盘，豆腐+折耳根+酸辣蓖汁</div></div><div class="dm-food-item"><div class="dm-food-name">丝娃娃</div><div class="dm-food-desc">米糕皮包裹菜丝，酸辣爽口</div></div></div><div class="dm-card dm-hotel-card"><div class="dm-card-title">🏨 乡愁贵州·澜山酒店</div><div class="dm-hotel-price">~￥650/间</div><div class="dm-hotel-tags">稻田风光 · 野奢度假 · 亲子农耕</div><div class="dm-hotel-desc">350亩稻田观光区环绕，窗外湖光山色，有农耕体验适合亲子</div></div></div></div></div>
 <div class="daily-map-card" id="daily-map-2"><div class="dmc-header"><div class="dmc-day">DAY 2</div><div class="dmc-date">8月9日（周六）</div><div class="dmc-title">清镇 → 织金 → 纳雍</div><div class="dmc-summary">天下第一洞 + 小众瀑布</div><div class="dmc-stats"><div class="dmc-stat"><span class="dmc-stat-val">~180km</span><span class="dmc-stat-key">车程</span></div><div class="dmc-stat"><span class="dmc-stat-val">~2.5h(不含织金洞)</span><span class="dmc-stat-key">车时</span></div><div class="dmc-stat"><span class="dmc-stat-val">吊水岩瀑布</span><span class="dmc-stat-key">景点</span></div><div class="dmc-stat"><span class="dmc-stat-val">总溪河陶源林宿</span><span class="dmc-stat-key">住宿</span></div></div></div><div class="dmc-map-wrap"><svg viewBox="154 199 229 164" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">
 <defs><radialGradient id="dmr2"><stop offset="0%" stop-color="#1a2a2a"/><stop offset="100%" stop-color="#0a0a0a"/></radialGradient></defs>
@@ -2062,17 +2579,17 @@ body:not(.view-home) .home-nav-wrap { display: none; }
 <circle cx="260.6" cy="302.1" r="6.0" fill="#4ecdc4" stroke="#fff" stroke-width="1" opacity="0" class="daily-marker"/>
 <text x="260.6" y="291.1" fill="#fff" font-size="9" text-anchor="middle" opacity="0" class="daily-label" font-weight="bold">织金洞</text>
 <circle cx="210" cy="230" r="4.5" fill="#ff8c42" stroke="#fff" stroke-width="1" opacity="0" class="daily-marker"/>
-<text x="210.8" y="220.0" fill="#fff" font-size="9" text-anchor="middle" opacity="0" class="daily-label" font-weight="normal">纳雍午餐</text>
+<text x="180" y="195" fill="#fff" font-size="9" text-anchor="middle" opacity="0" class="daily-label" font-weight="normal">纳雍午餐</text>
 <circle cx="204.7" cy="249.2" r="10" fill="#4ecdc4" opacity="0.2" class="daily-pulse"/>
 <circle cx="170" cy="225" r="6.0" fill="#4ecdc4" stroke="#fff" stroke-width="1" opacity="0" class="daily-marker"/>
-<text x="165.0" y="225.0" fill="#fff" font-size="9" text-anchor="middle" opacity="0" class="daily-label" font-weight="bold">吊水岩瀑布</text>
+<text x="140" y="210" fill="#fff" font-size="9" text-anchor="middle" opacity="0" class="daily-label" font-weight="bold">吊水岩瀑布</text>
 <circle cx="245" cy="245" r="4.5" fill="#ff8c42" stroke="#fff" stroke-width="1" opacity="0" class="daily-marker"/>
-<text x="250.0" y="245.0" fill="#fff" font-size="9" text-anchor="middle" opacity="0" class="daily-label" font-weight="normal">纳雍晚餐</text>
+<text x="270" y="240" fill="#fff" font-size="9" text-anchor="middle" opacity="0" class="daily-label" font-weight="normal">纳雍晚餐</text>
 <circle cx="212.9" cy="253.1" r="10" fill="#ffd700" opacity="0.2" class="daily-pulse"/>
 <circle cx="245" cy="265" r="6.0" fill="#ffd700" stroke="#fff" stroke-width="1" opacity="0" class="daily-marker"/>
-<text x="250.0" y="260.0" fill="#fff" font-size="9" text-anchor="middle" opacity="0" class="daily-label" font-weight="bold">入住</text>
+<text x="270" y="275" fill="#fff" font-size="9" text-anchor="middle" opacity="0" class="daily-label" font-weight="bold">入住</text>
 </svg><div class="dmc-play-btn" onclick="playDayMap(2)">▶</div></div><div class="dmc-info"><div class="dmc-info-title">📋 行程时间线</div><div class="dm-timeline"><div class="dm-tl-item"><span class="dm-tl-time">08:00</span><span class="dm-tl-icon">▶</span><div class="dm-tl-content"><div class="dm-tl-label">清镇出发</div><div class="dm-tl-desc">清织高速西行</div></div></div><div class="dm-tl-item"><span class="dm-tl-time">09:30</span><span class="dm-tl-icon">🏞</span><div class="dm-tl-content"><div class="dm-tl-label">织金洞</div><div class="dm-tl-desc">“天下第一洞”，游览~1.5h</div></div></div><div class="dm-tl-item"><span class="dm-tl-time">12:00</span><span class="dm-tl-icon">🍜</span><div class="dm-tl-content"><div class="dm-tl-label">纳雍午餐</div><div class="dm-tl-desc">豆花面、洛锅、纳雍烤肉</div></div></div><div class="dm-tl-item"><span class="dm-tl-time">14:00</span><span class="dm-tl-icon">🏞</span><div class="dm-tl-content"><div class="dm-tl-label">吊水岩瀑布</div><div class="dm-tl-desc">小众瀑布，水帘如绸缎</div></div></div><div class="dm-tl-item"><span class="dm-tl-time">17:30</span><span class="dm-tl-icon">🍽</span><div class="dm-tl-content"><div class="dm-tl-label">纳雍晚餐</div><div class="dm-tl-desc">水爬岩豆花、娃娃鱼、折耳根拌菜</div></div></div><div class="dm-tl-item"><span class="dm-tl-time">19:00</span><span class="dm-tl-icon">🏨</span><div class="dm-tl-content"><div class="dm-tl-label">入住</div><div class="dm-tl-desc">总溪河陶源林宿｜山顶秘境·亲子友好</div></div></div></div><div class="dmc-cards-row"><div class="dm-card"><div class="dm-card-title">🍜 纳雍美食</div><div class="dm-food-item"><div class="dm-food-name">豆花面</div><div class="dm-food-desc">纳雍特色早餐，豆瓣炒香+精细面条</div></div><div class="dm-food-item"><div class="dm-food-name">娃娃鱼</div><div class="dm-food-desc">酸汤小鱼，软嫩入味，当地人爱吃</div></div><div class="dm-food-item"><div class="dm-food-name">纳雍烤肉</div><div class="dm-food-desc">小火慢烤，撒上贵州特产辣椒面</div></div></div><div class="dm-card dm-hotel-card"><div class="dm-card-title">🏨 总溪河陶源林宿</div><div class="dm-hotel-price">~￥400/间</div><div class="dm-hotel-tags">山顶秘境 · 亲子友好</div><div class="dm-hotel-desc">纳雍总溪河畔山顶秘境，推窗见山，空气里都是草木香。儿童乐园、KTV免费，农家菜新鲜好吃</div></div></div></div></div>
-<div class="video-container"><div class="video-title"><span class="video-label">📹 视频</span>织金洞 · 亿年钟乳石地下奇观</div><iframe src="https://player.bilibili.com/player.html?bvid=BV1veRuBpERr&page=1&high_quality=1&danmaku=0" scrolling="no" border="0" frameborder="no" framespacing="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen="true"></iframe></div>
+<div class="video-container"><div class="video-title"><span class="video-label">📹 视频</span>织金洞 · 亿年钟乳石地下奇观</div><iframe src="https://player.bilibili.com/player.html?isOutside=true&bvid=BV1veRuBpERr&p=1&high_quality=1" scrolling="no" border="0" frameborder="no" framespacing="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen="true"></iframe></div>
 <div class="daily-map-card" id="daily-map-3"><div class="dmc-header"><div class="dmc-day">DAY 3</div><div class="dmc-date">8月10日（周日）</div><div class="dmc-title">纳雍 → 六枝 → 六盘水</div><div class="dmc-summary">云湖峡谷 + 牦牛江天际线</div><div class="dmc-stats"><div class="dmc-stat"><span class="dmc-stat-val">~200km</span><span class="dmc-stat-key">车程</span></div><div class="dmc-stat"><span class="dmc-stat-val">~3.5h</span><span class="dmc-stat-key">车时</span></div><div class="dmc-stat"><span class="dmc-stat-val">牦牛江·龙脊山</span><span class="dmc-stat-key">景点</span></div><div class="dmc-stat"><span class="dmc-stat-val">夜郎福地酒店</span><span class="dmc-stat-key">住宿</span></div></div></div><div class="dmc-map-wrap"><svg viewBox="61 204 200 208" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">
 <defs><radialGradient id="dmr3"><stop offset="0%" stop-color="#1a2a2a"/><stop offset="100%" stop-color="#0a0a0a"/></radialGradient></defs>
 <rect x="61" y="204" width="200" height="208" fill="url(#dmr3)"/>
@@ -2081,69 +2598,69 @@ body:not(.view-home) .home-nav-wrap { display: none; }
 <path d="M210,230 Q190,240 175,345 Q160,350 175.3,346.3 Q141.0,344.4 111.3,361.7 Q125,335 140,310 Q140,300,309.6 167.1,308.8" fill="none" stroke="#4ecdc4" stroke-width="6" stroke-linecap="round" opacity="0.15" stroke-dasharray="1000" stroke-dashoffset="1000" class="daily-route-glow"/>
 <circle cx="210.8" cy="254.0" r="10" fill="#4ecdc4" opacity="0.2" class="daily-pulse"/>
 <circle cx="210.8" cy="254.0" r="6.0" fill="#4ecdc4" stroke="#fff" stroke-width="1" opacity="0" class="daily-marker"/>
-<text x="210.8" y="272.0" fill="#fff" font-size="9" text-anchor="middle" opacity="0" class="daily-label" font-weight="bold">纳雍出发</text>
+<text x="230" y="265" fill="#fff" font-size="9" text-anchor="middle" opacity="0" class="daily-label" font-weight="bold">纳雍出发</text>
 <circle cx="170.2" cy="313.7" r="10" fill="#4ecdc4" opacity="0.2" class="daily-pulse"/>
 <circle cx="175" cy="345" r="6.0" fill="#4ecdc4" stroke="#fff" stroke-width="1" opacity="0" class="daily-marker"/>
-<text x="170.2" y="302.7" fill="#fff" font-size="9" text-anchor="middle" opacity="0" class="daily-label" font-weight="bold">云湖峡谷</text>
+<text x="150" y="330" fill="#fff" font-size="9" text-anchor="middle" opacity="0" class="daily-label" font-weight="bold">云湖峡谷</text>
 <circle cx="195" cy="355" r="4.5" fill="#ff8c42" stroke="#fff" stroke-width="1" opacity="0" class="daily-marker"/>
-<text x="175.3" y="355.0" fill="#fff" font-size="9" text-anchor="middle" opacity="0" class="daily-label" font-weight="normal">六枝午餐</text>
+<text x="215" y="365" fill="#fff" font-size="9" text-anchor="middle" opacity="0" class="daily-label" font-weight="normal">六枝午餐</text>
 <circle cx="111.3" cy="361.7" r="10" fill="#4ecdc4" opacity="0.2" class="daily-pulse"/>
 <circle cx="111.3" cy="361.7" r="6.0" fill="#4ecdc4" stroke="#fff" stroke-width="1" opacity="0" class="daily-marker"/>
-<text x="111.3" y="350.7" fill="#fff" font-size="9" text-anchor="middle" opacity="0" class="daily-label" font-weight="bold">牦牛江·龙脊山</text>
+<text x="90" y="375" fill="#fff" font-size="9" text-anchor="middle" opacity="0" class="daily-label" font-weight="bold">牦牛江·龙脊山</text>
 <circle cx="140" cy="310" r="4.5" fill="#ff8c42" stroke="#fff" stroke-width="1" opacity="0" class="daily-marker"/>
-<text x="135.0" y="305.0" fill="#fff" font-size="9" text-anchor="middle" opacity="0" class="daily-label" font-weight="normal">六盘水晚餐</text>
+<text x="110" y="295" fill="#fff" font-size="9" text-anchor="middle" opacity="0" class="daily-label" font-weight="normal">六盘水晚餐</text>
 <circle cx="167.1" cy="308.8" r="10" fill="#ffd700" opacity="0.2" class="daily-pulse"/>
 <circle cx="140" cy="290" r="6.0" fill="#ffd700" stroke="#fff" stroke-width="1" opacity="0" class="daily-marker"/>
-<text x="135.0" y="285.0" fill="#fff" font-size="9" text-anchor="middle" opacity="0" class="daily-label" font-weight="bold">入住</text>
+<text x="110" y="275" fill="#fff" font-size="9" text-anchor="middle" opacity="0" class="daily-label" font-weight="bold">入住</text>
 </svg><div class="dmc-play-btn" onclick="playDayMap(3)">▶</div></div><div class="dmc-info"><div class="dmc-info-title">📋 行程时间线</div><div class="dm-timeline"><div class="dm-tl-item"><span class="dm-tl-time">08:00</span><span class="dm-tl-icon">▶</span><div class="dm-tl-content"><div class="dm-tl-label">纳雍出发</div><div class="dm-tl-desc">都香高速西行</div></div></div><div class="dm-tl-item"><span class="dm-tl-time">10:00</span><span class="dm-tl-icon">🏞</span><div class="dm-tl-content"><div class="dm-tl-label">云湖峡谷</div><div class="dm-tl-desc">峡谷漫步~1h，清山秀水</div></div></div><div class="dm-tl-item"><span class="dm-tl-time">12:00</span><span class="dm-tl-icon">🍜</span><div class="dm-tl-content"><div class="dm-tl-label">六枝午餐</div><div class="dm-tl-desc">六枝烤土豆、洛锅、羊肉粉</div></div></div><div class="dm-tl-item"><span class="dm-tl-time">14:00</span><span class="dm-tl-icon">🏞</span><div class="dm-tl-content"><div class="dm-tl-label">牦牛江·龙脊山</div><div class="dm-tl-desc">高江景观、龙脊山眸望</div></div></div><div class="dm-tl-item"><span class="dm-tl-time">17:30</span><span class="dm-tl-icon">🍽</span><div class="dm-tl-content"><div class="dm-tl-label">六盘水晚餐</div><div class="dm-tl-desc">水城羊肉粉、落土鸡、洛锅</div></div></div><div class="dm-tl-item"><span class="dm-tl-time">19:00</span><span class="dm-tl-icon">🏨</span><div class="dm-tl-content"><div class="dm-tl-label">入住</div><div class="dm-tl-desc">夜郎福地酒店｜牂牁江畔·半山观景·四星硬件</div></div></div></div><div class="dmc-cards-row"><div class="dm-card"><div class="dm-card-title">🍜 六盘水美食</div><div class="dm-food-item"><div class="dm-food-name">水城羊肉粉</div><div class="dm-food-desc">中国凉都第一碗，羊汤浓郁粉滑</div></div><div class="dm-food-item"><div class="dm-food-name">六盘水烤土豆</div><div class="dm-food-desc">小土豆砸烤，撒辣椒面折耳根，贵州必吃</div></div><div class="dm-food-item"><div class="dm-food-name">落土鸡</div><div class="dm-food-desc">土灶慢炖，汤汁鲜美，大人小孩都爱</div></div></div><div class="dm-card dm-hotel-card"><div class="dm-card-title">🏨 夜郎福地酒店</div><div class="dm-hotel-price">~￥400/间</div><div class="dm-hotel-tags">牂牁江畔 · 半山观景 · 四星硬件</div><div class="dm-hotel-desc">牂牁镇半山之上，俯瞰牂牁江碧水连绵。清晨观江面晨雾，傍晚看日落映江，四星级硬件，夜郎文化氛围浓厚</div></div></div></div></div>
-<div class="daily-map-card" id="daily-map-4"><div class="dmc-header"><div class="dmc-day">DAY 4</div><div class="dmc-date">8月11日（周一）</div><div class="dmc-title">六盘水 → 关岭</div><div class="dmc-summary">冰臼群奇观 + 隐藏瀑布</div><div class="dmc-stats"><div class="dmc-stat"><span class="dmc-stat-val">~160km</span><span class="dmc-stat-key">车程</span></div><div class="dmc-stat"><span class="dmc-stat-val">~2.5h</span><span class="dmc-stat-key">车时</span></div><div class="dmc-stat"><span class="dmc-stat-val">冰臼群+滴水潭瀑布</span><span class="dmc-stat-key">景点</span></div><div class="dmc-stat"><span class="dmc-stat-val">渊府·霞渡精品民宿</span><span class="dmc-stat-key">住宿</span></div></div></div><div class="dmc-map-wrap"><svg viewBox="115 260 183 163" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">
+<div class="daily-map-card" id="daily-map-4"><div class="dmc-header"><div class="dmc-day">DAY 4</div><div class="dmc-date">8月11日（周一）</div><div class="dmc-title">六盘水 → 关岭</div><div class="dmc-summary">冰臼群奇观 + 隐藏瀑布</div><div class="dmc-stats"><div class="dmc-stat"><span class="dmc-stat-val">~160km</span><span class="dmc-stat-key">车程</span></div><div class="dmc-stat"><span class="dmc-stat-val">~2.5h</span><span class="dmc-stat-key">车时</span></div><div class="dmc-stat"><span class="dmc-stat-val">冰臼群+滴水潭瀑布</span><span class="dmc-stat-key">景点</span></div><div class="dmc-stat"><span class="dmc-stat-val">渊府·霞渡精品民宿</span><span class="dmc-stat-key">住宿</span></div></div></div><div class="dmc-map-wrap"><svg viewBox="80 280 340 160" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">
 <defs><radialGradient id="dmr4"><stop offset="0%" stop-color="#1a2a2a"/><stop offset="100%" stop-color="#0a0a0a"/></radialGradient></defs>
-<rect x="115" y="260" width="183" height="163" fill="url(#dmr4)"/>
+<rect x="80" y="280" width="340" height="160" fill="url(#dmr4)"/>
 <path d="M118,80 L145,68 172,72 200,58 230,62 258,55 285,65 312,72 340,60 365,68 390,75 418,82 445,78 470,88 498,95 525,105 548,118 568,132 582,148 595,165 605,185 612,208 615,232 610,258 600,282 588,305 575,325 558,342 538,358 515,372 490,385 462,395 435,402 408,408 380,402 355,395 328,388 302,378 278,368 255,355 235,342 218,325 202,308 188,288 178,268 168,248 158,228 148,208 140,188 132,168 125,148 120,128 118,108 Z" fill="none" stroke="rgba(78,205,196,0.08)" stroke-width="1.5"/>
-<path d="M140,310 Q196.0,352.6 270,375 Q240,362 210,350 Q202,365 195,380 Q237,370 280,360 Q287,365,370.7 248.4,370.4" fill="none" stroke="#4ecdc4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1000" stroke-dashoffset="1000" class="daily-route-path" opacity="0.9"/>
-<path d="M140,310 Q196.0,352.6 270,375 Q240,362 210,350 Q202,365 195,380 Q237,370 280,360 Q287,365,370.7 248.4,370.4" fill="none" stroke="#4ecdc4" stroke-width="6" stroke-linecap="round" opacity="0.15" stroke-dasharray="1000" stroke-dashoffset="1000" class="daily-route-glow"/>
-<circle cx="165.1" cy="309.8" r="10" fill="#4ecdc4" opacity="0.2" class="daily-pulse"/>
-<circle cx="165.1" cy="309.8" r="6.0" fill="#4ecdc4" stroke="#fff" stroke-width="1" opacity="0" class="daily-marker"/>
-<text x="165.1" y="327.8" fill="#fff" font-size="9" text-anchor="middle" opacity="0" class="daily-label" font-weight="bold">六盘水出发</text>
-<circle cx="270" cy="375" r="4.5" fill="#ff8c42" stroke="#fff" stroke-width="1" opacity="0" class="daily-marker"/>
-<text x="270.0" y="370.0" fill="#fff" font-size="9" text-anchor="middle" opacity="0" class="daily-label" font-weight="normal">抵达关岭</text>
-<circle cx="240.3" cy="369.4" r="10" fill="#4ecdc4" opacity="0.2" class="daily-pulse"/>
-<circle cx="210" cy="350" r="6.0" fill="#4ecdc4" stroke="#fff" stroke-width="1" opacity="0" class="daily-marker"/>
-<text x="210.0" y="340.0" fill="#fff" font-size="9" text-anchor="middle" opacity="0" class="daily-label" font-weight="bold">关岭冰臼群</text>
-<circle cx="235.2" cy="373.3" r="10" fill="#4ecdc4" opacity="0.2" class="daily-pulse"/>
-<circle cx="195" cy="380" r="6.0" fill="#4ecdc4" stroke="#fff" stroke-width="1" opacity="0" class="daily-marker"/>
-<text x="200.0" y="378.0" fill="#fff" font-size="9" text-anchor="middle" opacity="0" class="daily-label" font-weight="bold">滴水潭瀑布</text>
-<circle cx="288" cy="352" r="4.5" fill="#ff8c42" stroke="#fff" stroke-width="1" opacity="0" class="daily-marker"/>
-<text x="275.0" y="350.0" fill="#fff" font-size="9" text-anchor="middle" opacity="0" class="daily-label" font-weight="normal">关岭晚餐</text>
-<circle cx="248.4" cy="370.4" r="10" fill="#ffd700" opacity="0.2" class="daily-pulse"/>
-<circle cx="295" cy="370" r="6.0" fill="#ffd700" stroke="#fff" stroke-width="1" opacity="0" class="daily-marker"/>
-<text x="290.0" y="365.0" fill="#fff" font-size="9" text-anchor="middle" opacity="0" class="daily-label" font-weight="bold">入住</text>
+<path d="M130,310 Q220,300 280,310 Q240,340 190,360 Q175,375 160,400 Q240,395 310,385 Q350,380 370,340" fill="none" stroke="#4ecdc4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1000" stroke-dashoffset="1000" class="daily-route-path" opacity="0.9"/>
+<path d="M130,310 Q220,300 280,310 Q240,340 190,360 Q175,375 160,400 Q240,395 310,385 Q350,380 370,340" fill="none" stroke="#4ecdc4" stroke-width="6" stroke-linecap="round" opacity="0.15" stroke-dasharray="1000" stroke-dashoffset="1000" class="daily-route-glow"/>
+<circle cx="130" cy="310" r="10" fill="#4ecdc4" opacity="0.2" class="daily-pulse"/>
+<circle cx="130" cy="310" r="6" fill="#4ecdc4" stroke="#fff" stroke-width="1" opacity="0" class="daily-marker"/>
+<text x="130" y="295" fill="#fff" font-size="10" text-anchor="middle" opacity="0" class="daily-label" font-weight="bold">六盘水出发</text>
+<circle cx="280" cy="310" r="4.5" fill="#ff8c42" stroke="#fff" stroke-width="1" opacity="0" class="daily-marker"/>
+<text x="280" y="295" fill="#fff" font-size="10" text-anchor="middle" opacity="0" class="daily-label" font-weight="normal">抵达关岭</text>
+<circle cx="190" cy="360" r="10" fill="#4ecdc4" opacity="0.2" class="daily-pulse"/>
+<circle cx="190" cy="360" r="6" fill="#4ecdc4" stroke="#fff" stroke-width="1" opacity="0" class="daily-marker"/>
+<text x="190" y="378" fill="#fff" font-size="10" text-anchor="middle" opacity="0" class="daily-label" font-weight="bold">关岭冰臼群</text>
+<circle cx="160" cy="400" r="10" fill="#4ecdc4" opacity="0.2" class="daily-pulse"/>
+<circle cx="160" cy="400" r="6" fill="#4ecdc4" stroke="#fff" stroke-width="1" opacity="0" class="daily-marker"/>
+<text x="155" y="420" fill="#fff" font-size="10" text-anchor="middle" opacity="0" class="daily-label" font-weight="bold">滴水潭瀑布</text>
+<circle cx="310" cy="385" r="4.5" fill="#ff8c42" stroke="#fff" stroke-width="1" opacity="0" class="daily-marker"/>
+<text x="310" y="405" fill="#fff" font-size="10" text-anchor="middle" opacity="0" class="daily-label" font-weight="normal">关岭晚餐</text>
+<circle cx="370" cy="340" r="10" fill="#ffd700" opacity="0.2" class="daily-pulse"/>
+<circle cx="370" cy="340" r="6" fill="#ffd700" stroke="#fff" stroke-width="1" opacity="0" class="daily-marker"/>
+<text x="370" y="325" fill="#fff" font-size="10" text-anchor="middle" opacity="0" class="daily-label" font-weight="bold">入住</text>
 </svg><div class="dmc-play-btn" onclick="playDayMap(4)">▶</div></div><div class="dmc-info"><div class="dmc-info-title">📋 行程时间线</div><div class="dm-timeline"><div class="dm-tl-item"><span class="dm-tl-time">08:30</span><span class="dm-tl-icon">▶</span><div class="dm-tl-content"><div class="dm-tl-label">六盘水出发</div><div class="dm-tl-desc">沪昆高速东行转关岭</div></div></div><div class="dm-tl-item"><span class="dm-tl-time">11:00</span><span class="dm-tl-icon">🍜</span><div class="dm-tl-content"><div class="dm-tl-label">抵达关岭</div><div class="dm-tl-desc">关岭午餐：黄牛干锅、冰浆</div></div></div><div class="dm-tl-item"><span class="dm-tl-time">13:30</span><span class="dm-tl-icon">🏞</span><div class="dm-tl-content"><div class="dm-tl-label">关岭冰臼群</div><div class="dm-tl-desc">1500万年形成的天然地质奇观</div></div></div><div class="dm-tl-item"><span class="dm-tl-time">15:30</span><span class="dm-tl-icon">🏞</span><div class="dm-tl-content"><div class="dm-tl-label">滴水潭瀑布</div><div class="dm-tl-desc">隐藏瀑布，41米高差，无人知晓</div></div></div><div class="dm-tl-item"><span class="dm-tl-time">17:30</span><span class="dm-tl-icon">🍽</span><div class="dm-tl-content"><div class="dm-tl-label">关岭晚餐</div><div class="dm-tl-desc">关岭黄牛肉火锅、拌粉、烤豆腐</div></div></div><div class="dm-tl-item"><span class="dm-tl-time">19:00</span><span class="dm-tl-icon">🏨</span><div class="dm-tl-content"><div class="dm-tl-label">入住</div><div class="dm-tl-desc">渊府·霞渡精品民宿｜峡谷观景·无边泳池·露天泡池</div></div></div></div><div class="dmc-cards-row"><div class="dm-card"><div class="dm-card-title">🍜 关岭美食</div><div class="dm-food-item"><div class="dm-food-name">关岭黄牛肉</div><div class="dm-food-desc">贵州最好的黄牛肉出产地，干锅/火锅都绝</div></div><div class="dm-food-item"><div class="dm-food-name">冰浆</div><div class="dm-food-desc">将冰块+水果打成沙冰，夏日解暑神器</div></div><div class="dm-food-item"><div class="dm-food-name">拌粉</div><div class="dm-food-desc">酸辣开胃，加美味酋+花生碗，当地日常</div></div></div><div class="dm-card dm-hotel-card"><div class="dm-card-title">🏨 渊府·霞渡精品民宿</div><div class="dm-hotel-price">~￥800/间</div><div class="dm-hotel-tags">峡谷观景 · 无边泳池 · 露天泡池</div><div class="dm-hotel-desc">坝陵河峡谷畔，西南可望大桥、西北可观滴水滩瀑布。无边泳池风景绝佳，露天泡池、SPA、儿童乐园齐全，性价比极高，体验不打折</div></div></div></div></div>
-<div class="daily-map-card" id="daily-map-5"><div class="dmc-header"><div class="dmc-day">DAY 5</div><div class="dmc-date">8月12日（周二）</div><div class="dmc-title">关岭 → 安顺</div><div class="dmc-summary">小众秘境三连发现</div><div class="dmc-stats"><div class="dmc-stat"><span class="dmc-stat-val">~80km</span><span class="dmc-stat-key">车程</span></div><div class="dmc-stat"><span class="dmc-stat-val">~1h</span><span class="dmc-stat-key">车时</span></div><div class="dmc-stat"><span class="dmc-stat-val">铜鼓荡+大圣之眼+牛倒岩</span><span class="dmc-stat-key">景点</span></div><div class="dmc-stat"><span class="dmc-stat-val">安顺城市印象酒店</span><span class="dmc-stat-key">住宿</span></div></div></div><div class="dmc-map-wrap"><svg viewBox="195 293 136 129" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">
+<div class="daily-map-card" id="daily-map-5"><div class="dmc-header"><div class="dmc-day">DAY 5</div><div class="dmc-date">8月12日（周二）</div><div class="dmc-title">关岭 → 安顺</div><div class="dmc-summary">小众秘境三连发现</div><div class="dmc-stats"><div class="dmc-stat"><span class="dmc-stat-val">~80km</span><span class="dmc-stat-key">车程</span></div><div class="dmc-stat"><span class="dmc-stat-val">~1h</span><span class="dmc-stat-key">车时</span></div><div class="dmc-stat"><span class="dmc-stat-val">铜鼓荡+大圣之眼+牛倒岩</span><span class="dmc-stat-key">景点</span></div><div class="dmc-stat"><span class="dmc-stat-val">安顺城市印象酒店</span><span class="dmc-stat-key">住宿</span></div></div></div><div class="dmc-map-wrap"><svg viewBox="170 280 230 170" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">
 <defs><radialGradient id="dmr5"><stop offset="0%" stop-color="#1a2a2a"/><stop offset="100%" stop-color="#0a0a0a"/></radialGradient></defs>
-<rect x="195" y="293" width="136" height="129" fill="url(#dmr5)"/>
+<rect x="170" y="280" width="230" height="170" fill="url(#dmr5)"/>
 <path d="M118,80 L145,68 172,72 200,58 230,62 258,55 285,65 312,72 340,60 365,68 390,75 418,82 445,78 470,88 498,95 525,105 548,118 568,132 582,148 595,165 605,185 612,208 615,232 610,258 600,282 588,305 575,325 558,342 538,358 515,372 490,385 462,395 435,402 408,408 380,402 355,395 328,388 302,378 278,368 255,355 235,342 218,325 202,308 188,288 178,268 168,248 158,228 148,208 140,188 132,168 125,148 120,128 118,108 Z" fill="none" stroke="rgba(78,205,196,0.08)" stroke-width="1.5"/>
-<path d="M245.4,389.3 Q250,375 245,345 Q247,332 250,320 Q270,320 290,320 Q300,330 310,340 Q310,347 310,355 Q310,330 310,305" fill="none" stroke="#4ecdc4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1000" stroke-dashoffset="1000" class="daily-route-path" opacity="0.9"/>
-<path d="M245.4,371.3 Q261.2,366.7 271.8,354.0 Q274.5,352.2 275.8,349.2 Q278.4,346.3 278.9,342.5 Q279.2,345.2 280.9,347.3 Q279.5,344.8 276.9,343.5 Q277.5,343.1 277.9,342.5" fill="none" stroke="#4ecdc4" stroke-width="6" stroke-linecap="round" opacity="0.15" stroke-dasharray="1000" stroke-dashoffset="1000" class="daily-route-glow"/>
-<circle cx="245.4" cy="371.3" r="10" fill="#4ecdc4" opacity="0.2" class="daily-pulse"/>
-<circle cx="245.4" cy="371.3" r="6.0" fill="#4ecdc4" stroke="#fff" stroke-width="1" opacity="0" class="daily-marker"/>
-<text x="245.4" y="389.3" fill="#fff" font-size="9" text-anchor="middle" opacity="0" class="daily-label" font-weight="bold">关岭出发</text>
-<circle cx="271.8" cy="354.0" r="10" fill="#4ecdc4" opacity="0.2" class="daily-pulse"/>
-<circle cx="245" cy="345" r="6.0" fill="#4ecdc4" stroke="#fff" stroke-width="1" opacity="0" class="daily-marker"/>
-<text x="240.0" y="340.0" fill="#fff" font-size="9" text-anchor="middle" opacity="0" class="daily-label" font-weight="bold">铜鼓荡</text>
-<circle cx="275.8" cy="349.2" r="10" fill="#4ecdc4" opacity="0.2" class="daily-pulse"/>
-<circle cx="250" cy="320" r="6.0" fill="#4ecdc4" stroke="#fff" stroke-width="1" opacity="0" class="daily-marker"/>
-<text x="245.0" y="315.0" fill="#fff" font-size="9" text-anchor="middle" opacity="0" class="daily-label" font-weight="bold">大圣之眼</text>
-<circle cx="290" cy="320" r="4.5" fill="#ff8c42" stroke="#fff" stroke-width="1" opacity="0" class="daily-marker"/>
-<text x="310.0" y="320.0" fill="#fff" font-size="9" text-anchor="middle" opacity="0" class="daily-label" font-weight="normal">安顺午餐</text>
-<circle cx="280.9" cy="347.3" r="10" fill="#4ecdc4" opacity="0.2" class="daily-pulse"/>
-<circle cx="318" cy="338" r="6.0" fill="#4ecdc4" stroke="#fff" stroke-width="1" opacity="0" class="daily-marker"/>
-<text x="315.0" y="340.0" fill="#fff" font-size="9" text-anchor="middle" opacity="0" class="daily-label" font-weight="bold">牛倒岩</text>
-<circle cx="318" cy="358" r="4.5" fill="#ff8c42" stroke="#fff" stroke-width="1" opacity="0" class="daily-marker"/>
-<text x="315.0" y="355.0" fill="#fff" font-size="9" text-anchor="middle" opacity="0" class="daily-label" font-weight="normal">安顺晚餐</text>
-<circle cx="277.9" cy="342.5" r="10" fill="#ffd700" opacity="0.2" class="daily-pulse"/>
-<circle cx="310" cy="305" r="6.0" fill="#ffd700" stroke="#fff" stroke-width="1" opacity="0" class="daily-marker"/>
-<text x="315.0" y="300.0" fill="#fff" font-size="9" text-anchor="middle" opacity="0" class="daily-label" font-weight="bold">入住</text>
+<path d="M210,420 L215,375 L220,325 L295,320 L340,340 L340,385 L360,310" fill="none" stroke="#4ecdc4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1000" stroke-dashoffset="1000" class="daily-route-path" opacity="0.9"/>
+<path d="M210,420 L215,375 L220,325 L295,320 L340,340 L340,385 L360,310" fill="none" stroke="#4ecdc4" stroke-width="6" stroke-linecap="round" opacity="0.15" stroke-dasharray="1000" stroke-dashoffset="1000" class="daily-route-glow"/>
+<circle cx="210" cy="420" r="10" fill="#4ecdc4" opacity="0.2" class="daily-pulse"/>
+<circle cx="210" cy="420" r="6" fill="#4ecdc4" stroke="#fff" stroke-width="1" opacity="0" class="daily-marker"/>
+<text x="210" y="440" fill="#fff" font-size="10" text-anchor="middle" opacity="0" class="daily-label" font-weight="bold">关岭出发</text>
+<circle cx="215" cy="375" r="10" fill="#4ecdc4" opacity="0.2" class="daily-pulse"/>
+<circle cx="215" cy="375" r="6" fill="#4ecdc4" stroke="#fff" stroke-width="1" opacity="0" class="daily-marker"/>
+<text x="190" y="375" fill="#fff" font-size="10" text-anchor="middle" opacity="0" class="daily-label" font-weight="bold">铜鼓荡</text>
+<circle cx="220" cy="325" r="10" fill="#4ecdc4" opacity="0.2" class="daily-pulse"/>
+<circle cx="220" cy="325" r="6" fill="#4ecdc4" stroke="#fff" stroke-width="1" opacity="0" class="daily-marker"/>
+<text x="195" y="310" fill="#fff" font-size="10" text-anchor="middle" opacity="0" class="daily-label" font-weight="bold">大圣之眼</text>
+<circle cx="295" cy="320" r="4.5" fill="#ff8c42" stroke="#fff" stroke-width="1" opacity="0" class="daily-marker"/>
+<text x="295" y="290" fill="#fff" font-size="10" text-anchor="middle" opacity="0" class="daily-label" font-weight="normal">安顺午餐</text>
+<circle cx="340" cy="340" r="10" fill="#4ecdc4" opacity="0.2" class="daily-pulse"/>
+<circle cx="340" cy="340" r="6" fill="#4ecdc4" stroke="#fff" stroke-width="1" opacity="0" class="daily-marker"/>
+<text x="365" y="340" fill="#fff" font-size="10" text-anchor="start" opacity="0" class="daily-label" font-weight="bold">牛倒岩</text>
+<circle cx="340" cy="385" r="4.5" fill="#ff8c42" stroke="#fff" stroke-width="1" opacity="0" class="daily-marker"/>
+<text x="365" y="385" fill="#fff" font-size="10" text-anchor="start" opacity="0" class="daily-label" font-weight="normal">安顺晚餐</text>
+<circle cx="360" cy="310" r="10" fill="#ffd700" opacity="0.2" class="daily-pulse"/>
+<circle cx="360" cy="310" r="6" fill="#ffd700" stroke="#fff" stroke-width="1" opacity="0" class="daily-marker"/>
+<text x="380" y="310" fill="#fff" font-size="10" text-anchor="start" opacity="0" class="daily-label" font-weight="bold">入住</text>
 </svg><div class="dmc-play-btn" onclick="playDayMap(5)">▶</div></div><div class="dmc-info"><div class="dmc-info-title">📋 行程时间线</div><div class="dm-timeline"><div class="dm-tl-item"><span class="dm-tl-time">08:00</span><span class="dm-tl-icon">▶</span><div class="dm-tl-content"><div class="dm-tl-label">关岭出发</div><div class="dm-tl-desc">沪昆高速东行</div></div></div><div class="dm-tl-item"><span class="dm-tl-time">08:45</span><span class="dm-tl-icon">🏞</span><div class="dm-tl-content"><div class="dm-tl-label">铜鼓荡</div><div class="dm-tl-desc">小众徒步，山野草甸连天</div></div></div><div class="dm-tl-item"><span class="dm-tl-time">11:00</span><span class="dm-tl-icon">🏞</span><div class="dm-tl-content"><div class="dm-tl-label">大圣之眼</div><div class="dm-tl-desc">天生岩石大圣脸，神奇地质奇观</div></div></div><div class="dm-tl-item"><span class="dm-tl-time">12:30</span><span class="dm-tl-icon">🍜</span><div class="dm-tl-content"><div class="dm-tl-label">安顺午餐</div><div class="dm-tl-desc">丝娃娃、裹卷、冲冲糕</div></div></div><div class="dm-tl-item"><span class="dm-tl-time">14:00</span><span class="dm-tl-icon">🏞</span><div class="dm-tl-content"><div class="dm-tl-label">牛倒岩</div><div class="dm-tl-desc">峡谷瀑布群，清澈见底</div></div></div><div class="dm-tl-item"><span class="dm-tl-time">17:30</span><span class="dm-tl-icon">🍽</span><div class="dm-tl-content"><div class="dm-tl-label">安顺晚餐</div><div class="dm-tl-desc">夺夺粉火锅、破酥包、豆花面</div></div></div><div class="dm-tl-item"><span class="dm-tl-time">19:00</span><span class="dm-tl-icon">🏨</span><div class="dm-tl-content"><div class="dm-tl-label">入住</div><div class="dm-tl-desc">安顺城市印象酒店｜市区核心·美食街旁·高性价比</div></div></div></div><div class="dmc-cards-row"><div class="dm-card"><div class="dm-card-title">🍜 安顺美食</div><div class="dm-food-item"><div class="dm-food-name">丝娃娃</div><div class="dm-food-desc">安顺特色小吃，米糕皮包菜丝汁</div></div><div class="dm-food-item"><div class="dm-food-name">夺夺粉火锅</div><div class="dm-food-desc">安顺版火锅，粉丝+豆腐+酸汤底，很爭</div></div><div class="dm-food-item"><div class="dm-food-name">破酥包</div><div class="dm-food-desc">外酥里嫩的炸面点，安顺早餐之王</div></div></div><div class="dm-card dm-hotel-card"><div class="dm-card-title">🏨 安顺城市印象酒店</div><div class="dm-hotel-price">~￥300/间</div><div class="dm-hotel-tags">市区核心 · 美食街旁 · 高性价比</div><div class="dm-hotel-desc">紧邻安顺新天地美食街和安顺古城，逛吃裹卷、夺夺粉最方便。市区高性价比之选，位置绝佳</div></div></div></div></div>
 <div class="daily-map-card" id="daily-map-6"><div class="dmc-header"><div class="dmc-day">DAY 6</div><div class="dmc-date">8月13日（周三）</div><div class="dmc-title">安顺 → 洞口（返程）</div><div class="dmc-summary">满载而归，途中可逗花江明月古城</div><div class="dmc-stats"><div class="dmc-stat"><span class="dmc-stat-val">~550km</span><span class="dmc-stat-key">车程</span></div><div class="dmc-stat"><span class="dmc-stat-val">~8h(含休息)</span><span class="dmc-stat-key">车时</span></div><div class="dmc-stat"><span class="dmc-stat-val">花江/芷江</span><span class="dmc-stat-key">途中</span></div><div class="dmc-stat"><span class="dmc-stat-val">无</span><span class="dmc-stat-key">住宿</span></div></div></div><div class="dmc-map-wrap"><svg viewBox="88 167 848 227" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">
 <defs><radialGradient id="dmr6"><stop offset="0%" stop-color="#1a2a2a"/><stop offset="100%" stop-color="#0a0a0a"/></radialGradient></defs>
@@ -2158,9 +2675,9 @@ body:not(.view-home) .home-nav-wrap { display: none; }
 <text x="426.2" y="301.3" fill="#fff" font-size="9" text-anchor="middle" opacity="0" class="daily-label" font-weight="normal">凯里服务区</text>
 <circle cx="634.4" cy="220.4" r="10" fill="#4ecdc4" opacity="0.2" class="daily-pulse"/>
 <circle cx="634.4" cy="220.4" r="6.0" fill="#4ecdc4" stroke="#fff" stroke-width="1" opacity="0" class="daily-marker"/>
-<text x="634.4" y="209.4" fill="#fff" font-size="9" text-anchor="middle" opacity="0" class="daily-label" font-weight="bold">花江明月古城</text>
+<text x="634.4" y="200" fill="#fff" font-size="9" text-anchor="middle" opacity="0" class="daily-label" font-weight="bold">花江明月古城</text>
 <circle cx="685.2" cy="217.5" r="4.5" fill="#ff8c42" stroke="#fff" stroke-width="1" opacity="0" class="daily-marker"/>
-<text x="685.2" y="208.0" fill="#fff" font-size="9" text-anchor="middle" opacity="0" class="daily-label" font-weight="normal">怀化午餐</text>
+<text x="690" y="235" fill="#fff" font-size="9" text-anchor="middle" opacity="0" class="daily-label" font-weight="normal">怀化午餐</text>
 <circle cx="715" cy="240" r="4.5" fill="#888" stroke="#fff" stroke-width="1" opacity="0" class="daily-marker"/>
 <text x="720.0" y="230.0" fill="#fff" font-size="9" text-anchor="middle" opacity="0" class="daily-label" font-weight="normal">继续返程</text>
 <circle cx="748.2" cy="266.5" r="10" fill="#4ecdc4" opacity="0.2" class="daily-pulse"/>
@@ -2335,7 +2852,7 @@ body:not(.view-home) .home-nav-wrap { display: none; }
 
                     <div class="video-container">
                         <div class="video-title"><span class="video-label">📹 视频</span>羊皮洞瀑布 · 40米野生飞瀑航拍</div>
-                        <iframe src="https://player.bilibili.com/player.html?bvid=BV1oKjh64Ems&page=1&high_quality=1&danmaku=0" scrolling="no" border="0" frameborder="no" framespacing="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen="true"></iframe>
+                        <iframe src="https://player.bilibili.com/player.html?isOutside=true&bvid=BV1oKjh64Ems&p=1&high_quality=1" scrolling="no" border="0" frameborder="no" framespacing="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen="true"></iframe>
                     </div>
                 </div>
             </div>
@@ -2514,7 +3031,7 @@ body:not(.view-home) .home-nav-wrap { display: none; }
                     </div>
                     <div class="video-container">
                         <div class="video-title"><span class="video-label">📹 视频</span>吊水岩瀑布 · 深山翡翠秘境</div>
-                        <iframe src="https://player.bilibili.com/player.html?bvid=BV1p6jy6rEvW&page=1&high_quality=1&danmaku=0" scrolling="no" border="0" frameborder="no" framespacing="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen="true"></iframe>
+                        <iframe src="https://player.bilibili.com/player.html?isOutside=true&bvid=BV1p6jy6rEvW&p=1&high_quality=1" scrolling="no" border="0" frameborder="no" framespacing="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen="true"></iframe>
                     </div>
                 </div>
             </div>
@@ -2704,7 +3221,7 @@ body:not(.view-home) .home-nav-wrap { display: none; }
                     </div>
                     <div class="video-container">
                         <div class="video-title"><span class="video-label">📹 视频</span>龙脊天路 · 西南险路天花板4K航拍</div>
-                        <iframe src="https://player.bilibili.com/player.html?bvid=BV1f4xNz8EZC&page=1&high_quality=1&danmaku=0" scrolling="no" border="0" frameborder="no" framespacing="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen="true"></iframe>
+                        <iframe src="https://player.bilibili.com/player.html?isOutside=true&bvid=BV1f4xNz8EZC&p=1&high_quality=1" scrolling="no" border="0" frameborder="no" framespacing="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen="true"></iframe>
                     </div>
                 </div>
             </div>
@@ -2962,7 +3479,7 @@ body:not(.view-home) .home-nav-wrap { display: none; }
                     </div>
                     <div class="video-container">
                         <div class="video-title"><span class="video-label">📹 视频</span>关岭冰臼群 · 百万年前冰川奇潭</div>
-                        <iframe src="https://player.bilibili.com/player.html?bvid=BV1Yk9DBNEui&page=1&high_quality=1&danmaku=0" scrolling="no" border="0" frameborder="no" framespacing="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen="true"></iframe>
+                        <iframe src="https://player.bilibili.com/player.html?isOutside=true&bvid=BV1Yk9DBNEui&p=1&high_quality=1" scrolling="no" border="0" frameborder="no" framespacing="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen="true"></iframe>
                     </div>
                 </div>
             </div>
@@ -3250,7 +3767,7 @@ body:not(.view-home) .home-nav-wrap { display: none; }
                     </div>
                     <div class="video-container">
                         <div class="video-title"><span class="video-label">📹 视频</span>铜鼓荡·大圣之眼·牛倒岩 · 安顺秘境徒步一日记录</div>
-                        <iframe src="https://player.bilibili.com/player.html?bvid=BV1udX5BdEcR&page=1&high_quality=1&danmaku=0" scrolling="no" border="0" frameborder="no" framespacing="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen="true"></iframe>
+                        <iframe src="https://player.bilibili.com/player.html?isOutside=true&bvid=BV1udX5BdEcR&p=1&high_quality=1" scrolling="no" border="0" frameborder="no" framespacing="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen="true"></iframe>
                     </div>
                 </div>
             </div>
@@ -3575,6 +4092,7 @@ body:not(.view-home) .home-nav-wrap { display: none; }
                             </div>
                         </div>
                         <div class="alt-card">
+                            <img class="alt-card-img" src="https://s.coze.cn/image/uFTkpCjEU3Y/" alt="黄果树瀑布" loading="lazy"/>
                             <div class="alt-card-body" style="padding-top: 24px;">
                                 <div class="alt-card-name">黄果树瀑布</div>
                                 <div class="alt-card-info">
@@ -3593,9 +4111,10 @@ body:not(.view-home) .home-nav-wrap { display: none; }
                         </div>
                             <div class="video-container">
                                 <div class="video-title"><span class="video-label">📹 视频</span>黄果树瀑布 · 大疆航拍全景</div>
-                                <iframe src="https://player.bilibili.com/player.html?bvid=BV1Mk14BzESy&page=1&high_quality=1&danmaku=0" scrolling="no" border="0" frameborder="no" framespacing="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen="true"></iframe>
+                                <iframe src="https://player.bilibili.com/player.html?isOutside=true&bvid=BV1TX9UBSEtn&p=1&high_quality=1" scrolling="no" border="0" frameborder="no" framespacing="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen="true"></iframe>
                             </div>
                         <div class="alt-card">
+                            <img class="alt-card-img" src="https://s.coze.cn/image/dLZHpegM3pE/" alt="万峰林" loading="lazy"/>
                             <div class="alt-card-body" style="padding-top: 24px;">
                                 <div class="alt-card-name">万峰林 &middot; 兴义</div>
                                 <div class="alt-card-info">
@@ -4550,6 +5069,475 @@ body:not(.view-home) .home-nav-wrap { display: none; }
     </div>
 </section>
 
+
+<!-- ===== Fishing Section ===== -->
+<section class="section" id="fishing" style="padding: 60px 0;" data-view="fishing">
+<div class="section-inner">
+
+<!-- Hero Header -->
+<div class="fishing-hero">
+    <div class="fishing-hero-content">
+        <span class="fishing-hero-icon">🎣</span>
+        <h2>垂 钓 秘 境</h2>
+        <p class="fishing-subtitle">
+            贵州山水之间，藏着无数未被发现的野钓天堂。<br>
+            8个精选钓点，全部免费，从喀斯特山谷到峡谷 deep water，<br>
+            为两位钓鱼爱好者量身定制的「沿途钓鱼指南」。
+        </p>
+        <span class="fishing-badge">🐟 全程8个野钓点 · 全部免费 · 鱼种超100种</span>
+    </div>
+</div>
+
+<!-- Fishing Spot 1: 暗流河 -->
+<div class="fishing-card" id="fc-1">
+    <button class="fishing-card-header active" onclick="toggleFishingCard(this)">
+        <span class="fc-day">D1 清镇</span>
+        <span class="fc-title">🎣 暗流河 — 喀斯特山谷中的秘密基地</span>
+        <span class="fc-arrow">▶</span>
+    </button>
+    <div class="fishing-card-body" style="max-height: 600px;">
+        <div class="fishing-card-inner">
+            <div class="fishing-card-img">
+                <img src="https://s.coze.cn/image/TnUclhT4jAA/" alt="暗流河野钓" loading="lazy">
+            </div>
+            <div class="fishing-card-info">
+                <div class="fc-location">📍 清镇市暗流乡暗流村 · 距酒店15分钟 · 免费野钓</div>
+                <div class="fc-desc">
+                    这是清镇本地钓友的"秘密基地"。河流穿行在喀斯特山谷中，两岸植被茂密，水面平静如镜。鱼种极其丰富，尤其以鲫鱼和黄辣丁（黄颡鱼）为多。因位置偏僻，周末也不超过5-6人，是真正可以"包场"的野钓天堂。
+                </div>
+                <div class="fc-fish">🐟 鱼种：鲫鱼、鲤鱼、草鱼、青鱼、鲢鳙、鳊鱼、黑鱼、黄颡鱼、鲶鱼、翘嘴、马口鱼等12种</div>
+                <div class="fc-stars">
+                    👤 人少指数：★★★★★<br>
+                    🏞️ 风景指数：★★★★
+                </div>
+                <div class="spot-tags">
+                    <span class="spot-tag warm">🎣 免费</span>
+                    <span class="spot-tag">🐟 12种鱼</span>
+                    <span class="spot-tag">📍 D1清镇</span>
+                    <span class="spot-tag">👤 极少人</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Fishing Spot 2: 迎燕水库 -->
+<div class="fishing-card" id="fc-2">
+    <button class="fishing-card-header active" onclick="toggleFishingCard(this)">
+        <span class="fc-day">D1→D2 清镇</span>
+        <span class="fc-title">🎣 迎燕水库 — 丛林深处的冷水大物</span>
+        <span class="fc-arrow">▶</span>
+    </button>
+    <div class="fishing-card-body" style="max-height: 600px;">
+        <div class="fishing-card-inner">
+            <div class="fishing-card-img">
+                <img src="https://s.coze.cn/image/v3-SU4kwGk8/" alt="迎燕水库野钓" loading="lazy">
+            </div>
+            <div class="fishing-card-info">
+                <div class="fc-location">📍 清镇市站街镇往卫城方向5公里 · 酒店出发20分钟 · 免费野钓</div>
+                <div class="fc-desc">
+                    藏在丛林深处的冷水水库，需要走一段林间小路才能到达，正因如此钓鱼人极少。水质清冽，属于冷水环境，这里的鱼个体普遍偏大。有钓友在此钓起过12斤的鲤鱼！钓位选择在水库南岸的岩石平台上，抛竿即可感受到深水大物的拉力。
+                </div>
+                <div class="fc-fish">🐟 鱼种：鲫鱼、鲤鱼、草鱼、鲶鱼等，以大鱼著称</div>
+                <div class="fc-stars">
+                    👤 人少指数：★★★★★（需走丛林路，多数人不愿走）<br>
+                    🏞️ 风景指数：★★★★
+                </div>
+                <div class="spot-tags">
+                    <span class="spot-tag warm">🎣 免费</span>
+                    <span class="spot-tag">🐟 大鱼出没</span>
+                    <span class="spot-tag">📍 D1/D2清镇</span>
+                    <span class="spot-tag">🌲 丛林秘境</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Toggle button for remaining spots -->
+<div class="fishing-toggle-all" id="fishingToggleWrap">
+    <button id="fishingToggleBtn" onclick="toggleAllFishing()">展开全部钓点 ▼</button>
+</div>
+
+<!-- Fishing Spot 3: 红枫湖·花鱼洞大桥 -->
+<div class="fishing-card fishing-hidden" id="fc-3" style="display:none;">
+    <button class="fishing-card-header" onclick="toggleFishingCard(this)">
+        <span class="fc-day">D1 清镇</span>
+        <span class="fc-title">🎣 红枫湖·花鱼洞大桥 — 经典水域红尾爆护</span>
+        <span class="fc-arrow">▶</span>
+    </button>
+    <div class="fishing-card-body">
+        <div class="fishing-card-inner">
+            <div class="fishing-card-img">
+                <img src="https://s.coze.cn/image/MF6e-5qNskY/" alt="红枫湖花鱼洞大桥野钓" loading="lazy">
+            </div>
+            <div class="fishing-card-info">
+                <div class="fc-location">📍 清镇市红枫湖风景区花鱼洞大桥 · 免费野钓</div>
+                <div class="fc-desc">
+                    红枫湖是贵州最经典的野钓水域之一。花鱼洞大桥一带水深5-6米，草鱼、鲤鱼出没频繁。2026年夏有钓友在此2.5小时内钓获4条红尾、2条马口、1条太阳鱼和1条白条，红尾拉力凶猛，手感极佳。早晨6-11点是最佳作钓时段。
+                </div>
+                <div class="fc-fish">🐟 鱼种：鲫鱼、鲤鱼、草鱼、青鱼、黄颡鱼、红尾鱼、马口鱼、太阳鱼</div>
+                <div class="fc-stars">
+                    👤 人少指数：★★★（清晨人少，周末下午稍多）<br>
+                    🏞️ 风景指数：★★★★★
+                </div>
+                <div class="spot-tags">
+                    <span class="spot-tag warm">🎣 免费</span>
+                    <span class="spot-tag">🐟 红尾爆护</span>
+                    <span class="spot-tag">📍 D1清镇</span>
+                    <span class="spot-tag">🌅 经典水域</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Fishing Spot 4: 织金·纳雍河木底河 -->
+<div class="fishing-card fishing-hidden" id="fc-4" style="display:none;">
+    <button class="fishing-card-header" onclick="toggleFishingCard(this)">
+        <span class="fc-day">D2 途经</span>
+        <span class="fc-title">🎣 织金·纳雍河木底河 — 荒野秘境大板鲫</span>
+        <span class="fc-arrow">▶</span>
+    </button>
+    <div class="fishing-card-body">
+        <div class="fishing-card-inner">
+            <div class="fishing-card-img">
+                <img src="https://s.coze.cn/image/3XHmdCTkEfI/" alt="纳雍河木底河野钓" loading="lazy">
+            </div>
+            <div class="fishing-card-info">
+                <div class="fc-location">📍 织金县鸡场乡木底河 · 距路线500米 · 免费野钓</div>
+                <div class="fc-desc">
+                    这是纳雍河上游的一处蓄水区，已蓄水5年多，下游冷水鱼顺流而下，鱼种极其丰富（10种以上）。最惊艳的是大板鲫，半斤以上的极为常见。饵料不讲究，腥味商品饵即可，酒米打窝。建议早上6-11点作钓，有钓友一天钓获27条大板鲫、总重超10斤。人迹罕至，是真正的"荒野秘境"。
+                </div>
+                <div class="fc-fish">🐟 鱼种：鲫鱼（大板鲫为主，半斤以上）、冷水鱼、稀有鱼种</div>
+                <div class="fc-stars">
+                    👤 人少指数：★★★★★（极偏僻，几乎没有竞争钓位）<br>
+                    🏞️ 风景指数：★★★★
+                </div>
+                <div class="spot-tags">
+                    <span class="spot-tag warm">🎣 免费</span>
+                    <span class="spot-tag">🐟 大板鲫</span>
+                    <span class="spot-tag">📍 D2途经</span>
+                    <span class="spot-tag">🏔️ 荒野秘境</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ===== Video Embed 1 ===== -->
+<div class="fishing-video-grid">
+    <div class="fishing-video-item">
+        <div class="fv-title">🎬 世界第一高桥下，藏着怎样的鱼情？</div>
+        <div style="padding: 0 20px 20px;">
+            <iframe src="https://player.bilibili.com/?isOutside=true&bvid=BV13eMM6hEg7&p=1&high_quality=1&danmaku=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width:100%;height:280px;border-radius:12px;"></iframe>
+        </div>
+        <div class="fv-desc">花江大峡谷探钓 · 69.2万播放</div>
+    </div>
+    <div class="fishing-video-item">
+        <div class="fv-title">🎬 探钓贵州关岭｜北盘江，据说有100多鱼种</div>
+        <div style="padding: 0 20px 20px;">
+            <iframe src="https://player.bilibili.com/?isOutside=true&bvid=BV1izxEzfE2D&p=1&high_quality=1&danmaku=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width:100%;height:280px;border-radius:12px;"></iframe>
+        </div>
+        <div class="fv-desc">北盘江探钓 · 1.8万播放</div>
+    </div>
+</div>
+
+<!-- Fishing Spot 5: 牂牁江·三岔河 -->
+<div class="fishing-card fishing-hidden" id="fc-5" style="display:none;">
+    <button class="fishing-card-header" onclick="toggleFishingCard(this)">
+        <span class="fc-day">D3 六枝</span>
+        <span class="fc-title">🎣 牂牁江·三岔河 — 峡谷秘境路亚天堂</span>
+        <span class="fc-arrow">▶</span>
+    </button>
+    <div class="fishing-card-body">
+        <div class="fishing-card-inner">
+            <div class="fishing-card-img">
+                <img src="https://s.coze.cn/image/zg4Yxvga86A/" alt="牂牁江三岔河野钓" loading="lazy">
+            </div>
+            <div class="fishing-card-info">
+                <div class="fc-location">📍 六盘水市六枝特区龙河镇迎风村 · 距酒店30分钟 · 免费野钓</div>
+                <div class="fc-desc">
+                    牂牁江是乌江南源三岔河的中游段，水域面积广阔，是路亚和台钓的绝佳场所。三岔河段免费开放，鱼种极为丰富。这里的鲤鱼和翘嘴力气极大，中鱼后的拉力感让人肾上腺素飙升。清晨和傍晚鱼口最好，可以台钓也可以路亚。
+                </div>
+                <div class="fc-fish">🐟 鱼种：鲫鱼、鲤鱼、草鱼、青鱼、鲢鳙、黑鱼、黄颡鱼、鲶鱼、翘嘴、马口鱼等</div>
+                <div class="fc-stars">
+                    👤 人少指数：★★★★（水域广阔，即使有人也互不干扰）<br>
+                    🏞️ 风景指数：★★★★★（碧水青山，峡谷风光如画）
+                </div>
+                <div class="spot-tags">
+                    <span class="spot-tag warm">🎣 免费</span>
+                    <span class="spot-tag">🐟 路亚天堂</span>
+                    <span class="spot-tag">📍 D3六枝</span>
+                    <span class="spot-tag">🏞️ 峡谷秘境</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Fishing Spot 6: 北盘江·花江大峡谷 -->
+<div class="fishing-card fishing-hidden" id="fc-6" style="display:none;">
+    <button class="fishing-card-header" onclick="toggleFishingCard(this)">
+        <span class="fc-day">D4 关岭</span>
+        <span class="fc-title">🎣 北盘江·花江大峡谷 — 世界第一高桥下百种鱼</span>
+        <span class="fc-arrow">▶</span>
+    </button>
+    <div class="fishing-card-body">
+        <div class="fishing-card-inner">
+            <div class="fishing-card-img">
+                <img src="https://s.coze.cn/image/8fcMAOuKSYE/" alt="花江大峡谷野钓" loading="lazy">
+            </div>
+            <div class="fishing-card-info">
+                <div class="fc-location">📍 关岭县花江镇 · 距酒店25分钟 · 免费野钓</div>
+                <div class="fc-desc">
+                    花江大峡谷是北盘江最壮观的河段，2025年世界第一高桥——花江峡谷大桥在此通车。桥下峡谷深邃，水质清澈见底，据说拥有超过100种鱼类。这里刚举办过"北盘江山水杯"垂钓大赛，来自全国百余钓手参赛。夜钓更佳，花江峡谷的星空下钓鱼，是人生一大乐事。水质极好，鱼肉质细腻无腥味。
+                </div>
+                <div class="fc-fish">🐟 鱼种：鲫鱼、鲤鱼、草鱼、青鱼、鲢鳙、黄颡鱼、鲮鱼、鲶鱼、翘嘴、马口鱼等100+种</div>
+                <div class="fc-stars">
+                    👤 人少指数：★★★★（峡谷漫长，钓位充足）<br>
+                    🏞️ 风景指数：★★★★★（世界第一高桥+峡谷绝景）
+                </div>
+                <div class="spot-tags">
+                    <span class="spot-tag warm">🎣 免费</span>
+                    <span class="spot-tag">🐟 100+鱼种</span>
+                    <span class="spot-tag">📍 D4关岭</span>
+                    <span class="spot-tag">🌉 世界第一高桥</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Fishing Spot 7: 打帮河 -->
+<div class="fishing-card fishing-hidden" id="fc-7" style="display:none;">
+    <button class="fishing-card-header" onclick="toggleFishingCard(this)">
+        <span class="fc-day">D5 安顺</span>
+        <span class="fc-title">🎣 打帮河 — 天然野河草鱼群</span>
+        <span class="fc-arrow">▶</span>
+    </button>
+    <div class="fishing-card-body">
+        <div class="fishing-card-inner">
+            <div class="fishing-card-img">
+                <img src="https://s.coze.cn/image/bmma64xO3fA/" alt="打帮河野钓" loading="lazy">
+            </div>
+            <div class="fishing-card-info">
+                <div class="fc-location">📍 安顺市镇宁县打帮乡 · 距酒店40分钟 · 免费野钓</div>
+                <div class="fc-desc">
+                    打帮河是镇宁到关岭之间的一条天然河流，水域宽广，鱼种丰富。高速路桥下那一段草鱼特别多，经常能看到草鱼浮在水面吃草。下游镇宁县打帮乡段水域更宽，钓点更多。白条和罗非数量极多，适合喜欢钓小鱼的钓友。如果想钓大物，可以用玉米粒守草鱼。
+                </div>
+                <div class="fc-fish">🐟 鱼种：鲫鱼、鲤鱼、草鱼、青鱼、鲢鳙、罗非鱼、黄颡鱼、鲮鱼、鲶鱼、翘嘴、马口鱼等12种</div>
+                <div class="fc-stars">
+                    👤 人少指数：★★★★<br>
+                    🏞️ 风景指数：★★★
+                </div>
+                <div class="spot-tags">
+                    <span class="spot-tag warm">🎣 免费</span>
+                    <span class="spot-tag">🐟 草鱼群</span>
+                    <span class="spot-tag">📍 D5安顺</span>
+                    <span class="spot-tag">🌿 天然野河</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Fishing Spot 8: 翁寨村宰相塘 -->
+<div class="fishing-card fishing-hidden" id="fc-8" style="display:none;">
+    <button class="fishing-card-header" onclick="toggleFishingCard(this)">
+        <span class="fc-day">D5 备选</span>
+        <span class="fc-title">🎣 翁寨村宰相塘 — 布依族村寨田园秘境</span>
+        <span class="fc-arrow">▶</span>
+    </button>
+    <div class="fishing-card-body">
+        <div class="fishing-card-inner">
+            <div class="fishing-card-img">
+                <img src="https://s.coze.cn/image/Rr6pgEauydc/" alt="翁寨村宰相塘野钓" loading="lazy">
+            </div>
+            <div class="fishing-card-info">
+                <div class="fc-location">📍 安顺市镇宁县X460翁寨村 · 备选方案 · 免费</div>
+                <div class="fc-desc">
+                    隐藏在布依族村寨中的秘境野塘，四周风景秀丽，布依族民居错落有致。塘水清澈见底，适合休闲野钓。这里最大的魅力在于"安静"——没有喧嚣，只有鸟鸣和微风。钓累了可以在村中走走，感受布依族的田园生活。
+                </div>
+                <div class="fc-fish">🐟 鱼种：鲫鱼、鲤鱼、马口鱼等</div>
+                <div class="fc-stars">
+                    👤 人少指数：★★★★★（极小众，只有本地人知道）<br>
+                    🏞️ 风景指数：★★★★★（布依族田园风光）
+                </div>
+                <div class="spot-tags">
+                    <span class="spot-tag warm">🎣 免费</span>
+                    <span class="spot-tag">🐟 田园秘境</span>
+                    <span class="spot-tag">📍 D5备选</span>
+                    <span class="spot-tag">🏡 布依族村寨</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+</section>
+
+
+<section class="section" id="adventure" style="padding: 60px 0;" data-view="adventure">
+<div class="section-inner">
+
+<!-- Adventure Hero Header -->
+<div class="adventure-hero">
+    <div class="adventure-hero-content">
+        <span class="adventure-hero-icon">&#9889;</span>
+        <h2>肾上腺素飙升 &middot; 惊险户外</h2>
+        <p class="adv-subtitle">
+            地心探险、洞穴漂流、峡谷激流&hellip;&hellip;<br>
+            3个精选户外体验项目，让你的贵州之旅彻底沸腾。<br>
+            全网曝光量超10亿次的地下暗河桨板，入选全球新玩法TOP100。
+        </p>
+        <span class="adv-badge">&#9889; 以下项目均为自费可选 &middot; 不纳入行程预算</span>
+    </div>
+</div>
+
+<!-- Adventure 1: 清镇石龙洞 -->
+<div class="adventure-card" id="ac-1">
+    <button class="adventure-card-header active" onclick="toggleAdventureCard(this)">
+        <span class="ac-day">D1 清镇</span>
+        <span class="ac-title">&#127754; 石龙洞 &middot; 地下桨板探洞</span>
+        <span class="ac-arrow">&#9654;</span>
+    </button>
+    <div class="adventure-card-body" style="max-height: 2000px;">
+        <div class="adventure-card-inner">
+            <div class="adventure-card-img-top">
+                <img src="https://s.coze.cn/image/xvjNzA-u05k/" alt="石龙洞地下桨板探险" loading="lazy">
+            </div>
+            <div class="adventure-card-meta">
+                <span class="ac-meta-item">&#128205; 贵阳市清镇市麦格乡观游村</span>
+                <span class="ac-meta-item ac-price">&#165;1,280/人</span>
+                <span class="ac-meta-item">&#9200; 3-4小时</span>
+                <span class="ac-meta-item ac-stars">&#11088;&#11088;&#11088;&#11088;&#11088;</span>
+            </div>
+            <div class="adventure-card-desc">
+                4公里地下暗河桨板探险，穿行30+翡翠碧潭，登上《中国国家地理》封面的"水溶洞天花板"。穿戴湿衣头盔，划桨板进入亿年溶洞，途经80cm低矮岩缝需趴在板上滑过，4米瀑坎需攀绳而上。关掉头灯后是绝对的黑暗，只听水滴回响。全网曝光量超10亿次，入选全球新玩法TOP100。
+            </div>
+            <div class="adventure-card-features">
+                &#127775; 特色：地下暗河桨板 + 钙化池瑶池 + 绳索攀爬 + 蓝洞冥想<br>
+                &#128101; 适合人群：各类户外玩家/亲子家庭（无高强度徒步）
+            </div>
+            <div class="adv-photo-row">
+                <img src="https://s.coze.cn/image/TdjbZwgjTSs/" alt="翡翠碧潭钙化池全景" loading="lazy">
+                <img src="https://s.coze.cn/image/c6RRhGhmPBQ/" alt="洞穴秘境蓝绿色渐变水域" loading="lazy">
+                <img src="https://s.coze.cn/image/xvjNzA-u05k/" alt="桨板探险者蓝绿水域" loading="lazy">
+            </div>
+            <div class="adv-video-wrap">
+                <iframe src="https://player.bilibili.com/?isOutside=true&bvid=BV1Kg411x7xK&p=1&high_quality=1&danmaku=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+            </div>
+            <div class="adventure-card-route">
+                &#128663; 就在D1住宿地清镇，贵阳自驾1小时即可到达
+            </div>
+            <div class="adv-tags">
+                <span class="adv-tag">&#127758; 地心探险 &#11088;&#11088;&#11088;&#11088;&#11088;</span>
+                <span class="adv-tag warm">&#128165; 视觉震撼 &#11088;&#11088;&#11088;&#11088;&#11088;</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Adventure 2: 关岭九仙洞漂流 -->
+<div class="adventure-card" id="ac-2">
+    <button class="adventure-card-header active" onclick="toggleAdventureCard(this)">
+        <span class="ac-day">D4 关岭</span>
+        <span class="ac-title">&#127754; 九仙洞漂流 &mdash; 亿年溶洞中的速度与激情</span>
+        <span class="ac-arrow">&#9654;</span>
+    </button>
+    <div class="adventure-card-body" style="max-height: 2000px;">
+        <div class="adventure-card-inner">
+            <div class="adventure-card-img-top">
+                <img src="https://s.coze.cn/image/HG6Bki-obMs/" alt="九仙洞溶洞漂流" loading="lazy">
+            </div>
+            <div class="adventure-card-meta">
+                <span class="ac-meta-item">&#128205; 安顺市关岭县（距黄果树约20公里）</span>
+                <span class="ac-meta-item ac-price">&#165;150-200/人</span>
+                <span class="ac-meta-item">&#9200; 3-4小时（含溶洞观光）</span>
+                <span class="ac-meta-item ac-stars">&#11088;&#11088;&#11088;&#11088;</span>
+            </div>
+            <div class="adventure-card-desc">
+                全长3.9公里的洞穴漂流，59米垂直落差，11处急弯。集洞穴漂、黑洞漂流、峡谷漂流、石林漂、高空漂等7种漂流于一体。在亿年溶洞中穿行，七彩灯光映照奇石怪岩，黑洞段伸手不见五指只剩水声和尖叫。漂流后还有8000&#13221;造浪水世界可玩。国家4A级景区。
+            </div>
+            <div class="adventure-card-features">
+                &#127775; 特色：溶洞漂流 + 梦幻溶洞观光 + 造浪水世界<br>
+                &#128101; 适合人群：全家老小都能玩（刺激但安全）
+            </div>
+            <div class="adv-photo-row">
+                <img src="https://s.coze.cn/image/GizSAxAi148/" alt="漂流船在水道中飞驰" loading="lazy">
+                <img src="https://s.coze.cn/image/C064HBZ8MQI/" alt="漂流船载着游客" loading="lazy">
+                <img src="https://s.coze.cn/image/HG6Bki-obMs/" alt="溶洞漂流特写" loading="lazy">
+            </div>
+            <div class="adventure-card-route">
+                &#128663; D4住宿地关岭附近，距渊府&middot;霞渡民宿约30分钟车程
+            </div>
+            <div class="adv-tags">
+                <span class="adv-tag">&#127754; 洞穴漂流 &#11088;&#11088;&#11088;&#11088;</span>
+                <span class="adv-tag warm">&#128106; 全家适用 &#11088;&#11088;&#11088;&#11088;&#11088;</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Adventure 3: 南江大峡谷漂流 -->
+<div class="adventure-card" id="ac-3">
+    <button class="adventure-card-header active" onclick="toggleAdventureCard(this)">
+        <span class="ac-day">D1 可选</span>
+        <span class="ac-title">&#127754; 南江大峡谷 &middot; 激情漂流 &amp; 飞拉达攀岩</span>
+        <span class="ac-arrow">&#9654;</span>
+    </button>
+    <div class="adventure-card-body" style="max-height: 2000px;">
+        <div class="adventure-card-inner">
+            <div class="adventure-card-img-top">
+                <img src="https://s.coze.cn/image/RD7rhSXkfMo/" alt="南江大峡谷漂流" loading="lazy">
+            </div>
+            <div class="adventure-card-meta">
+                <span class="ac-meta-item">&#128205; 贵阳市开阳县南江乡龙广村</span>
+                <span class="ac-meta-item ac-price">&#165;170/人（激情漂）&middot; &#165;208/人（飞拉达）</span>
+                <span class="ac-meta-item">&#9200; 激情漂约2-2.5小时</span>
+                <span class="ac-meta-item ac-stars">&#11088;&#11088;&#11088;&#11088;&#11088;</span>
+            </div>
+            <div class="adventure-card-desc">
+                贵州版"香格里拉"，7公里激情漂流河道，218米总落差，穿行于喀斯特峡谷之中。从南江大佛到石上森林，急流、险滩、漩涡一个接一个，150米高的奢香瀑布从漂流艇上方倾泻而下。景区还有飞拉达铁道攀岩（208元/人）、丛林探险（126元/人）、玻璃栈道等项目。国家4A级景区。
+            </div>
+            <div class="adventure-card-features">
+                &#127775; 特色：峡谷激情漂流 + 飞拉达攀岩 + 玻璃栈道<br>
+                &#128101; 适合人群：追求刺激的户外爱好者（休闲漂也适合家庭）
+            </div>
+            <div class="adv-photo-row">
+                <img src="https://s.coze.cn/image/Kdb96FDpC8Q/" alt="漂流艇在激流中" loading="lazy">
+                <img src="https://s.coze.cn/image/XopjHM3IwOo/" alt="峡谷漂流全景" loading="lazy">
+                <img src="https://s.coze.cn/image/RD7rhSXkfMo/" alt="两人漂流艇冲过急流" loading="lazy">
+            </div>
+            <div class="adv-video-wrap">
+                <iframe src="https://player.bilibili.com/?isOutside=true&bvid=BV1dkeEedEJ4&p=1&high_quality=1&danmaku=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+            </div>
+            <div class="adventure-card-route">
+                &#128663; 从D1清镇出发约2小时车程，可作为额外日程安排
+            </div>
+            <div class="adv-tags">
+                <span class="adv-tag">&#128165; 肾上腺素 &#11088;&#11088;&#11088;&#11088;&#11088;</span>
+                <span class="adv-tag warm">&#127754; 贵州顶级漂流 &#11088;&#11088;&#11088;&#11088;&#11088;</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Adventure Footer Note -->
+<div class="adventure-note">
+    <p class="adv-note-title">&#9889; 温馨提示</p>
+    <p>
+        &#10148; 以上项目均为自费可选，费用不包含在行程预算中<br>
+        &#10148; 请根据个人身体状况和兴趣自由选择<br>
+        &#10148; 建议提前在官方平台预约，部分项目受天气影响
+    </p>
+</div>
+
+</div>
+</section>
+
 <!-- ===== Footer ===== -->
 <footer class="footer">
     <div class="section-inner">
@@ -4565,6 +5553,62 @@ body:not(.view-home) .home-nav-wrap { display: none; }
 <button class="back-top" id="backTop" onclick="scrollToTop()">&#8593;</button>
 
 <script>
+
+/* ===== Fishing Section Toggle ===== */
+function toggleFishingCard(btn) {
+    var body = btn.nextElementSibling;
+    var isActive = btn.className.indexOf('active') > -1;
+    
+    if (isActive) {
+        btn.className = btn.className.replace(' active', '');
+        body.style.maxHeight = '0';
+    } else {
+        btn.className += ' active';
+        body.style.maxHeight = body.scrollHeight + 'px';
+        setTimeout(function() {
+            body.style.maxHeight = body.scrollHeight + 'px';
+        }, 100);
+    }
+}
+
+function toggleAllFishing() {
+    var btn = document.getElementById('fishingToggleBtn');
+    var hiddenCards = document.querySelectorAll('.fishing-hidden');
+    var isExpanded = btn.getAttribute('data-expanded') === 'true';
+    
+    if (isExpanded) {
+        /* Collapse all hidden cards and hide them */
+        for (var i = 0; i < hiddenCards.length; i++) {
+            var header = hiddenCards[i].querySelector('.fishing-card-header');
+            var body = hiddenCards[i].querySelector('.fishing-card-body');
+            if (header.className.indexOf('active') > -1) {
+                header.className = header.className.replace(' active', '');
+                body.style.maxHeight = '0';
+            }
+            hiddenCards[i].style.display = 'none';
+        }
+        btn.textContent = '\u5c55\u5f00\u5168\u90e8\u9493\u70b9 \u25bc';
+        btn.setAttribute('data-expanded', 'false');
+    } else {
+        /* Show all hidden cards */
+        for (var i = 0; i < hiddenCards.length; i++) {
+            hiddenCards[i].style.display = 'block';
+        }
+        btn.textContent = '\u6536\u8d77\u9493\u70b9 \u25b2';
+        btn.setAttribute('data-expanded', 'true');
+        /* Recalculate after display change */
+        setTimeout(function() {
+            /* Expand all newly shown cards */
+            for (var i = 0; i < hiddenCards.length; i++) {
+                var header = hiddenCards[i].querySelector('.fishing-card-header');
+                var body = hiddenCards[i].querySelector('.fishing-card-body');
+                if (header.className.indexOf('active') > -1) {
+                    body.style.maxHeight = body.scrollHeight + 'px';
+                }
+            }
+        }, 50);
+    }
+}
 /* ===== Navigation Toggle (Mobile) ===== */
 function toggleNav() {
     var links = document.getElementById('navLinks');
@@ -5295,6 +6339,24 @@ window.onscroll = handleScroll;
         init();
     }
 })();
+
+
+/* ===== Adventure Section Toggle ===== */
+function toggleAdventureCard(btn) {
+    var body = btn.nextElementSibling;
+    var isActive = btn.className.indexOf('active') > -1;
+    if (isActive) {
+        btn.className = btn.className.replace(' active', '');
+        body.style.maxHeight = '0';
+    } else {
+        btn.className += ' active';
+        body.style.maxHeight = body.scrollHeight + 'px';
+        setTimeout(function() {
+            body.style.maxHeight = body.scrollHeight + 'px';
+        }, 100);
+    }
+}
+
 </script>
 
 </body>
