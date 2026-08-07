@@ -1256,9 +1256,204 @@ img { max-width: 100%; height: auto; display: block; }
     line-height: 1.5;
 }
 
+
+/* ===== 3-Layer Navigation System ===== */
+body { overflow-x: hidden; }
+
+/* Nav header bar */
+.nav-header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    background: rgba(10,10,10,0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(78,205,196,0.12);
+    display: flex;
+    align-items: center;
+    padding: 10px 16px;
+    transition: transform 0.3s ease;
+}
+.nav-header.hidden { transform: translateY(-100%); }
+.nav-back {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(78,205,196,0.12);
+    border: 1px solid rgba(78,205,196,0.3);
+    color: #4ecdc4;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: all 0.2s;
+}
+.nav-back:hover { background: rgba(78,205,196,0.25); }
+.nav-title {
+    flex: 1;
+    text-align: center;
+    color: #f0f0f0;
+    font-size: 15px;
+    font-weight: 600;
+    margin: 0 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.nav-home-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(78,205,196,0.12);
+    border: 1px solid rgba(78,205,196,0.3);
+    color: #4ecdc4;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: all 0.2s;
+}
+.nav-home-btn:hover { background: rgba(78,205,196,0.25); }
+
+/* Section visibility control */
+section[data-view] { display: none !important; }
+section[data-view].view-active { display: block !important; }
+
+/* Home navigation buttons */
+.home-nav-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 20px 16px 40px;
+    max-width: 680px;
+    margin: 0 auto;
+}
+.home-nav-btn {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 22px;
+    background: rgba(20,20,20,0.9);
+    border: 1px solid rgba(78,205,196,0.15);
+    border-radius: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: left;
+    width: 100%;
+    font-family: inherit;
+}
+.home-nav-btn:hover {
+    background: rgba(78,205,196,0.08);
+    border-color: rgba(78,205,196,0.35);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(78,205,196,0.08);
+}
+.home-nav-btn:active { transform: scale(0.98); }
+.hnb-icon {
+    font-size: 32px;
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(78,205,196,0.08);
+    border-radius: 12px;
+}
+.hnb-text { flex: 1; }
+.hnb-title {
+    color: #f0f0f0;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+.hnb-desc {
+    color: rgba(255,255,255,0.4);
+    font-size: 12px;
+    line-height: 1.4;
+}
+.hnb-arrow {
+    color: rgba(78,205,196,0.4);
+    font-size: 20px;
+    flex-shrink: 0;
+}
+
+/* Sub-navigation buttons */
+.sub-nav-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 16px;
+    max-width: 680px;
+    margin: 0 auto;
+}
+.sub-nav-btn {
+    flex: 1 1 calc(33.33% - 10px);
+    min-width: 90px;
+    padding: 14px 8px;
+    background: rgba(20,20,20,0.9);
+    border: 1px solid rgba(78,205,196,0.12);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    text-align: center;
+    font-family: inherit;
+}
+.sub-nav-btn:hover {
+    background: rgba(78,205,196,0.1);
+    border-color: rgba(78,205,196,0.3);
+}
+.sub-nav-btn:active { transform: scale(0.96); }
+.sn-icon { font-size: 24px; display: block; margin-bottom: 6px; }
+.sn-label {
+    color: #f0f0f0;
+    font-size: 12px;
+    font-weight: 600;
+    display: block;
+    line-height: 1.3;
+}
+.sn-sub {
+    color: rgba(255,255,255,0.35);
+    font-size: 10px;
+    display: block;
+    margin-top: 2px;
+}
+.sub-nav-btn.active-sub {
+    background: rgba(78,205,196,0.15);
+    border-color: rgba(78,205,196,0.4);
+}
+
+/* Top spacer for fixed header */
+.nav-spacer { height: 56px; }
+
+/* Smooth section transitions */
+section[data-view].view-active {
+    animation: viewFadeIn 0.35s ease;
+}
+@keyframes viewFadeIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Hide old global nav if it exists on non-home views */
+body:not(.view-home) .home-nav-wrap { display: none; }
+body.view-home .nav-back { visibility: hidden; }
+body.view-home .nav-home-btn { visibility: hidden; }
+
 </style>
 </head>
 <body>
+<div class="nav-header" id="navHeader">
+    <button class="nav-back" id="navBack" onclick="navBack()">&#8249;</button>
+    <div class="nav-title" id="navTitle">&#36149;&#24030;&#36991;&#26257;&#33258;&#39550;&#28216;</div>
+    <button class="nav-home-btn" onclick="navTo('home')">&#8962;</button>
+</div>
+<div class="nav-spacer"></div>
+
 
 <!-- Navigation -->
 <nav class="nav" id="mainNav">
@@ -1281,7 +1476,7 @@ img { max-width: 100%; height: auto; display: block; }
 </nav>
 
 <!-- Hero Section -->
-<section class="hero" id="hero">
+<section class="hero" id="hero" data-view="home">
     <div class="hero-bg"></div>
     <div class="hero-overlay"></div>
     <div class="hero-content">
@@ -1315,8 +1510,36 @@ img { max-width: 100%; height: auto; display: block; }
     </div>
 </section>
 
+<div class="home-nav-wrap" id="homeNav">
+    <button class="home-nav-btn" onclick="navTo('route-overview')">
+        <div class="hnb-icon">&#128506;</div>
+        <div class="hnb-text">
+            <div class="hnb-title">&#34892;&#31243;&#24635;&#35272;</div>
+            <div class="hnb-desc">&#36335;&#32447;&#22320;&#22270;&#12289;&#27599;&#26085;&#36712;&#36857;&#12289;&#20840;&#31243;&#35268;&#21010;</div>
+        </div>
+        <div class="hnb-arrow">&#8250;</div>
+    </button>
+    <button class="home-nav-btn" onclick="navTo('hotels-budget')">
+        <div class="hnb-icon">&#127969;</div>
+        <div class="hnb-text">
+            <div class="hnb-title">&#20303;&#23487;&#39044;&#31639;</div>
+            <div class="hnb-desc">&#28201;&#27849;&#37202;&#24215;&#12289;&#36153;&#29992;&#26126;&#32454;&#12289;&#22791;&#36873;&#26041;&#26696;</div>
+        </div>
+        <div class="hnb-arrow">&#8250;</div>
+    </button>
+    <button class="home-nav-btn" onclick="navTo('travel-guide')">
+        <div class="hnb-icon">&#127897;</div>
+        <div class="hnb-text">
+            <div class="hnb-title">&#23454;&#29992;&#25915;&#30053;</div>
+            <div class="hnb-desc">&#32972;&#21253;&#28165;&#21333;&#12289;&#32972;&#22791;&#30693;&#35782;&#12289;&#39135;&#29289;&#25351;&#21335;&#12289;&#24212;&#24613;&#20449;&#24687;</div>
+        </div>
+        <div class="hnb-arrow">&#8250;</div>
+    </button>
+</div>
+
+
 <!-- ===== Overview Section ===== -->
-<section class="section" id="overview">
+<section class="section" id="overview" data-view="route-overview">
     <div class="section-bg" style="background-image: url('https://s.coze.cn/image/Wt0PwTzbgnQ/'); opacity: 0.3;"></div>
     <div class="section-overlay"></div>
     <div class="section-inner">
@@ -1380,7 +1603,7 @@ img { max-width: 100%; height: auto; display: block; }
 </section>
 
 <!-- ===== Map Section ===== -->
-<section class="section" id="map">
+<section class="section" id="map" data-view="route-overview">
     <div class="section-bg" style="background-image: url('https://s.coze.cn/image/ew6_GivT0iM/'); opacity: 0.35;"></div>
     <div class="section-overlay"></div>
     <div class="section-inner">
@@ -1485,7 +1708,46 @@ img { max-width: 100%; height: auto; display: block; }
 
 
 <!-- ===== DAILY DYNAMIC MAPS ===== -->
-<section id="daily-maps">
+
+<div class="sub-nav-wrap" id="dailySubnav">
+    <button class="sub-nav-btn" onclick="navTo('daily-maps')" data-sub="daily-maps">
+        <span class="sn-icon">&#128506;</span>
+        <span class="sn-label">&#20840;&#37096;&#36712;&#36857;</span>
+        <span class="sn-sub">6&#22825;&#21160;&#24577;&#22320;&#22270;</span>
+    </button>
+    <button class="sub-nav-btn" onclick="navTo('day1')" data-sub="day1">
+        <span class="sn-icon">&#9312;</span>
+        <span class="sn-label">D1 &#28165;&#38215;</span>
+        <span class="sn-sub">&#32650;&#30382;&#27934;&#28687;&#24067;</span>
+    </button>
+    <button class="sub-nav-btn" onclick="navTo('day2')" data-sub="day2">
+        <span class="sn-icon">&#9313;</span>
+        <span class="sn-label">D2 &#32435;&#38594;</span>
+        <span class="sn-sub">&#21514;&#27700;&#23721;&#28687;&#24067;</span>
+    </button>
+    <button class="sub-nav-btn" onclick="navTo('day3')" data-sub="day3">
+        <span class="sn-icon">&#9314;</span>
+        <span class="sn-label">D3 &#20845;&#30424;&#27700;</span>
+        <span class="sn-sub">&#29298;&#29275;&#27743;</span>
+    </button>
+    <button class="sub-nav-btn" onclick="navTo('day4')" data-sub="day4">
+        <span class="sn-icon">&#9315;</span>
+        <span class="sn-label">D4 &#20851;&#23936;</span>
+        <span class="sn-sub">&#20912;&#33267;&#32676;</span>
+    </button>
+    <button class="sub-nav-btn" onclick="navTo('day5')" data-sub="day5">
+        <span class="sn-icon">&#9316;</span>
+        <span class="sn-label">D5 &#23433;&#39034;</span>
+        <span class="sn-sub">&#38134;&#40723;&#33633;</span>
+    </button>
+    <button class="sub-nav-btn" onclick="navTo('day6')" data-sub="day6">
+        <span class="sn-icon">&#9317;</span>
+        <span class="sn-label">D6 &#36820;&#31243;</span>
+        <span class="sn-sub">&#23433;&#39034;&#8594;&#27934;&#21475;</span>
+    </button>
+</div>
+
+<section id="daily-maps" data-view="daily-maps">
 <div class="dm-bg"></div>
 <div class="dm-inner">
     <div class="dm-section-header">
@@ -1636,7 +1898,7 @@ img { max-width: 100%; height: auto; display: block; }
 
 
 <!-- ===== DAY 1: 清镇·羊皮洞瀑布 ===== -->
-<section class="day-section" id="day1">
+<section class="day-section" id="day1" data-view="day1">
     <div class="day-bg" style="background-image: url('https://s.coze.cn/image/0KkdW-D4spA/');"></div>
     <div class="day-overlay"></div>
     <div class="day-inner">
@@ -1804,7 +2066,7 @@ img { max-width: 100%; height: auto; display: block; }
 </section>
 
 <!-- ===== DAY 2: 纳雍·吊水岩瀑布 ===== -->
-<section class="day-section" id="day2">
+<section class="day-section" id="day2" data-view="day2">
     <div class="day-bg" style="background-image: url('https://s.coze.cn/image/AqJQSg4WA8k/');"></div>
     <div class="day-overlay"></div>
     <div class="day-inner">
@@ -1979,7 +2241,7 @@ img { max-width: 100%; height: auto; display: block; }
 </section>
 
 <!-- ===== DAY 3: 六盘水·牂牁江龙脊山 ===== -->
-<section class="day-section" id="day3">
+<section class="day-section" id="day3" data-view="day3">
     <div class="day-bg" style="background-image: url('https://s.coze.cn/image/ew6_GivT0iM/');"></div>
     <div class="day-overlay"></div>
     <div class="day-inner">
@@ -2165,7 +2427,7 @@ img { max-width: 100%; height: auto; display: block; }
 </section>
 
 <!-- ===== DAY 4: 关岭·冰臼+滴水潭 ===== -->
-<section class="day-section" id="day4">
+<section class="day-section" id="day4" data-view="day4">
     <div class="day-bg" style="background-image: url('https://s.coze.cn/image/alI3n5oPfY8/');"></div>
     <div class="day-overlay"></div>
     <div class="day-inner">
@@ -2419,7 +2681,7 @@ img { max-width: 100%; height: auto; display: block; }
 </section>
 
 <!-- ===== DAY 5: 安顺·铜鼓荡+大圣之眼+牛倒岩 ===== -->
-<section class="day-section" id="day5">
+<section class="day-section" id="day5" data-view="day5">
     <div class="day-bg" style="background-image: url('https://s.coze.cn/image/m9Zgp_BKvJo/');"></div>
     <div class="day-overlay"></div>
     <div class="day-inner">
@@ -2703,7 +2965,7 @@ img { max-width: 100%; height: auto; display: block; }
 </section>
 
 <!-- ===== DAY 6: 返程 ===== -->
-<section class="day-section" id="day6" style="padding: 60px 0;">
+<section class="day-section" id="day6" style="padding: 60px 0;" data-view="day6">
     <div class="day-bg" style="background-image: url('https://s.coze.cn/image/Wt0PwTzbgnQ/'); opacity: 0.3;"></div>
     <div class="day-overlay"></div>
     <div class="day-inner">
@@ -2762,7 +3024,23 @@ img { max-width: 100%; height: auto; display: block; }
 </section>
 
 <!-- ===== Hotel Section ===== -->
-<section class="section" id="hotels">
+
+<div class="sub-nav-wrap" id="hotelsSubnav">
+    <button class="sub-nav-btn" onclick="navTo('hotels')" data-sub="hotels">
+        <span class="sn-icon">&#127969;</span>
+        <span class="sn-label">&#37202;&#24215;&#25512;&#33616;</span>
+    </button>
+    <button class="sub-nav-btn" onclick="navTo('budget')" data-sub="budget">
+        <span class="sn-icon">&#128176;</span>
+        <span class="sn-label">&#39044;&#31639;&#26126;&#32454;</span>
+    </button>
+    <button class="sub-nav-btn" onclick="navTo('alternatives')" data-sub="alternatives">
+        <span class="sn-icon">&#128204;</span>
+        <span class="sn-label">&#22791;&#36873;&#26041;&#26696;</span>
+    </button>
+</div>
+
+<section class="section" id="hotels" data-view="hotels">
     <div class="section-bg" style="background-image: url('https://s.coze.cn/image/alI3n5oPfY8/'); opacity: 0.3;"></div>
     <div class="section-overlay"></div>
     <div class="section-inner">
@@ -2860,7 +3138,7 @@ img { max-width: 100%; height: auto; display: block; }
 </section>
 
 <!-- ===== Budget Section ===== -->
-<section class="section" id="budget">
+<section class="section" id="budget" data-view="budget">
     <div class="section-bg" style="background-image: url('https://s.coze.cn/image/AqJQSg4WA8k/'); opacity: 0.25;"></div>
     <div class="section-overlay"></div>
     <div class="section-inner">
@@ -2928,7 +3206,7 @@ img { max-width: 100%; height: auto; display: block; }
 </section>
 
 <!-- ===== Alternative Spots ===== -->
-<section class="section" id="alternatives">
+<section class="section" id="alternatives" data-view="alternatives">
     <div class="section-bg" style="background-image: url('https://s.coze.cn/image/m9Zgp_BKvJo/'); opacity: 0.3;"></div>
     <div class="section-overlay"></div>
     <div class="section-inner">
@@ -3021,7 +3299,47 @@ img { max-width: 100%; height: auto; display: block; }
 </section>
 
 <!-- ===== Tips Section ===== -->
-<section class="section" id="tips">
+
+<div class="sub-nav-wrap" id="guideSubnav">
+    <button class="sub-nav-btn" onclick="navTo('tips')" data-sub="tips">
+        <span class="sn-icon">&#128161;</span>
+        <span class="sn-label">&#26053;&#34892;&#36148;&#22763;</span>
+    </button>
+    <button class="sub-nav-btn" onclick="navTo('gallery')" data-sub="gallery">
+        <span class="sn-icon">&#128247;</span>
+        <span class="sn-label">&#39118;&#26223;&#22270;&#24211;</span>
+    </button>
+    <button class="sub-nav-btn" onclick="navTo('packing')" data-sub="packing">
+        <span class="sn-icon">&#127890;</span>
+        <span class="sn-label">&#32972;&#21253;&#28165;&#21333;</span>
+    </button>
+    <button class="sub-nav-btn" onclick="navTo('timeline')" data-sub="timeline">
+        <span class="sn-icon">&#128197;</span>
+        <span class="sn-label">&#34892;&#31243;&#26085;&#21382;</span>
+    </button>
+    <button class="sub-nav-btn" onclick="navTo('knowledge')" data-sub="knowledge">
+        <span class="sn-icon">&#127891;</span>
+        <span class="sn-label">&#30693;&#35782;&#31185;&#26222;</span>
+    </button>
+    <button class="sub-nav-btn" onclick="navTo('highlights')" data-sub="highlights">
+        <span class="sn-icon">&#11088;</span>
+        <span class="sn-label">&#20142;&#28857;&#24635;&#32467;</span>
+    </button>
+    <button class="sub-nav-btn" onclick="navTo('foodguide')" data-sub="foodguide">
+        <span class="sn-icon">&#127858;</span>
+        <span class="sn-label">&#32972;&#39135;&#25351;&#21335;</span>
+    </button>
+    <button class="sub-nav-btn" onclick="navTo('faq')" data-sub="faq">
+        <span class="sn-icon">&#10067;</span>
+        <span class="sn-label">FAQ</span>
+    </button>
+    <button class="sub-nav-btn" onclick="navTo('emergency')" data-sub="emergency">
+        <span class="sn-icon">&#128680;</span>
+        <span class="sn-label">&#24212;&#24613;&#20449;&#24687;</span>
+    </button>
+</div>
+
+<section class="section" id="tips" data-view="tips">
     <div class="section-bg" style="background-image: url('https://s.coze.cn/image/ew6_GivT0iM/'); opacity: 0.25;"></div>
     <div class="section-overlay"></div>
     <div class="section-inner">
@@ -3116,7 +3434,7 @@ img { max-width: 100%; height: auto; display: block; }
 
 
 <!-- ===== Photo Gallery ===== -->
-<section class="section" id="gallery">
+<section class="section" id="gallery" data-view="gallery">
     <div class="section-bg" style="background-image: url('https://s.coze.cn/image/0KkdW-D4spA/'); opacity: 0.25;"></div>
     <div class="section-overlay"></div>
     <div class="section-inner">
@@ -3140,7 +3458,7 @@ img { max-width: 100%; height: auto; display: block; }
 <hr class="section-divider"/>
 
 <!-- ===== Highlights ===== -->
-<section class="section" id="highlights">
+<section class="section" id="highlights" data-view="highlights">
     <div class="section-bg" style="background-image: url('https://s.coze.cn/image/2UGcbOQuP24/'); opacity: 0.3;"></div>
     <div class="section-overlay"></div>
     <div class="section-inner">
@@ -3219,7 +3537,7 @@ img { max-width: 100%; height: auto; display: block; }
 
 
 <!-- ===== Packing Checklist ===== -->
-<section class="section" id="packing">
+<section class="section" id="packing" data-view="packing">
     <div class="section-bg" style="background-image: url('https://s.coze.cn/image/gdQKf0bGK1U/'); opacity: 0.2;"></div>
     <div class="section-overlay"></div>
     <div class="section-inner">
@@ -3322,7 +3640,7 @@ img { max-width: 100%; height: auto; display: block; }
 
 
 <!-- ===== Detailed Timeline ===== -->
-<section class="section" id="timeline">
+<section class="section" id="timeline" data-view="timeline">
     <div class="section-bg" style="background-image: url('https://s.coze.cn/image/f_lo_C9l1PU/'); opacity: 0.25;"></div>
     <div class="section-overlay"></div>
     <div class="section-inner">
@@ -3622,7 +3940,7 @@ img { max-width: 100%; height: auto; display: block; }
 
 
 <!-- ===== Guizhou Knowledge ===== -->
-<section class="section" id="knowledge" style="padding: 60px 0;">
+<section class="section" id="knowledge" style="padding: 60px 0;" data-view="knowledge">
     <div class="section-bg" style="background-image: url('https://s.coze.cn/image/BDdfFo9Yy9g/'); opacity: 0.2;"></div>
     <div class="section-overlay"></div>
     <div class="section-inner">
@@ -3674,7 +3992,7 @@ img { max-width: 100%; height: auto; display: block; }
 </section>
 
 <!-- ===== FAQ Section ===== -->
-<section class="section" id="faq" style="padding: 60px 0;">
+<section class="section" id="faq" style="padding: 60px 0;" data-view="faq">
     <div class="section-bg" style="background-image: url('https://s.coze.cn/image/m9Zgp_BKvJo/'); opacity: 0.2;"></div>
     <div class="section-overlay"></div>
     <div class="section-inner">
@@ -3758,7 +4076,7 @@ img { max-width: 100%; height: auto; display: block; }
 
 
 <!-- ===== Food Guide Detail ===== -->
-<section class="section" id="foodguide" style="padding: 60px 0;">
+<section class="section" id="foodguide" style="padding: 60px 0;" data-view="foodguide">
     <div class="section-bg" style="background-image: url('https://s.coze.cn/image/lvHX7FOj4P0/'); opacity: 0.2;"></div>
     <div class="section-overlay"></div>
     <div class="section-inner">
@@ -3806,7 +4124,7 @@ img { max-width: 100%; height: auto; display: block; }
 </section>
 
 <!-- ===== Emergency & Contact ===== -->
-<section class="section" id="emergency" style="padding: 60px 0;">
+<section class="section" id="emergency" style="padding: 60px 0;" data-view="emergency">
     <div class="section-bg" style="background-image: url('https://s.coze.cn/image/iXIqKhJmjko/'); opacity: 0.2;"></div>
     <div class="section-overlay"></div>
     <div class="section-inner">
@@ -4289,6 +4607,223 @@ window.onscroll = handleScroll;
 
     // Check on load
     setTimeout(checkVisibility, 1000);
+})();
+</script>
+
+
+<script>
+(function() {
+    // View hierarchy: parent -> [children]
+    var viewParent = {
+        'home': null,
+        'route-overview': 'home',
+        'daily-maps': 'route-overview',
+        'day1': 'route-overview', 'day2': 'route-overview', 'day3': 'route-overview',
+        'day4': 'route-overview', 'day5': 'route-overview', 'day6': 'route-overview',
+        'hotels-budget': 'home',
+        'hotels': 'hotels-budget', 'budget': 'hotels-budget', 'alternatives': 'hotels-budget',
+        'travel-guide': 'home',
+        'tips': 'travel-guide', 'gallery': 'travel-guide', 'highlights': 'travel-guide',
+        'packing': 'travel-guide', 'timeline': 'travel-guide', 'knowledge': 'travel-guide',
+        'faq': 'travel-guide', 'foodguide': 'travel-guide', 'emergency': 'travel-guide'
+    };
+
+    var viewTitles = {
+        'home': '\u8d35\u5dde\u907f\u6691\u81ea\u9a7e\u6e38',
+        'route-overview': '\u884c\u7a0b\u603b\u89c8',
+        'daily-maps': '\u6bcf\u65e5\u52a8\u6001\u8f68\u8ff9',
+        'day1': 'D1 \u6d1e\u53e3\u2192\u6e05\u9547 \u00b7 \u7f8a\u76ae\u6d1e\u7011\u5e03',
+        'day2': 'D2 \u6e05\u9547\u2192\u7eb3\u96cd \u00b7 \u540a\u6c34\u5ca9\u7011\u5e03',
+        'day3': 'D3 \u7eb3\u96cd\u2192\u516d\u76d8\u6c34 \u00b7 \u7266\u725b\u6c5f',
+        'day4': 'D4 \u516d\u76d8\u6c34\u2192\u5173\u5cad \u00b7 \u51b0\u81fc\u7fa4',
+        'day5': 'D5 \u5173\u5cad\u2192\u5b89\u987a \u00b7 \u94dc\u9f13\u8361',
+        'day6': 'D6 \u5b89\u987a\u2192\u6d1e\u53e3 \u00b7 \u8fd4\u7a0b',
+        'hotels-budget': '\u4f4f\u5bbf\u9884\u7b97',
+        'hotels': '\u9152\u5e97\u63a8\u8350',
+        'budget': '\u9884\u7b97\u660e\u7ec6',
+        'alternatives': '\u5907\u9009\u65b9\u6848',
+        'travel-guide': '\u5b9e\u7528\u653b\u7565',
+        'tips': '\u65c5\u884c\u8d34\u58eb',
+        'gallery': '\u98ce\u666f\u56fe\u5e93',
+        'highlights': '\u4eae\u70b9\u603b\u7ed3',
+        'packing': '\u80cc\u5305\u6e05\u5355',
+        'timeline': '\u884c\u7a0b\u65e5\u5386',
+        'knowledge': '\u77e5\u8bc6\u79d1\u666e',
+        'faq': 'FAQ',
+        'foodguide': '\u7f8e\u98df\u6307\u5357',
+        'emergency': '\u5e94\u6025\u4fe1\u606f'
+    };
+
+    // Sub-nav sections that should show sub-navigation
+    var subNavGroups = {
+        'route-overview': ['daily-maps', 'day1', 'day2', 'day3', 'day4', 'day5', 'day6'],
+        'hotels-budget': ['hotels', 'budget', 'alternatives'],
+        'travel-guide': ['tips', 'gallery', 'highlights', 'packing', 'timeline', 'knowledge', 'faq', 'foodguide', 'emergency']
+    };
+
+    var currentView = 'home';
+    var viewHistory = [];
+
+    window.navTo = function(viewId) {
+        if (viewId === currentView) return;
+
+        // Hide current
+        var sections = document.querySelectorAll('section[data-view].view-active');
+        for (var i = 0; i < sections.length; i++) {
+            sections[i].className = sections[i].className.replace(' view-active', '');
+        }
+
+        // Track history
+        if (currentView !== viewId) {
+            viewHistory.push(currentView);
+            if (viewHistory.length > 20) viewHistory.shift();
+        }
+
+        currentView = viewId;
+
+        // Show target
+        var targets = document.querySelectorAll('section[data-view="' + viewId + '"]');
+        for (var j = 0; j < targets.length; j++) {
+            targets[j].className += ' view-active';
+        }
+
+        // Update header
+        updateNavHeader(viewId);
+
+        // Update body class
+        document.body.className = 'view-' + viewId;
+
+        // Show/hide home nav
+        var homeNav = document.getElementById('homeNav');
+        if (homeNav) {
+            homeNav.style.display = (viewId === 'home') ? '' : 'none';
+        }
+
+        // Show/hide sub-navs
+        hideAllSubNavs();
+        var parent = viewParent[viewId];
+        if (parent && subNavGroups[parent]) {
+            // Show parent's sub-nav and highlight current
+            showSubNav(parent, viewId);
+        }
+
+        // Scroll to top
+        window.scrollTo(0, 0);
+
+        // Trigger daily map animations if applicable
+        if (viewId.indexOf('day') === 0 || viewId === 'daily-maps') {
+            setTimeout(function() {
+                if (typeof checkVisibility === 'function') checkVisibility();
+            }, 500);
+        }
+    };
+
+    window.navBack = function() {
+        if (viewHistory.length > 0) {
+            var prevView = viewHistory.pop();
+            // Don't push current to history since we're going back
+            var tempHistory = viewHistory.slice();
+            viewHistory = [];
+
+            // Hide current
+            var sections = document.querySelectorAll('section[data-view].view-active');
+            for (var i = 0; i < sections.length; i++) {
+                sections[i].className = sections[i].className.replace(' view-active', '');
+            }
+
+            currentView = prevView;
+
+            // Show target
+            var targets = document.querySelectorAll('section[data-view="' + prevView + '"]');
+            for (var j = 0; j < targets.length; j++) {
+                targets[j].className += ' view-active';
+            }
+
+            updateNavHeader(prevView);
+            document.body.className = 'view-' + prevView;
+
+            var homeNav = document.getElementById('homeNav');
+            if (homeNav) homeNav.style.display = (prevView === 'home') ? '' : 'none';
+
+            hideAllSubNavs();
+            var parent = viewParent[prevView];
+            if (parent && subNavGroups[parent]) {
+                showSubNav(parent, prevView);
+            }
+
+            viewHistory = tempHistory;
+            window.scrollTo(0, 0);
+        } else {
+            navTo('home');
+        }
+    };
+
+    function updateNavHeader(viewId) {
+        var titleEl = document.getElementById('navTitle');
+        if (titleEl) {
+            titleEl.textContent = viewTitles[viewId] || '\u8d35\u5dde\u907f\u6691\u81ea\u9a7e\u6e38';
+        }
+    }
+
+    function hideAllSubNavs() {
+        var navs = document.querySelectorAll('.sub-nav-wrap');
+        for (var i = 0; i < navs.length; i++) {
+            navs[i].style.display = 'none';
+        }
+    }
+
+    function showSubNav(parentGroup, activeView) {
+        var navId = parentGroup + '-subnav';
+        // Map parent to actual nav element id
+        var navEl = null;
+        if (parentGroup === 'route-overview') navEl = document.getElementById('dailySubnav');
+        else if (parentGroup === 'hotels-budget') navEl = document.getElementById('hotelsSubnav');
+        else if (parentGroup === 'travel-guide') navEl = document.getElementById('guideSubnav');
+
+        if (navEl) {
+            navEl.style.display = '';
+            // Highlight active button
+            var btns = navEl.querySelectorAll('.sub-nav-btn');
+            for (var i = 0; i < btns.length; i++) {
+                var sub = btns[i].getAttribute('data-sub');
+                if (sub === activeView) {
+                    btns[i].className = 'sub-nav-btn active-sub';
+                } else {
+                    btns[i].className = 'sub-nav-btn';
+                }
+            }
+        }
+    }
+
+    // Initialize: show home view
+    function init() {
+        // Hide all view sections
+        var allViewSections = document.querySelectorAll('section[data-view]');
+        for (var i = 0; i < allViewSections.length; i++) {
+            allViewSections[i].className = allViewSections[i].className.replace(' view-active', '');
+        }
+
+        // Show hero (home)
+        var hero = document.querySelector('section[data-view="home"]');
+        if (hero) hero.className += ' view-active';
+
+        // Show home nav
+        var homeNav = document.getElementById('homeNav');
+        if (homeNav) homeNav.style.display = '';
+
+        // Hide sub-navs
+        hideAllSubNavs();
+
+        document.body.className = 'view-home';
+        updateNavHeader('home');
+    }
+
+    // Run on load
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
 })();
 </script>
 
