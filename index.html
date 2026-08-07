@@ -1783,6 +1783,13 @@ body:not(.view-home) .home-nav-wrap { display: none; }
         <span class="nb-icon">&#8617;</span>
         <span class="nb-label">&#36864;&#20986;</span>
     </button>
+    <button class="nav-bottom-btn" data-bottom="hotels-budget" onclick="navTo('hotels-budget')">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+            <polyline points="9 22 9 12 15 12 15 22"/>
+        </svg>
+        <span>住宿</span>
+    </button>
 </div>
 <div class="swipe-hint" id="swipeHint"></div>
 
@@ -3496,6 +3503,36 @@ body:not(.view-home) .home-nav-wrap { display: none; }
 
 
 <!-- ===== Alternative Spots ===== -->
+
+<section class="section" id="hotelsBudgetHub" data-view="hotels-budget">
+    <div class="section-bg" style="background-image: url('https://s.coze.cn/image/alI3n5oPfY8/'); opacity: 0.25;"></div>
+    <div class="section-overlay"></div>
+    <div class="section-inner">
+        <div class="section-header fade-in">
+            <div class="section-tag">Stay</div>
+            <h2 class="section-title">住宿推荐</h2>
+            <p class="section-desc">精选湖畔民宿·悬崖温泉·森林隐舍，每晚都是风景</p>
+        </div>
+        <div class="hub-cards">
+            <div class="hub-card" onclick="navTo('hotels')">
+                <div class="hub-card-icon">&#127969;</div>
+                <div class="hub-card-body">
+                    <div class="hub-card-title">酒店推荐</div>
+                    <div class="hub-card-desc">5晚精选温泉度假酒店，亲子友好，品质保障</div>
+                </div>
+                <div class="hub-card-arrow">&#8250;</div>
+            </div>
+            <div class="hub-card" onclick="navTo('alternatives')">
+                <div class="hub-card-icon">&#128204;</div>
+                <div class="hub-card-body">
+                    <div class="hub-card-title">备选方案</div>
+                    <div class="hub-card-desc">不同价位和风格的替代住宿选择</div>
+                </div>
+                <div class="hub-card-arrow">&#8250;</div>
+            </div>
+        </div>
+    </div>
+</section>
 <section class="section" id="alternatives" data-view="alternatives">
     <div class="section-bg" style="background-image: url('https://s.coze.cn/image/m9Zgp_BKvJo/'); opacity: 0.3;"></div>
     <div class="section-overlay"></div>
@@ -5068,6 +5105,7 @@ window.onscroll = handleScroll;
         'daily-maps': 'route-overview',
         'day1': 'route-overview', 'day2': 'route-overview', 'day3': 'route-overview',
         'day4': 'route-overview', 'day5': 'route-overview', 'day6': 'route-overview',
+        'hotels-budget': '住宿推荐',
         'hotels': 'home', 'alternatives': 'home',
         'travel-guide': 'home',
         'tips': 'travel-guide', 'gallery': 'travel-guide', 'highlights': 'travel-guide',
@@ -5085,6 +5123,7 @@ window.onscroll = handleScroll;
         'day4': 'D4 \u516d\u76d8\u6c34\u2192\u5173\u5cad \u00b7 \u51b0\u81fc\u7fa4',
         'day5': 'D5 \u5173\u5cad\u2192\u5b89\u987a \u00b7 \u94dc\u9f13\u8361',
         'day6': 'D6 \u5b89\u987a\u2192\u6d1e\u53e3 \u00b7 \u8fd4\u7a0b',
+        'hotels-budget': '住宿推荐',
         'hotels': '\u9152\u5e97\u63a8\u8350',
         'alternatives': '\u5907\u9009\u65b9\u6848',
         'travel-guide': '\u5b9e\u7528\u653b\u7565',
