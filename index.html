@@ -43,12 +43,7 @@ img { max-width: 100%; height: auto; display: block; }
 
 /* ===== Navigation ===== */
 .nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-    background: rgba(10,10,10,0.85);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(78,205,196,0.1);
-    transition: all 0.3s ease;
+    display: none !important; /* Hidden: replaced by .nav-header */
 }
 .nav.scrolled { background: rgba(10,10,10,0.95); }
 .nav-inner {
@@ -702,7 +697,7 @@ img { max-width: 100%; height: auto; display: block; }
 
 /* ===== Back to top ===== */
 .back-top {
-    position: fixed; bottom: 32px; right: 32px;
+    position: fixed; bottom: 80px; right: 20px;
     width: 44px; height: 44px;
     background: var(--accent);
     color: #0a0a0a;
@@ -1450,7 +1445,7 @@ section[data-view].view-active { display: block !important; }
 
 /* Sub-navigation buttons */
 .sub-nav-wrap {
-    display: flex;
+    display: none; /* Hidden by default, shown via JS when needed */
     flex-wrap: wrap;
     gap: 10px;
     padding: 16px;
@@ -5090,7 +5085,7 @@ window.onscroll = handleScroll;
         else if (parentGroup === 'travel-guide') navEl = document.getElementById('guideSubnav');
 
         if (navEl) {
-            navEl.style.display = '';
+            navEl.style.display = 'flex';
             // Highlight active button (null = no highlight for hub view)
             var btns = navEl.querySelectorAll('.sub-nav-btn');
             for (var i = 0; i < btns.length; i++) {
