@@ -1515,6 +1515,73 @@ body:not(.view-home) .home-nav-wrap { display: none; }
 }
 .swipe-hint.show { opacity: 1; }
 
+
+/* ===== Hub Section Cards ===== */
+.hub-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+.hub-card {
+    display: flex;
+    align-items: center;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px;
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+.hub-card:active {
+    transform: scale(0.97);
+    background: rgba(255,255,255,0.1);
+}
+@media (hover: hover) {
+    .hub-card:hover {
+        background: rgba(78,205,196,0.08);
+        border-color: rgba(78,205,196,0.3);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(78,205,196,0.1);
+    }
+}
+.hub-card-icon {
+    font-size: 32px;
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(78,205,196,0.1);
+    border-radius: 14px;
+    flex-shrink: 0;
+    margin-right: 16px;
+}
+.hub-card-body {
+    flex: 1;
+    min-width: 0;
+}
+.hub-card-title {
+    font-size: 17px;
+    font-weight: 600;
+    color: #f0f0f0;
+    margin-bottom: 4px;
+}
+.hub-card-desc {
+    font-size: 13px;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.4;
+}
+.hub-card-arrow {
+    font-size: 24px;
+    color: rgba(78,205,196,0.6);
+    margin-left: 12px;
+    flex-shrink: 0;
+}
+
 </style>
 </head>
 <body>
@@ -3127,6 +3194,46 @@ body:not(.view-home) .home-nav-wrap { display: none; }
     </div>
 </section>
 
+
+<!-- ===== Hotels-Budget Hub Section ===== -->
+<section class="section" id="hotelsBudgetHub" data-view="hotels-budget">
+    <div class="section-bg" style="background-image: url('https://s.coze.cn/image/alI3n5oPfY8/'); opacity: 0.25;"></div>
+    <div class="section-overlay"></div>
+    <div class="section-inner">
+        <div class="section-header fade-in">
+            <div class="section-tag">Stay & Budget</div>
+            <h2 class="section-title">住宿与预算</h2>
+            <p class="section-desc">精选温泉酒店、费用明细、备选方案，让每晚都舒适安心</p>
+        </div>
+        <div class="hub-cards">
+            <div class="hub-card" onclick="navTo('hotels')">
+                <div class="hub-card-icon">&#127969;</div>
+                <div class="hub-card-body">
+                    <div class="hub-card-title">酒店推荐</div>
+                    <div class="hub-card-desc">5晚精选温泉度假酒店，亲子友好，品质保障</div>
+                </div>
+                <div class="hub-card-arrow">&#8250;</div>
+            </div>
+            <div class="hub-card" onclick="navTo('budget')">
+                <div class="hub-card-icon">&#128176;</div>
+                <div class="hub-card-body">
+                    <div class="hub-card-title">预算明细</div>
+                    <div class="hub-card-desc">全程费用一目了然，总计约¥6,956</div>
+                </div>
+                <div class="hub-card-arrow">&#8250;</div>
+            </div>
+            <div class="hub-card" onclick="navTo('alternatives')">
+                <div class="hub-card-icon">&#128204;</div>
+                <div class="hub-card-body">
+                    <div class="hub-card-title">备选方案</div>
+                    <div class="hub-card-desc">不同价位和风格的替代住宿选择</div>
+                </div>
+                <div class="hub-card-arrow">&#8250;</div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- ===== Hotel Section ===== -->
 
 <div class="sub-nav-wrap" id="hotelsSubnav">
@@ -3397,6 +3504,94 @@ body:not(.view-home) .home-nav-wrap { display: none; }
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ===== Travel-Guide Hub Section ===== -->
+<section class="section" id="travelGuideHub" data-view="travel-guide">
+    <div class="section-bg" style="background-image: url('https://s.coze.cn/image/m9Zgp_BKvJo/'); opacity: 0.25;"></div>
+    <div class="section-overlay"></div>
+    <div class="section-inner">
+        <div class="section-header fade-in">
+            <div class="section-tag">Travel Guide</div>
+            <h2 class="section-title">实用攻略</h2>
+            <p class="section-desc">行前准备、美食指南、应急信息，旅途无忧</p>
+        </div>
+        <div class="hub-cards">
+            <div class="hub-card" onclick="navTo('tips')">
+                <div class="hub-card-icon">&#128161;</div>
+                <div class="hub-card-body">
+                    <div class="hub-card-title">旅行贴士</div>
+                    <div class="hub-card-desc">自驾注意事项、山路驾驶技巧、天气应对</div>
+                </div>
+                <div class="hub-card-arrow">&#8250;</div>
+            </div>
+            <div class="hub-card" onclick="navTo('gallery')">
+                <div class="hub-card-icon">&#127748;</div>
+                <div class="hub-card-body">
+                    <div class="hub-card-title">风景图库</div>
+                    <div class="hub-card-desc">高清实拍美图，提前感受贵州之美</div>
+                </div>
+                <div class="hub-card-arrow">&#8250;</div>
+            </div>
+            <div class="hub-card" onclick="navTo('highlights')">
+                <div class="hub-card-icon">&#11088;</div>
+                <div class="hub-card-body">
+                    <div class="hub-card-title">亮点总结</div>
+                    <div class="hub-card-desc">此行不可错过的精彩体验汇总</div>
+                </div>
+                <div class="hub-card-arrow">&#8250;</div>
+            </div>
+            <div class="hub-card" onclick="navTo('foodguide')">
+                <div class="hub-card-icon">&#127858;</div>
+                <div class="hub-card-body">
+                    <div class="hub-card-title">美食指南</div>
+                    <div class="hub-card-desc">沿途必吃特色菜、地道小吃推荐</div>
+                </div>
+                <div class="hub-card-arrow">&#8250;</div>
+            </div>
+            <div class="hub-card" onclick="navTo('packing')">
+                <div class="hub-card-icon">&#127890;</div>
+                <div class="hub-card-body">
+                    <div class="hub-card-title">打包清单</div>
+                    <div class="hub-card-desc">6天出行必备物品清单</div>
+                </div>
+                <div class="hub-card-arrow">&#8250;</div>
+            </div>
+            <div class="hub-card" onclick="navTo('timeline')">
+                <div class="hub-card-icon">&#128197;</div>
+                <div class="hub-card-body">
+                    <div class="hub-card-title">行程日历</div>
+                    <div class="hub-card-desc">按日期查看完整行程安排</div>
+                </div>
+                <div class="hub-card-arrow">&#8250;</div>
+            </div>
+            <div class="hub-card" onclick="navTo('knowledge')">
+                <div class="hub-card-icon">&#128218;</div>
+                <div class="hub-card-body">
+                    <div class="hub-card-title">知识科普</div>
+                    <div class="hub-card-desc">地质奇观、民族文化背景知识</div>
+                </div>
+                <div class="hub-card-arrow">&#8250;</div>
+            </div>
+            <div class="hub-card" onclick="navTo('faq')">
+                <div class="hub-card-icon">&#10067;</div>
+                <div class="hub-card-body">
+                    <div class="hub-card-title">FAQ</div>
+                    <div class="hub-card-desc">常见问题解答</div>
+                </div>
+                <div class="hub-card-arrow">&#8250;</div>
+            </div>
+            <div class="hub-card" onclick="navTo('emergency')">
+                <div class="hub-card-icon">&#128680;</div>
+                <div class="hub-card-body">
+                    <div class="hub-card-title">应急信息</div>
+                    <div class="hub-card-desc">紧急联系电话、医疗点、救援信息</div>
+                </div>
+                <div class="hub-card-arrow">&#8250;</div>
             </div>
         </div>
     </div>
@@ -4812,7 +5007,10 @@ window.onscroll = handleScroll;
         // Show/hide sub-navs
         hideAllSubNavs();
         var parent = viewParent[viewId];
-        if (parent && subNavGroups[parent]) {
+        if (subNavGroups[viewId]) {
+            // Hub view: show its own sub-nav, no active highlight
+            showSubNav(viewId, null);
+        } else if (parent && subNavGroups[parent]) {
             // Show parent's sub-nav and highlight current
             showSubNav(parent, viewId);
         }
@@ -4857,7 +5055,9 @@ window.onscroll = handleScroll;
 
             hideAllSubNavs();
             var parent = viewParent[prevView];
-            if (parent && subNavGroups[parent]) {
+            if (subNavGroups[prevView]) {
+                showSubNav(prevView, null);
+            } else if (parent && subNavGroups[parent]) {
                 showSubNav(parent, prevView);
             }
 
@@ -4883,7 +5083,6 @@ window.onscroll = handleScroll;
     }
 
     function showSubNav(parentGroup, activeView) {
-        var navId = parentGroup + '-subnav';
         // Map parent to actual nav element id
         var navEl = null;
         if (parentGroup === 'route-overview') navEl = document.getElementById('dailySubnav');
@@ -4892,11 +5091,11 @@ window.onscroll = handleScroll;
 
         if (navEl) {
             navEl.style.display = '';
-            // Highlight active button
+            // Highlight active button (null = no highlight for hub view)
             var btns = navEl.querySelectorAll('.sub-nav-btn');
             for (var i = 0; i < btns.length; i++) {
                 var sub = btns[i].getAttribute('data-sub');
-                if (sub === activeView) {
+                if (activeView && sub === activeView) {
                     btns[i].className = 'sub-nav-btn active-sub';
                 } else {
                     btns[i].className = 'sub-nav-btn';
@@ -4929,7 +5128,7 @@ window.onscroll = handleScroll;
         var btns = document.querySelectorAll('.nav-bottom-btn[data-bottom]');
         for (var i = 0; i < btns.length; i++) {
             var target = btns[i].getAttribute('data-bottom');
-            var parent = viewParent[viewId] || viewId;
+            var parent = subNavGroups[viewId] ? viewId : (viewParent[viewId] || viewId);
             if (target === viewId || target === parent || (viewId === 'home' && target === 'home')) {
                 btns[i].className = 'nav-bottom-btn active';
             } else {
