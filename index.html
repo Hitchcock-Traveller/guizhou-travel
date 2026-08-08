@@ -4867,22 +4867,43 @@ window.onload = function() {
 
 window.onscroll = handleScroll;
 
-/* ===== Smooth scroll for nav links ===== */
+/* ===== Smooth scroll / view-nav for nav links ===== */
 (function() {
+    /* Map from legacy section IDs to data-view IDs */
+    var viewMap = {
+        'overview': 'route-overview',
+        'map': 'route-overview',
+        'day1': 'day1', 'day2': 'day2', 'day3': 'day3',
+        'day4': 'day4', 'day5': 'day5', 'day6': 'day6',
+        'hotels': 'hotels', 'budget': 'budget',
+        'tips': 'tips', 'gallery': 'gallery',
+        'highlights': 'highlights', 'foodguide': 'foodguide',
+        'packing': 'packing', 'timeline': 'timeline',
+        'knowledge': 'knowledge', 'faq': 'faq',
+        'emergency': 'emergency', 'alternatives': 'alternatives'
+    };
     var links = document.querySelectorAll('.nav-links a');
     for (var i = 0; i < links.length; i++) {
         links[i].onclick = function(e) {
             var href = this.getAttribute('href');
             if (href && href.charAt(0) === '#') {
                 e.preventDefault();
-                var target = document.getElementById(href.substring(1));
-                if (target) {
-                    var top = target.getBoundingClientRect().top + (window.pageYOffset || document.documentElement.scrollTop) - 70;
-                    window.scrollTo(0, top);
+                var targetId = href.substring(1);
+                /* If target is a data-view section, use navTo */
+                if (viewMap[targetId]) {
+                    if (typeof navTo === 'function') {
+                        navTo(viewMap[targetId]);
+                    }
+                } else {
+                    var target = document.getElementById(targetId);
+                    if (target) {
+                        var top = target.getBoundingClientRect().top + (window.pageYOffset || document.documentElement.scrollTop) - 70;
+                        window.scrollTo(0, top);
+                    }
                 }
                 /* Close mobile nav */
                 var navLinks = document.getElementById('navLinks');
-                navLinks.className = navLinks.className.replace(' open', '');
+                if (navLinks) navLinks.className = navLinks.className.replace(' open', '');
             }
         };
     }
