@@ -613,6 +613,99 @@ body {
     .day-pill { padding: 6px 12px; font-size: 12px; }
 }
 
+
+/* ===== Photo Gallery & Lightbox ===== */
+.photo-gallery {
+    margin-top: 16px;
+}
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+}
+.photo-grid img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+.photo-grid img:hover {
+    transform: scale(1.05);
+    filter: brightness(1.15);
+}
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.92);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.lightbox.active {
+    display: flex;
+}
+.lightbox img {
+    max-width: 90vw;
+    max-height: 85vh;
+    object-fit: contain;
+    border-radius: 8px;
+}
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    color: #fff;
+    font-size: 32px;
+    cursor: pointer;
+    z-index: 10000;
+    line-height: 1;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+}
+.lightbox-close:hover {
+    opacity: 1;
+}
+.lightbox-caption {
+    color: rgba(255,255,255,0.7);
+    font-size: 14px;
+    margin-top: 12px;
+    text-align: center;
+}
+.lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fff;
+    font-size: 40px;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+    user-select: none;
+    z-index: 10000;
+    padding: 10px;
+}
+.lightbox-nav:hover {
+    opacity: 1;
+}
+.lightbox-prev {
+    left: 20px;
+}
+.lightbox-next {
+    right: 20px;
+}
+@media (max-width: 768px) {
+    .photo-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 /* Smooth scroll offset for sticky nav */
 .day-section[id] {
     scroll-margin-top: 70px;
@@ -694,6 +787,16 @@ body {
                         <span class="tag purple">管家服务</span>
                     </div>
                     <div class="detail-section">
+                        <div class="detail-label">å®æ¯å¾é</div>
+                        <div class="photo-grid">
+                            <img src="https://s.coze.cn/image/TbLZTHkviHo/" alt="古埃蒙湖畔咖啡厅" loading="lazy" onclick="openLightbox(this)">
+                            <img src="https://s.coze.cn/image/Ji0Vp7DsW58/" alt="古埃蒙夜景" loading="lazy" onclick="openLightbox(this)">
+                            <img src="https://s.coze.cn/image/GEESlICnQ28/" alt="白色建筑庭院" loading="lazy" onclick="openLightbox(this)">
+                            <img src="https://s.coze.cn/image/R-GgLdy-7bY/" alt="建筑正面" loading="lazy" onclick="openLightbox(this)">
+                        </div>
+                    </div>
+
+                    <div class="detail-section">
                         <div class="detail-label">基础设施</div>
                         <div class="facility-grid">
                             <div class="facility-item"><span class="facility-dot"></span>湖景餐厅</div>
@@ -743,6 +846,15 @@ body {
                         <span class="tag blue">咖啡露台</span>
                     </div>
                     <div class="detail-section">
+                        <div class="detail-label">å®æ¯å¾é</div>
+                        <div class="photo-grid">
+                            <img src="https://s.coze.cn/image/bPn1BVdW0n0/" alt="湖景观景台" loading="lazy" onclick="openLightbox(this)">
+                            <img src="https://s.coze.cn/image/im9D1jQuDO8/" alt="庭院活动区" loading="lazy" onclick="openLightbox(this)">
+                            <img src="https://s.coze.cn/image/ndpvXq61dbY/" alt="庭院休闲区" loading="lazy" onclick="openLightbox(this)">
+                        </div>
+                    </div>
+
+                    <div class="detail-section">
                         <div class="detail-label">基础设施</div>
                         <div class="facility-grid">
                             <div class="facility-item"><span class="facility-dot"></span>书吧</div>
@@ -788,6 +900,15 @@ body {
                         <span class="tag amber">临湖私享</span>
                         <span class="tag purple">派对场地</span>
                     </div>
+                    <div class="detail-section">
+                        <div class="detail-label">å®æ¯å¾é</div>
+                        <div class="photo-grid">
+                            <img src="https://s.coze.cn/image/1CBOz6hCl7c/" alt="蓝调小院正门" loading="lazy" onclick="openLightbox(this)">
+                            <img src="https://s.coze.cn/image/dMcIi7AcSrU/" alt="航拍蓝白建筑群" loading="lazy" onclick="openLightbox(this)">
+                            <img src="https://s.coze.cn/image/MALvtxwMEA4/" alt="夜景湖面倒影" loading="lazy" onclick="openLightbox(this)">
+                        </div>
+                    </div>
+
                     <div class="detail-section">
                         <div class="detail-label">基础设施</div>
                         <div class="facility-grid">
@@ -836,6 +957,15 @@ body {
                         <span class="tag amber">高性价比</span>
                         <span class="tag blue">新开业</span>
                     </div>
+                    <div class="detail-section">
+                        <div class="detail-label">å®æ¯å¾é</div>
+                        <div class="photo-grid">
+                            <img src="https://s.coze.cn/image/fEMVyocpYcY/" alt="标准双床房" loading="lazy" onclick="openLightbox(this)">
+                            <img src="https://s.coze.cn/image/lTwXkz3Hw8c/" alt="湖景客房" loading="lazy" onclick="openLightbox(this)">
+                            <img src="https://s.coze.cn/image/NzVzNCa3eXE/" alt="红枫湖风景" loading="lazy" onclick="openLightbox(this)">
+                        </div>
+                    </div>
+
                     <div class="status-bar">
                         <span class="status-dot green"></span>
                         <span>已确认预订 · 8月8日-9日 · 2间</span>
@@ -886,6 +1016,15 @@ body {
                         <span class="tag blue">露营+客房</span>
                         <span class="tag purple">避暑长居</span>
                     </div>
+                    <div class="detail-section">
+                        <div class="detail-label">å®æ¯å¾é</div>
+                        <div class="photo-grid">
+                            <img src="https://s.coze.cn/image/Fmz0gm_plPE/" alt="陶源林宿入口标识" loading="lazy" onclick="openLightbox(this)">
+                            <img src="https://s.coze.cn/image/eQ2VXnnQzjc/" alt="航拍帐篷与穹顶屋" loading="lazy" onclick="openLightbox(this)">
+                            <img src="https://s.coze.cn/image/sovh14ARG9M/" alt="山间帐篷营地" loading="lazy" onclick="openLightbox(this)">
+                        </div>
+                    </div>
+
                     <div class="detail-section">
                         <div class="detail-label">基础设施</div>
                         <div class="facility-grid">
@@ -1023,6 +1162,16 @@ body {
                         <span class="tag blue">申报银山级</span>
                         <span class="tag purple">水上运动</span>
                     </div>
+                    <div class="detail-section">
+                        <div class="detail-label">å®æ¯å¾é</div>
+                        <div class="photo-grid">
+                            <img src="https://s.coze.cn/image/Mx6SKtPqQTs/" alt="夜郎福地建筑正面" loading="lazy" onclick="openLightbox(this)">
+                            <img src="https://s.coze.cn/image/O4fVER86y-I/" alt="建筑入口" loading="lazy" onclick="openLightbox(this)">
+                            <img src="https://s.coze.cn/image/MiB_DeiinuU/" alt="民族风格建筑" loading="lazy" onclick="openLightbox(this)">
+                            <img src="https://s.coze.cn/image/wVUue9bs7u4/" alt="湖畔建筑全景" loading="lazy" onclick="openLightbox(this)">
+                        </div>
+                    </div>
+
                     <div class="detail-section">
                         <div class="detail-label">周边玩法</div>
                         <div class="detail-text">
@@ -1181,6 +1330,13 @@ body {
                         </div>
                     </div>
                     <div class="detail-section">
+                        <div class="detail-label">å®æ¯å¾é</div>
+                        <div class="photo-grid">
+                            <img src="https://s.coze.cn/image/JR3ExvfRugo/" alt="山间无边泳池" loading="lazy" onclick="openLightbox(this)">
+                            <img src="https://s.coze.cn/image/MVbhpxR4kc4/" alt="建筑与山景" loading="lazy" onclick="openLightbox(this)">
+                        </div>
+                    </div>
+                    <div class="detail-section">
                         <div class="detail-label">住客评价摘录</div>
                         <div class="detail-text">
                             "早上起来云雾缭绕的景色非常赞"<br>
@@ -1228,6 +1384,15 @@ body {
                         <span class="tag blue">270°全景</span>
                         <span class="tag purple">坝陵河大桥</span>
                     </div>
+                    <div class="detail-section">
+                        <div class="detail-label">å®æ¯å¾é</div>
+                        <div class="photo-grid">
+                            <img src="https://s.coze.cn/image/KDx79jP9MnI/" alt="悬崖无边泳池建筑" loading="lazy" onclick="openLightbox(this)">
+                            <img src="https://s.coze.cn/image/xeON966zdT4/" alt="滴水滩瀑布彩虹" loading="lazy" onclick="openLightbox(this)">
+                            <img src="https://s.coze.cn/image/cCKdLsOU_KI/" alt="瀑布全景" loading="lazy" onclick="openLightbox(this)">
+                        </div>
+                    </div>
+
                     <div class="status-bar">
                         <span class="status-dot green"></span>
                         <span>571条真实评价，口碑稳定。适合追求极致景观体验的旅客。</span>
@@ -1361,6 +1526,15 @@ body {
                         </div>
                     </div>
                     <div class="detail-section">
+                        <div class="detail-label">å®æ¯å¾é</div>
+                        <div class="photo-grid">
+                            <img src="https://s.coze.cn/image/DQeLNmKUjv0/" alt="酒店正门日景" loading="lazy" onclick="openLightbox(this)">
+                            <img src="https://s.coze.cn/image/R6ZuqO1rHkE/" alt="酒店夜景喷泉" loading="lazy" onclick="openLightbox(this)">
+                            <img src="https://s.coze.cn/image/MSQxpHvkxlQ/" alt="酒店外观街景" loading="lazy" onclick="openLightbox(this)">
+                            <img src="https://s.coze.cn/image/IY2b2s4B5EY/" alt="酒店广场全景" loading="lazy" onclick="openLightbox(this)">
+                        </div>
+                    </div>
+                    <div class="detail-section">
                         <div class="detail-label">住客评价摘录（2026年8月）</div>
                         <div class="detail-text">
                             "管家微信随时响应"<br>
@@ -1414,6 +1588,14 @@ body {
                         <span class="tag blue">充电桩</span>
                         <span class="tag purple">亲子友好</span>
                     </div>
+                    <div class="detail-section">
+                        <div class="detail-label">å®æ¯å¾é</div>
+                        <div class="photo-grid">
+                            <img src="https://s.coze.cn/image/n35m1wNcEak/" alt="酒店航拍黄昏" loading="lazy" onclick="openLightbox(this)">
+                            <img src="https://s.coze.cn/image/PApqBmelqgw/" alt="酒店入口夜景" loading="lazy" onclick="openLightbox(this)">
+                        </div>
+                    </div>
+
                     <div class="hotel-actions">
                         <a class="action-btn primary" href="https://m.ctrip.com" target="_blank">携程预订</a>
                     </div>
@@ -1448,6 +1630,16 @@ body {
                         <span class="tag blue">精酿酒吧</span>
                         <span class="tag purple">儿童乐园</span>
                     </div>
+                    <div class="detail-section">
+                        <div class="detail-label">å®æ¯å¾é</div>
+                        <div class="photo-grid">
+                            <img src="https://s.coze.cn/image/OheUEak3slI/" alt="酒店夜景航拍全景" loading="lazy" onclick="openLightbox(this)">
+                            <img src="https://s.coze.cn/image/a6fksFOaRWs/" alt="酒店正面对称景观" loading="lazy" onclick="openLightbox(this)">
+                            <img src="https://s.coze.cn/image/ocHJVod82LU/" alt="酒店傍晚全景" loading="lazy" onclick="openLightbox(this)">
+                            <img src="https://s.coze.cn/image/grzjqUrU9oM/" alt="酒店园林泳池日景" loading="lazy" onclick="openLightbox(this)">
+                        </div>
+                    </div>
+
                     <div class="detail-section">
                         <div class="detail-label">基础设施</div>
                         <div class="facility-grid">
@@ -1610,6 +1802,77 @@ function updateActivePill() {
 }
 
 window.addEventListener('scroll', updateActivePill);
+
+
+// ===== Lightbox Gallery =====
+var lightboxEl = null;
+var lightboxImages = [];
+var lightboxIndex = 0;
+
+function openLightbox(imgEl) {
+    var grid = imgEl.parentNode;
+    var imgs = grid.querySelectorAll('img');
+    lightboxImages = [];
+    var captions = [];
+    for (var i = 0; i < imgs.length; i++) {
+        lightboxImages.push(imgs[i].src);
+        captions.push(imgs[i].alt || '');
+    }
+    lightboxIndex = 0;
+    for (var j = 0; j < imgs.length; j++) {
+        if (imgs[j] === imgEl) {
+            lightboxIndex = j;
+            break;
+        }
+    }
+
+    if (!lightboxEl) {
+        lightboxEl = document.createElement('div');
+        lightboxEl.className = 'lightbox';
+        lightboxEl.innerHTML = '<span class="lightbox-close" onclick="closeLightbox()">&times;</span>' +
+            '<span class="lightbox-nav lightbox-prev" onclick="navLightbox(-1)">&#10094;</span>' +
+            '<img id="lightbox-img" src="" alt="">' +
+            '<span class="lightbox-nav lightbox-next" onclick="navLightbox(1)">&#10095;</span>' +
+            '<div class="lightbox-caption" id="lightbox-caption"></div>';
+        document.body.appendChild(lightboxEl);
+        lightboxEl.addEventListener('click', function(e) {
+            if (e.target === lightboxEl) closeLightbox();
+        });
+    }
+    showLightboxImage();
+    lightboxEl.className = 'lightbox active';
+    document.body.style.overflow = 'hidden';
+}
+
+function showLightboxImage() {
+    var img = document.getElementById('lightbox-img');
+    var cap = document.getElementById('lightbox-caption');
+    img.src = lightboxImages[lightboxIndex];
+    cap.textContent = (lightboxIndex + 1) + ' / ' + lightboxImages.length;
+}
+
+function closeLightbox() {
+    if (lightboxEl) {
+        lightboxEl.className = 'lightbox';
+    }
+    document.body.style.overflow = '';
+}
+
+function navLightbox(dir) {
+    lightboxIndex += dir;
+    if (lightboxIndex < 0) lightboxIndex = lightboxImages.length - 1;
+    if (lightboxIndex >= lightboxImages.length) lightboxIndex = 0;
+    showLightboxImage();
+    event.stopPropagation();
+}
+
+document.addEventListener('keydown', function(e) {
+    if (!lightboxEl || lightboxEl.className.indexOf('active') === -1) return;
+    if (e.key === 'Escape' || e.keyCode === 27) closeLightbox();
+    if (e.key === 'ArrowLeft' || e.keyCode === 37) navLightbox(-1);
+    if (e.key === 'ArrowRight' || e.keyCode === 39) navLightbox(1);
+});
+
 </script>
 
 </body>
