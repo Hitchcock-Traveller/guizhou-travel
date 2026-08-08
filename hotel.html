@@ -1714,6 +1714,17 @@ body {
 
 <script>
 // Toggle day section
+/* Force lazy images to load when section is expanded */
+function forceLoadImages(container) {
+    if (!container) return;
+    var imgs = container.getElementsByTagName('img');
+    for (var i = 0; i < imgs.length; i++) {
+        if (imgs[i].getAttribute('loading') === 'lazy') {
+            imgs[i].removeAttribute('loading');
+        }
+    }
+}
+
 function toggleDay(header) {
     var section = header.parentElement;
     var isOpen = section.className.indexOf('open') !== -1;
@@ -1721,6 +1732,7 @@ function toggleDay(header) {
         section.className = section.className.replace(' open', '');
     } else {
         section.className += ' open';
+        forceLoadImages(section);
     }
     // Trigger fade-in for newly visible elements
     setTimeout(function() { triggerFadeIn(); }, 100);
@@ -1734,6 +1746,7 @@ function toggleCard(btn) {
         card.className = card.className.replace(' open', '');
     } else {
         card.className += ' open';
+        forceLoadImages(card);
     }
 }
 

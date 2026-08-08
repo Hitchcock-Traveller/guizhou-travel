@@ -323,7 +323,7 @@ a:hover{color:#d4a574}
         </div>
 
         <div class="card-images single">
-          <img src="https://s.coze.cn/image/8XWzmMfjVkQ/" alt="红枫湖花鱼洞大桥" loading="lazy">
+          <img src="https://s.coze.cn/image/KiElxay2GpE/" alt="红枫湖花鱼洞大桥" loading="lazy">
         </div>
 
         <div class="card-bottom-tags">
@@ -395,7 +395,7 @@ a:hover{color:#d4a574}
         </div>
 
         <div class="card-images single">
-          <img src="https://s.coze.cn/image/9nDmfLFvVww/" alt="织金马底河" loading="lazy">
+          <img src="https://s.coze.cn/image/-7mZFLi84SA/" alt="织金马底河" loading="lazy">
         </div>
 
         <div class="card-bottom-tags">
@@ -460,7 +460,7 @@ a:hover{color:#d4a574}
         </div>
 
         <div class="card-images single">
-          <img src="https://s.coze.cn/image/VqIzJnRbVhY/" alt="织金迎燕水库" loading="lazy">
+          <img src="https://s.coze.cn/image/qJSuzB1GJ6s/" alt="织金迎燕水库" loading="lazy">
         </div>
 
         <div class="card-bottom-tags">
@@ -533,7 +533,7 @@ a:hover{color:#d4a574}
         </div>
 
         <div class="card-images single">
-          <img src="https://s.coze.cn/image/WbGnKkIz7dM/" alt="牂牁江三岔河" loading="lazy">
+          <img src="https://s.coze.cn/image/aBY8t6qnpxw/" alt="牂牁江三岔河" loading="lazy">
         </div>
 
         <div class="card-bottom-tags">
@@ -605,7 +605,7 @@ a:hover{color:#d4a574}
         </div>
 
         <div class="card-images single">
-          <img src="https://s.coze.cn/image/rW-3qFJjQqc/" alt="北盘江花江大峡谷" loading="lazy">
+          <img src="https://s.coze.cn/image/GwRjM--ZqAg/" alt="北盘江花江大峡谷" loading="lazy">
         </div>
 
         <div class="card-video">
@@ -676,7 +676,7 @@ a:hover{color:#d4a574}
         </div>
 
         <div class="card-images single">
-          <img src="https://s.coze.cn/image/qJ8dW5M7nKc/" alt="关岭打帮河" loading="lazy">
+          <img src="https://s.coze.cn/image/veEGPRgCgi0/" alt="关岭打帮河" loading="lazy">
         </div>
 
         <div class="card-bottom-tags">
@@ -747,7 +747,7 @@ a:hover{color:#d4a574}
         </div>
 
         <div class="card-images single">
-          <img src="https://s.coze.cn/image/FQnJBbHKnjI/" alt="翁寨村宰相塘" loading="lazy">
+          <img src="https://s.coze.cn/image/02rQnhBK-Ts/" alt="翁寨村宰相塘" loading="lazy">
         </div>
 
         <div class="card-bottom-tags">
@@ -821,6 +821,17 @@ a:hover{color:#d4a574}
 
 <script>
 // Toggle individual card
+/* Force lazy images to load when section is expanded */
+function forceLoadImages(container) {
+    if (!container) return;
+    var imgs = container.getElementsByTagName('img');
+    for (var i = 0; i < imgs.length; i++) {
+        if (imgs[i].getAttribute('loading') === 'lazy') {
+            imgs[i].removeAttribute('loading');
+        }
+    }
+}
+
 function toggleFishingCard(id) {
   var card = document.getElementById(id);
   if (card) {
@@ -828,6 +839,8 @@ function toggleFishingCard(id) {
       card.className = card.className.replace(' open', '');
     } else {
       card.className = card.className + ' open';
+      var body = card.querySelector('.fish-card-body');
+      forceLoadImages(body);
     }
   }
 }

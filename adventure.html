@@ -643,19 +643,19 @@ img { max-width: 100%; display: block; }
         <!-- Gallery -->
         <div class="gallery">
           <div class="gallery-item featured">
-            <img src="https://s.coze.cn/image/xvjNzA-u05k/" alt="石龙洞桨板探险" onclick="openLightbox(this)">
+            <img src="https://s.coze.cn/image/xvjNzA-u05k/" alt="石龙洞桨板探险" onclick="openLightbox(this)" loading="lazy">
           </div>
           <div class="gallery-item">
-            <img src="https://s.coze.cn/image/qm6iziNwyzg/" alt="蓝绿水域划桨板" onclick="openLightbox(this)">
+            <img src="https://s.coze.cn/image/qm6iziNwyzg/" alt="蓝绿水域划桨板" onclick="openLightbox(this)" loading="lazy">
           </div>
           <div class="gallery-item">
-            <img src="https://s.coze.cn/image/TdjbZwgjTSs/" alt="翡翠碧潭钙化池" onclick="openLightbox(this)">
+            <img src="https://s.coze.cn/image/TdjbZwgjTSs/" alt="翡翠碧潭钙化池" onclick="openLightbox(this)" loading="lazy">
           </div>
           <div class="gallery-item">
-            <img src="https://s.coze.cn/image/GZxy_3iUZlk/" alt="俯拍溶洞水域" onclick="openLightbox(this)">
+            <img src="https://s.coze.cn/image/GZxy_3iUZlk/" alt="俯拍溶洞水域" onclick="openLightbox(this)" loading="lazy">
           </div>
           <div class="gallery-item">
-            <img src="https://s.coze.cn/image/c6RRhGhmPBQ/" alt="洞穴秘境" onclick="openLightbox(this)">
+            <img src="https://s.coze.cn/image/c6RRhGhmPBQ/" alt="洞穴秘境" onclick="openLightbox(this)" loading="lazy">
           </div>
         </div>
 
@@ -734,19 +734,19 @@ img { max-width: 100%; display: block; }
         <!-- Gallery -->
         <div class="gallery">
           <div class="gallery-item featured">
-            <img src="https://s.coze.cn/image/V1vbgifYJaI/" alt="九仙洞天入口" onclick="openLightbox(this)">
+            <img src="https://s.coze.cn/image/V1vbgifYJaI/" alt="九仙洞天入口" onclick="openLightbox(this)" loading="lazy">
           </div>
           <div class="gallery-item">
-            <img src="https://s.coze.cn/image/GizSAxAi148/" alt="漂流船飞驰" onclick="openLightbox(this)">
+            <img src="https://s.coze.cn/image/GizSAxAi148/" alt="漂流船飞驰" onclick="openLightbox(this)" loading="lazy">
           </div>
           <div class="gallery-item">
-            <img src="https://s.coze.cn/image/HG6Bki-obMs/" alt="溶洞漂流特写" onclick="openLightbox(this)">
+            <img src="https://s.coze.cn/image/HG6Bki-obMs/" alt="溶洞漂流特写" onclick="openLightbox(this)" loading="lazy">
           </div>
           <div class="gallery-item">
-            <img src="https://s.coze.cn/image/jEMoCbMNjYU/" alt="九仙河漂入口" onclick="openLightbox(this)">
+            <img src="https://s.coze.cn/image/jEMoCbMNjYU/" alt="九仙河漂入口" onclick="openLightbox(this)" loading="lazy">
           </div>
           <div class="gallery-item">
-            <img src="https://s.coze.cn/image/C064HBZ8MQI/" alt="民族服饰漂流" onclick="openLightbox(this)">
+            <img src="https://s.coze.cn/image/C064HBZ8MQI/" alt="民族服饰漂流" onclick="openLightbox(this)" loading="lazy">
           </div>
         </div>
 
@@ -817,19 +817,19 @@ img { max-width: 100%; display: block; }
         <!-- Gallery -->
         <div class="gallery">
           <div class="gallery-item featured">
-            <img src="https://s.coze.cn/image/RD7rhSXkfMo/" alt="漂流冲过急流" onclick="openLightbox(this)">
+            <img src="https://s.coze.cn/image/RD7rhSXkfMo/" alt="漂流冲过急流" onclick="openLightbox(this)" loading="lazy">
           </div>
           <div class="gallery-item">
-            <img src="https://s.coze.cn/image/Kdb96FDpC8Q/" alt="激流中漂流" onclick="openLightbox(this)">
+            <img src="https://s.coze.cn/image/Kdb96FDpC8Q/" alt="激流中漂流" onclick="openLightbox(this)" loading="lazy">
           </div>
           <div class="gallery-item">
-            <img src="https://s.coze.cn/image/XopjHM3IwOo/" alt="峡谷漂流全景" onclick="openLightbox(this)">
+            <img src="https://s.coze.cn/image/XopjHM3IwOo/" alt="峡谷漂流全景" onclick="openLightbox(this)" loading="lazy">
           </div>
           <div class="gallery-item">
-            <img src="https://s.coze.cn/image/EdBvWoVLk5c/" alt="四宫格风光" onclick="openLightbox(this)">
+            <img src="https://s.coze.cn/image/EdBvWoVLk5c/" alt="四宫格风光" onclick="openLightbox(this)" loading="lazy">
           </div>
           <div class="gallery-item">
-            <img src="https://s.coze.cn/image/LfjlSRaVyt8/" alt="激情漂入口" onclick="openLightbox(this)">
+            <img src="https://s.coze.cn/image/LfjlSRaVyt8/" alt="激情漂入口" onclick="openLightbox(this)" loading="lazy">
           </div>
         </div>
 
@@ -919,6 +919,17 @@ img { max-width: 100%; display: block; }
 <!-- ====== JAVASCRIPT (ES5) ====== -->
 <script>
 // Toggle adventure cards
+/* Force lazy images to load when section is expanded */
+function forceLoadImages(container) {
+    if (!container) return;
+    var imgs = container.getElementsByTagName('img');
+    for (var i = 0; i < imgs.length; i++) {
+        if (imgs[i].getAttribute('loading') === 'lazy') {
+            imgs[i].removeAttribute('loading');
+        }
+    }
+}
+
 function toggleAdventureCard(id) {
   var card = document.getElementById(id);
   if (!card) return;
@@ -931,6 +942,8 @@ function toggleAdventureCard(id) {
   // Toggle clicked card
   if (!isActive) {
     card.className = card.className + ' active';
+    var body = card.querySelector('.card-body');
+    forceLoadImages(body);
   }
   // Scroll to card if opening
   if (!isActive) {

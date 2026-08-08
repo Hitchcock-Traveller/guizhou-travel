@@ -222,9 +222,9 @@ img{max-width:100%;height:auto;display:block}
         <div class="day-body">
             <div class="day-content">
                 <div class="day-gallery">
-                    <img src="https://s.coze.cn/image/1tOj32HVngY/" alt="贵州烙锅">
-                    <img src="https://s.coze.cn/image/dNqkLcjAzkM/" alt="丝娃娃">
-                    <img src="https://s.coze.cn/image/9L9ks7GKnAE/" alt="酸汤鱼">
+                    <img src="https://s.coze.cn/image/1tOj32HVngY/" alt="贵州烙锅" loading="lazy">
+                    <img src="https://s.coze.cn/image/dNqkLcjAzkM/" alt="丝娃娃" loading="lazy">
+                    <img src="https://s.coze.cn/image/9L9ks7GKnAE/" alt="酸汤鱼" loading="lazy">
                 </div>
 
                 <div class="food-item">
@@ -328,9 +328,9 @@ img{max-width:100%;height:auto;display:block}
         <div class="day-body">
             <div class="day-content">
                 <div class="day-gallery">
-                    <img src="https://s.coze.cn/image/c0DMjjRxQv4/" alt="织金竹荪">
-                    <img src="https://s.coze.cn/image/4rk0aY_BsJU/" alt="纳雍豆花面">
-                    <img src="https://s.coze.cn/image/zoxPLqvvlwA/" alt="织金烙锅">
+                    <img src="https://s.coze.cn/image/c0DMjjRxQv4/" alt="织金竹荪" loading="lazy">
+                    <img src="https://s.coze.cn/image/4rk0aY_BsJU/" alt="纳雍豆花面" loading="lazy">
+                    <img src="https://s.coze.cn/image/zoxPLqvvlwA/" alt="织金烙锅" loading="lazy">
                 </div>
 
                 <div class="food-item">
@@ -435,8 +435,8 @@ img{max-width:100%;height:auto;display:block}
         <div class="day-body">
             <div class="day-content">
                 <div class="day-gallery">
-                    <img src="https://s.coze.cn/image/Fkui1N4QNvI/" alt="水城烙锅">
-                    <img src="https://s.coze.cn/image/ccHo6MtNNDU/" alt="水城羊肉粉">
+                    <img src="https://s.coze.cn/image/Fkui1N4QNvI/" alt="水城烙锅" loading="lazy">
+                    <img src="https://s.coze.cn/image/ccHo6MtNNDU/" alt="水城羊肉粉" loading="lazy">
                 </div>
 
                 <div class="food-item">
@@ -541,9 +541,9 @@ img{max-width:100%;height:auto;display:block}
         <div class="day-body">
             <div class="day-content">
                 <div class="day-gallery">
-                    <img src="https://s.coze.cn/image/iPE6fTPomxg/" alt="关岭黄牛干锅">
-                    <img src="https://s.coze.cn/image/FislBqoI0FM/" alt="关岭冰浆">
-                    <img src="https://s.coze.cn/image/duHPk39crW0/" alt="花江活鱼">
+                    <img src="https://s.coze.cn/image/iPE6fTPomxg/" alt="关岭黄牛干锅" loading="lazy">
+                    <img src="https://s.coze.cn/image/FislBqoI0FM/" alt="关岭冰浆" loading="lazy">
+                    <img src="https://s.coze.cn/image/duHPk39crW0/" alt="花江活鱼" loading="lazy">
                 </div>
 
                 <div class="food-item">
@@ -645,9 +645,9 @@ img{max-width:100%;height:auto;display:block}
         <div class="day-body">
             <div class="day-content">
                 <div class="day-gallery">
-                    <img src="https://s.coze.cn/image/64GLCPOBcWI/" alt="夺夺粉">
-                    <img src="https://s.coze.cn/image/32biG5UFld0/" alt="小锅凉粉">
-                    <img src="https://s.coze.cn/image/NQMch5UVGHo/" alt="裹卷丝娃娃">
+                    <img src="https://s.coze.cn/image/64GLCPOBcWI/" alt="夺夺粉" loading="lazy">
+                    <img src="https://s.coze.cn/image/32biG5UFld0/" alt="小锅凉粉" loading="lazy">
+                    <img src="https://s.coze.cn/image/NQMch5UVGHo/" alt="裹卷丝娃娃" loading="lazy">
                 </div>
 
                 <div class="food-item">
@@ -769,9 +769,9 @@ img{max-width:100%;height:auto;display:block}
         <div class="day-body">
             <div class="day-content">
                 <div class="day-gallery">
-                    <img src="https://s.coze.cn/image/NzCAdpLng1M/" alt="贵州黄粑">
-                    <img src="https://s.coze.cn/image/l22ZMn-AHqM/" alt="镇宁波波糖">
-                    <img src="https://s.coze.cn/image/LnOqMKf18A8/" alt="盘县火腿">
+                    <img src="https://s.coze.cn/image/NzCAdpLng1M/" alt="贵州黄粑" loading="lazy">
+                    <img src="https://s.coze.cn/image/l22ZMn-AHqM/" alt="镇宁波波糖" loading="lazy">
+                    <img src="https://s.coze.cn/image/LnOqMKf18A8/" alt="盘县火腿" loading="lazy">
                 </div>
 
                 <div class="food-item">
@@ -898,6 +898,17 @@ img{max-width:100%;height:auto;display:block}
 
 <script>
 /* Toggle food day cards */
+/* Force lazy images to load when section is expanded */
+function forceLoadImages(container) {
+    if (!container) return;
+    var imgs = container.getElementsByTagName('img');
+    for (var i = 0; i < imgs.length; i++) {
+        if (imgs[i].getAttribute('loading') === 'lazy') {
+            imgs[i].removeAttribute('loading');
+        }
+    }
+}
+
 function toggleFoodCard(id) {
     var card = document.getElementById(id);
     if (!card) return;
@@ -910,6 +921,8 @@ function toggleFoodCard(id) {
     /* Toggle clicked */
     if (!isActive) {
         card.className = card.className + ' active';
+        var body = card.querySelector('.day-body');
+        forceLoadImages(body);
     }
 }
 
