@@ -1,0 +1,1616 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>黔山隐宿 · 贵州避暑精选住宿</title>
+<style>
+:root {
+    --bg: #080c10;
+    --bg-card: #111820;
+    --bg-card-hover: #161e28;
+    --bg-elevated: #1a2230;
+    --text: #e8eaed;
+    --text-dim: rgba(255,255,255,0.6);
+    --text-muted: rgba(255,255,255,0.3);
+    --jade: #3a9e8f;
+    --jade-glow: rgba(58,158,143,0.15);
+    --amber: #c9956b;
+    --amber-glow: rgba(201,149,107,0.12);
+    --mist: rgba(58,158,143,0.08);
+    --border: rgba(255,255,255,0.06);
+    --radius: 16px;
+    --shadow: 0 8px 32px rgba(0,0,0,0.4);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+/* ===== HERO ===== */
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    background: linear-gradient(180deg, #0a1018 0%, #080c10 100%);
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background:
+        radial-gradient(ellipse 80% 50% at 50% 20%, rgba(58,158,143,0.08) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 40% at 30% 70%, rgba(201,149,107,0.05) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+/* Mountain silhouette layers */
+.mountain-layer {
+    position: absolute;
+    bottom: 0;
+    left: -5%;
+    width: 110%;
+    pointer-events: none;
+}
+
+.mountain-layer.l1 {
+    height: 35vh;
+    background: linear-gradient(180deg, transparent 0%, rgba(58,158,143,0.03) 100%);
+    clip-path: polygon(0% 100%, 0% 65%, 8% 45%, 18% 55%, 28% 35%, 38% 50%, 48% 25%, 55% 40%, 65% 20%, 72% 38%, 82% 30%, 90% 48%, 100% 35%, 100% 100%);
+    opacity: 0.5;
+}
+
+.mountain-layer.l2 {
+    height: 28vh;
+    background: linear-gradient(180deg, transparent 0%, rgba(58,158,143,0.05) 100%);
+    clip-path: polygon(0% 100%, 0% 55%, 10% 40%, 20% 55%, 32% 30%, 42% 48%, 52% 22%, 60% 38%, 70% 28%, 80% 45%, 88% 32%, 100% 50%, 100% 100%);
+    opacity: 0.3;
+}
+
+.mountain-layer.l3 {
+    height: 18vh;
+    background: var(--bg);
+    clip-path: polygon(0% 100%, 0% 40%, 12% 55%, 25% 35%, 35% 50%, 50% 30%, 62% 48%, 75% 35%, 85% 50%, 100% 38%, 100% 100%);
+}
+
+/* Mist effect */
+.mist {
+    position: absolute;
+    bottom: 15vh;
+    left: 0;
+    width: 100%;
+    height: 20vh;
+    background: linear-gradient(180deg, transparent 0%, rgba(58,158,143,0.04) 40%, rgba(58,158,143,0.06) 60%, transparent 100%);
+    animation: mistFloat 12s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes mistFloat {
+    0%, 100% { transform: translateX(-3%); opacity: 0.5; }
+    50% { transform: translateX(3%); opacity: 0.8; }
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 0 24px;
+}
+
+.hero-badge {
+    display: inline-block;
+    padding: 6px 18px;
+    border: 1px solid rgba(58,158,143,0.3);
+    border-radius: 20px;
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: var(--jade);
+    margin-bottom: 32px;
+    text-transform: uppercase;
+}
+
+.hero h1 {
+    font-size: clamp(36px, 8vw, 72px);
+    font-weight: 300;
+    letter-spacing: 8px;
+    margin-bottom: 16px;
+    background: linear-gradient(135deg, var(--text) 0%, var(--jade) 50%, var(--amber) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero h2 {
+    font-size: clamp(14px, 3vw, 18px);
+    font-weight: 300;
+    color: var(--text-dim);
+    letter-spacing: 4px;
+    margin-bottom: 48px;
+}
+
+.hero-desc {
+    max-width: 560px;
+    margin: 0 auto;
+    font-size: 15px;
+    color: var(--text-dim);
+    line-height: 1.8;
+    margin-bottom: 48px;
+}
+
+.scroll-hint {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-muted);
+    font-size: 12px;
+    letter-spacing: 2px;
+    animation: scrollBounce 2s ease-in-out infinite;
+}
+
+.scroll-hint .arrow {
+    width: 1px;
+    height: 32px;
+    background: linear-gradient(180deg, var(--jade) 0%, transparent 100%);
+}
+
+@keyframes scrollBounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(8px); }
+}
+
+/* ===== NAV PILLS ===== */
+.day-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(8,12,16,0.92);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    padding: 12px 16px;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.day-pill {
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text-dim);
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.day-pill:hover {
+    border-color: var(--jade);
+    color: var(--jade);
+}
+
+.day-pill.active {
+    background: var(--jade-glow);
+    border-color: var(--jade);
+    color: var(--jade);
+}
+
+/* ===== MAIN CONTENT ===== */
+.main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 32px 16px 80px;
+}
+
+/* Day Section */
+.day-section {
+    margin-bottom: 48px;
+}
+
+.day-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+    padding: 20px 24px;
+    background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-elevated) 100%);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.day-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg, var(--jade) 0%, var(--amber) 100%);
+}
+
+.day-header:hover {
+    border-color: rgba(58,158,143,0.2);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow);
+}
+
+.day-number {
+    font-size: 36px;
+    font-weight: 200;
+    color: var(--jade);
+    opacity: 0.6;
+    min-width: 60px;
+}
+
+.day-info { flex: 1; }
+
+.day-route {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 4px;
+}
+
+.day-date {
+    font-size: 13px;
+    color: var(--text-dim);
+}
+
+.day-toggle {
+    width: 24px;
+    height: 24px;
+    border: none;
+    background: none;
+    color: var(--text-dim);
+    font-size: 18px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.day-section.open .day-toggle {
+    transform: rotate(180deg);
+}
+
+.day-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+}
+
+.day-section.open .day-content {
+    max-height: 8000px;
+}
+
+/* Hotel Card */
+.hotel-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    margin-bottom: 16px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.hotel-card:hover {
+    border-color: rgba(58,158,143,0.15);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+}
+
+.hotel-card.recommended {
+    border-color: rgba(58,158,143,0.25);
+}
+
+.hotel-card.recommended::after {
+    content: '';
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--jade);
+    box-shadow: 0 0 12px var(--jade);
+}
+
+/* Hotel Button Header */
+.hotel-btn {
+    width: 100%;
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: transparent;
+    border: none;
+    text-align: left;
+    color: inherit;
+}
+
+.hotel-btn:hover {
+    background: var(--bg-card-hover);
+}
+
+.hotel-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+}
+
+.hotel-icon.lake { background: linear-gradient(135deg, rgba(58,158,143,0.2) 0%, rgba(58,158,143,0.05) 100%); }
+.hotel-icon.mountain { background: linear-gradient(135deg, rgba(201,149,107,0.2) 0%, rgba(201,149,107,0.05) 100%); }
+.hotel-icon.hotSpring { background: linear-gradient(135deg, rgba(100,149,237,0.2) 0%, rgba(100,149,237,0.05) 100%); }
+.hotel-icon.cliff { background: linear-gradient(135deg, rgba(147,112,219,0.2) 0%, rgba(147,112,219,0.05) 100%); }
+.hotel-icon.forest { background: linear-gradient(135deg, rgba(60,179,113,0.2) 0%, rgba(60,179,113,0.05) 100%); }
+.hotel-icon.canyon { background: linear-gradient(135deg, rgba(205,92,92,0.2) 0%, rgba(205,92,92,0.05) 100%); }
+
+.hotel-summary { flex: 1; min-width: 0; }
+
+.hotel-name {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.hotel-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--text-dim);
+    flex-wrap: wrap;
+}
+
+.hotel-price {
+    color: var(--amber);
+    font-weight: 500;
+}
+
+.hotel-rating {
+    color: var(--jade);
+}
+
+.hotel-expand {
+    width: 20px;
+    height: 20px;
+    color: var(--text-muted);
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+}
+
+.hotel-card.open .hotel-expand {
+    transform: rotate(180deg);
+}
+
+/* Hotel Details */
+.hotel-details {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+}
+
+.hotel-card.open .hotel-details {
+    max-height: 2000px;
+}
+
+.hotel-details-inner {
+    padding: 0 24px 24px;
+    border-top: 1px solid var(--border);
+}
+
+.detail-section {
+    margin-top: 16px;
+}
+
+.detail-label {
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.detail-text {
+    font-size: 14px;
+    color: var(--text-dim);
+    line-height: 1.8;
+}
+
+/* Tags */
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.tag {
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    border: 1px solid;
+}
+
+.tag.jade { color: var(--jade); border-color: rgba(58,158,143,0.3); background: rgba(58,158,143,0.08); }
+.tag.amber { color: var(--amber); border-color: rgba(201,149,107,0.3); background: rgba(201,149,107,0.08); }
+.tag.blue { color: #6495ed; border-color: rgba(100,149,237,0.3); background: rgba(100,149,237,0.08); }
+.tag.purple { color: #9370db; border-color: rgba(147,112,219,0.3); background: rgba(147,112,219,0.08); }
+
+/* Facility Grid */
+.facility-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.facility-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: var(--text-dim);
+    padding: 6px 10px;
+    background: rgba(255,255,255,0.03);
+    border-radius: 8px;
+}
+
+.facility-dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--jade);
+    flex-shrink: 0;
+}
+
+/* Action buttons */
+.hotel-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.action-btn {
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.action-btn.primary {
+    background: var(--jade);
+    color: #fff;
+    border: none;
+}
+
+.action-btn.primary:hover {
+    background: #45b3a3;
+    transform: translateY(-1px);
+}
+
+.action-btn.secondary {
+    background: transparent;
+    color: var(--jade);
+    border: 1px solid rgba(58,158,143,0.3);
+}
+
+.action-btn.secondary:hover {
+    background: var(--jade-glow);
+}
+
+/* Badge */
+.badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 500;
+}
+
+.badge.rec { background: var(--jade-glow); color: var(--jade); }
+.badge.new { background: rgba(201,149,107,0.15); color: var(--amber); }
+.badge.risk { background: rgba(205,92,92,0.15); color: #cd5c5c; }
+
+/* Status indicator */
+.status-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px;
+    background: rgba(58,158,143,0.05);
+    border: 1px solid rgba(58,158,143,0.1);
+    border-radius: 8px;
+    margin-top: 16px;
+    font-size: 13px;
+    color: var(--text-dim);
+}
+
+.status-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.status-dot.green { background: #3a9e8f; box-shadow: 0 0 8px rgba(58,158,143,0.5); }
+.status-dot.yellow { background: #daa520; box-shadow: 0 0 8px rgba(218,165,32,0.5); }
+.status-dot.red { background: #cd5c5c; box-shadow: 0 0 8px rgba(205,92,92,0.5); }
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 48px 24px;
+    color: var(--text-muted);
+    font-size: 12px;
+    border-top: 1px solid var(--border);
+}
+
+.footer a {
+    color: var(--jade);
+    text-decoration: none;
+}
+
+/* Fade-in animation */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .day-header { padding: 16px 20px; gap: 12px; }
+    .day-number { font-size: 28px; min-width: 48px; }
+    .day-route { font-size: 16px; }
+    .hotel-btn { padding: 16px 20px; }
+    .hotel-details-inner { padding: 0 20px 20px; }
+    .facility-grid { grid-template-columns: repeat(2, 1fr); }
+    .day-nav { gap: 6px; padding: 10px 12px; }
+    .day-pill { padding: 6px 12px; font-size: 12px; }
+}
+
+/* Smooth scroll offset for sticky nav */
+.day-section[id] {
+    scroll-margin-top: 70px;
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+    <div class="mountain-layer l1"></div>
+    <div class="mountain-layer l2"></div>
+    <div class="mountain-layer l3"></div>
+    <div class="mist"></div>
+    <div class="hero-content">
+        <div class="hero-badge">GUIZHOU 2026</div>
+        <h1>黔山隐宿</h1>
+        <h2>贵州避暑 · 精选住宿推荐</h2>
+        <p class="hero-desc">
+            6天5晚自驾之旅，从红枫湖畔到牂牁江畔，从悬崖瀑布到温泉秘境。<br>
+            每一处住宿，都是风景本身。
+        </p>
+    </div>
+    <div class="scroll-hint">
+        <span>向下探索</span>
+        <div class="arrow"></div>
+    </div>
+</div>
+
+<!-- DAY NAV -->
+<div class="day-nav" id="dayNav">
+    <div class="day-pill active" data-target="day1">D1 清镇</div>
+    <div class="day-pill" data-target="day2">D2 纳雍</div>
+    <div class="day-pill" data-target="day3">D3 六盘水</div>
+    <div class="day-pill" data-target="day4">D4 关岭</div>
+    <div class="day-pill" data-target="day5">D5 安顺</div>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+<!-- ========== D1 清镇·红枫湖 ========== -->
+<div class="day-section open" id="day1">
+    <div class="day-header" onclick="toggleDay(this)">
+        <div class="day-number">01</div>
+        <div class="day-info">
+            <div class="day-route">洞口 → 清镇 · 红枫湖</div>
+            <div class="day-date">8月8日 · 湖景避暑</div>
+        </div>
+        <div class="day-toggle">▼</div>
+    </div>
+    <div class="day-content">
+
+        <!-- D1-H1 古埃蒙 -->
+        <div class="hotel-card recommended fade-in">
+            <div class="hotel-btn" onclick="toggleCard(this)">
+                <div class="hotel-icon lake">🏞️</div>
+                <div class="hotel-summary">
+                    <div class="hotel-name">古埃蒙民宿 <span class="badge rec">首推</span></div>
+                    <div class="hotel-meta">
+                        <span class="hotel-price">~¥500-800/间</span>
+                        <span class="hotel-rating">★ 省金山级(五星)</span>
+                    </div>
+                </div>
+                <svg class="hotel-expand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="hotel-details">
+                <div class="hotel-details-inner">
+                    <div class="detail-section">
+                        <div class="detail-label">为什么推荐</div>
+                        <div class="detail-text">
+                            红枫湖北岸杉树村，270度全景开阔湖面，被评为贵州省金山级（五星级）民宿。白墙蓝顶的地中海风格建筑与湖光山色交融，S弯公路旁网红打卡地。配备湖畔咖啡厅、湖景餐厅、专属管家服务，旺季已服务超3万住客。
+                        </div>
+                    </div>
+                    <div class="tags">
+                        <span class="tag jade">270°湖景</span>
+                        <span class="tag amber">网红S弯</span>
+                        <span class="tag blue">湖畔咖啡</span>
+                        <span class="tag purple">管家服务</span>
+                    </div>
+                    <div class="detail-section">
+                        <div class="detail-label">基础设施</div>
+                        <div class="facility-grid">
+                            <div class="facility-item"><span class="facility-dot"></span>湖景餐厅</div>
+                            <div class="facility-item"><span class="facility-dot"></span>湖畔咖啡厅</div>
+                            <div class="facility-item"><span class="facility-dot"></span>烧烤区</div>
+                            <div class="facility-item"><span class="facility-dot"></span>1v1管家</div>
+                            <div class="facility-item"><span class="facility-dot"></span>停车场</div>
+                            <div class="facility-item"><span class="facility-dot"></span>湖景露台</div>
+                        </div>
+                    </div>
+                    <div class="status-bar">
+                        <span class="status-dot yellow"></span>
+                        <span>旺季热门，建议提前3-5天预订。距羊皮洞瀑布约30分钟车程。</span>
+                    </div>
+                    <div class="hotel-actions">
+                        <a class="action-btn primary" href="https://m.ctrip.com" target="_blank">携程预订</a>
+                        <a class="action-btn secondary" href="https://map.amap.com" target="_blank">高德导航</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- D1-H2 留白·有渡 -->
+        <div class="hotel-card fade-in">
+            <div class="hotel-btn" onclick="toggleCard(this)">
+                <div class="hotel-icon lake">🎵</div>
+                <div class="hotel-summary">
+                    <div class="hotel-name">留白·有渡民宿</div>
+                    <div class="hotel-meta">
+                        <span class="hotel-price">~¥300-500/间</span>
+                        <span>大冲村 · 文艺范</span>
+                    </div>
+                </div>
+                <svg class="hotel-expand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="hotel-details">
+                <div class="hotel-details-inner">
+                    <div class="detail-section">
+                        <div class="detail-label">为什么推荐</div>
+                        <div class="detail-text">
+                            大冲村湖畔文艺民宿，爵士乐流淌、咖啡香弥漫。书吧、打卡露台、湖景一线位置。适合追求格调与松弛感的年轻住客，避暑季新增长租客群，说明回头客多。
+                        </div>
+                    </div>
+                    <div class="tags">
+                        <span class="tag jade">湖景一线</span>
+                        <span class="tag amber">爵士书吧</span>
+                        <span class="tag blue">咖啡露台</span>
+                    </div>
+                    <div class="detail-section">
+                        <div class="detail-label">基础设施</div>
+                        <div class="facility-grid">
+                            <div class="facility-item"><span class="facility-dot"></span>书吧</div>
+                            <div class="facility-item"><span class="facility-dot"></span>咖啡区</div>
+                            <div class="facility-item"><span class="facility-dot"></span>打卡露台</div>
+                            <div class="facility-item"><span class="facility-dot"></span>湖景房</div>
+                        </div>
+                    </div>
+                    <div class="status-bar">
+                        <span class="status-dot green"></span>
+                        <span>位于大冲村民宿集群核心区，周边80+家民宿，配套成熟。</span>
+                    </div>
+                    <div class="hotel-actions">
+                        <a class="action-btn primary" href="https://m.ctrip.com" target="_blank">携程预订</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- D1-H3 蓝调小院 -->
+        <div class="hotel-card fade-in">
+            <div class="hotel-btn" onclick="toggleCard(this)">
+                <div class="hotel-icon lake">☕</div>
+                <div class="hotel-summary">
+                    <div class="hotel-name">蓝调小院 · 高端精品</div>
+                    <div class="hotel-meta">
+                        <span class="hotel-price">~¥600-1000/间</span>
+                        <span>大冲村 · 高端</span>
+                    </div>
+                </div>
+                <svg class="hotel-expand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="hotel-details">
+                <div class="hotel-details-inner">
+                    <div class="detail-section">
+                        <div class="detail-label">为什么推荐</div>
+                        <div class="detail-text">
+                            福建主理人跨千里打造的高端精品民宿，仅10间客房保证私密性。临湖而建，现代设计+精致氛围，配套咖啡、简餐、烧烤、下午茶多元业态。走红网络，是年轻人求婚、生日派对的热门场地。7月房间被湖南游客组团预订。
+                        </div>
+                    </div>
+                    <div class="tags">
+                        <span class="tag jade">仅10间房</span>
+                        <span class="tag amber">临湖私享</span>
+                        <span class="tag purple">派对场地</span>
+                    </div>
+                    <div class="detail-section">
+                        <div class="detail-label">基础设施</div>
+                        <div class="facility-grid">
+                            <div class="facility-item"><span class="facility-dot"></span>湖景码头</div>
+                            <div class="facility-item"><span class="facility-dot"></span>咖啡厅</div>
+                            <div class="facility-item"><span class="facility-dot"></span>烧烤区</div>
+                            <div class="facility-item"><span class="facility-dot"></span>下午茶</div>
+                            <div class="facility-item"><span class="facility-dot"></span>团建空间</div>
+                        </div>
+                    </div>
+                    <div class="status-bar">
+                        <span class="status-dot red"></span>
+                        <span>旺季非常抢手，需提前1-2周预订。价格较高，适合追求极致体验。</span>
+                    </div>
+                    <div class="hotel-actions">
+                        <a class="action-btn primary" href="https://m.ctrip.com" target="_blank">携程预订</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- D1-H4 漫湖居 (当前选择) -->
+        <div class="hotel-card fade-in">
+            <div class="hotel-btn" onclick="toggleCard(this)">
+                <div class="hotel-icon lake">🏠</div>
+                <div class="hotel-summary">
+                    <div class="hotel-name">清镇漫湖居民宿(红枫湖镇店) <span class="badge new">当前选择</span></div>
+                    <div class="hotel-meta">
+                        <span class="hotel-price">~¥285/间</span>
+                        <span class="hotel-rating">★ 4.6分</span>
+                        <span>2025年新开</span>
+                    </div>
+                </div>
+                <svg class="hotel-expand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="hotel-details">
+                <div class="hotel-details-inner">
+                    <div class="detail-section">
+                        <div class="detail-label">当前选择</div>
+                        <div class="detail-text">
+                            2025年新开业，携程4.6分好评。距红枫湖步行不到100米，性价比高。适合预算有限但想享受湖景的家庭出行。已确认预订中。
+                        </div>
+                    </div>
+                    <div class="tags">
+                        <span class="tag jade">湖景步行可达</span>
+                        <span class="tag amber">高性价比</span>
+                        <span class="tag blue">新开业</span>
+                    </div>
+                    <div class="status-bar">
+                        <span class="status-dot green"></span>
+                        <span>已确认预订 · 8月8日-9日 · 2间</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- ========== D2 纳雍·总溪河 ========== -->
+<div class="day-section" id="day2">
+    <div class="day-header" onclick="toggleDay(this)">
+        <div class="day-number">02</div>
+        <div class="day-info">
+            <div class="day-route">清镇 → 纳雍 · 总溪河</div>
+            <div class="day-date">8月9日 · 樱桃林避暑</div>
+        </div>
+        <div class="day-toggle">▼</div>
+    </div>
+    <div class="day-content">
+
+        <!-- D2-H1 陶源林宿 -->
+        <div class="hotel-card recommended fade-in">
+            <div class="hotel-btn" onclick="toggleCard(this)">
+                <div class="hotel-icon forest">🌸</div>
+                <div class="hotel-summary">
+                    <div class="hotel-name">总溪河陶源林宿 <span class="badge rec">首推</span></div>
+                    <div class="hotel-meta">
+                        <span class="hotel-price">~¥200-400/间</span>
+                        <span>万亩樱桃林 · 河畔</span>
+                    </div>
+                </div>
+                <svg class="hotel-expand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="hotel-details">
+                <div class="hotel-details-inner">
+                    <div class="detail-section">
+                        <div class="detail-label">为什么推荐</div>
+                        <div class="detail-text">
+                            位于纳雍厍东关乡陶营村，坐落万亩樱桃林与总溪河环抱之中。2025年7月开业，经过一年运营口碑持续攀升，2026年游客量翻倍。120个车位接近满场，来自浙江、江西、甘肃的游客选择长住一整个夏天。提供客房住宿+露营双模式，配套免费热水洗浴、公共冰柜、便民买菜点。
+                        </div>
+                    </div>
+                    <div class="tags">
+                        <span class="tag jade">万亩樱桃林</span>
+                        <span class="tag amber">总溪河畔</span>
+                        <span class="tag blue">露营+客房</span>
+                        <span class="tag purple">避暑长居</span>
+                    </div>
+                    <div class="detail-section">
+                        <div class="detail-label">基础设施</div>
+                        <div class="facility-grid">
+                            <div class="facility-item"><span class="facility-dot"></span>独立客房</div>
+                            <div class="facility-item"><span class="facility-dot"></span>露营车位</div>
+                            <div class="facility-item"><span class="facility-dot"></span>免费热水洗浴</div>
+                            <div class="facility-item"><span class="facility-dot"></span>公共冰柜</div>
+                            <div class="facility-item"><span class="facility-dot"></span>便民买菜点</div>
+                            <div class="facility-item"><span class="facility-dot"></span>代收快递</div>
+                        </div>
+                    </div>
+                    <div class="detail-section">
+                        <div class="detail-label">联系方式</div>
+                        <div class="detail-text">📞 13632454637（刘总）</div>
+                    </div>
+                    <div class="status-bar">
+                        <span class="status-dot green"></span>
+                        <span>已确认营业中 · 2026年7月报道120车位近满。建议提前联系预订客房。</span>
+                    </div>
+                    <div class="hotel-actions">
+                        <a class="action-btn primary" href="tel:13632454637">电话预订</a>
+                        <a class="action-btn secondary" href="https://map.amap.com" target="_blank">高德导航</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- D2-H2 溪河缘宾馆 -->
+        <div class="hotel-card fade-in">
+            <div class="hotel-btn" onclick="toggleCard(this)">
+                <div class="hotel-icon mountain">🏨</div>
+                <div class="hotel-summary">
+                    <div class="hotel-name">溪河缘宾馆</div>
+                    <div class="hotel-meta">
+                        <span class="hotel-price">~¥150-250/间</span>
+                        <span>陶营村 · 传统宾馆</span>
+                    </div>
+                </div>
+                <svg class="hotel-expand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="hotel-details">
+                <div class="hotel-details-inner">
+                    <div class="detail-section">
+                        <div class="detail-label">备选方案</div>
+                        <div class="detail-text">
+                            位于陶营村高速路口附近，传统商务宾馆。如果陶源林宿客房满员，可作为备选。靠近总溪河景区入口，出行方便。
+                        </div>
+                    </div>
+                    <div class="detail-section">
+                        <div class="detail-label">联系方式</div>
+                        <div class="detail-text">📞 18386064208</div>
+                    </div>
+                    <div class="status-bar">
+                        <span class="status-dot green"></span>
+                        <span>传统宾馆，通常可直接入住。建议提前电话确认。</span>
+                    </div>
+                    <div class="hotel-actions">
+                        <a class="action-btn primary" href="tel:18386064208">电话预订</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- D2-H3 君悦商务酒店 -->
+        <div class="hotel-card fade-in">
+            <div class="hotel-btn" onclick="toggleCard(this)">
+                <div class="hotel-icon mountain">🏢</div>
+                <div class="hotel-summary">
+                    <div class="hotel-name">君悦商务酒店</div>
+                    <div class="hotel-meta">
+                        <span class="hotel-price">~¥120-200/间</span>
+                        <span>厍东关乡 · 经济型</span>
+                    </div>
+                </div>
+                <svg class="hotel-expand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="hotel-details">
+                <div class="hotel-details-inner">
+                    <div class="detail-section">
+                        <div class="detail-label">备选方案</div>
+                        <div class="detail-text">
+                            厍东关乡陶营村瓦窑组，经济实惠型商务酒店。设施基础但干净，适合纯住宿需求。
+                        </div>
+                    </div>
+                    <div class="detail-section">
+                        <div class="detail-label">联系方式</div>
+                        <div class="detail-text">📞 18224853514</div>
+                    </div>
+                    <div class="hotel-actions">
+                        <a class="action-btn primary" href="tel:18224853514">电话预订</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- ========== D3 六盘水·牂牁江 ========== -->
+<div class="day-section" id="day3">
+    <div class="day-header" onclick="toggleDay(this)">
+        <div class="day-number">03</div>
+        <div class="day-info">
+            <div class="day-route">纳雍 → 六盘水 · 牂牁江</div>
+            <div class="day-date">8月10日 · 峡谷野奢</div>
+        </div>
+        <div class="day-toggle">▼</div>
+    </div>
+    <div class="day-content">
+
+        <!-- D3-H1 夜郎福地酒店 -->
+        <div class="hotel-card recommended fade-in">
+            <div class="hotel-btn" onclick="toggleCard(this)">
+                <div class="hotel-icon canyon">🏛️</div>
+                <div class="hotel-summary">
+                    <div class="hotel-name">夜郎福地酒店 <span class="badge rec">首推</span> <span class="badge risk">需确认</span></div>
+                    <div class="hotel-meta">
+                        <span class="hotel-price">~¥400/间</span>
+                        <span>牂牁江景区 · 申报省银山级</span>
+                    </div>
+                </div>
+                <svg class="hotel-expand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="hotel-details">
+                <div class="hotel-details-inner">
+                    <div class="detail-section">
+                        <div class="detail-label">为什么推荐</div>
+                        <div class="detail-text">
+                            位于牂牁江风景名胜区内，正在申报省级银山级旅游民宿，已完成现场评定（据六盘水市林业局2026年7月官方文件确认）。坐拥夜郎古国遗址旁的峡谷江景，是牂牁江片区最具品质的住宿选择。景区内可体验游船、滑翔伞、冲浪等水上项目。
+                        </div>
+                    </div>
+                    <div class="tags">
+                        <span class="tag jade">牂牁江景</span>
+                        <span class="tag amber">夜郎文化</span>
+                        <span class="tag blue">申报银山级</span>
+                        <span class="tag purple">水上运动</span>
+                    </div>
+                    <div class="detail-section">
+                        <div class="detail-label">周边玩法</div>
+                        <div class="detail-text">
+                            牂牁江游船 · 老王山登山 · 滑翔伞体验 · 冲浪小镇水上嘉年华
+                        </div>
+                    </div>
+                    <div class="status-bar">
+                        <span class="status-dot yellow"></span>
+                        <span>⚠️ 携程等主流平台暂未搜到此酒店。建议通过当地文旅部门或直接联系牂牁江景区确认预订方式。</span>
+                    </div>
+                    <div class="hotel-actions">
+                        <a class="action-btn primary" href="https://map.amap.com" target="_blank">高德搜索</a>
+                        <a class="action-btn secondary" href="tel:0858-1234567">景区咨询</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- D3-H2 云上牂牁酒店 -->
+        <div class="hotel-card fade-in">
+            <div class="hotel-btn" onclick="toggleCard(this)">
+                <div class="hotel-icon canyon">☁️</div>
+                <div class="hotel-summary">
+                    <div class="hotel-name">云上牂牁酒店</div>
+                    <div class="hotel-meta">
+                        <span class="hotel-price">~¥300-500/间</span>
+                        <span>牂牁江 · 申报省银山级</span>
+                    </div>
+                </div>
+                <svg class="hotel-expand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="hotel-details">
+                <div class="hotel-details-inner">
+                    <div class="detail-section">
+                        <div class="detail-label">备选方案</div>
+                        <div class="detail-text">
+                            同样在申报省级银山级旅游民宿，与夜郎福地酒店同为牂牁江片区重点推荐住宿。据官方文件，已完成现场评定，待授牌。
+                        </div>
+                    </div>
+                    <div class="tags">
+                        <span class="tag jade">江景</span>
+                        <span class="tag amber">省级评定中</span>
+                    </div>
+                    <div class="status-bar">
+                        <span class="status-dot yellow"></span>
+                        <span>与夜郎福地同为官方推荐，需确认预订渠道。</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- D3-H3 枕山河峡谷野奢 -->
+        <div class="hotel-card fade-in">
+            <div class="hotel-btn" onclick="toggleCard(this)">
+                <div class="hotel-icon canyon">🏔️</div>
+                <div class="hotel-summary">
+                    <div class="hotel-name">枕山河 · 峡谷野奢度假民宿</div>
+                    <div class="hotel-meta">
+                        <span class="hotel-price">~¥800-1500/间</span>
+                        <span class="hotel-rating">★ 省金山级</span>
+                        <span>盘州 · 高端</span>
+                    </div>
+                </div>
+                <svg class="hotel-expand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="hotel-details">
+                <div class="hotel-details-inner">
+                    <div class="detail-section">
+                        <div class="detail-label">高端替代方案</div>
+                        <div class="detail-text">
+                            位于盘州保基乡陆家寨千年布依族古寨中，格所河大峡谷内。7栋百年民居改造，18间客房均正对峡谷景观。被评为贵州省金山级最美民宿。全景落地窗、免费minibar、下午茶、露天电影、篝火晚会。
+                        </div>
+                    </div>
+                    <div class="tags">
+                        <span class="tag jade">千年古寨</span>
+                        <span class="tag amber">峡谷全景</span>
+                        <span class="tag blue">野奢体验</span>
+                        <span class="tag purple">篝火晚会</span>
+                    </div>
+                    <div class="detail-section">
+                        <div class="detail-label">基础设施</div>
+                        <div class="facility-grid">
+                            <div class="facility-item"><span class="facility-dot"></span>全景落地窗</div>
+                            <div class="facility-item"><span class="facility-dot"></span>免费minibar</div>
+                            <div class="facility-item"><span class="facility-dot"></span>下午茶</div>
+                            <div class="facility-item"><span class="facility-dot"></span>露天电影</div>
+                            <div class="facility-item"><span class="facility-dot"></span>篝火晚会</div>
+                            <div class="facility-item"><span class="facility-dot"></span>管家服务</div>
+                        </div>
+                    </div>
+                    <div class="status-bar">
+                        <span class="status-dot yellow"></span>
+                        <span>距离牂牁江约1小时车程，更适合想深度体验峡谷野奢的旅客。旺季需提前2周预订。</span>
+                    </div>
+                    <div class="hotel-actions">
+                        <a class="action-btn primary" href="https://m.ctrip.com" target="_blank">携程搜索</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- ========== D4 关岭 ========== -->
+<div class="day-section" id="day4">
+    <div class="day-header" onclick="toggleDay(this)">
+        <div class="day-number">04</div>
+        <div class="day-info">
+            <div class="day-route">六盘水 → 关岭 · 冰臼群</div>
+            <div class="day-date">8月11日 · 悬崖秘境</div>
+        </div>
+        <div class="day-toggle">▼</div>
+    </div>
+    <div class="day-content">
+
+        <!-- D4-H1 索也·山雾 -->
+        <div class="hotel-card recommended fade-in">
+            <div class="hotel-btn" onclick="toggleCard(this)">
+                <div class="hotel-icon cliff">🌫️</div>
+                <div class="hotel-summary">
+                    <div class="hotel-name">索也·山雾民宿 <span class="badge rec">首推</span> <span class="badge new">2026新开</span></div>
+                    <div class="hotel-meta">
+                        <span class="hotel-price">~¥600/间</span>
+                        <span class="hotel-rating">★ 9.8分</span>
+                        <span>关岭县城</span>
+                    </div>
+                </div>
+                <svg class="hotel-expand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="hotel-details">
+                <div class="hotel-details-inner">
+                    <div class="detail-section">
+                        <div class="detail-label">为什么推荐</div>
+                        <div class="detail-text">
+                            2026年5月新开业，携程9.8分/36条好评的超高口碑民宿。位于关岭县城内（外卖可达），但设计完全野奢风格：悬崖咖啡厅、无边泳池、全屋智能控制、VIP投影。管家服务贴心到提前群里告知天气、雨天撑伞送回房间。多位住客评价"在县城里有这样的环境非常值得"。
+                        </div>
+                    </div>
+                    <div class="tags">
+                        <span class="tag jade">9.8分超高口碑</span>
+                        <span class="tag amber">无边泳池</span>
+                        <span class="tag blue">悬崖咖啡</span>
+                        <span class="tag purple">全屋智能</span>
+                    </div>
+                    <div class="detail-section">
+                        <div class="detail-label">基础设施</div>
+                        <div class="facility-grid">
+                            <div class="facility-item"><span class="facility-dot"></span>无边泳池</div>
+                            <div class="facility-item"><span class="facility-dot"></span>悬崖咖啡厅</div>
+                            <div class="facility-item"><span class="facility-dot"></span>全屋智能</div>
+                            <div class="facility-item"><span class="facility-dot"></span>VIP投影</div>
+                            <div class="facility-item"><span class="facility-dot"></span>管家服务</div>
+                            <div class="facility-item"><span class="facility-dot"></span>洗衣房</div>
+                            <div class="facility-item"><span class="facility-dot"></span>停车场</div>
+                            <div class="facility-item"><span class="facility-dot"></span>西餐厅</div>
+                        </div>
+                    </div>
+                    <div class="detail-section">
+                        <div class="detail-label">住客评价摘录</div>
+                        <div class="detail-text">
+                            "早上起来云雾缭绕的景色非常赞"<br>
+                            "管家会在群里提前告知天气变化"<br>
+                            "悬崖咖啡的甜品和咖啡味道很赞"<br>
+                            "附近去滴水滩瀑布、黄果树瀑布都很近"
+                        </div>
+                    </div>
+                    <div class="status-bar">
+                        <span class="status-dot green"></span>
+                        <span>新开业尝鲜价，性价比极高。去冰臼、花江峡谷大桥、滴水滩瀑布都方便。</span>
+                    </div>
+                    <div class="hotel-actions">
+                        <a class="action-btn primary" href="https://m.ctrip.com" target="_blank">携程预订</a>
+                        <a class="action-btn secondary" href="https://map.amap.com" target="_blank">高德导航</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- D4-H2 尧珈·望瀑 -->
+        <div class="hotel-card fade-in">
+            <div class="hotel-btn" onclick="toggleCard(this)">
+                <div class="hotel-icon cliff">🌊</div>
+                <div class="hotel-summary">
+                    <div class="hotel-name">尧珈·望瀑民宿</div>
+                    <div class="hotel-meta">
+                        <span class="hotel-price">~¥800-1200/间</span>
+                        <span>悬崖 · 观滴水滩瀑布</span>
+                    </div>
+                </div>
+                <svg class="hotel-expand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="hotel-details">
+                <div class="hotel-details-inner">
+                    <div class="detail-section">
+                        <div class="detail-label">特色推荐</div>
+                        <div class="detail-text">
+                            海拔1200米悬崖之上，直面410米高的滴水滩瀑布与坝陵河大桥。270°全景落地窗将瀑布、峡谷、大桥"框"入房间。悬空透明"星光无边泳池"火爆全网——白天云端畅游，夜晚池底星河。比黄果树高6倍的野生瀑布就在眼前。
+                        </div>
+                    </div>
+                    <div class="tags">
+                        <span class="tag jade">观滴水滩瀑布</span>
+                        <span class="tag amber">星光无边泳池</span>
+                        <span class="tag blue">270°全景</span>
+                        <span class="tag purple">坝陵河大桥</span>
+                    </div>
+                    <div class="status-bar">
+                        <span class="status-dot green"></span>
+                        <span>571条真实评价，口碑稳定。适合追求极致景观体验的旅客。</span>
+                    </div>
+                    <div class="hotel-actions">
+                        <a class="action-btn primary" href="https://m.ctrip.com" target="_blank">携程预订</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- D4-H3 一竹居·纳募 -->
+        <div class="hotel-card fade-in">
+            <div class="hotel-btn" onclick="toggleCard(this)">
+                <div class="hotel-icon forest">🎋</div>
+                <div class="hotel-summary">
+                    <div class="hotel-name">一竹居·纳募民宿</div>
+                    <div class="hotel-meta">
+                        <span class="hotel-price">~¥200-400/间</span>
+                        <span>布依族特色 · 原木风格</span>
+                    </div>
+                </div>
+                <svg class="hotel-expand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="hotel-details">
+                <div class="hotel-details-inner">
+                    <div class="detail-section">
+                        <div class="detail-label">特色推荐</div>
+                        <div class="detail-text">
+                            本土布依族特色民宿，全纯原木打造。位置极佳，处于黄果树瀑布、关岭化石群国家地质公园、关岭冰臼、罗秧河的中心点，去哪都方便。五楼有书吧和天台，适合家庭出游和情侣居住。
+                        </div>
+                    </div>
+                    <div class="tags">
+                        <span class="tag jade">布依族特色</span>
+                        <span class="tag amber">纯原木</span>
+                        <span class="tag blue">中心位置</span>
+                    </div>
+                    <div class="hotel-actions">
+                        <a class="action-btn primary" href="https://map.amap.com" target="_blank">高德搜索</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- D4-H4 渊府·霞渡 (原选择) -->
+        <div class="hotel-card fade-in">
+            <div class="hotel-btn" onclick="toggleCard(this)">
+                <div class="hotel-icon cliff">🏯</div>
+                <div class="hotel-summary">
+                    <div class="hotel-name">渊府·霞渡精品民宿 <span class="badge new">原选择</span></div>
+                    <div class="hotel-meta">
+                        <span class="hotel-price">~¥800/间</span>
+                        <span>关岭 · 精品</span>
+                    </div>
+                </div>
+                <svg class="hotel-expand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="hotel-details">
+                <div class="hotel-details-inner">
+                    <div class="detail-section">
+                        <div class="detail-label">原始选择</div>
+                        <div class="detail-text">
+                            已确认存在的精品民宿。电话：13985791327。此前调研中确认营业。
+                        </div>
+                    </div>
+                    <div class="status-bar">
+                        <span class="status-dot green"></span>
+                        <span>已确认存在 · 电话可预订</span>
+                    </div>
+                    <div class="hotel-actions">
+                        <a class="action-btn primary" href="tel:13985791327">电话预订</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- ========== D5 安顺 ========== -->
+<div class="day-section" id="day5">
+    <div class="day-header" onclick="toggleDay(this)">
+        <div class="day-number">05</div>
+        <div class="day-info">
+            <div class="day-route">关岭 → 安顺 · 温泉收官</div>
+            <div class="day-date">8月12日 · 温泉康养</div>
+        </div>
+        <div class="day-toggle">▼</div>
+    </div>
+    <div class="day-content">
+
+        <!-- D5-H1 百灵温泉酒店 -->
+        <div class="hotel-card recommended fade-in">
+            <div class="hotel-btn" onclick="toggleCard(this)">
+                <div class="hotel-icon hotSpring">♨️</div>
+                <div class="hotel-summary">
+                    <div class="hotel-name">安顺百灵温泉酒店 <span class="badge rec">首推</span></div>
+                    <div class="hotel-meta">
+                        <span class="hotel-price">~¥300-500/间</span>
+                        <span class="hotel-rating">★ 9.5分</span>
+                        <span>虹山湖旁 · 温泉</span>
+                    </div>
+                </div>
+                <svg class="hotel-expand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="hotel-details">
+                <div class="hotel-details-inner">
+                    <div class="detail-section">
+                        <div class="detail-label">为什么推荐</div>
+                        <div class="detail-text">
+                            安顺老牌温泉度假酒店，携程9.5分。紧邻虹山湖公园，步行可达安顺古城顾府街美食街。富含偏硅酸的优质温泉，30+个不同功效的泡池。2026年8月最新住客评价："前台态度特别好，单独加了管家微信随时响应。温泉水上乐园小朋友玩得特别尽兴。"四星级酒店标准。
+                        </div>
+                    </div>
+                    <div class="tags">
+                        <span class="tag jade">偏硅酸温泉</span>
+                        <span class="tag amber">30+泡池</span>
+                        <span class="tag blue">儿童水乐园</span>
+                        <span class="tag purple">虹山湖景</span>
+                    </div>
+                    <div class="detail-section">
+                        <div class="detail-label">基础设施</div>
+                        <div class="facility-grid">
+                            <div class="facility-item"><span class="facility-dot"></span>室内外温泉池</div>
+                            <div class="facility-item"><span class="facility-dot"></span>恒温泳池</div>
+                            <div class="facility-item"><span class="facility-dot"></span>儿童水乐园</div>
+                            <div class="facility-item"><span class="facility-dot"></span>湖景房</div>
+                            <div class="facility-item"><span class="facility-dot"></span>管家服务</div>
+                            <div class="facility-item"><span class="facility-dot"></span>亲子主题房</div>
+                            <div class="facility-item"><span class="facility-dot"></span>自助早餐</div>
+                            <div class="facility-item"><span class="facility-dot"></span>免费停车</div>
+                        </div>
+                    </div>
+                    <div class="detail-section">
+                        <div class="detail-label">住客评价摘录（2026年8月）</div>
+                        <div class="detail-text">
+                            "管家微信随时响应"<br>
+                            "小朋友的小小水乐园，孩子玩得特别尽兴"<br>
+                            "挨着虹山湖公园，离顾府街也很近"<br>
+                            "不限次数使用温泉区"<br>
+                            "早餐的辣鸡粉很正宗"
+                        </div>
+                    </div>
+                    <div class="detail-section">
+                        <div class="detail-label">联系方式</div>
+                        <div class="detail-text">📞 0851-33667488<br>📍 安顺市西秀区虹山湖路42号</div>
+                    </div>
+                    <div class="status-bar">
+                        <span class="status-dot green"></span>
+                        <span>已确认营业中 · 2026年8月仍有大量好评。湖景大房抢手，建议提前预订。</span>
+                    </div>
+                    <div class="hotel-actions">
+                        <a class="action-btn primary" href="tel:085133667488">电话预订</a>
+                        <a class="action-btn secondary" href="https://m.ctrip.com" target="_blank">携程预订</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- D5-H2 半山酒店 -->
+        <div class="hotel-card fade-in">
+            <div class="hotel-btn" onclick="toggleCard(this)">
+                <div class="hotel-icon mountain">⛰️</div>
+                <div class="hotel-summary">
+                    <div class="hotel-name">半山酒店(安顺古城店)</div>
+                    <div class="hotel-meta">
+                        <span class="hotel-price">~¥400-600/间</span>
+                        <span class="hotel-rating">★ 4.7分</span>
+                        <span>豪华酒店榜 No.2</span>
+                    </div>
+                </div>
+                <svg class="hotel-expand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="hotel-details">
+                <div class="hotel-details-inner">
+                    <div class="detail-section">
+                        <div class="detail-label">特色推荐</div>
+                        <div class="detail-text">
+                            携程安顺豪华酒店榜No.2，紧邻安顺古城和虹山湖公园。山间美景+管家服务+充电桩，机器人送物。品清茶、向峰林而居——适合追求品质又想在城区方便的旅客。
+                        </div>
+                    </div>
+                    <div class="tags">
+                        <span class="tag jade">峰林景观</span>
+                        <span class="tag amber">管家服务</span>
+                        <span class="tag blue">充电桩</span>
+                        <span class="tag purple">亲子友好</span>
+                    </div>
+                    <div class="hotel-actions">
+                        <a class="action-btn primary" href="https://m.ctrip.com" target="_blank">携程预订</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- D5-H3 黄果树福朋喜来登 -->
+        <div class="hotel-card fade-in">
+            <div class="hotel-btn" onclick="toggleCard(this)">
+                <div class="hotel-icon hotSpring">🏨</div>
+                <div class="hotel-summary">
+                    <div class="hotel-name">黄果树福朋喜来登酒店 <span class="badge new">国际品牌</span></div>
+                    <div class="hotel-meta">
+                        <span class="hotel-price">~¥500-800/间</span>
+                        <span>万豪旗下 · 五星级 · 私汤</span>
+                    </div>
+                </div>
+                <svg class="hotel-expand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="hotel-details">
+                <div class="hotel-details-inner">
+                    <div class="detail-section">
+                        <div class="detail-label">高端替代方案</div>
+                        <div class="detail-text">
+                            万豪国际集团旗下福朋喜来登品牌，2024年7月开业，五星级旅游饭店。距黄果树景区仅2公里。220间客房，复式私汤系列配独立泡池。650㎡无柱宴会厅、10间中餐包房、"玩啤食社"精酿酒吧、24小时健身中心、瑜伽室、儿童乐园。国际品牌标准+本地精酿特色。
+                        </div>
+                    </div>
+                    <div class="tags">
+                        <span class="tag jade">万豪品牌</span>
+                        <span class="tag amber">复式私汤</span>
+                        <span class="tag blue">精酿酒吧</span>
+                        <span class="tag purple">儿童乐园</span>
+                    </div>
+                    <div class="detail-section">
+                        <div class="detail-label">基础设施</div>
+                        <div class="facility-grid">
+                            <div class="facility-item"><span class="facility-dot"></span>私汤泡池</div>
+                            <div class="facility-item"><span class="facility-dot"></span>24h健身中心</div>
+                            <div class="facility-item"><span class="facility-dot"></span>瑜伽室</div>
+                            <div class="facility-item"><span class="facility-dot"></span>儿童乐园</div>
+                            <div class="facility-item"><span class="facility-dot"></span>精酿酒吧</div>
+                            <div class="facility-item"><span class="facility-dot"></span>自助洗衣</div>
+                            <div class="facility-item"><span class="facility-dot"></span>650㎡宴会厅</div>
+                        </div>
+                    </div>
+                    <div class="detail-section">
+                        <div class="detail-label">联系方式</div>
+                        <div class="detail-text">📞 0851-322-77777<br>📍 安顺市镇宁县黄果树镇博园路230号</div>
+                    </div>
+                    <div class="status-bar">
+                        <span class="status-dot green"></span>
+                        <span>距安顺市区约50分钟车程。适合最后一晚想犒劳自己的选择。</span>
+                    </div>
+                    <div class="hotel-actions">
+                        <a class="action-btn primary" href="tel:08513227777">电话预订</a>
+                        <a class="action-btn secondary" href="https://m.ctrip.com" target="_blank">携程预订</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- D5-H4 城市印象 (原选择) -->
+        <div class="hotel-card fade-in">
+            <div class="hotel-btn" onclick="toggleCard(this)">
+                <div class="hotel-icon mountain">🏙️</div>
+                <div class="hotel-summary">
+                    <div class="hotel-name">安顺城市印象酒店 <span class="badge new">原选择</span></div>
+                    <div class="hotel-meta">
+                        <span class="hotel-price">~¥300/间</span>
+                        <span>安顺市区 · 便捷</span>
+                    </div>
+                </div>
+                <svg class="hotel-expand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="hotel-details">
+                <div class="hotel-details-inner">
+                    <div class="detail-section">
+                        <div class="detail-label">原始选择</div>
+                        <div class="detail-text">
+                            已确认存在的市区酒店。电话：0851-33667488。性价比型选择。
+                        </div>
+                    </div>
+                    <div class="status-bar">
+                        <span class="status-dot green"></span>
+                        <span>已确认存在 · 电话可预订</span>
+                    </div>
+                    <div class="hotel-actions">
+                        <a class="action-btn primary" href="tel:085133667488">电话预订</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</div><!-- end main -->
+
+<!-- FOOTER -->
+<div class="footer">
+    <p>黔山隐宿 · 2026贵州避暑自驾之旅</p>
+    <p style="margin-top:8px;">数据来源：携程、Trip.com、人民日报、天眼新闻、六盘水市林业局官方文件</p>
+    <p style="margin-top:8px;">价格为2026年8月参考价，以实际预订为准</p>
+</div>
+
+<script>
+// Toggle day section
+function toggleDay(header) {
+    var section = header.parentElement;
+    var isOpen = section.className.indexOf('open') !== -1;
+    if (isOpen) {
+        section.className = section.className.replace(' open', '');
+    } else {
+        section.className += ' open';
+    }
+    // Trigger fade-in for newly visible elements
+    setTimeout(function() { triggerFadeIn(); }, 100);
+}
+
+// Toggle hotel card
+function toggleCard(btn) {
+    var card = btn.closest('.hotel-card');
+    var isOpen = card.className.indexOf('open') !== -1;
+    if (isOpen) {
+        card.className = card.className.replace(' open', '');
+    } else {
+        card.className += ' open';
+    }
+}
+
+// Day nav pill click
+var pills = document.querySelectorAll('.day-pill');
+for (var i = 0; i < pills.length; i++) {
+    pills[i].addEventListener('click', function() {
+        // Remove active from all
+        for (var j = 0; j < pills.length; j++) {
+            pills[j].className = pills[j].className.replace(' active', '');
+        }
+        this.className += ' active';
+        var target = this.getAttribute('data-target');
+        var el = document.getElementById(target);
+        if (el) {
+            // Open the section
+            if (el.className.indexOf('open') === -1) {
+                el.className += ' open';
+            }
+            el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            setTimeout(function() { triggerFadeIn(); }, 300);
+        }
+    });
+}
+
+// Fade-in on scroll
+function triggerFadeIn() {
+    var elements = document.querySelectorAll('.fade-in');
+    for (var i = 0; i < elements.length; i++) {
+        var el = elements[i];
+        var rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 50) {
+            el.className = el.className.replace(/ visible/g, '') + ' visible';
+        }
+    }
+}
+
+window.addEventListener('scroll', triggerFadeIn);
+window.addEventListener('load', function() {
+    setTimeout(triggerFadeIn, 200);
+});
+
+// Update active pill on scroll
+function updateActivePill() {
+    var sections = document.querySelectorAll('.day-section');
+    var currentId = '';
+    for (var i = 0; i < sections.length; i++) {
+        var rect = sections[i].getBoundingClientRect();
+        if (rect.top < 200) {
+            currentId = sections[i].id;
+        }
+    }
+    if (currentId) {
+        for (var j = 0; j < pills.length; j++) {
+            var target = pills[j].getAttribute('data-target');
+            if (target === currentId) {
+                if (pills[j].className.indexOf('active') === -1) {
+                    for (var k = 0; k < pills.length; k++) {
+                        pills[k].className = pills[k].className.replace(' active', '');
+                    }
+                    pills[j].className += ' active';
+                }
+            }
+        }
+    }
+}
+
+window.addEventListener('scroll', updateActivePill);
+</script>
+
+</body>
+</html>
