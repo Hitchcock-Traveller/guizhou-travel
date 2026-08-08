@@ -5323,6 +5323,11 @@ window.onscroll = handleScroll;
         // Scroll to top
         window.scrollTo(0, 0);
 
+        // Trigger fade-in animations for all views
+        setTimeout(function() {
+            if (typeof handleScroll === 'function') handleScroll();
+        }, 100);
+
         // Trigger daily map animations if applicable
         if (viewId.indexOf('day') === 0 || viewId === 'daily-maps') {
             setTimeout(function() {
