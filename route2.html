@@ -61,13 +61,14 @@ a:hover{color:#c9a961}
 .day-temp{font-size:.68rem;padding:.2rem .6rem;border-radius:1rem;background:#eef2ff;color:#3a4a8a;font-weight:600;white-space:nowrap}
 .day-chev{width:20px;height:20px;color:#ccc;transition:transform .35s}
 .day-card.open .day-chev{transform:rotate(180deg)}
-.day-expand{max-height:0;overflow:hidden;transition:max-height .45s cubic-bezier(.4,0,.2,1)}
+.day-expand{max-height:0;overflow:hidden;transition:max-height .45s cubic-bezier(.4,0,.2,1);position:relative;background-size:cover;background-position:center top;background-repeat:no-repeat}
+.day-expand::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(180deg,rgba(255,255,255,.55) 0%,rgba(255,255,255,.85) 30%,rgba(255,255,255,.95) 60%,rgba(255,255,255,.98) 100%);z-index:0;pointer-events:none;border-radius:0 0 1rem 1rem}
 
 /* ========== Spot strip (inside expanded day) ========== */
-.spot-strip{padding:0 1rem 1rem}
-.spot-chip{display:flex;align-items:center;gap:.8rem;padding:.8rem;background:#fafaf6;border-radius:.75rem;margin-bottom:.5rem;cursor:pointer;transition:background .2s;border:1px solid rgba(0,0,0,.03);-webkit-tap-highlight-color:transparent}
-.spot-chip:hover{background:#f4f3ee}
-.spot-chip:active{background:#eeedea}
+.spot-strip{padding:0 1rem 1rem;position:relative;z-index:1}
+.spot-chip{display:flex;align-items:center;gap:.8rem;padding:.8rem;background:rgba(255,255,255,.82);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-radius:.75rem;margin-bottom:.5rem;cursor:pointer;transition:background .2s,box-shadow .2s;border:1px solid rgba(255,255,255,.6);box-shadow:0 1px 4px rgba(0,0,0,.04);-webkit-tap-highlight-color:transparent}
+.spot-chip:hover{background:rgba(255,255,255,.92);box-shadow:0 2px 10px rgba(0,0,0,.06)}
+.spot-chip:active{background:rgba(255,255,255,.96)}
 .spot-emoji{font-size:1.3rem;flex-shrink:0}
 .spot-chip-info{flex:1;min-width:0}
 .spot-chip-name{font-size:.85rem;font-weight:600;color:#1a3a2a}
@@ -75,7 +76,7 @@ a:hover{color:#c9a961}
 .spot-chip-arrow{color:#ccc;font-size:.8rem;flex-shrink:0}
 
 /* ========== Day info bar (expanded) ========== */
-.day-info-bar{padding:0 1.2rem .8rem;display:flex;gap:.5rem;flex-wrap:wrap}
+.day-info-bar{padding:0 1.2rem .8rem;display:flex;gap:.5rem;flex-wrap:wrap;position:relative;z-index:1}
 .info-pill{font-size:.68rem;padding:.25rem .7rem;border-radius:1rem;background:#f0f7f0;color:#2d6a4f;font-weight:500}
 .info-pill.water{background:#e8f6f8;color:#1a6a7a}
 .info-pill.food{background:#fef8ee;color:#8a6a2a}
@@ -156,6 +157,24 @@ a:hover{color:#c9a961}
 .footer a{color:#999}
 .footer .heart{color:#c9a961}
 
+/* ========== Modal Gallery ========== */
+.modal-gallery{display:flex;gap:.5rem;overflow-x:auto;padding:.3rem 0 .6rem;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.modal-gallery::-webkit-scrollbar{display:none}
+.modal-gallery img{height:150px;min-width:150px;max-width:220px;border-radius:.6rem;object-fit:cover;flex-shrink:0;background:#eee;cursor:pointer;transition:transform .2s,box-shadow .2s}
+.modal-gallery img:hover{transform:scale(1.03);box-shadow:0 2px 12px rgba(0,0,0,.12)}
+.modal-gallery img:active{transform:scale(.97)}
+
+/* ========== Modal Video ========== */
+.modal-video{position:relative;width:100%;padding-bottom:56.25%;border-radius:.6rem;overflow:hidden;margin:.5rem 0;background:#111}
+.modal-video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none}
+.modal-video-label{font-size:.72rem;color:#999;margin-bottom:.3rem;display:flex;align-items:center;gap:.3rem}
+
+/* ========== Lightbox ========== */
+.lightbox{position:fixed;inset:0;z-index:300;background:rgba(0,0,0,.92);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s;cursor:zoom-out}
+.lightbox.show{opacity:1;pointer-events:auto}
+.lightbox img{max-width:92vw;max-height:88vh;border-radius:.5rem;object-fit:contain}
+.lightbox-close{position:fixed;top:1rem;right:1rem;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.15);border:none;color:#fff;font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center}
+
 /* ========== Animations ========== */
 .fade-in{opacity:0;transform:translateY(12px);transition:opacity .5s,transform .5s}
 .fade-in.visible{opacity:1;transform:translateY(0)}
@@ -220,7 +239,7 @@ a:hover{color:#c9a961}
 <svg class="day-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
 </div>
 </div>
-<div class="day-expand">
+<div class="day-expand" style="background-image:url('https://s.coze.cn/image/MjZdiU5CMEs/')">
 <div class="day-info-bar">
 <span class="info-pill">🚗 毕节→威宁2h→六盘水2h</span>
 <span class="info-pill food">🍳 威宁小吃</span>
@@ -260,7 +279,7 @@ a:hover{color:#c9a961}
 <svg class="day-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
 </div>
 </div>
-<div class="day-expand">
+<div class="day-expand" style="background-image:url('https://s.coze.cn/image/LyAqBJKpDfY/')">
 <div class="day-info-bar">
 <span class="info-pill">🏕️ 拎包入住露营</span>
 <span class="info-pill water">🎣 垂钓+亲子乐园</span>
@@ -308,7 +327,7 @@ a:hover{color:#c9a961}
 <svg class="day-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
 </div>
 </div>
-<div class="day-expand">
+<div class="day-expand" style="background-image:url('https://s.coze.cn/image/r2F52iqBZeA/')">
 <div class="day-info-bar">
 <span class="info-pill water">🎣 猫河野钓</span>
 <span class="info-pill">🏔️ 龙脊天路日落</span>
@@ -356,7 +375,7 @@ a:hover{color:#c9a961}
 <svg class="day-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
 </div>
 </div>
-<div class="day-expand">
+<div class="day-expand" style="background-image:url('https://s.coze.cn/image/ZGxaF4nCMtk/')">
 <div class="day-info-bar">
 <span class="info-pill food">🍘 郎岱小吃</span>
 <span class="info-pill water">🐟 断桥青椒鱼</span>
@@ -513,6 +532,12 @@ a:hover{color:#c9a961}
 <div class="modal-body" id="modalBody"></div>
 </div>
 
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+<button class="lightbox-close" onclick="closeLightbox()">✕</button>
+<img id="lightboxImg" src="" alt="">
+</div>
+
 <!-- Footer -->
 <footer class="footer">
 <p>黔途拾趣 · 路线二 · 2026贵州钓旅西行</p>
@@ -544,7 +569,9 @@ tags:['<span class="modal-tag nature">高原味道</span>','<span class="modal-t
 intro:'威宁海拔2200m，高原特产造就独特小吃。小粑粑和烤洋芋是本地人最爱的路边味道。',
 detail:'🍠 <strong>威宁小粑粑</strong>：荞麦面皮包火腿馅，铁锅煎至金黄，外酥里香，几块钱一个管饱<br><br>🥔 <strong>威宁烤洋芋</strong>：高原土豆炭火慢烤，切开蘸折耳根辣椒水，简单但上瘾<br><br>📍 威宁县城街头随处可见，停车路边即买',
 kids:'小孩一手拿小粑粑当零食，一手拿烤洋芋蘸辣椒水，路边站着吃最香。',
-food:'<ul class="food-list"><li>小粑粑（3-5元/个）</li><li>烤洋芋（5-8元/个）</li><li>荞酥（600年历史糕点）</li><li>威宁火腿（600年历史，与金华宣威并称三大火腿）</li></ul><p class="food-price">人均10-20元</p>'
+food:'<ul class="food-list"><li>小粑粑（3-5元/个）</li><li>烤洋芋（5-8元/个）</li><li>荞酥（600年历史糕点）</li><li>威宁火腿（600年历史，与金华宣威并称三大火腿）</li></ul><p class="food-price">人均10-20元</p>',
+images:['https://s.coze.cn/image/yAgMmqehDZg/','https://s.coze.cn/image/cLNQaAPq2N4/','https://s.coze.cn/image/-xDwZ5_08Zw/','https://s.coze.cn/image/aw2CBE00Do4/'],
+videos:[{url:'https://player.bilibili.com/player.html?bvid=BV14EEE6mERe&autoplay=0',title:'威宁小粑粑制作'}]
 },
 'm-d3-guzhen':{
 title:'水城古镇 · 烙锅',
@@ -555,7 +582,9 @@ detail:'🏘️ 全平路，推婴儿车无障碍<br>🎫 免费，开放式古�
 kids:'看大人烙食材像看魔术，小孩吃烙洋芋片和烙豆腐（不辣）。',
 water:null,
 photo:'📸 雨后青石板路倒影最美。',
-food:'<ul class="food-list"><li>烙五花肉/洋芋片/豆腐/饵块</li><li>冰浆（水果+冰块+糯米现打，解辣消暑）</li><li>威宁火腿（中国三大火腿）</li><li>荞凉粉、荞酥、荞面</li></ul><p class="food-price">人均35-50元</p>'
+food:'<ul class="food-list"><li>烙五花肉/洋芋片/豆腐/饵块</li><li>冰浆（水果+冰块+糯米现打，解辣消暑）</li><li>威宁火腿（中国三大火腿）</li><li>荞凉粉、荞酥、荞面</li></ul><p class="food-price">人均35-50元</p>',
+images:['https://s.coze.cn/image/MjZdiU5CMEs/','https://s.coze.cn/image/91zGO25Xaoo/','https://s.coze.cn/image/VaKFf3Z2_1s/'],
+videos:[{url:'https://player.bilibili.com/player.html?bvid=BV16E3kz8EAu&autoplay=0',title:'自驾游逛水城古镇'},{url:'https://player.bilibili.com/player.html?bvid=BV1s54y1q7sw&autoplay=0',title:'VLOG水城古镇'}]
 },
 'm-d4-meihuashan':{
 title:'梅花山·星乌托邦露营基地',
@@ -564,7 +593,8 @@ tags:['<span class="modal-tag nature">高山草甸</span>','<span class="modal-t
 intro:'梅花山景区内的成熟露营基地，50顶帐篷8种类型，家庭/亲子帐篷可选，拎包入住。海拔2000m高山草甸，凉爽宜人。',
 detail:'⛺ <strong>50顶帐篷·8种类型</strong>：家庭帐篷、亲子帐篷、星空帐篷等，拎包入住不用带装备<br><br>🌿 <strong>高山草甸</strong>：广阔草坪，远眺群山，19℃凉爽<br><br>🔥 <strong>烧烤区</strong>：可自助烧烤，食材可自带或营地购买<br><br>🚿 <strong>配套</strong>：淋浴、卫生间、停车场齐全<br><br>💰 约200-300元/顶/晚（含基本设施）<br>🎫 梅花山景区免费进入',
 kids:'草坪上奔跑撒欢，帐篷里探险，看远处牛羊吃草。晚上看星星，城市里见不到这么多。',
-photo:'📸 日落时分帐篷+草甸+远山组合最出片。'
+photo:'📸 日落时分帐篷+草甸+远山组合最出片。',
+images:['https://s.coze.cn/image/5yy0idGnU9o/','https://s.coze.cn/image/LyAqBJKpDfY/','https://s.coze.cn/image/rYkNe5ylftE/','https://s.coze.cn/image/_hPoeQ2YO5s/','https://s.coze.cn/image/pu-7IpuSR5A/']
 },
 'm-d4-longchi':{
 title:'龙池欢乐岛',
@@ -572,7 +602,8 @@ sub:'D4 下午 · 水城区双水街道 · 车程20min',
 tags:['<span class="modal-tag kid">亲子圣地</span>','<span class="modal-tag water">垂钓+桨板</span>','<span class="modal-tag easy">平坦好走</span>','<span class="modal-tag nature">湖畔乐园</span>'],
 intro:'水城区本地人的遛娃圣地，2026年6月全面升级。集垂钓、桨板皮划艇、无动力乐园、萌宠乐园于一体。',
 detail:'🎣 <strong>垂钓</strong>：湖钓草鱼/鲤鱼/鲢鳙，钓具可现场租<br><br>🏄 <strong>桨板/皮划艇</strong>：湖面划行，亲子双人艇可选<br><br>🎪 <strong>无动力乐园</strong>：攀爬、滑梯、秋千，小孩自由玩<br><br>🐰 <strong>萌宠乐园</strong>：小兔子、小羊等，小朋友最爱<br><br>💰 垂钓约50-80元/人；桨板另计<br>🚶 全程平坦，婴儿车友好',
-kids:'爸爸钓鱼，妈妈带娃划桨板、喂小动物、玩无动力乐园。各得其所，互不干扰。'
+kids:'爸爸钓鱼，妈妈带娃划桨板、喂小动物、玩无动力乐园。各得其所，互不干扰。',
+images:['https://s.coze.cn/image/1X1wd98lu-k/','https://s.coze.cn/image/gHFMDC-1e4I/','https://s.coze.cn/image/Hxb2mBGn3CU/']
 },
 'm-d4-laoguo':{
 title:'水城烙锅·全有福',
@@ -581,7 +612,9 @@ tags:['<span class="modal-tag nature">30年老店</span>','<span class="modal-ta
 intro:'水城烙锅——贵州三大小吃之一，国家级非遗。特制黑砂锅凸面刷油，食材放上去"烙"熟，蘸辣椒面吃。全有福是古镇侧巷的老店，本地人常去。',
 detail:'🍳 万物可烙：五花肉、洋芋片、豆腐、饵块、青椒、韭菜、牛肉...<br><br>💰 人均35-50元，丰俭由人<br>📍 水城古镇侧巷（导航"全有福烙锅"）<br>🌶️ 辣椒面蘸料是灵魂，小孩可以少蘸或不蘸',
 kids:'看大人往凸面锅上放食材像看魔术表演。小孩吃烙洋芋片和烙豆腐（不辣）。',
-food:'<ul class="food-list"><li>烙五花肉</li><li>烙洋芋片</li><li>烙豆腐</li><li>烙饵块</li><li>冰浆（水果+冰块+糯米现打，解辣消暑）</li></ul><p class="food-price">人均35-50元</p>'
+food:'<ul class="food-list"><li>烙五花肉</li><li>烙洋芋片</li><li>烙豆腐</li><li>烙饵块</li><li>冰浆（水果+冰块+糯米现打，解辣消暑）</li></ul><p class="food-price">人均35-50元</p>',
+images:['https://s.coze.cn/image/QtHQEc1nZP0/','https://s.coze.cn/image/erM1jrAzBuo/','https://s.coze.cn/image/VyzJITmhjUs/'],
+videos:[{url:'https://player.bilibili.com/player.html?bvid=BV1LT4y137Lf&autoplay=0',title:'水城烙锅体验'},{url:'https://player.bilibili.com/player.html?bvid=BV1HFdSYpEeY&autoplay=0',title:'外国人体验烙锅'}]
 },
 'm-d5-maohe':{
 title:'牂牁江猫河·休闲钓鱼',
@@ -590,7 +623,8 @@ tags:['<span class="modal-tag water">野钓天堂</span>','<span class="modal-ta
 intro:'牂牁江猫河的休闲钓鱼棚，管吃管住，是贵州西部最地道的野钓体验。野生草鱼、鲤鱼、翘嘴、鲢鳙，快艇送钓位。',
 detail:'🎣 <strong>鱼种</strong>：草鱼、鲤鱼、翘嘴、鲢鳙，均为野生<br><br>🏠 <strong>李安贵钓鱼棚</strong>：管吃管住120元/人/天（含三餐+住宿+钓位），包棚150元/天<br><br>🚤 <strong>快艇送钓位</strong>：坐快艇到最佳钓位，刺激又方便<br><br>🏔️ <strong>环境</strong>：峡谷碧水，两岸青山，空气清新<br><br>💡 不想钓鱼的人可以在江边散步、拍照、看风景，或坐游船游览牂牁江（约80-100元/人）',
 kids:'坐快艇到钓位超刺激！不钓鱼的可以看江景、拍照、在安全区域踩水。',
-water:'💧 牂牁江峡谷段，水质清澈，鱼资源丰富。指定安全区域可垂钓和戏水。'
+water:'💧 牂牁江峡谷段，水质清澈，鱼资源丰富。指定安全区域可垂钓和戏水。',
+images:['https://s.coze.cn/image/r2F52iqBZeA/','https://s.coze.cn/image/b-nq8YXaN20/','https://s.coze.cn/image/Q77uSb63iI8/','https://s.coze.cn/image/PTkau0nq0tA/','https://s.coze.cn/image/3eEO4aPv2Jk/']
 },
 'm-d5-longji':{
 title:'龙脊天路',
@@ -600,7 +634,9 @@ intro:'贵州"西南险路天花板"，15公里山脊公路，72道发卡弯，�
 detail:'🏔️ <strong>山脊公路</strong>：如巨龙盘踞山巅，两侧悬崖绝壁<br><br>🌄 <strong>日落必看</strong>：山顶平台看太阳落入牂牁江峡谷，金光洒满群山<br><br>🌌 <strong>星空露营</strong>：远离光污染，银河肉眼可见<br><br>📍 <strong>导航</strong>：搜"李保寨（六枝特区移山村委会）"，终点前左转上山<br><br>⚠️ <strong>安全提醒</strong>：<br>• 72道发卡弯，路窄悬崖深，需老司机驾驶<br>• 下坡用1-2挡制动，弯道必鸣笛<br>• 手扒岩挂壁段宽仅3m，会车困难<br>• 不建议新手/夜间驾驶<br>• 山顶有多处停车平台，约100车位<br>• 🆓 免费',
 kids:'坐车上山就像坐过山车！到山顶看大草原、看远处的江和山。拍照超出片。',
 photo:'📸 山顶拍公路如巨龙盘山、牂牁江S型大拐弯、日落金光。',
-note:'<div class="mtip gold">⚠️ 龙脊天路自驾难度极高。如果驾驶员没把握，可以改走牂牁江边看日落，同样壮观，且更安全。</div>'
+note:'<div class="mtip gold">⚠️ 龙脊天路自驾难度极高。如果驾驶员没把握，可以改走牂牁江边看日落，同样壮观，且更安全。</div>',
+images:['https://s.coze.cn/image/f1FlQva8DlU/','https://s.coze.cn/image/i0zIipRvNVA/','https://s.coze.cn/image/Vn2bXkS_318/','https://s.coze.cn/image/VTWZENMr9QI/','https://s.coze.cn/image/lVNiqycPe4s/'],
+videos:[{url:'https://player.bilibili.com/player.html?bvid=BV1f4xNz8EZC&autoplay=0',title:'4K驾车之旅'},{url:'https://player.bilibili.com/player.html?bvid=BV1Ef48zqEoE&autoplay=0',title:'龙脊天路风光'}]
 },
 'm-d5-azhihe':{
 title:'阿志河露营休闲基地',
@@ -609,7 +645,8 @@ tags:['<span class="modal-tag nature">溪流营地</span>','<span class="modal-t
 intro:'六枝特区的成熟露营基地，依溪而建，设施齐全。烧烤区、垂钓区、公共浴室、卫生间一应俱全。适合家庭亲子露营。',
 detail:'⛺ <strong>营地设施</strong>：帐篷位/自带帐篷均可，有烧烤台、桌椅<br><br>🔥 <strong>自助烧烤</strong>：食材可自带或附近购买，营地提供烧烤架<br><br>💧 <strong>溪流</strong>：营地旁有清澈溪流，可戏水<br><br>🚿 <strong>配套</strong>：公共浴室（热水淋浴）、卫生间、停车场<br><br>💰 约50-100元/人（含营位费）<br>🌌 远离光污染，星空可观',
 kids:'在溪流边踩水捡石头，帮大人串烧烤食材，晚上围着篝火看星星。',
-food:'<ul class="food-list"><li>五花肉</li><li>鸡翅</li><li>玉米</li><li>土豆</li><li>韭菜</li><li>豆腐</li></ul><p class="food-price">烧烤食材建议自带，附近六枝城区可采购</p>'
+food:'<ul class="food-list"><li>五花肉</li><li>鸡翅</li><li>玉米</li><li>土豆</li><li>韭菜</li><li>豆腐</li></ul><p class="food-price">烧烤食材建议自带，附近六枝城区可采购</p>',
+images:['https://s.coze.cn/image/VEFIPso58HA/','https://s.coze.cn/image/yqkTKsS8m7U/','https://s.coze.cn/image/bdv1sEohAv8/']
 },
 'm-d6-langdai':{
 title:'郎岱古镇',
@@ -618,7 +655,8 @@ tags:['<span class="modal-tag nature">明清古镇</span>','<span class="modal-t
 intro:'六枝特区郎岱镇，保存完好的明清古镇，青石板路配马头墙。不是网红景点，是真正的本地生活古镇。',
 detail:'🍘 <strong>郎岱凉粉</strong>：米浆做成，加郎岱特产酱+酸萝卜，消暑神器。3-5元一碗<br><br>🥩 <strong>郎岱金丝肉饼</strong>：千层面皮包肉馅，油炸至金黄酥脆，外酥里嫩。5-8元一个<br><br>🍜 <strong>岩脚面</strong>：百年手工擀面，国家地理标志保护产品。面条筋道爽滑<br><br>🍘 <strong>岩脚肉饼</strong>：类似金丝肉饼但更大更厚实<br><br>🏘️ 古镇青石板路漫步，看马头墙、老宅院，没有商业化，原汁原味<br>📍 六枝特区郎岱镇，免费',
 kids:'在青石板路上跑，买凉粉吃（甜甜酸酸的），看老房子数马头墙。',
-food:'<ul class="food-list"><li>郎岱凉粉（3-5元）</li><li>金丝肉饼（5-8元）</li><li>岩脚面（10-15元）</li><li>岩脚肉饼（8-10元）</li></ul><p class="food-price">人均15-30元</p>'
+food:'<ul class="food-list"><li>郎岱凉粉（3-5元）</li><li>金丝肉饼（5-8元）</li><li>岩脚面（10-15元）</li><li>岩脚肉饼（8-10元）</li></ul><p class="food-price">人均15-30元</p>',
+images:['https://s.coze.cn/image/w2K5FoBp5rM/','https://s.coze.cn/image/UAlXlF5qLGs/','https://s.coze.cn/image/ZGxaF4nCMtk/']
 },
 'm-d6-duanqiao':{
 title:'断桥青椒鱼·鲁记',
@@ -627,7 +665,8 @@ tags:['<span class="modal-tag nature">老字号</span>','<span class="modal-tag 
 intro:'关岭断桥·鲁记青椒鱼火锅，用北盘江鲜活鱼+青花椒+秘制配料，鲜香麻辣，是关岭最有名的河鱼馆。',
 detail:'🐟 <strong>北盘江活鱼</strong>：现杀现做，鱼来自北盘江清水<br><br>🌶️ <strong>青花椒</strong>：贵州本地青花椒，麻香四溢<br><br>🍲 <strong>汤底</strong>：鲜香麻辣，鱼汤浓白，喝一口暖胃<br><br>💰 人均50-70元，鱼按斤计价<br>📍 关岭断桥（花江峡谷大桥附近）<br><br>🍚 配一碗白米饭，鱼汤泡饭，绝了！',
 kids:'鱼肉嫩滑不辣的部分给小孩吃，鲜得很。汤泡饭小孩爱吃。',
-food:'<ul class="food-list"><li>青椒鱼火锅（必点）</li><li>酸汤鱼（备选）</li><li>关岭剪粉（特色小吃）</li><li>王姨妈糯米饭（如路过关岭县城）</li></ul><p class="food-price">人均50-70元</p>'
+food:'<ul class="food-list"><li>青椒鱼火锅（必点）</li><li>酸汤鱼（备选）</li><li>关岭剪粉（特色小吃）</li><li>王姨妈糯米饭（如路过关岭县城）</li></ul><p class="food-price">人均50-70元</p>',
+images:['https://s.coze.cn/image/99qVawoMA4U/','https://s.coze.cn/image/eAVy2sDfwsM/','https://s.coze.cn/image/HoDIPPqdOVY/']
 },
 'm-d6-gaojiadu':{
 title:'北盘江高家渡码头',
@@ -635,7 +674,8 @@ sub:'D6 下午 · 关岭 · 断桥→高家渡约15min',
 tags:['<span class="modal-tag water">水上乐园</span>','<span class="modal-tag kid">踩水+游船</span>','<span class="modal-tag easy">码头平路</span>','<span class="modal-tag free">江边免费</span>'],
 intro:'北盘江高家渡码头，集游船、垂钓、桨板、皮划艇、水上自行车、摩托艇于一体。峡谷江面宽阔，碧水如镜。',
 detail:'🚢 <strong>游船</strong>：游览北盘江峡谷，约80-100元/人<br><br>🎣 <strong>垂钓</strong>：江边野钓，免费（自带钓具）<br><br>🏄 <strong>桨板/皮划艇</strong>：水面划行<br><br>🚲 <strong>水上自行车</strong>：亲子项目，小孩最爱<br><br>🏖️ <strong>江边踩水</strong>：浅水鹅卵石滩，安全<br><br>💰 江边踩水免费；水上项目另计<br>🌡️ 峡谷内25-28℃，江面有风凉爽',
-kids:'水上自行车超好玩！踩水+捡石头+看大峡谷。坐船看两岸峭壁像进入迷宫。'
+kids:'水上自行车超好玩！踩水+捡石头+看大峡谷。坐船看两岸峭壁像进入迷宫。',
+images:['https://s.coze.cn/image/e_HzIQjYVHc/','https://s.coze.cn/image/eEH7bb3ONyE/','https://s.coze.cn/image/20h2k3GwvLE/','https://s.coze.cn/image/w8IGe5XV5-c/']
 }
 };
 
@@ -643,7 +683,21 @@ function openModal(id){
 var d=modalData[id];if(!d)return;
 document.getElementById('modalTitle').textContent=d.title;
 document.getElementById('modalSub').textContent=d.sub;
-var h='<div class="modal-meta">'+d.tags.join('')+'</div>';
+var h='';
+if(d.images&&d.images.length>0){
+h+='<div class="modal-gallery">';
+for(var i=0;i<d.images.length;i++){
+h+='<img src="'+d.images[i]+'" alt="'+d.title+'" loading="lazy" onclick="openLightbox(this.src)">';
+}
+h+='</div>';
+}
+if(d.videos&&d.videos.length>0){
+for(var j=0;j<d.videos.length;j++){
+h+='<div class="modal-video-label">▶ '+d.videos[j].title+'</div>';
+h+='<div class="modal-video"><iframe src="'+d.videos[j].url+'" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; encrypted-media"></iframe></div>';
+}
+}
+h+='<div class="modal-meta">'+d.tags.join('')+'</div>';
 h+='<div class="modal-section"><h4>简介</h4><div class="modal-text">'+d.intro+'</div></div>';
 h+='<div class="modal-section"><h4>详情</h4><div class="modal-text">'+d.detail+'</div></div>';
 if(d.kids) h+='<div class="modal-section"><h4>🧒 小孩怎么玩</h4><div class="modal-text">'+d.kids+'</div></div>';
@@ -655,6 +709,14 @@ document.getElementById('modalBody').innerHTML=h;
 document.getElementById('modalOverlay').classList.add('show');
 document.getElementById('modalSheet').classList.add('show');
 document.body.style.overflow='hidden';
+}
+function openLightbox(src){
+document.getElementById('lightboxImg').src=src;
+document.getElementById('lightbox').classList.add('show');
+}
+function closeLightbox(){
+document.getElementById('lightbox').classList.remove('show');
+document.getElementById('lightboxImg').src='';
 }
 function closeModal(){
 document.getElementById('modalOverlay').classList.remove('show');
