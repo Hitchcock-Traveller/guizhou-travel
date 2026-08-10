@@ -175,6 +175,24 @@ a:hover{color:#c9a961}
 .lightbox img{max-width:92vw;max-height:88vh;border-radius:.5rem;object-fit:contain}
 .lightbox-close{position:fixed;top:1rem;right:1rem;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.15);border:none;color:#fff;font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center}
 
+/* ========== Day Map Bar ========== */
+.day-map-label{font-size:.72rem;color:#888;padding:.5rem 1.2rem .3rem;display:flex;align-items:center;gap:.3rem}
+.day-map-row{display:flex;gap:.35rem;padding:0 1rem .7rem;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.day-map-row::-webkit-scrollbar{display:none}
+.map-loc{padding:.3rem .65rem;background:rgba(255,255,255,.88);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border-radius:1.2rem;font-size:.68rem;color:#2d6a4f;white-space:nowrap;flex-shrink:0;border:1px solid rgba(45,106,79,.1);text-decoration:none;transition:background .2s}
+.map-loc:hover{background:rgba(255,255,255,.96)}
+.map-loc.route-btn{background:linear-gradient(135deg,#2d6a4f,#40916c);color:#fff;font-weight:600;border-color:transparent}
+.map-loc.route-btn:hover{opacity:.9}
+
+/* ========== Modal Action Buttons ========== */
+.modal-actions{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1rem}
+.m-btn{display:inline-flex;align-items:center;gap:.3rem;padding:.45rem .85rem;border-radius:2rem;font-size:.76rem;font-weight:500;text-decoration:none;transition:all .2s;border:1px solid}
+.m-btn.nav{background:#e8f5e9;color:#2d6a4f;border-color:rgba(45,106,79,.15)}
+.m-btn.call{background:#e3f2fd;color:#1565c0;border-color:rgba(21,101,192,.15)}
+.m-btn.book{background:#fff3e0;color:#e65100;border-color:rgba(230,81,0,.15)}
+.m-btn.site{background:#f3e5f5;color:#6a1b9a;border-color:rgba(106,27,154,.15)}
+.m-btn:hover{opacity:.85;transform:translateY(-1px)}
+
 /* ========== Animations ========== */
 .fade-in{opacity:0;transform:translateY(12px);transition:opacity .5s,transform .5s}
 .fade-in.visible{opacity:1;transform:translateY(0)}
@@ -263,6 +281,20 @@ a:hover{color:#c9a961}
 <div class="spot-chip-arrow">›</div>
 </div>
 </div>
+<div class="day-map-label">📍 今日行程地图</div>
+<div class="day-map-row">
+<a class="map-loc" href="https://uri.amap.com/search?keyword=威宁县城&city=522427" target="_blank">威宁小吃</a>
+<a class="map-loc" href="https://uri.amap.com/search?keyword=水城古镇&city=520204" target="_blank">水城古镇</a>
+<a class="map-loc" href="https://uri.amap.com/search?keyword=禾阅水云涧度假庄园&city=520204" target="_blank">🏨 禾阅·水云涧</a>
+<a class="map-loc route-btn" href="https://uri.amap.com/navigation?from=毕节市&to=威宁县城&via=水城古镇&mode=car&policy=2" target="_blank">🧭 全程导航</a>
+</div>
+<div class="day-map-label">🏨 当晚住宿</div>
+<div class="day-map-row">
+<a class="map-loc" href="tel:15519842829">📞 15519842829</a>
+<a class="map-loc" href="https://hotels.ctrip.com/hotel/dianping/19916132.html" target="_blank">🎫 携程预订</a>
+<a class="map-loc" href="https://www.ly.com/hotel/hoteldetail?hotelId=93331126&city=115" target="_blank">🎫 同程预订</a>
+<a class="map-loc" href="https://uri.amap.com/search?keyword=禾阅水云涧度假庄园&city=520204" target="_blank">📍 导航到酒店</a>
+</div>
 </div>
 </div>
 
@@ -310,6 +342,18 @@ a:hover{color:#c9a961}
 </div>
 <div class="spot-chip-arrow">›</div>
 </div>
+</div>
+<div class="day-map-label">📍 今日行程地图</div>
+<div class="day-map-row">
+<a class="map-loc" href="https://uri.amap.com/search?keyword=梅花山景区&city=520201" target="_blank">梅花山</a>
+<a class="map-loc" href="https://uri.amap.com/search?keyword=龙池欢乐岛&city=520204" target="_blank">龙池欢乐岛</a>
+<a class="map-loc" href="https://uri.amap.com/search?keyword=全有福烙锅&city=520201" target="_blank">全有福烙锅</a>
+<a class="map-loc route-btn" href="https://uri.amap.com/navigation?from=六盘水市&to=梅花山景区&via=龙池欢乐岛,全有福烙锅&mode=car&policy=2" target="_blank">🧭 全程导航</a>
+</div>
+<div class="day-map-label">🏨 当晚住宿</div>
+<div class="day-map-row">
+<a class="map-loc" href="http://www.meihuashanly.cn/" target="_blank">🔗 梅花山景区官网</a>
+<a class="map-loc" href="https://uri.amap.com/search?keyword=梅花山星乌托邦露营&city=520201" target="_blank">📍 导航到营地</a>
 </div>
 </div>
 </div>
@@ -359,6 +403,17 @@ a:hover{color:#c9a961}
 <div class="spot-chip-arrow">›</div>
 </div>
 </div>
+<div class="day-map-label">📍 今日行程地图</div>
+<div class="day-map-row">
+<a class="map-loc" href="https://uri.amap.com/search?keyword=牂牁江猫河" target="_blank">猫河钓鱼</a>
+<a class="map-loc" href="https://uri.amap.com/search?keyword=龙脊天路" target="_blank">龙脊天路</a>
+<a class="map-loc" href="https://uri.amap.com/search?keyword=阿志河露营" target="_blank">阿志河营地</a>
+<a class="map-loc route-btn" href="https://uri.amap.com/navigation?from=六枝特区&to=牂牁江猫河&via=龙脊天路,阿志河露营&mode=car" target="_blank">🧭 全程导航</a>
+</div>
+<div class="day-map-label">🏨 当晚住宿</div>
+<div class="day-map-row">
+<a class="map-loc" href="https://uri.amap.com/search?keyword=阿志河露营休闲基地" target="_blank">📍 导航到营地</a>
+</div>
 </div>
 </div>
 
@@ -406,6 +461,13 @@ a:hover{color:#c9a961}
 </div>
 <div class="spot-chip-arrow">›</div>
 </div>
+</div>
+<div class="day-map-label">📍 今日行程地图</div>
+<div class="day-map-row">
+<a class="map-loc" href="https://uri.amap.com/search?keyword=郎岱古镇&city=520201" target="_blank">郎岱古镇</a>
+<a class="map-loc" href="https://uri.amap.com/search?keyword=断桥鲁记青椒鱼&city=560301" target="_blank">断桥青椒鱼</a>
+<a class="map-loc" href="https://uri.amap.com/search?keyword=高家渡码头&city=560301" target="_blank">高家渡码头</a>
+<a class="map-loc route-btn" href="https://uri.amap.com/navigation?from=郎岱古镇&to=断桥鲁记青椒鱼&via=高家渡码头&mode=car&policy=2" target="_blank">🧭 全程导航</a>
 </div>
 </div>
 </div>
@@ -571,7 +633,8 @@ detail:'🍠 <strong>威宁小粑粑</strong>：荞麦面皮包火腿馅，铁�
 kids:'小孩一手拿小粑粑当零食，一手拿烤洋芋蘸辣椒水，路边站着吃最香。',
 food:'<ul class="food-list"><li>小粑粑（3-5元/个）</li><li>烤洋芋（5-8元/个）</li><li>荞酥（600年历史糕点）</li><li>威宁火腿（600年历史，与金华宣威并称三大火腿）</li></ul><p class="food-price">人均10-20元</p>',
 images:['https://s.coze.cn/image/yAgMmqehDZg/','https://s.coze.cn/image/cLNQaAPq2N4/','https://s.coze.cn/image/-xDwZ5_08Zw/','https://s.coze.cn/image/aw2CBE00Do4/'],
-videos:[{url:'https://player.bilibili.com/player.html?bvid=BV14EEE6mERe&autoplay=0',title:'威宁小粑粑制作'}]
+videos:[{url:'https://player.bilibili.com/player.html?bvid=BV14EEE6mERe&autoplay=0',title:'威宁小粑粑制作'}],
+nav:'威宁县城',phone:'',book:'',note_nav:'威宁县城街头'
 },
 'm-d3-guzhen':{
 title:'水城古镇 · 烙锅',
@@ -584,7 +647,8 @@ water:null,
 photo:'📸 雨后青石板路倒影最美。',
 food:'<ul class="food-list"><li>烙五花肉/洋芋片/豆腐/饵块</li><li>冰浆（水果+冰块+糯米现打，解辣消暑）</li><li>威宁火腿（中国三大火腿）</li><li>荞凉粉、荞酥、荞面</li></ul><p class="food-price">人均35-50元</p>',
 images:['https://s.coze.cn/image/MjZdiU5CMEs/','https://s.coze.cn/image/91zGO25Xaoo/','https://s.coze.cn/image/VaKFf3Z2_1s/'],
-videos:[{url:'https://player.bilibili.com/player.html?bvid=BV16E3kz8EAu&autoplay=0',title:'自驾游逛水城古镇'},{url:'https://player.bilibili.com/player.html?bvid=BV1s54y1q7sw&autoplay=0',title:'VLOG水城古镇'}]
+videos:[{url:'https://player.bilibili.com/player.html?bvid=BV16E3kz8EAu&autoplay=0',title:'自驾游逛水城古镇'},{url:'https://player.bilibili.com/player.html?bvid=BV1s54y1q7sw&autoplay=0',title:'VLOG水城古镇'}],
+nav:'水城古镇',phone:'',book:'',note_nav:'六盘水市水城区'
 },
 'm-d4-meihuashan':{
 title:'梅花山·星乌托邦露营基地',
@@ -594,7 +658,8 @@ intro:'梅花山景区内的成熟露营基地，50顶帐篷8种类型，家庭/
 detail:'⛺ <strong>50顶帐篷·8种类型</strong>：家庭帐篷、亲子帐篷、星空帐篷等，拎包入住不用带装备<br><br>🌿 <strong>高山草甸</strong>：广阔草坪，远眺群山，19℃凉爽<br><br>🔥 <strong>烧烤区</strong>：可自助烧烤，食材可自带或营地购买<br><br>🚿 <strong>配套</strong>：淋浴、卫生间、停车场齐全<br><br>💰 约200-300元/顶/晚（含基本设施）<br>🎫 梅花山景区免费进入',
 kids:'草坪上奔跑撒欢，帐篷里探险，看远处牛羊吃草。晚上看星星，城市里见不到这么多。',
 photo:'📸 日落时分帐篷+草甸+远山组合最出片。',
-images:['https://s.coze.cn/image/5yy0idGnU9o/','https://s.coze.cn/image/LyAqBJKpDfY/','https://s.coze.cn/image/rYkNe5ylftE/','https://s.coze.cn/image/_hPoeQ2YO5s/','https://s.coze.cn/image/pu-7IpuSR5A/']
+images:['https://s.coze.cn/image/5yy0idGnU9o/','https://s.coze.cn/image/LyAqBJKpDfY/','https://s.coze.cn/image/rYkNe5ylftE/','https://s.coze.cn/image/_hPoeQ2YO5s/','https://s.coze.cn/image/pu-7IpuSR5A/'],
+nav:'梅花山景区',book:'http://www.meihuashanly.cn/',book_label:'梅花山官网',note_nav:'六盘水市梅花山景区'
 },
 'm-d4-longchi':{
 title:'龙池欢乐岛',
@@ -603,7 +668,8 @@ tags:['<span class="modal-tag kid">亲子圣地</span>','<span class="modal-tag 
 intro:'水城区本地人的遛娃圣地，2026年6月全面升级。集垂钓、桨板皮划艇、无动力乐园、萌宠乐园于一体。',
 detail:'🎣 <strong>垂钓</strong>：湖钓草鱼/鲤鱼/鲢鳙，钓具可现场租<br><br>🏄 <strong>桨板/皮划艇</strong>：湖面划行，亲子双人艇可选<br><br>🎪 <strong>无动力乐园</strong>：攀爬、滑梯、秋千，小孩自由玩<br><br>🐰 <strong>萌宠乐园</strong>：小兔子、小羊等，小朋友最爱<br><br>💰 垂钓约50-80元/人；桨板另计<br>🚶 全程平坦，婴儿车友好',
 kids:'爸爸钓鱼，妈妈带娃划桨板、喂小动物、玩无动力乐园。各得其所，互不干扰。',
-images:['https://s.coze.cn/image/1X1wd98lu-k/','https://s.coze.cn/image/gHFMDC-1e4I/','https://s.coze.cn/image/Hxb2mBGn3CU/']
+images:['https://s.coze.cn/image/1X1wd98lu-k/','https://s.coze.cn/image/gHFMDC-1e4I/','https://s.coze.cn/image/Hxb2mBGn3CU/'],
+nav:'龙池欢乐岛',phone:'',book:'',note_nav:'水城区双水街道'
 },
 'm-d4-laoguo':{
 title:'水城烙锅·全有福',
@@ -614,7 +680,8 @@ detail:'🍳 万物可烙：五花肉、洋芋片、豆腐、饵块、青椒、�
 kids:'看大人往凸面锅上放食材像看魔术表演。小孩吃烙洋芋片和烙豆腐（不辣）。',
 food:'<ul class="food-list"><li>烙五花肉</li><li>烙洋芋片</li><li>烙豆腐</li><li>烙饵块</li><li>冰浆（水果+冰块+糯米现打，解辣消暑）</li></ul><p class="food-price">人均35-50元</p>',
 images:['https://s.coze.cn/image/QtHQEc1nZP0/','https://s.coze.cn/image/erM1jrAzBuo/','https://s.coze.cn/image/VyzJITmhjUs/'],
-videos:[{url:'https://player.bilibili.com/player.html?bvid=BV1LT4y137Lf&autoplay=0',title:'水城烙锅体验'},{url:'https://player.bilibili.com/player.html?bvid=BV1HFdSYpEeY&autoplay=0',title:'外国人体验烙锅'}]
+videos:[{url:'https://player.bilibili.com/player.html?bvid=BV1LT4y137Lf&autoplay=0',title:'水城烙锅体验'},{url:'https://player.bilibili.com/player.html?bvid=BV1HFdSYpEeY&autoplay=0',title:'外国人体验烙锅'}],
+nav:'全有福烙锅',phone:'0858-8293906',book:'',note_nav:'水城古镇侧巷'
 },
 'm-d5-maohe':{
 title:'牂牁江猫河·休闲钓鱼',
@@ -624,7 +691,8 @@ intro:'牂牁江猫河的休闲钓鱼棚，管吃管住，是贵州西部最地�
 detail:'🎣 <strong>鱼种</strong>：草鱼、鲤鱼、翘嘴、鲢鳙，均为野生<br><br>🏠 <strong>李安贵钓鱼棚</strong>：管吃管住120元/人/天（含三餐+住宿+钓位），包棚150元/天<br><br>🚤 <strong>快艇送钓位</strong>：坐快艇到最佳钓位，刺激又方便<br><br>🏔️ <strong>环境</strong>：峡谷碧水，两岸青山，空气清新<br><br>💡 不想钓鱼的人可以在江边散步、拍照、看风景，或坐游船游览牂牁江（约80-100元/人）',
 kids:'坐快艇到钓位超刺激！不钓鱼的可以看江景、拍照、在安全区域踩水。',
 water:'💧 牂牁江峡谷段，水质清澈，鱼资源丰富。指定安全区域可垂钓和戏水。',
-images:['https://s.coze.cn/image/r2F52iqBZeA/','https://s.coze.cn/image/b-nq8YXaN20/','https://s.coze.cn/image/Q77uSb63iI8/','https://s.coze.cn/image/PTkau0nq0tA/','https://s.coze.cn/image/3eEO4aPv2Jk/']
+images:['https://s.coze.cn/image/r2F52iqBZeA/','https://s.coze.cn/image/b-nq8YXaN20/','https://s.coze.cn/image/Q77uSb63iI8/','https://s.coze.cn/image/PTkau0nq0tA/','https://s.coze.cn/image/3eEO4aPv2Jk/'],
+nav:'牂牁江猫河',phone:'',book:'',note_nav:'六枝特区中寨乡牂牁江猫河'
 },
 'm-d5-longji':{
 title:'龙脊天路',
@@ -636,7 +704,8 @@ kids:'坐车上山就像坐过山车！到山顶看大草原、看远处的江�
 photo:'📸 山顶拍公路如巨龙盘山、牂牁江S型大拐弯、日落金光。',
 note:'<div class="mtip gold">⚠️ 龙脊天路自驾难度极高。如果驾驶员没把握，可以改走牂牁江边看日落，同样壮观，且更安全。</div>',
 images:['https://s.coze.cn/image/f1FlQva8DlU/','https://s.coze.cn/image/i0zIipRvNVA/','https://s.coze.cn/image/Vn2bXkS_318/','https://s.coze.cn/image/VTWZENMr9QI/','https://s.coze.cn/image/lVNiqycPe4s/'],
-videos:[{url:'https://player.bilibili.com/player.html?bvid=BV1f4xNz8EZC&autoplay=0',title:'4K驾车之旅'},{url:'https://player.bilibili.com/player.html?bvid=BV1Ef48zqEoE&autoplay=0',title:'龙脊天路风光'}]
+videos:[{url:'https://player.bilibili.com/player.html?bvid=BV1f4xNz8EZC&autoplay=0',title:'4K驾车之旅'},{url:'https://player.bilibili.com/player.html?bvid=BV1Ef48zqEoE&autoplay=0',title:'龙脊天路风光'}],
+nav:'龙脊天路',phone:'',book:'',note_nav:'六枝特区，导航搜李保寨（移山村委会）'
 },
 'm-d5-azhihe':{
 title:'阿志河露营休闲基地',
@@ -646,7 +715,8 @@ intro:'六枝特区的成熟露营基地，依溪而建，设施齐全。烧烤�
 detail:'⛺ <strong>营地设施</strong>：帐篷位/自带帐篷均可，有烧烤台、桌椅<br><br>🔥 <strong>自助烧烤</strong>：食材可自带或附近购买，营地提供烧烤架<br><br>💧 <strong>溪流</strong>：营地旁有清澈溪流，可戏水<br><br>🚿 <strong>配套</strong>：公共浴室（热水淋浴）、卫生间、停车场<br><br>💰 约50-100元/人（含营位费）<br>🌌 远离光污染，星空可观',
 kids:'在溪流边踩水捡石头，帮大人串烧烤食材，晚上围着篝火看星星。',
 food:'<ul class="food-list"><li>五花肉</li><li>鸡翅</li><li>玉米</li><li>土豆</li><li>韭菜</li><li>豆腐</li></ul><p class="food-price">烧烤食材建议自带，附近六枝城区可采购</p>',
-images:['https://s.coze.cn/image/VEFIPso58HA/','https://s.coze.cn/image/yqkTKsS8m7U/','https://s.coze.cn/image/bdv1sEohAv8/']
+images:['https://s.coze.cn/image/VEFIPso58HA/','https://s.coze.cn/image/yqkTKsS8m7U/','https://s.coze.cn/image/bdv1sEohAv8/'],
+nav:'阿志河露营基地',phone:'',book:'',note_nav:'六枝特区阿志河'
 },
 'm-d6-langdai':{
 title:'郎岱古镇',
@@ -656,7 +726,8 @@ intro:'六枝特区郎岱镇，保存完好的明清古镇，青石板路配马�
 detail:'🍘 <strong>郎岱凉粉</strong>：米浆做成，加郎岱特产酱+酸萝卜，消暑神器。3-5元一碗<br><br>🥩 <strong>郎岱金丝肉饼</strong>：千层面皮包肉馅，油炸至金黄酥脆，外酥里嫩。5-8元一个<br><br>🍜 <strong>岩脚面</strong>：百年手工擀面，国家地理标志保护产品。面条筋道爽滑<br><br>🍘 <strong>岩脚肉饼</strong>：类似金丝肉饼但更大更厚实<br><br>🏘️ 古镇青石板路漫步，看马头墙、老宅院，没有商业化，原汁原味<br>📍 六枝特区郎岱镇，免费',
 kids:'在青石板路上跑，买凉粉吃（甜甜酸酸的），看老房子数马头墙。',
 food:'<ul class="food-list"><li>郎岱凉粉（3-5元）</li><li>金丝肉饼（5-8元）</li><li>岩脚面（10-15元）</li><li>岩脚肉饼（8-10元）</li></ul><p class="food-price">人均15-30元</p>',
-images:['https://s.coze.cn/image/w2K5FoBp5rM/','https://s.coze.cn/image/UAlXlF5qLGs/','https://s.coze.cn/image/ZGxaF4nCMtk/']
+images:['https://s.coze.cn/image/w2K5FoBp5rM/','https://s.coze.cn/image/UAlXlF5qLGs/','https://s.coze.cn/image/ZGxaF4nCMtk/'],
+nav:'郎岱古镇',phone:'0858-5323157',book:'',note_nav:'六枝特区郎岱镇'
 },
 'm-d6-duanqiao':{
 title:'断桥青椒鱼·鲁记',
@@ -666,7 +737,8 @@ intro:'关岭断桥·鲁记青椒鱼火锅，用北盘江鲜活鱼+青花椒+秘
 detail:'🐟 <strong>北盘江活鱼</strong>：现杀现做，鱼来自北盘江清水<br><br>🌶️ <strong>青花椒</strong>：贵州本地青花椒，麻香四溢<br><br>🍲 <strong>汤底</strong>：鲜香麻辣，鱼汤浓白，喝一口暖胃<br><br>💰 人均50-70元，鱼按斤计价<br>📍 关岭断桥（花江峡谷大桥附近）<br><br>🍚 配一碗白米饭，鱼汤泡饭，绝了！',
 kids:'鱼肉嫩滑不辣的部分给小孩吃，鲜得很。汤泡饭小孩爱吃。',
 food:'<ul class="food-list"><li>青椒鱼火锅（必点）</li><li>酸汤鱼（备选）</li><li>关岭剪粉（特色小吃）</li><li>王姨妈糯米饭（如路过关岭县城）</li></ul><p class="food-price">人均50-70元</p>',
-images:['https://s.coze.cn/image/99qVawoMA4U/','https://s.coze.cn/image/eAVy2sDfwsM/','https://s.coze.cn/image/HoDIPPqdOVY/']
+images:['https://s.coze.cn/image/99qVawoMA4U/','https://s.coze.cn/image/eAVy2sDfwsM/','https://s.coze.cn/image/HoDIPPqdOVY/'],
+nav:'断桥鲁记青椒鱼火锅',phone:'13885303610',book:'',note_nav:'关岭断桥G320国道旁，花江峡谷大桥附近'
 },
 'm-d6-gaojiadu':{
 title:'北盘江高家渡码头',
@@ -675,7 +747,8 @@ tags:['<span class="modal-tag water">水上乐园</span>','<span class="modal-ta
 intro:'北盘江高家渡码头，集游船、垂钓、桨板、皮划艇、水上自行车、摩托艇于一体。峡谷江面宽阔，碧水如镜。',
 detail:'🚢 <strong>游船</strong>：游览北盘江峡谷，约80-100元/人<br><br>🎣 <strong>垂钓</strong>：江边野钓，免费（自带钓具）<br><br>🏄 <strong>桨板/皮划艇</strong>：水面划行<br><br>🚲 <strong>水上自行车</strong>：亲子项目，小孩最爱<br><br>🏖️ <strong>江边踩水</strong>：浅水鹅卵石滩，安全<br><br>💰 江边踩水免费；水上项目另计<br>🌡️ 峡谷内25-28℃，江面有风凉爽',
 kids:'水上自行车超好玩！踩水+捡石头+看大峡谷。坐船看两岸峭壁像进入迷宫。',
-images:['https://s.coze.cn/image/e_HzIQjYVHc/','https://s.coze.cn/image/eEH7bb3ONyE/','https://s.coze.cn/image/20h2k3GwvLE/','https://s.coze.cn/image/w8IGe5XV5-c/']
+images:['https://s.coze.cn/image/e_HzIQjYVHc/','https://s.coze.cn/image/eEH7bb3ONyE/','https://s.coze.cn/image/20h2k3GwvLE/','https://s.coze.cn/image/w8IGe5XV5-c/'],
+nav:'高家渡码头',book:'',note_nav:'关岭高家渡码头，北盘江边'
 }
 };
 
@@ -697,6 +770,13 @@ h+='<div class="modal-video-label">▶ '+d.videos[j].title+'</div>';
 h+='<div class="modal-video"><iframe src="'+d.videos[j].url+'" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; encrypted-media"></iframe></div>';
 }
 }
+// Action buttons (nav/phone/book)
+var acts=[];
+if(d.nav) acts.push('<a class="m-btn nav" href="https://uri.amap.com/search?keyword='+encodeURIComponent(d.nav)+'" target="_blank">🗺️ 高德地图搜索</a>');
+if(d.nav) acts.push('<a class="m-btn nav" href="https://uri.amap.com/navigation?to='+encodeURIComponent(d.nav)+'&mode=car" target="_blank">🧭 导航到这里</a>');
+if(d.phone) acts.push('<a class="m-btn call" href="tel:'+d.phone+'">📞 '+d.phone+'</a>');
+if(d.book) acts.push('<a class="m-btn '+(d.book_label?'site':'book')+'" href="'+d.book+'" target="_blank">'+(d.book_label?'🔗 '+d.book_label:'🎫 预订')+'</a>');
+if(acts.length>0) h+='<div class="modal-actions">'+acts.join('')+'</div>';
 h+='<div class="modal-meta">'+d.tags.join('')+'</div>';
 h+='<div class="modal-section"><h4>简介</h4><div class="modal-text">'+d.intro+'</div></div>';
 h+='<div class="modal-section"><h4>详情</h4><div class="modal-text">'+d.detail+'</div></div>';
