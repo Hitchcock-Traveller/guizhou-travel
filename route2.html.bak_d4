@@ -304,150 +304,56 @@ a:hover{color:#c9a961}
 <div class="day-dot c4">D4</div>
 <div class="day-meta">
 <div class="day-date">8月11日</div>
-<div class="day-spots">普立特大桥 → 尼珠河大峡谷 · 蹦极 · 滑翔伞 · 火腿庄园 → 野钓星空</div>
+<div class="day-spots">梅花山露营 → 龙池垂钓 → 烙锅</div>
 </div>
 <div class="day-right">
-<div class="day-temp">13-27℃</div>
+<div class="day-temp">19-22℃</div>
 <svg class="day-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
 </div>
 </div>
-<div class="day-expand" style="background-image:url('https://s.coze.cn/image.spWTFIuSJ2M/')">
+<div class="day-expand" style="background-image:url('https://s.coze.cn/image/LyAqBJKpDfY/')">
 <div class="day-info-bar">
-<span class="info-pill">🌉 世界最高悬索桥</span>
-<span class="info-pill water">🎣 尼珠河野钓</span>
-<span class="info-pill food">🍖 宣威火腿</span>
-<span class="info-pill">🚂 峡谷小火车</span>
-<span class="info-pill">🪂 蹦极·飞拉达</span>
-<span class="info-pill water">♨️ 温泉泳池</span>
-<span class="info-pill food">🥩 火腿庄园</span>
+<span class="info-pill">🏕️ 拎包入住露营</span>
+<span class="info-pill water">🎣 垂钓+亲子乐园</span>
+<span class="info-pill food">🍳 水城烙锅</span>
 </div>
 <div class="spot-strip">
-<div class="spot-chip" onclick="openModal('m-d4-daqiao')">
-<div class="spot-emoji">🌉</div>
+<div class="spot-chip" onclick="openModal('m-d4-baichehe')">
+<div class="spot-emoji">♨️</div>
 <div class="spot-chip-info">
-<div class="spot-chip-name">普立特大桥</div>
-<div class="spot-chip-sub">世界最高悬索桥 · 桥面500m · 路过即观</div>
+<div class="spot-chip-name">百车河温泉</div>
+<div class="spot-chip-sub">30+温泉泡池 · 水上乐园 · 富硒温泉</div>
 </div>
 <div class="spot-chip-arrow">›</div>
 </div>
-<div class="spot-chip" onclick="openModal('m-d4-nizhuhe')">
-<div class="spot-emoji">🏔️</div>
+<div class="spot-chip" onclick="openModal('m-d4-yejiping')">
+<div class="spot-emoji">🌌</div>
 <div class="spot-chip-info">
-<div class="spot-chip-name">尼珠河大峡谷</div>
-<div class="spot-chip-sub">双悬崖电梯 · 高空缆车 · 雌雄双瀑</div>
+<div class="spot-chip-name">野鸡坪星空露营</div>
+<div class="spot-chip-sub">动力滑翔伞 · 玻璃栈道 · 银河星空</div>
 </div>
 <div class="spot-chip-arrow">›</div>
 </div>
-<div class="spot-chip" onclick="openModal('m-d4-glass')">
-<div class="spot-emoji">🌫️</div>
+<div class="spot-chip" onclick="openModal('m-d4-cichong')">
+<div class="spot-emoji">🍗</div>
 <div class="spot-chip-info">
-<div class="spot-chip-name">云端玻璃吊桥</div>
-<div class="spot-chip-sub">360m高空 · 365m长 · 5D碎裂特效</div>
-</div>
-<div class="spot-chip-arrow">›</div>
-</div>
-<div class="spot-chip" onclick="openModal('m-d4-520')">
-<div class="spot-emoji">💕</div>
-<div class="spot-chip-info">
-<div class="spot-chip-name">520悬空玻璃观景台</div>
-<div class="spot-chip-sub">520m高空 · 悬出悬崖68m · 俯瞰全峡</div>
-</div>
-<div class="spot-chip-arrow">›</div>
-</div>
-<div class="spot-chip" onclick="openModal('m-d4-train')">
-<div class="spot-emoji">🚂</div>
-<div class="spot-chip-info">
-<div class="spot-chip-name">峡谷小火车</div>
-<div class="spot-chip-sub">穿行峡谷深处 · 2km · 小孩最爱</div>
-</div>
-<div class="spot-chip-arrow">›</div>
-</div>
-<div class="spot-chip" onclick="openModal('m-d4-kids')">
-<div class="spot-emoji">🎠</div>
-<div class="spot-chip-info">
-<div class="spot-chip-name">十二生肖秋千乐园+萌宠园</div>
-<div class="spot-chip-sub">秋千乐园 · 萌宠互动 · 易经文化园</div>
-</div>
-<div class="spot-chip-arrow">›</div>
-</div>
-<div class="spot-chip" onclick="openModal('m-d4-bungee')">
-<div class="spot-emoji">🪂</div>
-<div class="spot-chip-info">
-<div class="spot-chip-name">高空蹦极</div>
-<div class="spot-chip-sub">2025年新开 · 世界级蹦极圣地</div>
-</div>
-<div class="spot-chip-arrow">›</div>
-</div>
-<div class="spot-chip" onclick="openModal('m-d4-ferrata')">
-<div class="spot-emoji">🧗</div>
-<div class="spot-chip-info">
-<div class="spot-chip-name">飞拉达·长空栈道</div>
-<div class="spot-chip-sub">600m悬崖攀岩 · 国际挑战赛举办地</div>
-</div>
-<div class="spot-chip-arrow">›</div>
-</div>
-<div class="spot-chip" onclick="openModal('m-d4-paraglide')">
-<div class="spot-emoji">🪁</div>
-<div class="spot-chip-info">
-<div class="spot-chip-name">滑翔伞</div>
-<div class="spot-chip-sub">宣威首个滑翔伞基地 · 翱翔峡谷</div>
-</div>
-<div class="spot-chip-arrow">›</div>
-</div>
-<div class="spot-chip" onclick="openModal('m-d4-village')">
-<div class="spot-emoji">🏘️</div>
-<div class="spot-chip-info">
-<div class="spot-chip-name">尼珠河古村 · 千年菩提</div>
-<div class="spot-chip-sub">世外桃源 · 千年黄葛树 · 野生猕猴</div>
-</div>
-<div class="spot-chip-arrow">›</div>
-</div>
-<div class="spot-chip" onclick="openModal('m-d4-stone')">
-<div class="spot-emoji">💎</div>
-<div class="spot-chip-info">
-<div class="spot-chip-name">奇石谷 · 一线天</div>
-<div class="spot-chip-sub">亿万奇石 · 天坑溶洞 · 地质奇观</div>
-</div>
-<div class="spot-chip-arrow">›</div>
-</div>
-<div class="spot-chip" onclick="openModal('m-d4-ham')">
-<div class="spot-emoji">🥩</div>
-<div class="spot-chip-info">
-<div class="spot-chip-name">火石地火腿庄园</div>
-<div class="spot-chip-sub">非遗体验 · 石头民居 · 田园云海</div>
-</div>
-<div class="spot-chip-arrow">›</div>
-</div>
-<div class="spot-chip" onclick="openModal('m-d4-pool')">
-<div class="spot-emoji">🏊</div>
-<div class="spot-chip-info">
-<div class="spot-chip-name">酒店泳池 · 温泉</div>
-<div class="spot-chip-sub">成人1200㎡+儿童恒温300㎡ · 室内温泉</div>
-</div>
-<div class="spot-chip-arrow">›</div>
-</div>
-<div class="spot-chip" onclick="openModal('m-d4-diaoyu')">
-<div class="spot-emoji">🎣</div>
-<div class="spot-chip-info">
-<div class="spot-chip-name">尼珠河野钓 + 星空</div>
-<div class="spot-chip-sub">白条鱼 · 英仙座流星雨 · 峡谷银河</div>
+<div class="spot-chip-name">茨冲鸡火锅</div>
+<div class="spot-chip-sub">散养土鸡 · 山泉豆腐 · 本地味道</div>
 </div>
 <div class="spot-chip-arrow">›</div>
 </div>
 </div>
 <div class="day-map-label">📍 今日行程地图</div>
 <div class="day-map-row">
-<a class="map-loc" href="https://uri.amap.com/search?keyword=普立特大桥&city=530381" target="_blank">普立特大桥</a>
-<a class="map-loc" href="https://uri.amap.com/search?keyword=尼珠河大峡谷&city=530381" target="_blank">尼珠河大峡谷</a>
-<a class="map-loc" href="https://uri.amap.com/search?keyword=火石地火腿庄园&city=530381" target="_blank">火腿庄园</a>
-<a class="map-loc" href="https://uri.amap.com/search?keyword=梦景清云度假酒店&city=530381" target="_blank">🏨 梦景·清云</a>
-<a class="map-loc route-btn" href="https://uri.amap.com/navigation?from=六盘水黑拉嘎酒店&to=尼珠河大峡谷&via=普立特大桥,火石地火腿庄园&mode=car&policy=2" target="_blank">🧭 全程导航</a>
+<a class="map-loc" href="https://uri.amap.com/search?keyword=百车河温泉旅游度假区&city=520204" target="_blank">百车河温泉</a>
+<a class="map-loc" href="https://uri.amap.com/search?keyword=野鸡坪星空露营基地&city=520204" target="_blank">野鸡坪露营</a>
+<a class="map-loc" href="https://uri.amap.com/search?keyword=茨冲鸡火锅&city=520204" target="_blank">茨冲鸡火锅</a>
+<a class="map-loc route-btn" href="https://uri.amap.com/navigation?from=六盘水市&to=百车河温泉旅游度假区&via=茨冲鸡火锅,野鸡坪星空露营基地&mode=car&policy=2" target="_blank">🧭 全程导航</a>
 </div>
 <div class="day-map-label">🏨 当晚住宿</div>
 <div class="day-map-row">
-<a class="map-loc" href="tel:15287978034">📞 15287978034</a>
-<a class="map-loc" href="https://hotels.ctrip.com/hotels/114200444.html" target="_blank">🎫 携程预订</a>
-<a class="map-loc" href="https://uri.amap.com/search?keyword=梦景清云度假酒店&city=530381" target="_blank">📍 导航到酒店</a>
+<a class="map-loc" href="tel:15519842829" target="_blank">📞 禾阅·水云涧 15519842829</a>
+<a class="map-loc" href="https://uri.amap.com/search?keyword=禾阅水云涧度假庄园&city=520204" target="_blank">📍 导航到酒店</a>
 </div>
 </div>
 </div>
@@ -575,19 +481,9 @@ a:hover{color:#c9a961}
 <p>野生草鱼/鲤鱼/翘嘴，钓鱼棚管吃管住120元/人/天</p>
 </div>
 <div class="water-chip">
-<h4>🎣 尼珠河野钓</h4>
-<div class="wc-loc">D4 · 宣威普立乡</div>
-<p>峡谷河段野钓白条鱼，夜间观英仙座流星雨，零光污染</p>
-</div>
-<div class="water-chip">
-<h4>🎣 可渡河野钓</h4>
-<div class="wc-loc">D4 · 龙场镇 30min车程</div>
-<p>免费野钓，鲫鱼/鲤鱼/草鱼/鲢鳙/黑鱼，鱼种丰富</p>
-</div>
-<div class="water-chip">
-<h4>🎣 包湾水库</h4>
-<div class="wc-loc">D4 · 40min车程</div>
-<p>20元/天，鲫鱼/鲤鱼/草鱼/鲢鳙/马口鱼</p>
+<h4>🎣 龙池欢乐岛</h4>
+<div class="wc-loc">D4 · 水城区</div>
+<p>垂钓+桨板皮划艇+无动力乐园，本地人遛娃圣地</p>
 </div>
 <div class="water-chip">
 <h4>🏔️ 龙脊天路</h4>
@@ -625,8 +521,7 @@ a:hover{color:#c9a961}
 <div class="tips-accordion" id="t1">
 <div class="tips-head" onclick="toggleCard('t1')"><span class="t-icon">🎒</span>必带装备<svg class="t-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
 <div class="tips-body"><div class="tips-body-inner"><ul>
-<li>薄外套（牂牁江面风大+峡谷早晚温差大+夜间观星约15℃）</li>
-<li>防滑运动鞋（峡谷栈道+玻璃桥需要防滑底）</li>
+<li>薄外套（牂牁江面风大+早晚温差大）</li>
 <li>防滑凉鞋（溪流踩水必备）</li>
 <li>小网兜+小瓶子（溪流捞鱼用）</li>
 <li>防晒+帽子（高原紫外线强）</li>
@@ -642,12 +537,6 @@ a:hover{color:#c9a961}
 <li>阿志河溪流戏水注意防滑，牵好小孩</li>
 <li>龙脊天路弯道多，提前备好晕车药</li>
 <li>花江/高家渡不要去深水处，注意上游涨水</li>
-<li>尼珠河大峡谷全程电梯+缆车+小火车，无需爬山，非常适合小孩</li>
-<li>玻璃吊桥5D特效可能吓到胆小的小孩，大人先走一遍示范</li>
-<li>看野生猕猴保持3米距离，不要投喂不要对视</li>
-<li>峡谷内湿度大，给小孩穿防滑鞋</li>
-<li>蹦极/飞拉达/滑翔伞有年龄体重限制，先咨询工作人员</li>
-<li>酒店儿童恒温泳池水温舒适，放心让小孩玩</li>
 <li>每天保证午休，车程中让小孩睡</li>
 <li>所有景点车到即达，无需爬山走远路</li>
 </ul></div></div>
@@ -656,15 +545,12 @@ a:hover{color:#c9a961}
 <div class="tips-accordion" id="t3">
 <div class="tips-head" onclick="toggleCard('t3')"><span class="t-icon">🎫</span>门票汇总<svg class="t-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
 <div class="tips-body"><div class="tips-body-inner"><ul>
-<li>威宁小吃/古镇/普立特大桥/郎岱古镇/龙脊天路/高家渡/尼珠河野钓/尼珠河古村：免费</li>
-<li>尼珠河大峡谷全票套票（含电梯+缆车+玻璃桥+观景台+小火车+秋千乐园）：108元/人（3日有效），儿童1.2-1.4m/学生/60岁+半价49元，1.2m以下/70岁+免费</li>
-<li>尼珠河大峡谷纯徒步票（不含电梯/缆车/玻璃桥）：29.9元/人</li>
-<li>蹦极/飞拉达/滑翔伞/高空滑索：单独收费，以现场为准</li>
-<li>火石地火腿庄园：免费参观，用餐另计</li>
-<li>梦景·清云度假酒店：约400元/间/晚（含泳池+温泉+KTV）</li>
+<li>威宁小吃/古镇/龙池欢乐岛/郎岱古镇/龙脊天路/高家渡：免费</li>
+<li>梅花山星乌托邦露营：约200-300元/顶（拎包入住）</li>
 <li>牂牁江猫河钓鱼：钓鱼棚150元/天，包吃住120元/人/天</li>
 <li>阿志河露营：约50-100元/人</li>
 <li>牂牁江游船（备选）：约80-100元/人</li>
+<li>龙池欢乐岛垂钓：约50-80元/人</li>
 </ul></div></div>
 </div>
 
@@ -692,16 +578,6 @@ a:hover{color:#c9a961}
 <li>断桥青椒鱼（鲁记）：北盘江活鱼+青花椒</li>
 <li>王姨妈糯米饭：柴火蒸糯米+脆哨+花生+秘制辣椒</li>
 <li>冰浆：水果+冰块+糯米现打，解辣消暑（30年老店）</li>
-<li>宣威火腿：世界三大火腿之一，与金华火腿齐名，600年历史</li>
-<li>宣威土八碗宴：曲靖传统宴席，八大碗荤素搭配</li>
-<li>酸菜猪脚火锅：宣威特色，酸爽开胃</li>
-<li>尼珠河白条鱼：清水加盐煮，不放佐料，鲜美至极</li>
-<li>火石地火腿宴：古法腌制火腿各部位，配山茅野菜，人均50-100元</li>
-<li>彝家坨坨肉：高山黑猪肉大块炖煮，配木姜子蘸水</li>
-<li>宣威小甑酒：本地酿造小曲酒，配火腿绝了</li>
-<li>烧饵块/蒸饵丝：云南特色早餐，酒店就有</li>
-<li>刺梨汁：维C之王，酸甜解暑</li>
-<li>丑红薯/富硒土豆：普立乡特产，农家现烤</li>
 </ul></div></div>
 </div>
 
@@ -727,7 +603,7 @@ a:hover{color:#c9a961}
 <!-- Footer -->
 <footer class="footer">
 <p>黔途拾趣 · 路线二 · 2026贵州钓旅西行</p>
-<p>毕节→威宁→六盘水→普立特大桥→尼珠河大峡谷·玻璃桥·蹦极·飞拉达·滑翔伞→火石地火腿庄园→牂牁江→龙脊天路→阿志河→郎岱→花江→洞口</p>
+<p>毕节→威宁→六盘水→梅花山→龙池→牂牁江→龙脊天路→阿志河→郎岱→花江→洞口</p>
 <p style="margin-top:.5rem">用 <span class="heart">♥</span> 为两个小孩规划</p>
 <p style="margin-top:.8rem"><a href="index.html">← 返回路线一</a></p>
 </footer>
@@ -774,158 +650,40 @@ images:['https://s.coze.cn/image/MjZdiU5CMEs/','https://s.coze.cn/image/91zGO25X
 videos:[{url:'https://player.bilibili.com/player.html?bvid=BV16E3kz8EAu&autoplay=0',title:'自驾游逛水城古镇'},{url:'https://player.bilibili.com/player.html?bvid=BV1s54y1q7sw&autoplay=0',title:'VLOG水城古镇'}],
 nav:'水城古镇',phone:'',book:'',note_nav:'六盘水市水城区'
 },
-'m-d4-daqiao':{
-title:'普立特大桥',
-sub:'D4 途中 · 六盘水→宣威普立 · 车程约1h',
-tags:['<span class="modal-tag nature">世界最高悬索桥</span>','<span class="modal-tag free">免费</span>','<span class="modal-tag easy">路过即观</span>'],
-intro:'世界最高悬索桥，桥面距河床约500米，全长1040米，横跨宝山与普立两个乡镇。从六盘水前往尼珠河大峡谷途中必经之路，停车即可观赏。',
-detail:'🌉 <strong>世界之最</strong>：同类桥梁世界第一高度，云南首次使用火箭抛掷输送先导索建成<br><br>📏 <strong>规模</strong>：全长1040m，桥面距谷底约500m<br><br>🆓 <strong>免费</strong>：开车经过即可体验，路边有观景位<br><br>📍 位于普立乡，从六盘水方向来必经此桥<br>⏰ 全年全天开放<br><br>🌫️ 运气好可遇云雾缭绕，大桥如悬在空中',
-kids:'从车里看大桥，震撼！停下车拍张合影，感受500米高度的壮观。',
-photo:'📸 站在桥下仰拍最震撼，云雾天更佳。',
-images:['https://s.coze.cn/image.spWTFIuSJ2M/'],
-nav:'普立特大桥',phone:'',book:'',note_nav:'宣威市普立乡'
+'m-d4-baichehe':{
+title:'百车河温泉旅游度假区',
+sub:'D4 上午-下午 · 水城区蟠龙镇 · 车程30min',
+tags:['<span class="modal-tag water">30+温泉泡池</span>','<span class="modal-tag kid">水上乐园</span>','<span class="modal-tag nature">田园风光</span>','<span class="modal-tag easy">全天候开放</span>'],
+intro:'水城区蟠龙镇天然富硒温泉度假区，30多个恒温泡池（55℃原汤），配水上乐园、钓鱼、田园散步。90多家民宿沿河分布，水车景观点缀其间。',
+detail:'♨️ <strong>30+天然温泉泡池</strong>：55℃富硒原汤，恒温四季可泡，室内外多种池型可选<br><br>🏊 <strong>水上乐园</strong>：滑梯、造浪池、戏水区，小朋友畅玩<br><br>🎣 <strong>休闲垂钓</strong>：河畔钓鱼，田园风光中放松<br><br>🌾 <strong>田园漫步</strong>：水车景观、河畔步道、绿色田园，适合拍照散步<br><br>🕐 <strong>开放时间</strong>：00:00-24:00（全天候）<br>💰 温泉门票约68-128元/人（含水上乐园）<br>🎫 度假区免费进入',
+kids:'小朋友在水上乐园玩滑梯戏水，大人泡温泉放松。河边散步看水车，田园里追蝴蝶。',
+photo:'📸 日落时分的温泉水面+田园+远山组合最出片。夜泡温泉看星空别有一番风味。',
+images:['https://s.coze.cn/image/5zrgZWml74E/','https://s.coze.cn/image/spWTFIuSJ2M/','https://s.coze.cn/image/GYXRGrWprD4/','https://s.coze.cn/image/fUMxnG13YA0/'],
+nav:'百车河温泉旅游度假区',phone:'',book:'',note_nav:'六盘水市水城区蟠龙镇百车河村'
 },
-'m-d4-nizhuhe':{
-title:'尼珠河大峡谷',
-sub:'D4 下午 · 宣威普立乡 · 车程约1h',
-tags:['<span class="modal-tag nature">500m垂直峡谷</span>','<span class="modal-tag easy">电梯+缆车</span>','<span class="modal-tag kid">玻璃栈道</span>','<span class="modal-tag water">雌雄双瀑</span>'],
-intro:'全长约20公里的喀斯特+丹霞地貌峡谷，平均海拔1100m，落差520m。双悬崖电梯（青云梯268m+扶摇梯288m，2026年7月31日新投运）、高空缆车、玻璃栈道，全程无需爬山。',
-detail:'🏔️ <strong>500m垂直峡谷</strong>：喀斯特+丹霞地貌，两岸绝壁如刀削<br><br>🛗 <strong>双悬崖电梯</strong>：青云梯268m（2022年投运）+ 扶摇梯288m（全网爆火"空中校车"，2026年7月31日刚投运）<br><br>🚡 <strong>高空缆车</strong>：200余米高差，空中俯瞰峡谷全景<br><br>🌉 <strong>玻璃栈道</strong>：悬崖透明观景台，脚下就是深渊<br><br>💧 <strong>雌雄双瀑</strong>：500m落差瀑布群，亚洲落差最大之一<br><br>🌳 <strong>千年菩提</strong>：尼珠河村旁的千年黄葛树，直径3m+<br><br>🕐 <strong>开放时间</strong>：00:00-24:00<br>💰 景区套票含电梯+缆车（具体价格现场确认）<br>📍 云南省宣威市普立乡官寨村',
-kids:'坐悬崖电梯穿越500米绝壁，坐缆车飞越峡谷，走玻璃栈道看脚下深渊。小朋友觉得像坐飞船！',
-photo:'📸 电梯内向外拍峡谷绝壁、缆车上俯瞰尼珠河、玻璃栈道脚下深渊，三张必拍。',
-note:'<div class="mtip green">✅ 全程电梯+缆车+栈道，无需爬山步行，完全适合带小孩和老人。</div>',
-images:['https://s.coze.cn/image.spWTFIuSJ2M/'],
-nav:'尼珠河大峡谷',phone:'',book:'',note_nav:'云南省宣威市普立乡官寨村'
+'m-d4-yejiping':{
+title:'野鸡坪星空露营基地',
+sub:'D4 傍晚-夜间 · 野玉海度假区 · 车程40min',
+tags:['<span class="modal-tag nature">海拔2300m</span>','<span class="modal-tag water">动力滑翔伞</span>','<span class="modal-tag easy">免费露营</span>','<span class="modal-tag kid">玻璃栈道</span>'],
+intro:'野玉海度假区海拔2300m的高山营地，夏季均温18-19℃。动力滑翔伞、玻璃栈道、4000亩花海，夜晚银河肉眼可见，光污染极低。',
+detail:'🌌 <strong>星空银河</strong>：肉眼可见银河，光污染极低，夜间温度可降至10℃以下，必带厚外套<br><br>🪂 <strong>动力滑翔伞</strong>：高空俯瞰乌蒙山脉，刺激与壮美并存<br><br>🌉 <strong>玻璃栈道</strong>：悬崖边的透明观景台，俯瞰群山<br><br>🌸 <strong>4000亩花海</strong>：高山花海绵延至天际<br><br>⛺ <strong>露营方式</strong>：自带帐篷免费（收停车费），也可租特色民宿/房车<br><br>🎫 野玉海景区免门票<br>📞 景区电话：0858-6662252',
+kids:'坐滑翔伞飞越山巅（大人带小孩），走玻璃栈道看悬崖风景。晚上在草地上看银河，城市里永远见不到的星空。',
+photo:'📸 日落金色光线+滑翔伞剪影、夜间银河+帐篷灯光，两张必拍。',
+images:['https://s.coze.cn/image/0EoKIGM48p0/','https://s.coze.cn/image/N2wb5r2Vl80/','https://s.coze.cn/image/CHCRlM1cgyY/','https://s.coze.cn/image/Y2escFzQfGI/'],
+nav:'野鸡坪星空露营基地',phone:'0858-6662252',book:'',note_nav:'水城区野玉海度假区'
 },
-'m-d4-diaoyu':{
-title:'尼珠河野钓 + 星空',
-sub:'D4 傍晚-夜间 · 酒店旁尼珠河畔',
-tags:['<span class="modal-tag water">尼珠河野钓</span>','<span class="modal-tag nature">英仙座流星雨</span>','<span class="modal-tag free">酒店旁即达</span>','<span class="modal-tag easy">零光污染</span>'],
-intro:'尼珠河是北盘江支流，河中有珍贵的白条鱼，清水煮鲜美无比。傍晚在河边垂钓，夜间观英仙座流星雨（8月12-13日极大期），峡谷环绕几乎零光污染。',
-detail:'🎣 <strong>尼珠河野钓</strong>：白条鱼（当地名鱼，清水煮极鲜）、鲫鱼、鲤鱼<br>💰 免费野钓（限钓区，一人一杆一线）<br><br>🌌 <strong>英仙座流星雨</strong>：8月12-13日为极大期，ZHR 100颗/小时<br>📍 普立乡海拔1100m+，峡谷环绕，光污染几乎为零<br>🌡️ 夜间约15℃，需带薄外套<br><br>🍽️ <strong>宣威美食</strong>（晚餐）：<br>🍖 宣威火腿——世界三大火腿之一，与金华火腿、意大利帕尔马火腿齐名<br>🐔 土鸡——酒店餐厅或当地农家，"不回家的羊"70元/斤<br>🥬 土八碗宴——曲靖传统宴席<br>🐟 钓到的白条鱼让酒店清水加盐煮，最鲜的吃法',
-kids:'在河边甩钓竿钓白条鱼，晚上躺在草地上数流星。城市里永远看不到的满天繁星！',
-photo:'📸 手机广角拍银河+峡谷剪影，长曝光拍流星雨轨迹。今晚是绝佳时机！',
-note:'<div class="mtip gold">🌠 明晚（8月12日）才是英仙座流星雨最佳观测夜，今晚先预热！住在峡谷里，明晚还能继续看。</div>',
-food:'<ul class="food-list"><li>宣威火腿（世界三大火腿）</li><li>土鸡/不回家的羊（70元/斤）</li><li>酸菜猪脚火锅</li><li>土八碗宴</li><li>白条鱼（清水煮，鲜到极致）</li><li>烧饵块/蒸饵丝（云南特色早餐）</li></ul><p class="food-price">人均40-80元</p>',
-images:['https://s.coze.cn/image.spWTFIuSJ2M/'],
-nav:'尼珠河大峡谷',phone:'15287978034',book:'',note_nav:'梦景·清云度假酒店旁，步行即到河边'
+'m-d4-cichong':{
+title:'茨冲鸡火锅',
+sub:'D4 晚餐 · 水城区茨冲老街',
+tags:['<span class="modal-tag nature">本地人认证</span>','<span class="modal-tag easy">顺路不绕</span>'],
+intro:'水城区茨冲老街的地道土鸡火锅，散养土鸡配山泉水豆腐和荞饭，是百车河去野鸡坪路上的本地味道。4大2小中锅+3份豆腐约110元，性价比极高。',
+detail:'🐔 <strong>散养土鸡</strong>：现杀现炖，肉质紧实鲜嫩<br><br>🫘 <strong>山泉豆腐</strong>：用山泉水点的豆花，嫩滑入味<br><br>🌾 <strong>荞饭</strong>：本地特色主食，配鸡汤绝了<br><br>💰 4大2小约110元（中锅+3份豆腐），人均28元<br>📍 水城区茨冲老街（导航"茨冲鸡火锅"）<br>🌶️ 可要求微辣或不辣，适合小孩',
+kids:'喝鸡汤、吃豆花、啃鸡腿。小朋友最爱山泉豆腐，嫩嫩的入口即化。',
+food:'<ul class="food-list"><li>土鸡火锅（中锅/大锅）</li><li>山泉豆花</li><li>荞饭</li><li>凉拌折耳根</li><li>冰粉（解辣消暑）</li></ul><p class="food-price">人均约28元</p>',
+images:['https://s.coze.cn/image/x5xEG-qm6o4/','https://s.coze.cn/image/t28jvY4yFoM/'],
+nav:'茨冲鸡火锅',phone:'',book:'',note_nav:'水城区茨冲老街'
 },
-'m-d4-glass':{
-title:'云端玻璃吊桥',
-sub:'D4 景区 · 尼珠河大峡谷内',
-tags:['<span class="modal-tag nature">世界第一高玻璃桥</span>','<span class="modal-tag kid">5D特效</span>','<span class="modal-tag easy">套票含</span>'],
-intro:'世界第一高悬崖玻璃吊桥，桥面距谷底360米，全长365米，桥面宽3.6米。铺设10毫米厚三层钢化夹胶玻璃，一段采用重力感应5D碎裂特效，踩上去桥面"碎裂"，惊险又刺激。',
-detail:'🌫️ <strong>世界第一高</strong>：同类玻璃桥中最高，360米高度<br><br>📏 <strong>规模</strong>：全长365m，桥面宽3.6m<br><br>👟 <strong>5D特效</strong>：重力感应区，踩上桥面出现玻璃碎裂特效<br><br>🌙 <strong>夜间灯光秀</strong>：桥两侧有LED灯光秀<br><br>💰 含在景区套票内<br>⏰ 建议游玩时间：20-30分钟',
-kids:'小朋友踩到碎裂特效会又惊又笑，大人也觉得刺激！恐高的可以扶着栏杆慢慢走。',
-photo:'📸 桥中央拍脚下深渊+远处峡谷，最震撼。',
-images:['https://s.coze.cn/image.spWTFIuSJ2M/'],
-nav:'尼珠河大峡谷',phone:'',book:'',note_nav:'景区内，无需单独导航'
-},
-'m-d4-520':{
-title:'520悬空玻璃观景台',
-sub:'D4 景区 · 尼珠河大峡谷内',
-tags:['<span class="modal-tag nature">世界最高玻璃悬廊</span>','<span class="modal-tag easy">套票含</span>','<span class="modal-tag temp">最佳拍照点</span>'],
-intro:'建在520米高空的悬空玻璃观景平台，向外延伸68米，面积650平方米。脚下就是万丈深渊，晴天可远眺北盘江大桥，是拍摄峡谷全景的最佳位置。',
-detail:'💕 <strong>520寓意</strong>：高度520米，"我爱你"的浪漫谐音<br><br>📐 <strong>规模</strong>：悬出悬崖68米，面积650㎡<br><br>🌉 <strong>远眺</strong>：晴天可见北盘江大桥全貌<br><br>🌅 <strong>云海日出</strong>：清晨云雾缭绕，如宫崎骏天空之城<br><br>🌙 <strong>夜间灯光秀</strong>：水幕+灯光，都市霓虹与自然景观碰撞<br><br>💰 含在景区套票内',
-kids:'站在悬空玻璃上往下看，既害怕又兴奋！全家合影必到之处。',
-photo:'📸 悬空平台中央拍全景，云海时拍如仙境。日出日落最美。',
-images:['https://s.coze.cn/image.spWTFIuSJ2M/'],
-nav:'尼珠河大峡谷',phone:'',book:'',note_nav:'景区内'
-},
-'m-d4-train':{
-title:'峡谷小火车',
-sub:'D4 景区 · 尼珠河大峡谷谷底',
-tags:['<span class="modal-tag kid">亲子首选</span>','<span class="modal-tag nature">峡谷穿梭</span>','<span class="modal-tag easy">轻松乘坐</span>'],
-intro:'穿行在尼珠河大峡谷深处的小火车，沿着峡谷河道行驶约2公里，两岸是绝壁飞瀑和千年古树。小朋友最爱的项目之一，坐在车上感受"两岸猿声啼不住"的诗意。',
-detail:'🚂 <strong>线路</strong>：谷底沿尼珠河行驶，约2公里<br><br>🏞️ <strong>沿途</strong>：经过飞瀑、古村、千年菩提树、奇石河段<br><br>🐒 <strong>猕猴</strong>：沿途可能看到野生猕猴在崖壁上活动<br><br>💰 含在景区套票内（或单独购票，具体现场确认）<br><br>🚶 也可步行，约30-40分钟',
-kids:'坐小火车穿峡谷，看瀑布、看猴子、看大石头，小朋友开心到尖叫！',
-photo:'📸 小火车上拍峡谷两岸绝壁，抓拍猕猴。',
-images:['https://s.coze.cn/image.spWTFIuSJ2M/'],
-nav:'尼珠河大峡谷',phone:'',book:'',note_nav:'景区谷底乘坐'
-},
-'m-d4-kids':{
-title:'十二生肖秋千乐园+萌宠动物园',
-sub:'D4 景区 · 尼珠河大峡谷内',
-tags:['<span class="modal-tag kid">亲子专区</span>','<span class="modal-tag nature">萌宠互动</span>','<span class="modal-tag free">景区内含</span>'],
-intro:'景区内专为亲子打造的主题乐园。十二生肖秋千乐园，每个生肖造型的秋千各不相同；萌宠动物园有兔子、小羊等萌宠可以近距离互动。旁边还有易经文化园。',
-detail:'🎠 <strong>十二生肖秋千</strong>：12个不同造型的秋千，适合8-9岁小朋友<br><br>🐰 <strong>萌宠动物园</strong>：兔子、小羊、矮马等，可以喂食互动<br><br>☯️ <strong>易经文化园</strong>：了解传统易经文化<br><br>💰 含在景区套票内<br><br>⏰ 建议游玩时间：30-60分钟',
-kids:'秋千荡到飞起！喂小兔子和羊，小朋友玩得不想走。',
-images:['https://s.coze.cn/image.spWTFIuSJ2M/'],
-nav:'尼珠河大峡谷',phone:'',book:'',note_nav:'景区内'
-},
-'m-d4-bungee':{
-title:'高空蹦极',
-sub:'D4 景区 · 2025年新开',
-tags:['<span class="modal-tag nature">极限运动</span>','<span class="modal-tag easy">国际赛事级</span>','<span class="modal-tag temp">恐高慎入</span>'],
-intro:'2025年尼珠河大峡谷新开的高空蹦极项目，利用500米峡谷落差，是西南地区最壮观的蹦极体验之一。2024年11月曾举办首届高空跳伞世界锦标赛，16个国家19名外籍运动员参赛。',
-detail:'🪂 <strong>极限体验</strong>：从峡谷边缘纵身一跃，俯瞰500米深渊<br><br>🏆 <strong>国际赛事</strong>：2024年首届高空跳伞世锦赛举办地<br><br>⚠️ <strong>限制</strong>：高血压、心脏病、孕妇、恐高者不宜参与<br><br>💰 单独收费，价格现场确认',
-kids:'小孩不能跳，但可以在安全区看大人跳，超级刺激！',
-note:'<div class="mtip gold">⚠️ 仅限大人参与，有高血压/心脏病/恐高症者请勿尝试。小朋友可在旁边观战加油。</div>',
-nav:'尼珠河大峡谷',phone:'',book:'',note_nav:'景区内极限运动区'
-},
-'m-d4-ferrata':{
-title:'飞拉达·长空栈道',
-sub:'D4 景区 · 600m悬崖攀岩',
-tags:['<span class="modal-tag nature">悬崖攀岩</span>','<span class="modal-tag easy">国际挑战赛</span>','<span class="modal-tag temp">体力要求高</span>'],
-intro:'沿悬崖峭壁修建的铁索栈道，全长600米，在近乎垂直的崖面上行走，脚下就是万丈深渊。尼珠河大峡谷是国际攀岩挑战赛的举办地，绝壁高耸、风力适中，是飞拉达运动的理想场地。',
-detail:'🧗 <strong>600m悬崖</strong>：在近乎垂直的崖面行走<br><br>🔗 <strong>安全保障</strong>：全程铁索+安全带+头盔，专业教练指导<br><br>🏆 <strong>国际赛事</strong>：攀岩国际挑战赛举办地<br><br>⚠️ <strong>体力要求</strong>：中等以上体力，恐高/高血压不宜<br><br>💰 单独收费<br>⏰ 建议游玩时间：1-2小时',
-kids:'小孩可以走初级短程段（有教练陪同），或者在旁边看大人挑战。',
-note:'<div class="mtip gold">⚠️ 飞拉达需要一定体力。8-9岁小孩可以在教练陪同下体验短程段，大人可以挑战全程600m。</div>',
-nav:'尼珠河大峡谷',phone:'',book:'',note_nav:'景区内极限运动区'
-},
-'m-d4-paraglide':{
-title:'滑翔伞',
-sub:'D4 景区 · 宣威首个滑翔伞基地',
-tags:['<span class="modal-tag nature">翱翔天际</span>','<span class="modal-tag easy">基地直营</span>','<span class="modal-tag temp">恐高慎入</span>'],
-intro:'宣威首个滑翔伞基地，在尼珠河大峡谷上空翱翔，俯瞰整个峡谷、瀑布群和北盘江大桥。基地直营，专业教练双人伞带飞，无需经验。',
-detail:'🪂 <strong>双人伞带飞</strong>：专业教练1对1，零经验也可体验<br><br>🏔️ <strong>全景体验</strong>：空中俯瞰峡谷+瀑布群+北盘江大桥<br><br>⏱️ <strong>飞行时间</strong>：约5-15分钟（视天气和气流）<br><br>⚠️ <strong>限制</strong>：体重40-100kg，无严重疾病<br><br>💰 单独收费，约380-580元/人<br>📍 宣威市普立乡',
-kids:'小孩可以和教练一起坐双人伞飞！翱翔在峡谷上空，终生难忘的体验。',
-note:'<div class="mtip gold">🪂 滑翔伞受天气影响大，大风/雨天不飞。建议上午体验，气流最稳定。</div>',
-nav:'尼珠河大峡谷滑翔伞基地',phone:'',book:'',note_nav:'宣威市普立乡'
-},
-'m-d4-village':{
-title:'尼珠河古村 · 千年菩提',
-sub:'D4 峡谷底部 · 宣威市海拔最低村落',
-tags:['<span class="modal-tag nature">世外桃源</span>','<span class="modal-tag free">免费</span>','<span class="modal-tag easy">休闲漫步</span>','<span class="modal-tag kid">看猕猴</span>'],
-intro:'宣威市海拔最低的村落（1100m），三四十户人家依山傍水，背靠千丈绝壁，面临蜿蜒尼珠河。村旁有一棵千年黄葛树（菩提树），直径3米+，树龄超千年，独木成林覆盖近10亩。峡谷中常年有5群近300只野生猕猴出没。',
-detail:'🏘️ <strong>世外桃源</strong>：三四十户农家，鸡鸣犬吠，炊烟袅袅<br><br>🌳 <strong>千年菩提</strong>：直径3m+，树龄1000年+，独木成林覆盖近10亩<br><br>🐒 <strong>野生猕猴</strong>：5群近300只国家二级保护猕猴，崖壁/林间出没<br><br>🏞️ <strong>彝族风情</strong>：汉族+彝族混居，保留传统婚俗文化<br><br>📍 峡谷底部，乘小火车或步行可达<br>🆓 免费<br>⏰ 建议游玩时间：30-60分钟',
-kids:'看野生猴子！（保持安全距离）在古村捡石头、看大榕树、听溪水声。',
-photo:'📸 千年菩提树下拍全家福，抓拍到猕猴就是大片。',
-note:'<div class="mtip blue">🐒 看猕猴时保持3米以上距离，不要投喂，不要对视（猴子会觉得是挑衅）。</div>',
-images:['https://s.coze.cn/image.spWTFIuSJ2M/'],
-nav:'尼珠河村',phone:'',book:'',note_nav:'尼珠河大峡谷底部'
-},
-'m-d4-stone':{
-title:'奇石谷 · 一线天',
-sub:'D4 峡谷底部 · 地质奇观',
-tags:['<span class="modal-tag nature">地质博物馆</span>','<span class="modal-tag free">免费</span>','<span class="modal-tag easy">轻松步行</span>'],
-intro:'因上游水电站截流而惊现人间的天然奇石群，无数巨石绵延数公里，大小不一、姿态万千。有圆润如巨卵的，有镂空如花瓣的，有突兀如犬牙的。峡谷内还有光怪陆离的溶洞和一线天奇观。',
-detail:'💎 <strong>亿万奇石</strong>：上万年水流冲刷形成的天然奇石群<br><br>🕳️ <strong>溶洞</strong>：大硝洞等溶洞群，钟乳石形态各异，如地下宫殿<br><br>📐 <strong>一线天</strong>：两岸绝壁近垂直，仰头只能看到一线天空<br><br>🌈 <strong>丹霞色彩</strong>：崖壁红、黄、白、灰、黑、绿交织，如天然画卷<br><br>🆓 免费<br>⏰ 建议游玩时间：30-45分钟',
-kids:'在巨石间攀爬探险，钻溶洞、数奇石，像进入恐龙时代的原始世界。',
-photo:'📸 阳光照进一线天时光影最壮观。溶洞内拍钟乳石需开闪光灯。',
-images:['https://s.coze.cn/image.spWTFIuSJ2M/'],
-nav:'尼珠河大峡谷',phone:'',book:'',note_nav:'景区峡谷底部'
-},
-'m-d4-ham':{
-title:'火石地火腿庄园',
-sub:'D4 途中 · 普立乡老厂村 · 距景区约20min',
-tags:['<span class="modal-tag food">非遗体验</span>','<span class="modal-tag nature">石头民居</span>','<span class="modal-tag easy">田园休闲</span>','<span class="modal-tag temp">2024年新开</span>'],
-intro:'2024年底新开的宣威火腿庄园，位于普立乡老厂村火石地，海拔温润、干湿分明。完整保留石头民居原生风貌，划分火腿加工、民俗餐饮、休闲娱乐三大功能区。可以品尝地道火腿宴、山茅野菜，漫步石舍庭院赏云海。',
-detail:'🥩 <strong>火腿品鉴</strong>：宣威火腿传统工艺展示+品尝，古法腌制/晾晒/风干<br><br>🏡 <strong>石头民居</strong>：保留原生风貌的彝族石头建筑群<br><br>🍽️ <strong>民俗餐饮</strong>：地道火腿宴+本地山茅野菜<br><br>☁️ <strong>田园风光</strong>：推窗见云海、推门闻醇香<br><br>🔗 与尼珠河大峡谷景区联动："峡谷观光+火腿品鉴"特色线路<br>📍 宣威市普立乡老厂村火石地',
-kids:'看大人怎么做火腿（像做泥巴一样好玩），吃现烤的火腿饼。',
-food:'<ul class="food-list"><li>火腿宴（整桌火腿各部位）</li><li>火腿饼/火腿炒饭</li><li>山茅野菜（本地采摘）</li><li>土鸡炖火腿</li><li>戈特茶（本地特色茶）</li></ul><p class="food-price">人均50-100元</p>',
-nav:'火石地火腿庄园',phone:'',book:'',note_nav:'宣威市普立乡老厂村'
-},
-'m-d4-pool':{
-title:'酒店泳池 · 温泉',
-sub:'D4 傍晚 · 梦景·清云度假酒店内',
-tags:['<span class="modal-tag kid">儿童恒温池</span>','<span class="modal-tag water">成人1200㎡</span>','<span class="modal-tag easy">住客免费</span>','<span class="modal-tag nature">室内温泉</span>'],
-intro:'梦景·清云度假酒店自带超大泳池群：成人池1200㎡+儿童恒温池300㎡。另外还有室内温泉、露天KTV、儿童乐园。傍晚在泳池畅游或在温泉中放松，消除一天的疲劳。',
-detail:'🏊 <strong>成人泳池</strong>：1200㎡超大室外泳池，山景环绕<br><br>🧒 <strong>儿童恒温池</strong>：300㎡，水温恒定，小朋友安心玩水<br><br>♨️ <strong>室内温泉</strong>：多种温泉池，消除疲劳<br><br>🎤 <strong>露天KTV</strong>：晚上唱歌，峡谷回声效果<br><br>🎮 <strong>儿童乐园</strong>：酒店内游乐设施<br><br>🅿️ <strong>免费停车</strong><br><br>💰 住客免费使用',
-kids:'儿童恒温池300㎡，水温舒服，小朋友可以在里面玩很久。还有儿童乐园。',
-images:['https://s.coze.cn/image.spWTFIuSJ2M/'],
-nav:'梦景清云度假酒店',phone:'15287978034',book:'https://hotels.ctrip.com/hotels/114200444.html',book_label:'携程预订',note_nav:'酒店内'
-},'m-d5-maohe':{
+'m-d5-maohe':{
 title:'牂牁江猫河·休闲钓鱼',
 sub:'D5 上午 · 六枝特区中寨乡 · 车程约1.5h',
 tags:['<span class="modal-tag water">野钓天堂</span>','<span class="modal-tag kid">可坐船</span>','<span class="modal-tag easy">钓棚休闲</span>','<span class="modal-tag nature">峡谷碧水</span>'],
