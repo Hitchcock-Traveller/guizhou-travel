@@ -194,8 +194,7 @@ a:hover{color:#c9a961}
 .m-btn:hover{opacity:.85;transform:translateY(-1px)}
 
 /* ========== Animations ========== */
-.fade-in{opacity:0;transform:translateY(12px);transition:opacity .5s,transform .5s}
-.fade-in.visible{opacity:1;transform:translateY(0)}
+/* old fade-in replaced by dynamic engine */
 
 /* ========== Responsive ========== */
 @media(min-width:768px){
@@ -204,9 +203,152 @@ a:hover{color:#c9a961}
 .modal-sheet{max-width:560px;left:50%;transform:translate(-50%,100%);border-radius:1.2rem 1.2rem 0 0}
 .modal-sheet.show{transform:translate(-50%,0)}
 }
+
+/* ========== 🎬 Dynamic Interactive Effects ========== */
+
+/* --- Scroll progress bar --- */
+.scroll-progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,#2d6a4f,#52b788,#c9a961);z-index:999;width:0%;transition:width .1s linear;pointer-events:none;border-radius:0 2px 2px 0}
+
+/* --- Hero star particles canvas --- */
+#heroCanvas{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0}
+.hero>*:not(#heroCanvas){position:relative;z-index:1}
+
+/* --- Hero parallax + breathing gradient --- */
+.hero{background-size:200% 200%;animation:heroGradient 8s ease infinite}
+@keyframes heroGradient{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+
+/* --- Day dot breathing glow --- */
+@keyframes dotPulse{
+  0%,100%{box-shadow:0 0 0 0 rgba(45,106,79,.3)}
+  50%{box-shadow:0 0 0 8px rgba(45,106,79,0)}
+}
+.day-dot{animation:dotPulse 3s ease-in-out infinite}
+
+/* --- Card staggered entrance --- */
+.day-card{opacity:0;transform:translateY(30px);transition:opacity .6s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.16,1,.3,1),box-shadow .3s}
+.day-card.in-view{opacity:1;transform:translateY(0)}
+
+/* --- Spot chips cascade entrance --- */
+.spot-chip{opacity:0;transform:translateX(-20px);transition:opacity .4s ease,transform .4s ease,background .2s,box-shadow .2s}
+.day-card.open .spot-chip{opacity:1;transform:translateX(0)}
+.day-card.open .spot-chip:nth-child(1){transition-delay:.05s}
+.day-card.open .spot-chip:nth-child(2){transition-delay:.1s}
+.day-card.open .spot-chip:nth-child(3){transition-delay:.15s}
+.day-card.open .spot-chip:nth-child(4){transition-delay:.2s}
+.day-card.open .spot-chip:nth-child(5){transition-delay:.25s}
+.day-card.open .spot-chip:nth-child(6){transition-delay:.3s}
+.day-card.open .spot-chip:nth-child(7){transition-delay:.35s}
+.day-card.open .spot-chip:nth-child(8){transition-delay:.4s}
+.day-card.open .spot-chip:nth-child(9){transition-delay:.45s}
+.day-card.open .spot-chip:nth-child(10){transition-delay:.5s}
+.day-card.open .spot-chip:nth-child(11){transition-delay:.55s}
+.day-card.open .spot-chip:nth-child(12){transition-delay:.6s}
+.day-card.open .spot-chip:nth-child(13){transition-delay:.65s}
+.day-card.open .spot-chip:nth-child(14){transition-delay:.7s}
+
+/* --- Info pills bounce in --- */
+.info-pill{opacity:0;transform:scale(.6);transition:opacity .3s ease,transform .3s cubic-bezier(.34,1.56,.64,1)}
+.day-card.open .info-pill{opacity:1;transform:scale(1)}
+.day-card.open .info-pill:nth-child(1){transition-delay:.05s}
+.day-card.open .info-pill:nth-child(2){transition-delay:.1s}
+.day-card.open .info-pill:nth-child(3){transition-delay:.15s}
+.day-card.open .info-pill:nth-child(4){transition-delay:.2s}
+.day-card.open .info-pill:nth-child(5){transition-delay:.25s}
+.day-card.open .info-pill:nth-child(6){transition-delay:.3s}
+.day-card.open .info-pill:nth-child(7){transition-delay:.35s}
+
+/* --- Map pins bounce --- */
+@keyframes pinBounce{
+  0%{opacity:0;transform:translateY(-8px) scale(.8)}
+  60%{transform:translateY(3px) scale(1.05)}
+  100%{opacity:1;transform:translateY(0) scale(1)}
+}
+.day-card.open .map-loc{animation:pinBounce .4s ease forwards;opacity:0}
+.day-card.open .map-loc:nth-child(1){animation-delay:.3s}
+.day-card.open .map-loc:nth-child(2){animation-delay:.38s}
+.day-card.open .map-loc:nth-child(3){animation-delay:.46s}
+.day-card.open .map-loc:nth-child(4){animation-delay:.54s}
+.day-card.open .map-loc:nth-child(5){animation-delay:.62s}
+
+/* --- Timeline connector line --- */
+.timeline-dot{width:10px;height:10px;border-radius:50%;background:#52b788;border:2px solid #fff;box-shadow:0 0 0 2px rgba(82,183,136,.3);position:absolute;left:-1.75rem;top:1.3rem;z-index:2;display:none}
+.day-card{position:relative}
+
+/* --- Section headers slide in --- */
+.sh{opacity:0;transform:translateX(-20px);transition:opacity .6s ease,transform .6s ease}
+.sh.in-view{opacity:1;transform:translateX(0)}
+
+/* --- Water chips hover glow --- */
+.water-chip{transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease}
+.water-chip:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(26,106,122,.15);border-color:rgba(26,106,122,.3)}
+
+/* --- Day card hover lift --- */
+.day-card.in-view:hover{box-shadow:0 6px 24px rgba(0,0,0,.08);transform:translateY(-2px)}
+
+/* --- Ripple click effect --- */
+.ripple-effect{position:relative;overflow:hidden}
+.ripple-wave{position:absolute;border-radius:50%;background:rgba(45,106,79,.15);transform:scale(0);animation:rippleAnim .6s ease-out forwards;pointer-events:none}
+@keyframes rippleAnim{
+  to{transform:scale(4);opacity:0}
+}
+
+/* --- Rejected items strike animation --- */
+.reject-item{opacity:0;transform:translateX(15px);transition:opacity .4s ease,transform .4s ease}
+.reject-item.in-view{opacity:1;transform:translateX(0)}
+
+/* --- Tips accordion enhanced --- */
+.tips-accordion{opacity:0;transform:translateY(15px);transition:opacity .5s ease,transform .5s ease}
+.tips-accordion.in-view{opacity:1;transform:translateY(0)}
+
+/* --- Footer fade in --- */
+.footer{opacity:0;transition:opacity .8s ease}
+.footer.in-view{opacity:1}
+
+/* --- Spot chip hover shimmer --- */
+.spot-chip::after{content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.3),transparent);transition:left .5s ease;pointer-events:none}
+.spot-chip:hover::after{left:120%}
+.spot-chip{position:relative;overflow:hidden}
+
+/* --- Day card expand glow border --- */
+.day-card.open{border-color:rgba(82,183,136,.2);box-shadow:0 4px 20px rgba(45,106,79,.08)}
+
+/* --- Modal entrance enhance --- */
+.modal-sheet{transition:transform .45s cubic-bezier(.22,1,.36,1)}
+
+/* --- Hero text entrance --- */
+@keyframes heroFadeUp{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.hero-badge{animation:heroFadeUp .8s ease .2s both}
+.hero h1{animation:heroFadeUp .8s ease .4s both}
+.hero p{animation:heroFadeUp .8s ease .6s both}
+.hero-tags{animation:heroFadeUp .8s ease .8s both}
+.route-switch{animation:heroFadeUp .8s ease 1s both}
+
+/* --- Number counter animation --- */
+@keyframes countUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+/* --- Smooth scroll snap for water --- */
+.water-strip{scroll-snap-type:x mandatory}
+.water-chip{scroll-snap-align:start}
+
+/* --- Day summary text shimmer on hover --- */
+.day-spots{transition:color .3s ease}
+.day-card:hover .day-spots{color:#2d6a4f}
+
+/* --- Map row label entrance --- */
+.day-map-label{opacity:0;transition:opacity .4s ease .25s}
+.day-card.open .day-map-label{opacity:1}
+
 </style>
 </head>
 <body>
+<div class="scroll-progress" id="scrollProgress"></div>
 
 <!-- Nav -->
 <nav class="nav"><div class="nav-inner">
@@ -216,6 +358,7 @@ a:hover{color:#c9a961}
 
 <!-- Hero (compact) -->
 <section class="hero">
+<canvas id="heroCanvas"></canvas>
 <div class="hero-badge">2026 · 贵阳以西 · D3—D6</div>
 <h1 class="serif">钓旅<span class="gold">西行</span></h1>
 <p>毕节出发一路向西，19℃凉都、高原野钓、星空露营、地道土著美食，全程零爬山</p>
@@ -304,7 +447,7 @@ a:hover{color:#c9a961}
 <div class="day-dot c4">D4</div>
 <div class="day-meta">
 <div class="day-date">8月11日</div>
-<div class="day-spots">普立特大桥 → 尼珠河大峡谷 · 蹦极 · 滑翔伞 · 火腿庄园 → 野钓星空</div>
+<div class="day-spots">普立特大桥 → 尼珠河大峡谷 → 尼珠河野钓</div>
 </div>
 <div class="day-right">
 <div class="day-temp">13-27℃</div>
@@ -316,10 +459,6 @@ a:hover{color:#c9a961}
 <span class="info-pill">🌉 世界最高悬索桥</span>
 <span class="info-pill water">🎣 尼珠河野钓</span>
 <span class="info-pill food">🍖 宣威火腿</span>
-<span class="info-pill">🚂 峡谷小火车</span>
-<span class="info-pill">🪂 蹦极·飞拉达</span>
-<span class="info-pill water">♨️ 温泉泳池</span>
-<span class="info-pill food">🥩 火腿庄园</span>
 </div>
 <div class="spot-strip">
 <div class="spot-chip" onclick="openModal('m-d4-daqiao')">
@@ -334,95 +473,7 @@ a:hover{color:#c9a961}
 <div class="spot-emoji">🏔️</div>
 <div class="spot-chip-info">
 <div class="spot-chip-name">尼珠河大峡谷</div>
-<div class="spot-chip-sub">双悬崖电梯 · 高空缆车 · 雌雄双瀑</div>
-</div>
-<div class="spot-chip-arrow">›</div>
-</div>
-<div class="spot-chip" onclick="openModal('m-d4-glass')">
-<div class="spot-emoji">🌫️</div>
-<div class="spot-chip-info">
-<div class="spot-chip-name">云端玻璃吊桥</div>
-<div class="spot-chip-sub">360m高空 · 365m长 · 5D碎裂特效</div>
-</div>
-<div class="spot-chip-arrow">›</div>
-</div>
-<div class="spot-chip" onclick="openModal('m-d4-520')">
-<div class="spot-emoji">💕</div>
-<div class="spot-chip-info">
-<div class="spot-chip-name">520悬空玻璃观景台</div>
-<div class="spot-chip-sub">520m高空 · 悬出悬崖68m · 俯瞰全峡</div>
-</div>
-<div class="spot-chip-arrow">›</div>
-</div>
-<div class="spot-chip" onclick="openModal('m-d4-train')">
-<div class="spot-emoji">🚂</div>
-<div class="spot-chip-info">
-<div class="spot-chip-name">峡谷小火车</div>
-<div class="spot-chip-sub">穿行峡谷深处 · 2km · 小孩最爱</div>
-</div>
-<div class="spot-chip-arrow">›</div>
-</div>
-<div class="spot-chip" onclick="openModal('m-d4-kids')">
-<div class="spot-emoji">🎠</div>
-<div class="spot-chip-info">
-<div class="spot-chip-name">十二生肖秋千乐园+萌宠园</div>
-<div class="spot-chip-sub">秋千乐园 · 萌宠互动 · 易经文化园</div>
-</div>
-<div class="spot-chip-arrow">›</div>
-</div>
-<div class="spot-chip" onclick="openModal('m-d4-bungee')">
-<div class="spot-emoji">🪂</div>
-<div class="spot-chip-info">
-<div class="spot-chip-name">高空蹦极</div>
-<div class="spot-chip-sub">2025年新开 · 世界级蹦极圣地</div>
-</div>
-<div class="spot-chip-arrow">›</div>
-</div>
-<div class="spot-chip" onclick="openModal('m-d4-ferrata')">
-<div class="spot-emoji">🧗</div>
-<div class="spot-chip-info">
-<div class="spot-chip-name">飞拉达·长空栈道</div>
-<div class="spot-chip-sub">600m悬崖攀岩 · 国际挑战赛举办地</div>
-</div>
-<div class="spot-chip-arrow">›</div>
-</div>
-<div class="spot-chip" onclick="openModal('m-d4-paraglide')">
-<div class="spot-emoji">🪁</div>
-<div class="spot-chip-info">
-<div class="spot-chip-name">滑翔伞</div>
-<div class="spot-chip-sub">宣威首个滑翔伞基地 · 翱翔峡谷</div>
-</div>
-<div class="spot-chip-arrow">›</div>
-</div>
-<div class="spot-chip" onclick="openModal('m-d4-village')">
-<div class="spot-emoji">🏘️</div>
-<div class="spot-chip-info">
-<div class="spot-chip-name">尼珠河古村 · 千年菩提</div>
-<div class="spot-chip-sub">世外桃源 · 千年黄葛树 · 野生猕猴</div>
-</div>
-<div class="spot-chip-arrow">›</div>
-</div>
-<div class="spot-chip" onclick="openModal('m-d4-stone')">
-<div class="spot-emoji">💎</div>
-<div class="spot-chip-info">
-<div class="spot-chip-name">奇石谷 · 一线天</div>
-<div class="spot-chip-sub">亿万奇石 · 天坑溶洞 · 地质奇观</div>
-</div>
-<div class="spot-chip-arrow">›</div>
-</div>
-<div class="spot-chip" onclick="openModal('m-d4-ham')">
-<div class="spot-emoji">🥩</div>
-<div class="spot-chip-info">
-<div class="spot-chip-name">火石地火腿庄园</div>
-<div class="spot-chip-sub">非遗体验 · 石头民居 · 田园云海</div>
-</div>
-<div class="spot-chip-arrow">›</div>
-</div>
-<div class="spot-chip" onclick="openModal('m-d4-pool')">
-<div class="spot-emoji">🏊</div>
-<div class="spot-chip-info">
-<div class="spot-chip-name">酒店泳池 · 温泉</div>
-<div class="spot-chip-sub">成人1200㎡+儿童恒温300㎡ · 室内温泉</div>
+<div class="spot-chip-sub">双悬崖电梯 · 玻璃栈道 · 雌雄双瀑</div>
 </div>
 <div class="spot-chip-arrow">›</div>
 </div>
@@ -439,9 +490,8 @@ a:hover{color:#c9a961}
 <div class="day-map-row">
 <a class="map-loc" href="https://uri.amap.com/search?keyword=普立特大桥&city=530381" target="_blank">普立特大桥</a>
 <a class="map-loc" href="https://uri.amap.com/search?keyword=尼珠河大峡谷&city=530381" target="_blank">尼珠河大峡谷</a>
-<a class="map-loc" href="https://uri.amap.com/search?keyword=火石地火腿庄园&city=530381" target="_blank">火腿庄园</a>
 <a class="map-loc" href="https://uri.amap.com/search?keyword=梦景清云度假酒店&city=530381" target="_blank">🏨 梦景·清云</a>
-<a class="map-loc route-btn" href="https://uri.amap.com/navigation?from=六盘水黑拉嘎酒店&to=尼珠河大峡谷&via=普立特大桥,火石地火腿庄园&mode=car&policy=2" target="_blank">🧭 全程导航</a>
+<a class="map-loc route-btn" href="https://uri.amap.com/navigation?from=六盘水黑拉嘎酒店&to=尼珠河大峡谷&via=普立特大桥&mode=car&policy=2" target="_blank">🧭 全程导航</a>
 </div>
 <div class="day-map-label">🏨 当晚住宿</div>
 <div class="day-map-row">
@@ -580,16 +630,6 @@ a:hover{color:#c9a961}
 <p>峡谷河段野钓白条鱼，夜间观英仙座流星雨，零光污染</p>
 </div>
 <div class="water-chip">
-<h4>🎣 可渡河野钓</h4>
-<div class="wc-loc">D4 · 龙场镇 30min车程</div>
-<p>免费野钓，鲫鱼/鲤鱼/草鱼/鲢鳙/黑鱼，鱼种丰富</p>
-</div>
-<div class="water-chip">
-<h4>🎣 包湾水库</h4>
-<div class="wc-loc">D4 · 40min车程</div>
-<p>20元/天，鲫鱼/鲤鱼/草鱼/鲢鳙/马口鱼</p>
-</div>
-<div class="water-chip">
 <h4>🏔️ 龙脊天路</h4>
 <div class="wc-loc">D5 · 六枝</div>
 <p>山脊公路，自驾登顶俯瞰牂牁江峡谷，免费</p>
@@ -625,8 +665,7 @@ a:hover{color:#c9a961}
 <div class="tips-accordion" id="t1">
 <div class="tips-head" onclick="toggleCard('t1')"><span class="t-icon">🎒</span>必带装备<svg class="t-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
 <div class="tips-body"><div class="tips-body-inner"><ul>
-<li>薄外套（牂牁江面风大+峡谷早晚温差大+夜间观星约15℃）</li>
-<li>防滑运动鞋（峡谷栈道+玻璃桥需要防滑底）</li>
+<li>薄外套（牂牁江面风大+早晚温差大）</li>
 <li>防滑凉鞋（溪流踩水必备）</li>
 <li>小网兜+小瓶子（溪流捞鱼用）</li>
 <li>防晒+帽子（高原紫外线强）</li>
@@ -642,12 +681,6 @@ a:hover{color:#c9a961}
 <li>阿志河溪流戏水注意防滑，牵好小孩</li>
 <li>龙脊天路弯道多，提前备好晕车药</li>
 <li>花江/高家渡不要去深水处，注意上游涨水</li>
-<li>尼珠河大峡谷全程电梯+缆车+小火车，无需爬山，非常适合小孩</li>
-<li>玻璃吊桥5D特效可能吓到胆小的小孩，大人先走一遍示范</li>
-<li>看野生猕猴保持3米距离，不要投喂不要对视</li>
-<li>峡谷内湿度大，给小孩穿防滑鞋</li>
-<li>蹦极/飞拉达/滑翔伞有年龄体重限制，先咨询工作人员</li>
-<li>酒店儿童恒温泳池水温舒适，放心让小孩玩</li>
 <li>每天保证午休，车程中让小孩睡</li>
 <li>所有景点车到即达，无需爬山走远路</li>
 </ul></div></div>
@@ -656,12 +689,9 @@ a:hover{color:#c9a961}
 <div class="tips-accordion" id="t3">
 <div class="tips-head" onclick="toggleCard('t3')"><span class="t-icon">🎫</span>门票汇总<svg class="t-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
 <div class="tips-body"><div class="tips-body-inner"><ul>
-<li>威宁小吃/古镇/普立特大桥/郎岱古镇/龙脊天路/高家渡/尼珠河野钓/尼珠河古村：免费</li>
-<li>尼珠河大峡谷全票套票（含电梯+缆车+玻璃桥+观景台+小火车+秋千乐园）：108元/人（3日有效），儿童1.2-1.4m/学生/60岁+半价49元，1.2m以下/70岁+免费</li>
-<li>尼珠河大峡谷纯徒步票（不含电梯/缆车/玻璃桥）：29.9元/人</li>
-<li>蹦极/飞拉达/滑翔伞/高空滑索：单独收费，以现场为准</li>
-<li>火石地火腿庄园：免费参观，用餐另计</li>
-<li>梦景·清云度假酒店：约400元/间/晚（含泳池+温泉+KTV）</li>
+<li>威宁小吃/古镇/普立特大桥/郎岱古镇/龙脊天路/高家渡/尼珠河野钓：免费</li>
+<li>尼珠河大峡谷套票（含电梯+缆车）：以景区现场价格为准</li>
+<li>梦景·清云度假酒店：约400元/间/晚</li>
 <li>牂牁江猫河钓鱼：钓鱼棚150元/天，包吃住120元/人/天</li>
 <li>阿志河露营：约50-100元/人</li>
 <li>牂牁江游船（备选）：约80-100元/人</li>
@@ -696,12 +726,6 @@ a:hover{color:#c9a961}
 <li>宣威土八碗宴：曲靖传统宴席，八大碗荤素搭配</li>
 <li>酸菜猪脚火锅：宣威特色，酸爽开胃</li>
 <li>尼珠河白条鱼：清水加盐煮，不放佐料，鲜美至极</li>
-<li>火石地火腿宴：古法腌制火腿各部位，配山茅野菜，人均50-100元</li>
-<li>彝家坨坨肉：高山黑猪肉大块炖煮，配木姜子蘸水</li>
-<li>宣威小甑酒：本地酿造小曲酒，配火腿绝了</li>
-<li>烧饵块/蒸饵丝：云南特色早餐，酒店就有</li>
-<li>刺梨汁：维C之王，酸甜解暑</li>
-<li>丑红薯/富硒土豆：普立乡特产，农家现烤</li>
 </ul></div></div>
 </div>
 
@@ -727,7 +751,7 @@ a:hover{color:#c9a961}
 <!-- Footer -->
 <footer class="footer">
 <p>黔途拾趣 · 路线二 · 2026贵州钓旅西行</p>
-<p>毕节→威宁→六盘水→普立特大桥→尼珠河大峡谷·玻璃桥·蹦极·飞拉达·滑翔伞→火石地火腿庄园→牂牁江→龙脊天路→阿志河→郎岱→花江→洞口</p>
+<p>毕节→威宁→六盘水→普立特大桥→尼珠河大峡谷→牂牁江→龙脊天路→阿志河→郎岱→花江→洞口</p>
 <p style="margin-top:.5rem">用 <span class="heart">♥</span> 为两个小孩规划</p>
 <p style="margin-top:.8rem"><a href="index.html">← 返回路线一</a></p>
 </footer>
@@ -810,122 +834,7 @@ food:'<ul class="food-list"><li>宣威火腿（世界三大火腿）</li><li>土
 images:['https://s.coze.cn/image.spWTFIuSJ2M/'],
 nav:'尼珠河大峡谷',phone:'15287978034',book:'',note_nav:'梦景·清云度假酒店旁，步行即到河边'
 },
-'m-d4-glass':{
-title:'云端玻璃吊桥',
-sub:'D4 景区 · 尼珠河大峡谷内',
-tags:['<span class="modal-tag nature">世界第一高玻璃桥</span>','<span class="modal-tag kid">5D特效</span>','<span class="modal-tag easy">套票含</span>'],
-intro:'世界第一高悬崖玻璃吊桥，桥面距谷底360米，全长365米，桥面宽3.6米。铺设10毫米厚三层钢化夹胶玻璃，一段采用重力感应5D碎裂特效，踩上去桥面"碎裂"，惊险又刺激。',
-detail:'🌫️ <strong>世界第一高</strong>：同类玻璃桥中最高，360米高度<br><br>📏 <strong>规模</strong>：全长365m，桥面宽3.6m<br><br>👟 <strong>5D特效</strong>：重力感应区，踩上桥面出现玻璃碎裂特效<br><br>🌙 <strong>夜间灯光秀</strong>：桥两侧有LED灯光秀<br><br>💰 含在景区套票内<br>⏰ 建议游玩时间：20-30分钟',
-kids:'小朋友踩到碎裂特效会又惊又笑，大人也觉得刺激！恐高的可以扶着栏杆慢慢走。',
-photo:'📸 桥中央拍脚下深渊+远处峡谷，最震撼。',
-images:['https://s.coze.cn/image.spWTFIuSJ2M/'],
-nav:'尼珠河大峡谷',phone:'',book:'',note_nav:'景区内，无需单独导航'
-},
-'m-d4-520':{
-title:'520悬空玻璃观景台',
-sub:'D4 景区 · 尼珠河大峡谷内',
-tags:['<span class="modal-tag nature">世界最高玻璃悬廊</span>','<span class="modal-tag easy">套票含</span>','<span class="modal-tag temp">最佳拍照点</span>'],
-intro:'建在520米高空的悬空玻璃观景平台，向外延伸68米，面积650平方米。脚下就是万丈深渊，晴天可远眺北盘江大桥，是拍摄峡谷全景的最佳位置。',
-detail:'💕 <strong>520寓意</strong>：高度520米，"我爱你"的浪漫谐音<br><br>📐 <strong>规模</strong>：悬出悬崖68米，面积650㎡<br><br>🌉 <strong>远眺</strong>：晴天可见北盘江大桥全貌<br><br>🌅 <strong>云海日出</strong>：清晨云雾缭绕，如宫崎骏天空之城<br><br>🌙 <strong>夜间灯光秀</strong>：水幕+灯光，都市霓虹与自然景观碰撞<br><br>💰 含在景区套票内',
-kids:'站在悬空玻璃上往下看，既害怕又兴奋！全家合影必到之处。',
-photo:'📸 悬空平台中央拍全景，云海时拍如仙境。日出日落最美。',
-images:['https://s.coze.cn/image.spWTFIuSJ2M/'],
-nav:'尼珠河大峡谷',phone:'',book:'',note_nav:'景区内'
-},
-'m-d4-train':{
-title:'峡谷小火车',
-sub:'D4 景区 · 尼珠河大峡谷谷底',
-tags:['<span class="modal-tag kid">亲子首选</span>','<span class="modal-tag nature">峡谷穿梭</span>','<span class="modal-tag easy">轻松乘坐</span>'],
-intro:'穿行在尼珠河大峡谷深处的小火车，沿着峡谷河道行驶约2公里，两岸是绝壁飞瀑和千年古树。小朋友最爱的项目之一，坐在车上感受"两岸猿声啼不住"的诗意。',
-detail:'🚂 <strong>线路</strong>：谷底沿尼珠河行驶，约2公里<br><br>🏞️ <strong>沿途</strong>：经过飞瀑、古村、千年菩提树、奇石河段<br><br>🐒 <strong>猕猴</strong>：沿途可能看到野生猕猴在崖壁上活动<br><br>💰 含在景区套票内（或单独购票，具体现场确认）<br><br>🚶 也可步行，约30-40分钟',
-kids:'坐小火车穿峡谷，看瀑布、看猴子、看大石头，小朋友开心到尖叫！',
-photo:'📸 小火车上拍峡谷两岸绝壁，抓拍猕猴。',
-images:['https://s.coze.cn/image.spWTFIuSJ2M/'],
-nav:'尼珠河大峡谷',phone:'',book:'',note_nav:'景区谷底乘坐'
-},
-'m-d4-kids':{
-title:'十二生肖秋千乐园+萌宠动物园',
-sub:'D4 景区 · 尼珠河大峡谷内',
-tags:['<span class="modal-tag kid">亲子专区</span>','<span class="modal-tag nature">萌宠互动</span>','<span class="modal-tag free">景区内含</span>'],
-intro:'景区内专为亲子打造的主题乐园。十二生肖秋千乐园，每个生肖造型的秋千各不相同；萌宠动物园有兔子、小羊等萌宠可以近距离互动。旁边还有易经文化园。',
-detail:'🎠 <strong>十二生肖秋千</strong>：12个不同造型的秋千，适合8-9岁小朋友<br><br>🐰 <strong>萌宠动物园</strong>：兔子、小羊、矮马等，可以喂食互动<br><br>☯️ <strong>易经文化园</strong>：了解传统易经文化<br><br>💰 含在景区套票内<br><br>⏰ 建议游玩时间：30-60分钟',
-kids:'秋千荡到飞起！喂小兔子和羊，小朋友玩得不想走。',
-images:['https://s.coze.cn/image.spWTFIuSJ2M/'],
-nav:'尼珠河大峡谷',phone:'',book:'',note_nav:'景区内'
-},
-'m-d4-bungee':{
-title:'高空蹦极',
-sub:'D4 景区 · 2025年新开',
-tags:['<span class="modal-tag nature">极限运动</span>','<span class="modal-tag easy">国际赛事级</span>','<span class="modal-tag temp">恐高慎入</span>'],
-intro:'2025年尼珠河大峡谷新开的高空蹦极项目，利用500米峡谷落差，是西南地区最壮观的蹦极体验之一。2024年11月曾举办首届高空跳伞世界锦标赛，16个国家19名外籍运动员参赛。',
-detail:'🪂 <strong>极限体验</strong>：从峡谷边缘纵身一跃，俯瞰500米深渊<br><br>🏆 <strong>国际赛事</strong>：2024年首届高空跳伞世锦赛举办地<br><br>⚠️ <strong>限制</strong>：高血压、心脏病、孕妇、恐高者不宜参与<br><br>💰 单独收费，价格现场确认',
-kids:'小孩不能跳，但可以在安全区看大人跳，超级刺激！',
-note:'<div class="mtip gold">⚠️ 仅限大人参与，有高血压/心脏病/恐高症者请勿尝试。小朋友可在旁边观战加油。</div>',
-nav:'尼珠河大峡谷',phone:'',book:'',note_nav:'景区内极限运动区'
-},
-'m-d4-ferrata':{
-title:'飞拉达·长空栈道',
-sub:'D4 景区 · 600m悬崖攀岩',
-tags:['<span class="modal-tag nature">悬崖攀岩</span>','<span class="modal-tag easy">国际挑战赛</span>','<span class="modal-tag temp">体力要求高</span>'],
-intro:'沿悬崖峭壁修建的铁索栈道，全长600米，在近乎垂直的崖面上行走，脚下就是万丈深渊。尼珠河大峡谷是国际攀岩挑战赛的举办地，绝壁高耸、风力适中，是飞拉达运动的理想场地。',
-detail:'🧗 <strong>600m悬崖</strong>：在近乎垂直的崖面行走<br><br>🔗 <strong>安全保障</strong>：全程铁索+安全带+头盔，专业教练指导<br><br>🏆 <strong>国际赛事</strong>：攀岩国际挑战赛举办地<br><br>⚠️ <strong>体力要求</strong>：中等以上体力，恐高/高血压不宜<br><br>💰 单独收费<br>⏰ 建议游玩时间：1-2小时',
-kids:'小孩可以走初级短程段（有教练陪同），或者在旁边看大人挑战。',
-note:'<div class="mtip gold">⚠️ 飞拉达需要一定体力。8-9岁小孩可以在教练陪同下体验短程段，大人可以挑战全程600m。</div>',
-nav:'尼珠河大峡谷',phone:'',book:'',note_nav:'景区内极限运动区'
-},
-'m-d4-paraglide':{
-title:'滑翔伞',
-sub:'D4 景区 · 宣威首个滑翔伞基地',
-tags:['<span class="modal-tag nature">翱翔天际</span>','<span class="modal-tag easy">基地直营</span>','<span class="modal-tag temp">恐高慎入</span>'],
-intro:'宣威首个滑翔伞基地，在尼珠河大峡谷上空翱翔，俯瞰整个峡谷、瀑布群和北盘江大桥。基地直营，专业教练双人伞带飞，无需经验。',
-detail:'🪂 <strong>双人伞带飞</strong>：专业教练1对1，零经验也可体验<br><br>🏔️ <strong>全景体验</strong>：空中俯瞰峡谷+瀑布群+北盘江大桥<br><br>⏱️ <strong>飞行时间</strong>：约5-15分钟（视天气和气流）<br><br>⚠️ <strong>限制</strong>：体重40-100kg，无严重疾病<br><br>💰 单独收费，约380-580元/人<br>📍 宣威市普立乡',
-kids:'小孩可以和教练一起坐双人伞飞！翱翔在峡谷上空，终生难忘的体验。',
-note:'<div class="mtip gold">🪂 滑翔伞受天气影响大，大风/雨天不飞。建议上午体验，气流最稳定。</div>',
-nav:'尼珠河大峡谷滑翔伞基地',phone:'',book:'',note_nav:'宣威市普立乡'
-},
-'m-d4-village':{
-title:'尼珠河古村 · 千年菩提',
-sub:'D4 峡谷底部 · 宣威市海拔最低村落',
-tags:['<span class="modal-tag nature">世外桃源</span>','<span class="modal-tag free">免费</span>','<span class="modal-tag easy">休闲漫步</span>','<span class="modal-tag kid">看猕猴</span>'],
-intro:'宣威市海拔最低的村落（1100m），三四十户人家依山傍水，背靠千丈绝壁，面临蜿蜒尼珠河。村旁有一棵千年黄葛树（菩提树），直径3米+，树龄超千年，独木成林覆盖近10亩。峡谷中常年有5群近300只野生猕猴出没。',
-detail:'🏘️ <strong>世外桃源</strong>：三四十户农家，鸡鸣犬吠，炊烟袅袅<br><br>🌳 <strong>千年菩提</strong>：直径3m+，树龄1000年+，独木成林覆盖近10亩<br><br>🐒 <strong>野生猕猴</strong>：5群近300只国家二级保护猕猴，崖壁/林间出没<br><br>🏞️ <strong>彝族风情</strong>：汉族+彝族混居，保留传统婚俗文化<br><br>📍 峡谷底部，乘小火车或步行可达<br>🆓 免费<br>⏰ 建议游玩时间：30-60分钟',
-kids:'看野生猴子！（保持安全距离）在古村捡石头、看大榕树、听溪水声。',
-photo:'📸 千年菩提树下拍全家福，抓拍到猕猴就是大片。',
-note:'<div class="mtip blue">🐒 看猕猴时保持3米以上距离，不要投喂，不要对视（猴子会觉得是挑衅）。</div>',
-images:['https://s.coze.cn/image.spWTFIuSJ2M/'],
-nav:'尼珠河村',phone:'',book:'',note_nav:'尼珠河大峡谷底部'
-},
-'m-d4-stone':{
-title:'奇石谷 · 一线天',
-sub:'D4 峡谷底部 · 地质奇观',
-tags:['<span class="modal-tag nature">地质博物馆</span>','<span class="modal-tag free">免费</span>','<span class="modal-tag easy">轻松步行</span>'],
-intro:'因上游水电站截流而惊现人间的天然奇石群，无数巨石绵延数公里，大小不一、姿态万千。有圆润如巨卵的，有镂空如花瓣的，有突兀如犬牙的。峡谷内还有光怪陆离的溶洞和一线天奇观。',
-detail:'💎 <strong>亿万奇石</strong>：上万年水流冲刷形成的天然奇石群<br><br>🕳️ <strong>溶洞</strong>：大硝洞等溶洞群，钟乳石形态各异，如地下宫殿<br><br>📐 <strong>一线天</strong>：两岸绝壁近垂直，仰头只能看到一线天空<br><br>🌈 <strong>丹霞色彩</strong>：崖壁红、黄、白、灰、黑、绿交织，如天然画卷<br><br>🆓 免费<br>⏰ 建议游玩时间：30-45分钟',
-kids:'在巨石间攀爬探险，钻溶洞、数奇石，像进入恐龙时代的原始世界。',
-photo:'📸 阳光照进一线天时光影最壮观。溶洞内拍钟乳石需开闪光灯。',
-images:['https://s.coze.cn/image.spWTFIuSJ2M/'],
-nav:'尼珠河大峡谷',phone:'',book:'',note_nav:'景区峡谷底部'
-},
-'m-d4-ham':{
-title:'火石地火腿庄园',
-sub:'D4 途中 · 普立乡老厂村 · 距景区约20min',
-tags:['<span class="modal-tag food">非遗体验</span>','<span class="modal-tag nature">石头民居</span>','<span class="modal-tag easy">田园休闲</span>','<span class="modal-tag temp">2024年新开</span>'],
-intro:'2024年底新开的宣威火腿庄园，位于普立乡老厂村火石地，海拔温润、干湿分明。完整保留石头民居原生风貌，划分火腿加工、民俗餐饮、休闲娱乐三大功能区。可以品尝地道火腿宴、山茅野菜，漫步石舍庭院赏云海。',
-detail:'🥩 <strong>火腿品鉴</strong>：宣威火腿传统工艺展示+品尝，古法腌制/晾晒/风干<br><br>🏡 <strong>石头民居</strong>：保留原生风貌的彝族石头建筑群<br><br>🍽️ <strong>民俗餐饮</strong>：地道火腿宴+本地山茅野菜<br><br>☁️ <strong>田园风光</strong>：推窗见云海、推门闻醇香<br><br>🔗 与尼珠河大峡谷景区联动："峡谷观光+火腿品鉴"特色线路<br>📍 宣威市普立乡老厂村火石地',
-kids:'看大人怎么做火腿（像做泥巴一样好玩），吃现烤的火腿饼。',
-food:'<ul class="food-list"><li>火腿宴（整桌火腿各部位）</li><li>火腿饼/火腿炒饭</li><li>山茅野菜（本地采摘）</li><li>土鸡炖火腿</li><li>戈特茶（本地特色茶）</li></ul><p class="food-price">人均50-100元</p>',
-nav:'火石地火腿庄园',phone:'',book:'',note_nav:'宣威市普立乡老厂村'
-},
-'m-d4-pool':{
-title:'酒店泳池 · 温泉',
-sub:'D4 傍晚 · 梦景·清云度假酒店内',
-tags:['<span class="modal-tag kid">儿童恒温池</span>','<span class="modal-tag water">成人1200㎡</span>','<span class="modal-tag easy">住客免费</span>','<span class="modal-tag nature">室内温泉</span>'],
-intro:'梦景·清云度假酒店自带超大泳池群：成人池1200㎡+儿童恒温池300㎡。另外还有室内温泉、露天KTV、儿童乐园。傍晚在泳池畅游或在温泉中放松，消除一天的疲劳。',
-detail:'🏊 <strong>成人泳池</strong>：1200㎡超大室外泳池，山景环绕<br><br>🧒 <strong>儿童恒温池</strong>：300㎡，水温恒定，小朋友安心玩水<br><br>♨️ <strong>室内温泉</strong>：多种温泉池，消除疲劳<br><br>🎤 <strong>露天KTV</strong>：晚上唱歌，峡谷回声效果<br><br>🎮 <strong>儿童乐园</strong>：酒店内游乐设施<br><br>🅿️ <strong>免费停车</strong><br><br>💰 住客免费使用',
-kids:'儿童恒温池300㎡，水温舒服，小朋友可以在里面玩很久。还有儿童乐园。',
-images:['https://s.coze.cn/image.spWTFIuSJ2M/'],
-nav:'梦景清云度假酒店',phone:'15287978034',book:'https://hotels.ctrip.com/hotels/114200444.html',book_label:'携程预订',note_nav:'酒店内'
-},'m-d5-maohe':{
+'m-d5-maohe':{
 title:'牂牁江猫河·休闲钓鱼',
 sub:'D5 上午 · 六枝特区中寨乡 · 车程约1.5h',
 tags:['<span class="modal-tag water">野钓天堂</span>','<span class="modal-tag kid">可坐船</span>','<span class="modal-tag easy">钓棚休闲</span>','<span class="modal-tag nature">峡谷碧水</span>'],
@@ -1046,13 +955,173 @@ document.getElementById('modalSheet').classList.remove('show');
 document.body.style.overflow='';
 }
 
-/* ===== Scroll fade ===== */
-var fEls=document.querySelectorAll('.fade-in');
-function cF(){for(var i=0;i<fEls.length;i++){var r=fEls[i].getBoundingClientRect();if(r.top<window.innerHeight-40)fEls[i].className=fEls[i].className.replace('fade-in','fade-in visible');}}
-window.addEventListener('scroll',cF);cF();
+/* old scroll fade replaced by IntersectionObserver */
 
 /* ===== Auto open D3 ===== */
 setTimeout(function(){toggleCard('d3');},600);
+
+
+/* ========== 🎬 Dynamic Interactive Engine ========== */
+
+// --- Scroll Progress Bar ---
+(function(){
+  var bar = document.getElementById('scrollProgress');
+  window.addEventListener('scroll', function(){
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h * 100) : 0) + '%';
+  }, {passive:true});
+})();
+
+// --- Hero Star Particles ---
+(function(){
+  var canvas = document.getElementById('heroCanvas');
+  if(!canvas) return;
+  var ctx = canvas.getContext('2d');
+  var particles = [];
+  var count = 50;
+
+  function resize(){
+    var hero = canvas.parentElement;
+    canvas.width = hero.offsetWidth;
+    canvas.height = hero.offsetHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  for(var i=0;i<count;i++){
+    particles.push({
+      x: Math.random()*canvas.width,
+      y: Math.random()*canvas.height,
+      r: Math.random()*2+0.5,
+      vx: (Math.random()-0.5)*0.3,
+      vy: (Math.random()-0.5)*0.3,
+      alpha: Math.random()*0.5+0.2,
+      pulse: Math.random()*Math.PI*2
+    });
+  }
+
+  function draw(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    for(var i=0;i<particles.length;i++){
+      var p = particles[i];
+      p.x += p.vx;
+      p.y += p.vy;
+      p.pulse += 0.02;
+      var a = p.alpha * (0.6 + 0.4*Math.sin(p.pulse));
+      if(p.x<0) p.x=canvas.width;
+      if(p.x>canvas.width) p.x=0;
+      if(p.y<0) p.y=canvas.height;
+      if(p.y>canvas.height) p.y=0;
+      ctx.beginPath();
+      ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.fillStyle='rgba(255,255,255,'+a+')';
+      ctx.fill();
+    }
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+// --- Intersection Observer for scroll-triggered animations ---
+(function(){
+  var observer = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('in-view');
+      }
+    });
+  }, {threshold:0.1, rootMargin:'0px 0px -40px 0px'});
+
+  // Observe day cards
+  document.querySelectorAll('.day-card').forEach(function(el){ observer.observe(el); });
+  // Observe section headers
+  document.querySelectorAll('.sh').forEach(function(el){ observer.observe(el); });
+  // Observe reject items
+  document.querySelectorAll('.reject-item').forEach(function(el,i){
+    el.style.transitionDelay = (i*0.06)+'s';
+    observer.observe(el);
+  });
+  // Observe tips
+  document.querySelectorAll('.tips-accordion').forEach(function(el,i){
+    el.style.transitionDelay = (i*0.08)+'s';
+    observer.observe(el);
+  });
+  // Observe footer
+  var footer = document.querySelector('.footer');
+  if(footer) observer.observe(footer);
+})();
+
+// --- Ripple click effect for interactive elements ---
+(function(){
+  var targets = document.querySelectorAll('.spot-chip, .map-loc, .route-btn, .water-chip');
+  targets.forEach(function(el){
+    el.classList.add('ripple-effect');
+    el.addEventListener('click', function(e){
+      var rect = el.getBoundingClientRect();
+      var wave = document.createElement('span');
+      wave.className = 'ripple-wave';
+      var size = Math.max(rect.width, rect.height);
+      wave.style.width = wave.style.height = size + 'px';
+      wave.style.left = (e.clientX - rect.left - size/2) + 'px';
+      wave.style.top = (e.clientY - rect.top - size/2) + 'px';
+      el.appendChild(wave);
+      setTimeout(function(){ wave.remove(); }, 600);
+    });
+  });
+})();
+
+// --- Enhanced toggleCard: reset animations on close/reopen ---
+var _origToggle = window.toggleCard;
+window.toggleCard = function(id){
+  var el = document.getElementById(id);
+  if(!el) return;
+  var wasOpen = el.classList.contains('open');
+  _origToggle(id);
+  if(!wasOpen){
+    // Re-trigger chip cascade by briefly removing/adding open class
+    // Actually the CSS handles it, but let's add a subtle haptic feel
+    if(navigator.vibrate) navigator.vibrate(5);
+  }
+};
+
+// --- Parallax on hero (subtle) ---
+(function(){
+  var hero = document.querySelector('.hero');
+  if(!hero) return;
+  window.addEventListener('scroll', function(){
+    var y = window.scrollY;
+    if(y < hero.offsetHeight + 100){
+      hero.style.backgroundPositionY = (y * 0.3) + 'px';
+    }
+  }, {passive:true});
+})();
+
+// --- Day card stagger delay based on scroll position ---
+(function(){
+  var cards = document.querySelectorAll('.day-card');
+  cards.forEach(function(card, i){
+    card.style.transitionDelay = (i * 0.1) + 's';
+  });
+})();
+
+// --- Smooth anchor highlight for route buttons ---
+document.querySelectorAll('.route-btn').forEach(function(btn){
+  btn.addEventListener('mouseenter', function(){
+    this.style.transform = 'scale(1.05)';
+  });
+  btn.addEventListener('mouseleave', function(){
+    this.style.transform = 'scale(1)';
+  });
+});
+
+// --- Auto-open first card with animation delay ---
+setTimeout(function(){
+  var d3 = document.getElementById('d3');
+  if(d3 && !d3.classList.contains('in-view')){
+    d3.classList.add('in-view');
+  }
+}, 100);
+
 </script>
 </body>
 </html>
