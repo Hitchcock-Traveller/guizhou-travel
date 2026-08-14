@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>黔途拾趣 · 路线三 | 秘境探黔 · 贵州6天小众秘境深度游</title>
+<meta name="description" content="溶洞飞瀑·野生秘境·高原花海·云上草原·地下天宫，一条串联贵州最硬核小众秘境的深度自驾线">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:16px;-webkit-text-size-adjust:100%}
+body{font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;color:#1a2e1a;background:#f5f3ed;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:#2d6a4f;text-decoration:none;transition:color .3s}
+a:hover{color:#c9a961}
+.serif{font-family:"Noto Serif SC","Source Han Serif SC","STSong","SimSun",serif}
+
+/* ========== Nav ========== */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(245,243,237,.88);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(0,0,0,.04)}
+.nav-inner{max-width:560px;margin:0 auto;padding:.75rem 1.5rem;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-size:1rem;font-weight:700;color:#1a3a2a;letter-spacing:.04em}
+.nav-logo span{color:#c9a961}
+.nav-back{font-size:.8rem;color:#8a9a8a;display:flex;align-items:center;gap:.3rem}
+.nav-back svg{width:16px;height:16px}
+
+/* ========== Hero (compact) ========== */
+.hero{padding:5rem 1.5rem 2.5rem;text-align:center;position:relative;overflow:hidden;background:linear-gradient(170deg,#0a0a28 0%,#1a1a4a 25%,#2d3a7a 50%,#4a5a9a 70%,#7a8aba 88%,#a0b0d0 100%)}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:60px;background:linear-gradient(to bottom,transparent,#f5f3ed)}
+.hero-badge{display:inline-block;padding:.3rem 1rem;border:1px solid rgba(255,255,255,.25);border-radius:2rem;font-size:.7rem;letter-spacing:.12em;color:rgba(255,255,255,.8);margin-bottom:1.2rem}
+.hero h1{font-size:2rem;font-weight:800;color:#fff;margin-bottom:.6rem;line-height:1.3}
+.hero h1 .gold{color:#e8c96a}
+.hero p{font-size:.88rem;color:rgba(255,255,255,.7);max-width:400px;margin:0 auto 1.5rem;line-height:1.7}
+.hero-tags{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap}
+.hero-tag{padding:.35rem .8rem;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.12);border-radius:.4rem;font-size:.72rem;color:rgba(255,255,255,.85)}
+.route-switch{display:flex;gap:.6rem;justify-content:center;margin-top:1.5rem}
+.route-btn{padding:.45rem 1.2rem;border-radius:2rem;font-size:.78rem;font-weight:600;border:none;cursor:pointer;transition:all .3s;text-decoration:none;display:inline-block}
+.route-btn.outline{background:transparent;color:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.25)}
+.route-btn.fill{background:rgba(255,255,255,.18);color:#fff;border:1px solid rgba(255,255,255,.3)}
+.route-btn:hover{opacity:.85}
+
+/* ========== Main container ========== */
+.main{max-width:560px;margin:0 auto;padding:0 1.2rem 3rem}
+
+/* ========== Section headers ========== */
+.sh{padding:2.5rem 0 1.2rem}
+.sh-label{font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:#aaa;margin-bottom:.3rem}
+.sh-title{font-size:1.35rem;font-weight:700;color:#1a3a2a}
+.sh-desc{font-size:.82rem;color:#888;margin-top:.3rem}
+
+/* ========== Day Card ========== */
+.day-card{background:#fff;border-radius:1rem;margin-bottom:.8rem;overflow:hidden;box-shadow:0 1px 8px rgba(0,0,0,.04);border:1px solid rgba(0,0,0,.04);transition:box-shadow .3s}
+.day-card:hover{box-shadow:0 3px 16px rgba(0,0,0,.07)}
+.day-summary{padding:1.1rem 1.2rem;display:flex;align-items:center;gap:1rem;cursor:pointer;user-select:none;-webkit-tap-highlight-color:transparent}
+.day-dot{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:800;color:#fff;flex-shrink:0}
+.day-dot.c1{background:linear-gradient(135deg,#1a6b7a,#2d9aab)}
+.day-dot.c2{background:linear-gradient(135deg,#2d6a4f,#52b788)}
+.day-dot.c3{background:linear-gradient(135deg,#6b4c1a,#c9a961)}
+.day-dot.c4{background:linear-gradient(135deg,#5a4a6a,#8a7a9a)}
+.day-dot.c5{background:linear-gradient(135deg,#7a3a6a,#b06a9a)}
+.day-dot.c6{background:linear-gradient(135deg,#3a4a8a,#6a7aba)}
+.day-meta{flex:1;min-width:0}
+.day-date{font-size:.72rem;color:#aaa;font-weight:500}
+.day-spots{font-size:.95rem;font-weight:700;color:#1a3a2a;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.day-right{display:flex;flex-direction:column;align-items:flex-end;gap:.3rem;flex-shrink:0}
+.day-temp{font-size:.68rem;padding:.2rem .6rem;border-radius:1rem;background:#eef2ff;color:#3a4a8a;font-weight:600;white-space:nowrap}
+.day-chev{width:20px;height:20px;color:#ccc;transition:transform .35s}
+.day-card.open .day-chev{transform:rotate(180deg)}
+.day-expand{max-height:0;overflow:hidden;transition:max-height .45s cubic-bezier(.4,0,.2,1);position:relative;background-size:cover;background-position:center top;background-repeat:no-repeat}
+.day-expand::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(180deg,rgba(255,255,255,.55) 0%,rgba(255,255,255,.85) 30%,rgba(255,255,255,.95) 60%,rgba(255,255,255,.98) 100%);z-index:0;pointer-events:none;border-radius:0 0 1rem 1rem}
+
+/* ========== Spot strip (inside expanded day) ========== */
+.spot-strip{padding:0 1rem 1rem;position:relative;z-index:1}
+.spot-chip{display:flex;align-items:center;gap:.8rem;padding:.8rem;background:rgba(255,255,255,.82);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-radius:.75rem;margin-bottom:.5rem;cursor:pointer;transition:background .2s,box-shadow .2s;border:1px solid rgba(255,255,255,.6);box-shadow:0 1px 4px rgba(0,0,0,.04);-webkit-tap-highlight-color:transparent}
+.spot-chip:hover{background:rgba(255,255,255,.92);box-shadow:0 2px 10px rgba(0,0,0,.06)}
+.spot-chip:active{background:rgba(255,255,255,.96)}
+.spot-emoji{font-size:1.3rem;flex-shrink:0}
+.spot-chip-info{flex:1;min-width:0}
+.spot-chip-name{font-size:.85rem;font-weight:600;color:#1a3a2a}
+.spot-chip-sub{font-size:.72rem;color:#999;margin-top:.1rem}
+.spot-chip-arrow{color:#ccc;font-size:.8rem;flex-shrink:0}
+
+/* ========== Day info bar (expanded) ========== */
+.day-info-bar{padding:0 1.2rem .8rem;display:flex;gap:.5rem;flex-wrap:wrap;position:relative;z-index:1}
+.info-pill{font-size:.68rem;padding:.25rem .7rem;border-radius:1rem;background:#f0f7f0;color:#2d6a4f;font-weight:500}
+.info-pill.water{background:#e8f6f8;color:#1a6a7a}
+.info-pill.food{background:#fef8ee;color:#8a6a2a}
+
+/* ========== Modal ========== */
+.modal-overlay{position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.35);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);opacity:0;pointer-events:none;transition:opacity .3s}
+.modal-overlay.show{opacity:1;pointer-events:auto}
+.modal-sheet{position:fixed;bottom:0;left:0;right:0;z-index:201;max-height:88vh;background:#fff;border-radius:1.2rem 1.2rem 0 0;box-shadow:0 -4px 30px rgba(0,0,0,.1);transform:translateY(100%);transition:transform .4s cubic-bezier(.32,.72,0,1);overflow-y:auto;-webkit-overflow-scrolling:touch}
+.modal-sheet.show{transform:translateY(0)}
+.modal-handle{width:36px;height:4px;border-radius:2px;background:#ddd;margin:10px auto 0}
+.modal-header{padding:1rem 1.5rem .6rem;display:flex;align-items:flex-start;justify-content:space-between;position:sticky;top:0;background:#fff;z-index:2}
+.modal-title{font-size:1.15rem;font-weight:700;color:#1a3a2a}
+.modal-subtitle{font-size:.78rem;color:#999;margin-top:.15rem}
+.modal-close{width:32px;height:32px;border-radius:50%;background:#f0f0f0;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1rem;color:#888;flex-shrink:0;transition:background .2s}
+.modal-close:hover{background:#e0e0e0}
+.modal-body{padding:0 1.5rem 2.5rem}
+.modal-section{margin-bottom:1.5rem}
+.modal-section h4{font-size:.78rem;font-weight:600;color:#aaa;text-transform:uppercase;letter-spacing:.1em;margin-bottom:.6rem}
+.modal-text{font-size:.88rem;color:#3a4a3a;line-height:1.85}
+.modal-text strong{color:#1a3a2a}
+.modal-meta{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:.8rem}
+.modal-tag{font-size:.68rem;padding:.2rem .6rem;border-radius:1rem;font-weight:500}
+.modal-tag.nature{background:#e8f5e9;color:#2d6a4f}
+.modal-tag.kid{background:#fff3e0;color:#e65100}
+.modal-tag.easy{background:#e3f2fd;color:#1565c0}
+.modal-tag.free{background:#f3e5f5;color:#6a1b9a}
+.modal-tag.water{background:#e0f7fa;color:#00695c}
+.modal-tag.temp{background:#eef2ff;color:#3a4a8a}
+
+/* Tip box inside modal */
+.mtip{padding:.7rem .9rem;border-radius:.6rem;font-size:.82rem;line-height:1.7;margin-top:.8rem}
+.mtip.green{background:#f0f7f0;border-left:3px solid #2d6a4f;color:#3a5a3a}
+.mtip.blue{background:#f0fafa;border-left:3px solid #2d9aab;color:#1a5a6a}
+.mtip.gold{background:#fdf8f0;border-left:3px solid #c9a961;color:#6b5a2a}
+
+/* Food list in modal */
+.food-list{list-style:none}
+.food-list li{font-size:.85rem;color:#3a4a3a;padding:.3rem 0;padding-left:1rem;position:relative}
+.food-list li::before{content:'·';position:absolute;left:.2rem;color:#c9a961;font-weight:700}
+.food-price{font-size:.75rem;color:#c9a961;font-weight:600}
+
+/* ========== Tips compact ========== */
+.tips-accordion{background:#fff;border-radius:1rem;overflow:hidden;border:1px solid rgba(0,0,0,.04);margin-bottom:.6rem}
+.tips-head{padding:.9rem 1.1rem;display:flex;align-items:center;gap:.6rem;cursor:pointer;user-select:none;font-size:.88rem;font-weight:600;color:#1a3a2a}
+.tips-head .t-icon{font-size:1rem}
+.tips-head .t-chev{margin-left:auto;width:18px;height:18px;color:#ccc;transition:transform .3s}
+.tips-accordion.open .t-chev{transform:rotate(180deg)}
+.tips-body{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.4,0,.2,1)}
+.tips-body-inner{padding:0 1.1rem 1rem}
+.tips-body-inner ul{list-style:none}
+.tips-body-inner li{font-size:.82rem;color:#5a6a5a;padding:.25rem 0;padding-left:1rem;position:relative}
+.tips-body-inner li::before{content:'·';position:absolute;left:.2rem;color:#2d6a4f;font-weight:700}
+
+/* ========== Footer ========== */
+.footer{padding:2rem 1.5rem;text-align:center;color:#bbb;font-size:.78rem}
+.footer a{color:#999}
+.footer .heart{color:#c9a961}
+
+/* ========== Modal Gallery ========== */
+.modal-gallery{display:flex;gap:.5rem;overflow-x:auto;padding:.3rem 0 .6rem;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.modal-gallery::-webkit-scrollbar{display:none}
+.modal-gallery img{height:150px;min-width:150px;max-width:220px;border-radius:.6rem;object-fit:cover;flex-shrink:0;background:#eee;cursor:pointer;transition:transform .2s,box-shadow .2s}
+.modal-gallery img:hover{transform:scale(1.03);box-shadow:0 2px 12px rgba(0,0,0,.12)}
+.modal-gallery img:active{transform:scale(.97)}
+
+/* ========== Modal Video ========== */
+.modal-video{position:relative;width:100%;padding-bottom:56.25%;border-radius:.6rem;overflow:hidden;margin:.5rem 0;background:#111}
+.modal-video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none}
+.modal-video-label{font-size:.72rem;color:#999;margin-bottom:.3rem;display:flex;align-items:center;gap:.3rem}
+
+/* ========== Lightbox ========== */
+.lightbox{position:fixed;inset:0;z-index:300;background:rgba(0,0,0,.92);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s;cursor:zoom-out}
+.lightbox.show{opacity:1;pointer-events:auto}
+.lightbox img{max-width:92vw;max-height:88vh;border-radius:.5rem;object-fit:contain}
+.lightbox-close{position:fixed;top:1rem;right:1rem;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.15);border:none;color:#fff;font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center}
+
+/* ========== Day Map Bar ========== */
+.day-map-label{font-size:.72rem;color:#888;padding:.5rem 1.2rem .3rem;display:flex;align-items:center;gap:.3rem}
+.day-map-row{display:flex;gap:.35rem;padding:0 1rem .7rem;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.day-map-row::-webkit-scrollbar{display:none}
+.map-loc{padding:.3rem .65rem;background:rgba(255,255,255,.88);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border-radius:1.2rem;font-size:.68rem;color:#2d6a4f;white-space:nowrap;flex-shrink:0;border:1px solid rgba(45,106,79,.1);text-decoration:none;transition:background .2s}
+.map-loc:hover{background:rgba(255,255,255,.96)}
+.map-loc.route-btn{background:linear-gradient(135deg,#2d6a4f,#40916c);color:#fff;font-weight:600;border-color:transparent}
+.map-loc.route-btn:hover{opacity:.9}
+
+/* ========== Modal Action Buttons ========== */
+.modal-actions{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1rem}
+.m-btn{display:inline-flex;align-items:center;gap:.3rem;padding:.45rem .85rem;border-radius:2rem;font-size:.76rem;font-weight:500;text-decoration:none;transition:all .2s;border:1px solid}
+.m-btn.nav{background:#e8f5e9;color:#2d6a4f;border-color:rgba(45,106,79,.15)}
+.m-btn.call{background:#e3f2fd;color:#1565c0;border-color:rgba(21,101,192,.15)}
+.m-btn.book{background:#fff3e0;color:#e65100;border-color:rgba(230,81,0,.15)}
+.m-btn.site{background:#f3e5f5;color:#6a1b9a;border-color:rgba(106,27,154,.15)}
+.m-btn:hover{opacity:.85;transform:translateY(-1px)}
+
+/* ========== Animations ========== */
+
+/* ========== Responsive ========== */
+@media(min-width:768px){
+.hero h1{font-size:2.4rem}
+.main{max-width:600px}
+.modal-sheet{max-width:560px;left:50%;transform:translate(-50%,100%);border-radius:1.2rem 1.2rem 0 0}
+.modal-sheet.show{transform:translate(-50%,0)}
+}
+
+/* ========== Dynamic Interactive Effects ========== */
+
+/* --- Scroll progress bar --- */
+.scroll-progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,#5a4a6a,#8a7aba,#c9a961);z-index:999;width:0%;transition:width .1s linear;pointer-events:none;border-radius:0 2px 2px 0}
+
+/* --- Hero star particles canvas --- */
+#heroCanvas{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0}
+.hero>*:not(#heroCanvas){position:relative;z-index:1}
+
+/* --- Hero parallax + breathing gradient --- */
+.hero{background-size:200% 200%;animation:heroGradient 8s ease infinite}
+@keyframes heroGradient{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+
+/* --- Day dot breathing glow --- */
+@keyframes dotPulse{
+  0%,100%{box-shadow:0 0 0 0 rgba(90,74,106,.3)}
+  50%{box-shadow:0 0 0 8px rgba(90,74,106,0)}
+}
+.day-dot{animation:dotPulse 3s ease-in-out infinite}
+
+/* --- Card staggered entrance --- */
+.day-card{opacity:0;transform:translateY(30px);transition:opacity .6s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.16,1,.3,1),box-shadow .3s}
+.day-card.in-view{opacity:1;transform:translateY(0)}
+
+/* --- Spot chips cascade entrance --- */
+.spot-chip{opacity:0;transform:translateX(-20px);transition:opacity .4s ease,transform .4s ease,background .2s,box-shadow .2s}
+.day-card.open .spot-chip{opacity:1;transform:translateX(0)}
+.day-card.open .spot-chip:nth-child(1){transition-delay:.05s}
+.day-card.open .spot-chip:nth-child(2){transition-delay:.1s}
+.day-card.open .spot-chip:nth-child(3){transition-delay:.15s}
+.day-card.open .spot-chip:nth-child(4){transition-delay:.2s}
+.day-card.open .spot-chip:nth-child(5){transition-delay:.25s}
+.day-card.open .spot-chip:nth-child(6){transition-delay:.3s}
+.day-card.open .spot-chip:nth-child(7){transition-delay:.35s}
+
+/* --- Info pills bounce in --- */
+.info-pill{opacity:0;transform:scale(.6);transition:opacity .3s ease,transform .3s cubic-bezier(.34,1.56,.64,1)}
+.day-card.open .info-pill{opacity:1;transform:scale(1)}
+.day-card.open .info-pill:nth-child(1){transition-delay:.05s}
+.day-card.open .info-pill:nth-child(2){transition-delay:.1s}
+.day-card.open .info-pill:nth-child(3){transition-delay:.15s}
+.day-card.open .info-pill:nth-child(4){transition-delay:.2s}
+.day-card.open .info-pill:nth-child(5){transition-delay:.25s}
+
+/* --- Map pins bounce --- */
+@keyframes pinBounce{
+  0%{opacity:0;transform:translateY(-8px) scale(.8)}
+  60%{transform:translateY(3px) scale(1.05)}
+  100%{opacity:1;transform:translateY(0) scale(1)}
+}
+.day-card.open .map-loc{animation:pinBounce .4s ease forwards;opacity:0}
+.day-card.open .map-loc:nth-child(1){animation-delay:.3s}
+.day-card.open .map-loc:nth-child(2){animation-delay:.38s}
+.day-card.open .map-loc:nth-child(3){animation-delay:.46s}
+.day-card.open .map-loc:nth-child(4){animation-delay:.54s}
+.day-card.open .map-loc:nth-child(5){animation-delay:.62s}
+
+/* --- Section headers slide in --- */
+.sh{opacity:0;transform:translateX(-20px);transition:opacity .6s ease,transform .6s ease}
+.sh.in-view{opacity:1;transform:translateX(0)}
+
+/* --- Day card hover lift --- */
+.day-card.in-view:hover{box-shadow:0 6px 24px rgba(0,0,0,.08);transform:translateY(-2px)}
+
+/* --- Ripple click effect --- */
+.ripple-effect{position:relative;overflow:hidden}
+.ripple-wave{position:absolute;border-radius:50%;background:rgba(90,74,106,.15);transform:scale(0);animation:rippleAnim .6s ease-out forwards;pointer-events:none}
+@keyframes rippleAnim{
+  to{transform:scale(4);opacity:0}
+}
+
+/* --- Tips accordion enhanced --- */
+.tips-accordion{opacity:0;transform:translateY(15px);transition:opacity .5s ease,transform .5s ease}
+.tips-accordion.in-view{opacity:1;transform:translateY(0)}
+
+/* --- Footer fade in --- */
+.footer{opacity:0;transition:opacity .8s ease}
+.footer.in-view{opacity:1}
+
+/* --- Spot chip hover shimmer --- */
+.spot-chip::after{content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.3),transparent);transition:left .5s ease;pointer-events:none}
+.spot-chip:hover::after{left:120%}
+.spot-chip{position:relative;overflow:hidden}
+
+/* --- Day card expand glow border --- */
+.day-card.open{border-color:rgba(138,122,186,.2);box-shadow:0 4px 20px rgba(90,74,106,.08)}
+
+/* --- Modal entrance enhance --- */
+.modal-sheet{transition:transform .45s cubic-bezier(.22,1,.36,1)}
+
+/* --- Hero text entrance --- */
+@keyframes heroFadeUp{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.hero-badge{animation:heroFadeUp .8s ease .2s both}
+.hero h1{animation:heroFadeUp .8s ease .4s both}
+.hero p{animation:heroFadeUp .8s ease .6s both}
+.hero-tags{animation:heroFadeUp .8s ease .8s both}
+.route-switch{animation:heroFadeUp .8s ease 1s both}
+
+/* --- Day summary text shimmer on hover --- */
+.day-spots{transition:color .3s ease}
+.day-card:hover .day-spots{color:#5a4a6a}
+
+/* --- Map row label entrance --- */
+.day-map-label{opacity:0;transition:opacity .4s ease .25s}
+.day-card.open .day-map-label{opacity:1}
+
+</style>
+</head>
+<body>
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- Nav -->
+<nav class="nav"><div class="nav-inner">
+<div class="nav-logo">黔途<span>拾趣</span> · 路线三</div>
+<a href="index.html" class="nav-back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>首页</a>
+</div></nav>
+
+<!-- Hero (compact) -->
+<section class="hero">
+<canvas id="heroCanvas"></canvas>
+<div class="hero-badge">2027 · 贵州深度游 · 6天5夜</div>
+<h1 class="serif">秘境<span class="gold">探</span>黔</h1>
+<p>溶洞飞瀑·野生秘境·高原花海·云上草原·地下天宫，一条串联贵州最硬核小众秘境的深度自驾线</p>
+<div class="hero-tags">
+<div class="hero-tag">🏔️ 贵州屋脊</div>
+<div class="hero-tag">💜 紫色花海</div>
+<div class="hero-tag">🕳️ 溶洞秘境</div>
+<div class="hero-tag">🌊 超级飞瀑</div>
+<div class="hero-tag">🛶 暗河穿越</div>
+</div>
+<div class="route-switch">
+<a href="index.html" class="route-btn outline">路线一</a>
+<a href="route2.html" class="route-btn outline">路线二</a>
+</div>
+</section>
+
+<div class="main">
+
+<!-- ===== Day Cards ===== -->
+<div class="sh"><div class="sh-label">DAILY PLAN</div><div class="sh-title">每日行程</div><div class="sh-desc">点击日期展开，再点击景点查看详情</div></div>
+
+<!-- D1 -->
+<div class="day-card" id="d1">
+<div class="day-summary" onclick="toggleCard('d1')">
+<div class="day-dot c1">D1</div>
+<div class="day-meta">
+<div class="day-date">待定（2027年夏季）</div>
+<div class="day-spots">贵阳 → 羊皮洞瀑布</div>
+</div>
+<div class="day-right">
+<div class="day-temp">~25℃</div>
+<svg class="day-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+</div>
+</div>
+<div class="day-expand">
+<div class="day-info-bar">
+<span class="info-pill">🚗 贵阳→清镇 1.5h</span>
+<span class="info-pill">🎫 免费</span>
+<span class="info-pill">⏰ 建议上午出发</span>
+</div>
+<div class="spot-strip">
+<div class="spot-chip" onclick="openModal('m-d1-yangpidong')">
+<div class="spot-emoji">🌊</div>
+<div class="spot-chip-info">
+<div class="spot-chip-name">羊皮洞瀑布</div>
+<div class="spot-chip-sub">41米溶洞飞瀑·瀑布直击面部·伸手可触</div>
+</div>
+<div class="spot-chip-arrow">›</div>
+</div>
+</div>
+<div class="day-map-label">📍 今日行程地图</div>
+<div class="day-map-row">
+<a class="map-loc" href="https://uri.amap.com/search?keyword=羊皮洞瀑布&city=520181" target="_blank">羊皮洞瀑布</a>
+<a class="map-loc route-btn" href="https://uri.amap.com/navigation?from=贵阳市&to=羊皮洞停车场&mode=car&policy=2" target="_blank">🧭 全程导航</a>
+</div>
+</div>
+</div>
+
+<!-- D2 -->
+<div class="day-card" id="d2">
+<div class="day-summary" onclick="toggleCard('d2')">
+<div class="day-dot c2">D2</div>
+<div class="day-meta">
+<div class="day-date">待定（2027年夏季）</div>
+<div class="day-spots">冰臼 → 滴水滩瀑布 → 吊水岩 → 莲花古洞 → 龙脊山</div>
+</div>
+<div class="day-right">
+<div class="day-temp">~26℃</div>
+<svg class="day-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+</div>
+</div>
+<div class="day-expand">
+<div class="day-info-bar">
+<span class="info-pill">🚗 全程约200km</span>
+<span class="info-pill">🎫 全部免费</span>
+<span class="info-pill">⏰ 全天行程</span>
+</div>
+<div class="spot-strip">
+<div class="spot-chip" onclick="openModal('m-d2-bingjiu')">
+<div class="spot-emoji">🪨</div>
+<div class="spot-chip-info">
+<div class="spot-chip-name">关岭冰臼</div>
+<div class="spot-chip-sub">百万年冰川遗迹·大小冰臼如翡翠散落脚底</div>
+</div>
+<div class="spot-chip-arrow">›</div>
+</div>
+<div class="spot-chip" onclick="openModal('m-d2-dishuitan')">
+<div class="spot-emoji">🌊</div>
+<div class="spot-chip-info">
+<div class="spot-chip-name">滴水滩瀑布</div>
+<div class="spot-chip-sub">总高410米·比黄果树高6倍·三级cascading瀑布</div>
+</div>
+<div class="spot-chip-arrow">›</div>
+</div>
+<div class="spot-chip" onclick="openModal('m-d2-diaoshuiyan')">
+<div class="spot-emoji">💧</div>
+<div class="spot-chip-info">
+<div class="spot-chip-name">吊水岩瀑布</div>
+<div class="spot-chip-sub">贵州版冰岛·公路瀑布·纳雍小瑞士</div>
+</div>
+<div class="spot-chip-arrow">›</div>
+</div>
+<div class="spot-chip" onclick="openModal('m-d2-lianhua')">
+<div class="spot-emoji">🕳️</div>
+<div class="spot-chip-info">
+<div class="spot-chip-name">莲花古洞</div>
+<div class="spot-chip-sub">无灯野溶洞·乘船入地下河·丁达尔光效</div>
+</div>
+<div class="spot-chip-arrow">›</div>
+</div>
+<div class="spot-chip" onclick="openModal('m-d2-longji')">
+<div class="spot-emoji">⛰️</div>
+<div class="spot-chip-info">
+<div class="spot-chip-name">龙脊山</div>
+<div class="spot-chip-sub">金色山脊·悬崖挂壁公路·荒芜壮美</div>
+</div>
+<div class="spot-chip-arrow">›</div>
+</div>
+</div>
+<div class="day-map-label">📍 今日行程地图</div>
+<div class="day-map-row">
+<a class="map-loc" href="https://uri.amap.com/search?keyword=关岭冰臼&city=520430" target="_blank">关岭冰臼</a>
+<a class="map-loc" href="https://uri.amap.com/search?keyword=滴水滩瀑布&city=520430" target="_blank">滴水滩瀑布</a>
+<a class="map-loc" href="https://uri.amap.com/search?keyword=吊水岩瀑布&city=522427" target="_blank">吊水岩瀑布</a>
+<a class="map-loc" href="https://uri.amap.com/search?keyword=莲花古洞&city=520422" target="_blank">莲花古洞</a>
+<a class="map-loc" href="https://uri.amap.com/search?keyword=龙脊山&city=520201" target="_blank">龙脊山</a>
+<a class="map-loc route-btn" href="https://uri.amap.com/navigation?from=清镇市&to=龙脊山&via=关岭冰臼,滴水滩瀑布,吊水岩瀑布,莲花古洞&mode=car&policy=2" target="_blank">🧭 全程导航</a>
+</div>
+</div>
+</div>
+
+<!-- D3 -->
+<div class="day-card" id="d3">
+<div class="day-summary" onclick="toggleCard('d3')">
+<div class="day-dot c3">D3</div>
+<div class="day-meta">
+<div class="day-date">待定（2027年夏季）</div>
+<div class="day-spots">格凸河 → 峰林布依寨</div>
+</div>
+<div class="day-right">
+<div class="day-temp">~27℃</div>
+<svg class="day-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+</div>
+</div>
+<div class="day-expand">
+<div class="day-info-bar">
+<span class="info-pill">🚗 安顺→紫云 1.5h</span>
+<span class="info-pill">🎫 格凸河约150元含船</span>
+<span class="info-pill">⏰ 天地神光需9:00前到</span>
+</div>
+<div class="spot-strip">
+<div class="spot-chip" onclick="openModal('m-d3-getuoh')">
+<div class="spot-emoji">🌤️</div>
+<div class="spot-chip-info">
+<div class="spot-chip-name">格凸河·大穿洞</div>
+<div class="spot-chip-sub">116m巨型溶洞·天地神光·蜘蛛人攀岩</div>
+</div>
+<div class="spot-chip-arrow">›</div>
+</div>
+<div class="spot-chip" onclick="openModal('m-d3-fenglin')">
+<div class="spot-emoji">🏘️</div>
+<div class="spot-chip-info">
+<div class="spot-chip-name">峰林布依</div>
+<div class="spot-chip-sub">600栋吊脚楼·万家灯火·贵州"天空之城"</div>
+</div>
+<div class="spot-chip-arrow">›</div>
+</div>
+</div>
+<div class="day-map-label">📍 今日行程地图</div>
+<div class="day-map-row">
+<a class="map-loc" href="https://uri.amap.com/search?keyword=格凸河&city=520425" target="_blank">格凸河</a>
+<a class="map-loc" href="https://uri.amap.com/search?keyword=峰林布依&city=522301" target="_blank">峰林布依</a>
+<a class="map-loc route-btn" href="https://uri.amap.com/navigation?from=安顺市&to=峰林布依&via=格凸河&mode=car&policy=2" target="_blank">🧭 全程导航</a>
+</div>
+</div>
+</div>
+
+<!-- D4 -->
+<div class="day-card" id="d4">
+<div class="day-summary" onclick="toggleCard('d4')">
+<div class="day-dot c4">D4</div>
+<div class="day-meta">
+<div class="day-date">待定（2027年夏季）</div>
+<div class="day-spots">乌蒙大草原 → 玉舍森林公园</div>
+</div>
+<div class="day-right">
+<div class="day-temp">~19℃</div>
+<svg class="day-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+</div>
+</div>
+<div class="day-expand">
+<div class="day-info-bar">
+<span class="info-pill">🚗 全天行程</span>
+<span class="info-pill">🌡️ 高原19℃避暑</span>
+<span class="info-pill">🎫 草原30元+森林20元</span>
+</div>
+<div class="spot-strip">
+<div class="spot-chip" onclick="openModal('m-d4-wumeng')">
+<div class="spot-emoji">🌿</div>
+<div class="spot-chip-info">
+<div class="spot-chip-name">乌蒙大草原</div>
+<div class="spot-chip-sub">2800m高山草甸·云海佛光·10万亩草原</div>
+</div>
+<div class="spot-chip-arrow">›</div>
+</div>
+<div class="spot-chip" onclick="openModal('m-d4-yushe')">
+<div class="spot-emoji">🚂</div>
+<div class="spot-chip-info">
+<div class="spot-chip-name">玉舍森林公园·窄轨小火车</div>
+<div class="spot-chip-sub">世界首条螺旋盘升列车·穿越万亩林海</div>
+</div>
+<div class="spot-chip-arrow">›</div>
+</div>
+</div>
+<div class="day-map-label">📍 今日行程地图</div>
+<div class="day-map-row">
+<a class="map-loc" href="https://uri.amap.com/search?keyword=乌蒙大草原&city=520222" target="_blank">乌蒙大草原</a>
+<a class="map-loc" href="https://uri.amap.com/search?keyword=玉舍森林公园&city=520204" target="_blank">玉舍森林公园</a>
+<a class="map-loc route-btn" href="https://uri.amap.com/navigation?from=六盘水市&to=玉舍森林公园&via=乌蒙大草原&mode=car&policy=2" target="_blank">🧭 全程导航</a>
+</div>
+</div>
+</div>
+
+<!-- D5 -->
+<div class="day-card" id="d5">
+<div class="day-summary" onclick="toggleCard('d5')">
+<div class="day-dot c5">D5</div>
+<div class="day-meta">
+<div class="day-date">待定（2027年夏季）</div>
+<div class="day-spots">韭菜坪 → 阿西里西草原</div>
+</div>
+<div class="day-right">
+<div class="day-temp">~18℃</div>
+<svg class="day-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+</div>
+</div>
+<div class="day-expand">
+<div class="day-info-bar">
+<span class="info-pill">🚗 赫章县</span>
+<span class="info-pill">🌸 8-9月紫色花海</span>
+<span class="info-pill">🏔️ 贵州屋脊2900m</span>
+</div>
+<div class="spot-strip">
+<div class="spot-chip" onclick="openModal('m-d5-dajiuc')">
+<div class="spot-emoji">💜</div>
+<div class="spot-chip-info">
+<div class="spot-chip-name">大韭菜坪·天上花海</div>
+<div class="spot-chip-sub">世界最大野生韭菜花带·东方普罗旺斯</div>
+</div>
+<div class="spot-chip-arrow">›</div>
+</div>
+<div class="spot-chip" onclick="openModal('m-d5-xiaojiuc')">
+<div class="spot-emoji">🏔️</div>
+<div class="spot-chip-info">
+<div class="spot-chip-name">小韭菜坪·贵州屋脊</div>
+<div class="spot-chip-sub">海拔2900.6m·贵州最高峰·天上石林</div>
+</div>
+<div class="spot-chip-arrow">›</div>
+</div>
+<div class="spot-chip" onclick="openModal('m-d5-axilisi')">
+<div class="spot-emoji">🛤️</div>
+<div class="spot-chip-info">
+<div class="spot-chip-name">阿西里西·波浪公路</div>
+<div class="spot-chip-sub">13km地景过山车·S型弯道+30度斜坡</div>
+</div>
+<div class="spot-chip-arrow">›</div>
+</div>
+</div>
+<div class="day-map-label">📍 今日行程地图</div>
+<div class="day-map-row">
+<a class="map-loc" href="https://uri.amap.com/search?keyword=大韭菜坪&city=522428" target="_blank">大韭菜坪</a>
+<a class="map-loc" href="https://uri.amap.com/search?keyword=小韭菜坪&city=522428" target="_blank">小韭菜坪</a>
+<a class="map-loc" href="https://uri.amap.com/search?keyword=阿西里西草原&city=522428" target="_blank">阿西里西草原</a>
+<a class="map-loc route-btn" href="https://uri.amap.com/navigation?from=赫章县&to=阿西里西草原&via=大韭菜坪,小韭菜坪&mode=car&policy=2" target="_blank">🧭 全程导航</a>
+</div>
+</div>
+</div>
+
+<!-- D6 -->
+<div class="day-card" id="d6">
+<div class="day-summary" onclick="toggleCard('d6')">
+<div class="day-dot c6">D6</div>
+<div class="day-meta">
+<div class="day-date">待定（2027年夏季）</div>
+<div class="day-spots">九洞天 → 织金洞 → 乌江源百里画廊</div>
+</div>
+<div class="day-right">
+<div class="day-temp">~25℃</div>
+<svg class="day-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+</div>
+</div>
+<div class="day-expand">
+<div class="day-info-bar">
+<span class="info-pill">🚗 全程约200km</span>
+<span class="info-pill">🛶 船游暗河</span>
+<span class="info-pill">🎫 九洞天70元+织金洞130元</span>
+</div>
+<div class="spot-strip">
+<div class="spot-chip" onclick="openModal('m-d6-jiudong')">
+<div class="spot-emoji">🛶</div>
+<div class="spot-chip-info">
+<div class="spot-chip-name">九洞天</div>
+<div class="spot-chip-sub">中国岩溶百科全书·乘船穿九重天窗·暗河时空隧道</div>
+</div>
+<div class="spot-chip-arrow">›</div>
+</div>
+<div class="spot-chip" onclick="openModal('m-d6-zhijin')">
+<div class="spot-emoji">🕳️</div>
+<div class="spot-chip-info">
+<div class="spot-chip-name">织金洞</div>
+<div class="spot-chip-sub">中国溶洞之王·世界地质公园·地下天宫</div>
+</div>
+<div class="spot-chip-arrow">›</div>
+</div>
+<div class="spot-chip" onclick="openModal('m-d6-wujiang')">
+<div class="spot-emoji">🏞️</div>
+<div class="spot-chip-info">
+<div class="spot-chip-name">乌江源百里画廊</div>
+<div class="spot-chip-sub">高原小三峡·翡翠江水·百米崖壁·化屋苗寨</div>
+</div>
+<div class="spot-chip-arrow">›</div>
+</div>
+</div>
+<div class="day-map-label">📍 今日行程地图</div>
+<div class="day-map-row">
+<a class="map-loc" href="https://uri.amap.com/search?keyword=九洞天&city=522422" target="_blank">九洞天</a>
+<a class="map-loc" href="https://uri.amap.com/search?keyword=织金洞&city=522423" target="_blank">织金洞</a>
+<a class="map-loc" href="https://uri.amap.com/search?keyword=乌江源百里画廊&city=522423" target="_blank">乌江源百里画廊</a>
+<a class="map-loc route-btn" href="https://uri.amap.com/navigation?from=大方县&to=乌江源百里画廊&via=九洞天,织金洞&mode=car&policy=2" target="_blank">🧭 全程导航</a>
+</div>
+</div>
+</div>
+
+<!-- ===== Tips ===== -->
+<div class="sh"><div class="sh-label">TIPS</div><div class="sh-title">出行贴士</div></div>
+
+<div class="tips-accordion" id="t1">
+<div class="tips-head" onclick="toggleCard('t1')"><span class="t-icon">🎒</span>必带装备<svg class="t-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+<div class="tips-body"><div class="tips-body-inner"><ul>
+<li>防滑高帮徒步鞋（羊皮洞/冰臼/吊水岩必备）</li>
+<li>雨衣/冲锋衣（瀑布水雾大）</li>
+<li>手机防水袋（拍照必备）</li>
+<li>薄外套（乌蒙大草原/韭菜坪/织金洞温差大）</li>
+<li>登山杖（羊皮洞山路陡峭）</li>
+<li>防晒+帽子（高原紫外线强，草原无遮挡）</li>
+<li>晕车药（山路弯道多）</li>
+</ul></div></div>
+</div>
+
+<div class="tips-accordion" id="t2">
+<div class="tips-head" onclick="toggleCard('t2')"><span class="t-icon">🧒</span>亲子注意<svg class="t-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+<div class="tips-body"><div class="tips-body-inner"><ul>
+<li>羊皮洞山路泥泞湿滑，小孩需防滑鞋+大人牵手</li>
+<li>冰臼深坑无护栏，看好小孩不要靠近边缘</li>
+<li>格凸河乘船穿好救生衣</li>
+<li>韭菜坪/乌蒙大草原海拔高(2800-2900m)，注意高反</li>
+<li>每天车程较长，备好零食和水</li>
+<li>吊水岩/龙脊天路弯道多，提前吃晕车药</li>
+</ul></div></div>
+</div>
+
+<div class="tips-accordion" id="t3">
+<div class="tips-head" onclick="toggleCard('t3')"><span class="t-icon">🎫</span>门票汇总<svg class="t-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+<div class="tips-body"><div class="tips-body-inner"><ul>
+<li>羊皮洞/冰臼/滴水滩/吊水岩/莲花古洞/龙脊山：免费</li>
+<li>格凸河：约150元（含游船+大穿洞）</li>
+<li>峰林布依：免费</li>
+<li>乌蒙大草原：30元/人（1.2m以下免费），停车10元</li>
+<li>玉舍森林公园：20元/人</li>
+<li>玉舍小火车：单程80元，往返120元（1.2m以下半价）</li>
+<li>韭菜坪：旺季45元，观光车50元，索道80元</li>
+<li>阿西里西波浪公路：自驾100元/辆+同行20元/人</li>
+<li>九洞天：套票70元/人（含门票+游船）</li>
+<li>织金洞：110元+景交车20元</li>
+<li>乌江源百里画廊：免费入园，游船50-60元/人</li>
+</ul></div></div>
+</div>
+
+<div class="tips-accordion" id="t4">
+<div class="tips-head" onclick="toggleCard('t4')"><span class="t-icon">🚗</span>自驾提示<svg class="t-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+<div class="tips-body"><div class="tips-body-inner"><ul>
+<li>全程约1200km，涉及贵阳→安顺→紫云→六盘水→赫章→大方→织金→贵阳大环线</li>
+<li>羊皮洞最后3km碎石路，建议SUV，14点后只出不进</li>
+<li>山区道路弯多路窄，会车需减速</li>
+<li>韭菜坪/乌蒙大草原海拔高，注意车辆动力</li>
+<li>建议加满油再进山区，部分路段无加油站</li>
+</ul></div></div>
+</div>
+
+<div class="tips-accordion" id="t5">
+<div class="tips-head" onclick="toggleCard('t5')"><span class="t-icon">🍳</span>美食汇总<svg class="t-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+<div class="tips-body"><div class="tips-body-inner"><ul>
+<li>清镇：卫城八大碗、清镇烙锅、清镇羊肉粉、何记冰粉、黄粑</li>
+<li>关岭：关岭牛肉火锅、花江狗肉、断桥青椒鱼、关岭剪粉</li>
+<li>纳雍：火把鱼、豆豉火锅、荞凉粉</li>
+<li>安顺：裹卷、夺夺粉、小锅凉粉</li>
+<li>六盘水：水城烙锅（全有福）、水城羊肉粉（尝回头）、茨冲鸡火锅、冰浆</li>
+<li>赫章：威宁小粑粑、威宁烤洋芋、荞酥、火腿</li>
+<li>织金：织金发粑、烙锅、乌江鱼火锅</li>
+</ul></div></div>
+</div>
+
+</div><!-- /main -->
+
+<!-- ========== MODALS ========== -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal()"></div>
+<div class="modal-sheet" id="modalSheet">
+<div class="modal-handle"></div>
+<div class="modal-header">
+<div><div class="modal-title" id="modalTitle"></div><div class="modal-subtitle" id="modalSub"></div></div>
+<button class="modal-close" onclick="closeModal()">✕</button>
+</div>
+<div class="modal-body" id="modalBody"></div>
+</div>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+<button class="lightbox-close" onclick="closeLightbox()">✕</button>
+<img id="lightboxImg" src="" alt="">
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+<p>黔途拾趣 · 路线三 · 2027贵州避暑深度游</p>
+<p>贵阳→羊皮洞→冰臼→滴水滩→吊水岩→莲花古洞→龙脊山→格凸河→峰林布依→乌蒙大草原→玉舍→韭菜坪→阿西里西→九洞天→织金洞→乌江源百里画廊</p>
+<p style="margin-top:.5rem">用 <span class="heart">♥</span> 探索贵州小众秘境</p>
+<p style="margin-top:.8rem"><a href="index.html">← 路线一</a> · <a href="route2.html">路线二 →</a></p>
+</footer>
+
+<script>
+/* ===== Card toggle ===== */
+function toggleCard(id){
+var el=document.getElementById(id);
+if(el.classList.contains('open')){
+el.querySelector('.day-expand,.tips-body').style.maxHeight='0';
+el.classList.remove('open');
+}else{
+var body=el.querySelector('.day-expand,.tips-body');
+el.classList.add('open');
+body.style.maxHeight=body.scrollHeight+'px';
+}
+}
+
+/* ===== Modal ===== */
+var modalData={
+'m-d1-yangpidong':{
+title:'羊皮洞瀑布',
+sub:'D1 · 清镇市暗流镇 · 贵阳出发1.5h',
+tags:['<span class="modal-tag free">免费</span>','<span class="modal-tag nature">野生秘境</span>','<span class="modal-tag water">溶洞飞瀑</span>','<span class="modal-tag temp">~25℃</span>'],
+intro:'位于清镇市暗流镇木刻村，未商业化的原生野生秘境。40余米溶洞飞瀑从崖洞奔涌而下，峡谷幽深、水雾缭绕，伸手可触瀑布。',
+detail:'🌊 <strong>41米溶洞飞瀑</strong>：从崖洞奔涌而下，水雾弥漫，站在瀑布前伸手即可触碰水流<br><br>🏞️ <strong>峡谷幽深</strong>：水雾缭绕，如入仙境<br><br>💰 <strong>免费</strong>，停车10-15元<br>🥾 从停车场到瀑布徒步30-40分钟<br>🌊 <strong>丰水期(5-10月)</strong>水量最充沛<br><br>⚠️ <strong>注意</strong>：<br>• 最后3km碎石路建议SUV<br>• 14点后山路限行只出不进<br>• 必穿防滑鞋+带雨衣',
+kids:'需要徒步山路约40分钟，路滑需穿防滑鞋，建议带登山杖。较小的孩子可能需要背带。',
+food:'<ul class="food-list"><li>卫城八大碗</li><li>清镇烙锅</li><li>清镇羊肉粉</li><li>何记冰粉</li><li>黄粑</li></ul><p class="food-price">清镇市区美食</p>',
+photo:'📸 晴日中午12点左右光线最好，能看到瀑布彩虹。从洞内向外拍剪影绝佳。',
+images:[],videos:[],nav:'羊皮洞停车场',phone:'',book:'',note_nav:'清镇市暗流镇木刻村，导航"羊皮洞停车场"'
+},
+'m-d2-bingjiu':{
+title:'关岭冰臼',
+sub:'D2 · 关岭县断桥镇 · 全天开放',
+tags:['<span class="modal-tag free">免费</span>','<span class="modal-tag nature">冰川遗迹</span>','<span class="modal-tag easy">全天开放</span>'],
+intro:'位于关岭县断桥镇，中国面积较大、保存完整的冰臼群。大的直径15米深10米，小的仅纽扣大小。蓄满蓝绿色水的冰臼如散落河谷的宝石，高空俯瞰宛如异域星球。',
+detail:'🪨 <strong>冰臼群</strong>：中国面积较大、保存完整的第四纪冰川遗迹<br><br>📏 <strong>规模</strong>：大的直径15米深10米，小的仅纽扣大小<br><br>💎 <strong>色彩</strong>：蓄满蓝绿色水的冰臼如散落河谷的宝石<br><br>🛸 <strong>航拍</strong>：高空俯瞰宛如异域星球<br><br>💰 免费，全天开放<br>🥾 徒步往返3-4小时<br>⚠️ 注意枯水期去更安全',
+kids:'冰臼徒步注意安全，不要靠近深水冰臼边缘。大冰臼像天然的游泳池，小孩会好奇地往里看。',
+images:[],videos:[],nav:'关岭冰臼',phone:'',book:'',note_nav:'关岭县断桥镇'
+},
+'m-d2-dishuitan':{
+title:'滴水滩瀑布',
+sub:'D2 · 关岭县城北4km · 免费',
+tags:['<span class="modal-tag free">免费</span>','<span class="modal-tag nature">贵州最高瀑布</span>','<span class="modal-tag water">三级飞瀑</span>'],
+intro:'关岭县城北4km，黄果树以西8km。由连天瀑布(40m)、冲坑瀑布(160m)、高滩瀑布(130m)三级组成，总高410米，贵州省最高瀑布。与坝陵河大桥隔谷相望。',
+detail:'🌊 <strong>三级瀑布</strong>：<br>• 连天瀑布(40m)<br>• 冲坑瀑布(160m)<br>• 高滩瀑布(130m)<br>• 总高410米，比黄果树高6倍<br><br>🌉 <strong>坝陵河大桥</strong>：与瀑布隔谷相望<br><br>💰 免费，原生态未开发<br>📍 最佳观赏点：伟喜村南1km观景台<br>🌊 丰水期4-10月最壮观',
+images:[],videos:[],nav:'滴水滩瀑布',phone:'',book:'',note_nav:'关岭县城北4km，伟喜村南1km观景台'
+},
+'m-d2-diaoshuiyan':{
+title:'吊水岩瀑布',
+sub:'D2 · 毕节纳雍县深山 · 免费',
+tags:['<span class="modal-tag free">免费</span>','<span class="modal-tag nature">贵州版冰岛</span>','<span class="modal-tag water">公路瀑布</span>'],
+intro:'位于毕节纳雍县深山，多级阶梯瀑布群。丰水期(6-10月)水流如银色绸缎从百余米悬崖倾泻。第一叠"公路瀑布"紧挨盘山公路，车在画中游。',
+detail:'💧 <strong>多级瀑布</strong>：阶梯瀑布群，丰水期水流如银色绸缎<br><br>🛣️ <strong>公路瀑布</strong>：第一叠紧挨盘山公路，车在画中游<br><br>🇨🇭 <strong>纳雍小瑞士</strong>：第二叠需轻松徒步3km沙石路<br><br>💰 免费，停车10元<br>🌊 丰水期6-10月最壮观',
+kids:'吊水岩石阶湿滑，牵好小孩。公路瀑布近距离体验很震撼。',
+images:[],videos:[],nav:'吊水岩瀑布',phone:'',book:'',note_nav:'毕节纳雍县深山'
+},
+'m-d2-lianhua':{
+title:'莲花古洞',
+sub:'D2 · 安顺普定 · 神秘地心世界',
+tags:['<span class="modal-tag nature">野溶洞</span>','<span class="modal-tag water">地下河</span>','<span class="modal-tag easy">丁达尔光效</span>'],
+intro:'安顺普定，神秘的地心世界。洞口的光洒入如电影丁达尔效应，乘船进入地下河体验地心探秘。',
+detail:'🕳️ <strong>无灯野溶洞</strong>：保持原始状态，没有商业灯光<br><br>🛶 <strong>乘船入地下河</strong>：体验地心探秘<br><br>☀️ <strong>丁达尔光效</strong>：洞口的光洒入，如电影般的丁达尔效应<br><br>📍 安顺普定',
+images:[],videos:[],nav:'莲花古洞',phone:'',book:'',note_nav:'安顺普定'
+},
+'m-d2-longji':{
+title:'龙脊山',
+sub:'D2 · 六枝特区 · 金色山脊',
+tags:['<span class="modal-tag free">免费</span>','<span class="modal-tag nature">挂壁公路</span>','<span class="modal-tag easy">荒芜壮美</span>'],
+intro:'六枝特区龙脊天路，公路在喀斯特峰林间蜿蜒，随手一拍都是大片，如异域世界。傍晚登顶可观金色山脊落日。',
+detail:'⛰️ <strong>龙脊天路</strong>：公路在喀斯特峰林间蜿蜒<br><br>📸 <strong>随手大片</strong>：每一处弯道都是异域世界的画面<br><br>🌅 <strong>金色山脊</strong>：傍晚登顶可观落日<br><br>📍 六枝特区',
+images:[],videos:[],nav:'龙脊山',phone:'',book:'',note_nav:'六枝特区龙脊天路'
+},
+'m-d3-getuoh':{
+title:'格凸河·大穿洞',
+sub:'D3 · 安顺紫云县 · 国家4A级景区',
+tags:['<span class="modal-tag nature">巨型溶洞</span>','<span class="modal-tag kid">天地神光</span>','<span class="modal-tag water">乘船穿洞</span>','<span class="modal-tag temp">~27℃</span>'],
+intro:'安顺紫云县，国家4A级景区、国家级风景名胜区。"格凸"苗语意为"圣地"。大穿洞高116m宽25m，每年4月中下旬至9月上旬上午9点左右，阳光穿透天窗产生丁达尔效应"天地神光"。',
+detail:'🌤️ <strong>天地神光</strong>：每年4月中下旬至9月上旬上午9点左右，阳光穿透天窗产生丁达尔效应<br><br>🕳️ <strong>大穿洞</strong>：高116m宽25m的巨型溶洞<br><br>🛶 <strong>乘船穿洞</strong>：洞内可乘船穿越<br><br>🌌 <strong>通天洞</strong>：深370m宽200m天窗<br><br>🧗 <strong>蜘蛛人攀岩</strong>：苗族蜘蛛人徒手攀岩108m表演(非遗)<br><br>💰 门票约150元（含游船+大穿洞）<br>⏰ 天地神光需在9:00前到达<br><br>📍 安顺紫云县，"格凸"苗语意为"圣地"',
+kids:'乘船穿洞小孩会很兴奋，注意穿好救生衣',
+images:[],videos:[],nav:'格凸河',phone:'',book:'',note_nav:'安顺紫云县格凸河景区'
+},
+'m-d3-fenglin':{
+title:'峰林布依',
+sub:'D3 傍晚 · 国家4A级景区 · 贵州"天空之城"',
+tags:['<span class="modal-tag free">免费</span>','<span class="modal-tag nature">600栋吊脚楼</span>','<span class="modal-tag kid">非遗体验</span>'],
+intro:'距万峰林10km，国家4A级景区。纳灰河畔布依族古村寨，600余栋吊脚楼依山而建。入夜万家灯火与星空交映，被誉为贵州"天空之城"。',
+detail:'🏘️ <strong>600栋吊脚楼</strong>：纳灰河畔依山而建的布依族古村寨<br><br>🧵 <strong>非遗体验</strong>：刺绣、蜡染、八音、舞狮、打铁花等20多项非遗<br><br>✨ <strong>万家灯火</strong>：入夜灯火与星空交映，被誉为贵州"天空之城"<br><br>💰 免费<br>📍 距万峰林10km',
+photo:'📸 傍晚到达最佳，拍万家灯火夜景',
+images:[],videos:[],nav:'峰林布依',phone:'',book:'',note_nav:'距万峰林10km，纳灰河畔'
+},
+'m-d4-wumeng':{
+title:'乌蒙大草原',
+sub:'D4 · 六盘水盘州 · 海拔2800m',
+tags:['<span class="modal-tag nature">高山草甸</span>','<span class="modal-tag kid">骑马</span>','<span class="modal-tag temp">云海佛光</span>','<span class="modal-tag easy">自驾穿越</span>'],
+intro:'六盘水盘州，海拔2800m，10万亩高原草甸。可自驾穿越草原，沿途观景台随时停车。有高山湖泊长海子，运气好可见佛光和云海。',
+detail:'🌿 <strong>10万亩高原草甸</strong>：可自驾穿越，沿途观景台随时停车<br><br>💧 <strong>长海子</strong>：高山湖泊如碧<br><br>☀️ <strong>佛光与云海</strong>：运气好可见<br><br>💰 门票30元(1.2m以下免费)，停车10元<br>🐴 骑马50-60元/h<br><br>🌡️ <strong>温差提醒</strong>：山顶温差大(比山脚低10℃+)，带薄外套',
+kids:'草原上尽情奔跑放风筝，天然"耗电"神器',
+food:'<ul class="food-list"><li>水城烙锅（全有福）</li><li>水城羊肉粉（尝回头，30年老店，只做早市）</li><li>茨冲鸡火锅</li></ul>',
+images:[],videos:[],nav:'乌蒙大草原',phone:'',book:'',note_nav:'六盘水盘州，海拔2800m'
+},
+'m-d4-yushe':{
+title:'玉舍森林公园·窄轨小火车',
+sub:'D4 · 国家级森林公园 · 世界首条螺旋盘升列车',
+tags:['<span class="modal-tag nature">原始森林</span>','<span class="modal-tag kid">螺旋小火车</span>','<span class="modal-tag easy">天然氧吧</span>','<span class="modal-tag temp">19℃避暑</span>'],
+intro:'国家级森林公园，原始森林瀑布泉水。核心体验：世界首座三层半螺旋盘升观光小火车，穿越原始森林，单程40分钟。',
+detail:'🚂 <strong>螺旋小火车</strong>：世界首座三层半螺旋盘升观光列车<br><br>⏰ 单程40分钟穿越原始森林<br><br>💰 门票20元<br>🚂 小火车单程80元/往返120元(1.2m以下半价)<br>🌉 玻璃桥68元',
+food:'<ul class="food-list"><li>水城烙锅（全有福）</li><li>水城羊肉粉（尝回头，30年老店，只做早市）</li><li>茨冲鸡火锅</li></ul>',
+images:[],videos:[],nav:'玉舍森林公园',phone:'',book:'',note_nav:'国家级森林公园'
+},
+'m-d5-dajiuc':{
+title:'大韭菜坪·天上花海',
+sub:'D5 · 毕节赫章县 · 世界最大野生韭菜花带',
+tags:['<span class="modal-tag nature">东方普罗旺斯</span>','<span class="modal-tag temp">10万亩紫色花海</span>','<span class="modal-tag easy">夏季均温16.7℃</span>'],
+intro:'毕节赫章县，主峰2777m。世界最大面积野生多星韭花带，8-9月十万亩紫色花海铺满山脊，被誉为"东方普罗旺斯"。夏季均温16.7℃。',
+detail:'💜 <strong>十万亩紫色花海</strong>：世界最大面积野生多星韭花带<br><br>🌡️ <strong>夏季均温16.7℃</strong>：天然避暑胜地<br><br>💰 旺季45元，观光车往返50元，索道往返80元<br>🕐 09:00-17:30<br><br>🌸 <strong>花期</strong>：<br>• 最佳花期8月中旬-10月上旬<br>• 盛花期8月下旬-9月下旬',
+photo:'📸 上午9-11点晨雾未散时最美',
+images:[],videos:[],nav:'大韭菜坪',phone:'',book:'',note_nav:'毕节赫章县，主峰2777m'
+},
+'m-d5-xiaojiuc':{
+title:'小韭菜坪·贵州屋脊',
+sub:'D5 · 贵州最高峰2900.6m · 天上石林',
+tags:['<span class="modal-tag nature">贵州最高峰</span>','<span class="modal-tag temp">2900.6m</span>','<span class="modal-tag easy">天上石林</span>'],
+intro:'贵州最高峰2900.6m，"不到韭菜坪，枉看贵州山"。喀斯特石林+云海日出+"一览众山小"。',
+detail:'🏔️ <strong>贵州屋脊</strong>：海拔2900.6m，贵州最高点<br><br>🪨 <strong>喀斯特石林</strong>：独特的石林景观<br><br>☁️ <strong>云海日出</strong>：运气好可观壮美云海<br><br>📍 "不到韭菜坪，枉看贵州山"',
+images:[],videos:[],nav:'小韭菜坪',phone:'',book:'',note_nav:'贵州最高峰2900.6m'
+},
+'m-d5-axilisi':{
+title:'阿西里西·波浪公路',
+sub:'D5 · 二台坡草原 · 13km地景过山车',
+tags:['<span class="modal-tag nature">过山车公路</span>','<span class="modal-tag kid">S型弯道</span>','<span class="modal-tag temp">30度斜坡</span>'],
+intro:'二台坡草原，全长13km连续S型弯道与30度斜坡交替。驾车其上失重超重交替，车窗外的天空山峦交替出现。',
+detail:'🛤️ <strong>13km波浪公路</strong>：连续S型弯道与30度斜坡交替<br><br>🎢 <strong>失重超重</strong>：驾车其上交替体验<br><br>🌄 <strong>车窗风景</strong>：天空山峦交替出现<br><br>💰 自驾费100元/辆(含司机)+同行20元/人<br>🎢 还有有轨小火车、管轨滑道等项目',
+kids:'波浪公路像过山车，小孩会兴奋尖叫',
+images:[],videos:[],nav:'阿西里西草原',phone:'',book:'',note_nav:'二台坡草原'
+},
+'m-d6-jiudong':{
+title:'九洞天',
+sub:'D6 · 大方纳雍交界 · 国家4A级景区',
+tags:['<span class="modal-tag nature">岩溶百科</span>','<span class="modal-tag water">暗河游船</span>','<span class="modal-tag kid">九重天窗</span>','<span class="modal-tag temp">~25℃</span>'],
+intro:'大方纳雍交界，国家4A级景区。六冲河伏流在7km河段开了9个巨大天窗，集伏流、溶洞、天坑、天生桥、峡谷于一体。',
+detail:'🛶 <strong>乘船穿暗河</strong>：明暗交替，阳光从天窗倾泻如入仙境<br><br>🕳️ <strong>九重天窗</strong>：7km河段开了9个巨大天窗<br><br>🌊 <strong>集大成</strong>：伏流、溶洞、天坑、天生桥、峡谷于一体<br><br>💰 门票+游船套票70元/人<br>⏰ 游览1.5-2h<br>📍 推荐从东门入(龙井游客中心)，不走回头路',
+images:[],videos:[],nav:'九洞天',phone:'',book:'',note_nav:'大方纳雍交界，推荐从东门龙井游客中心入'
+},
+'m-d6-zhijin':{
+title:'织金洞',
+sub:'D6 · 织金县 · 国家5A级景区·世界地质公园',
+tags:['<span class="modal-tag nature">中国溶洞之王</span>','<span class="modal-tag temp">洞内恒温16℃</span>','<span class="modal-tag easy">世界地质公园</span>'],
+intro:'织金县，国家5A级景区、世界地质公园。亚洲最大喀斯特溶洞，洞内常年16℃恒温。3km单向步道，遍布石笋石柱钟旗。',
+detail:'🕳️ <strong>亚洲最大喀斯特溶洞</strong>：洞内常年16℃恒温<br><br>🪨 <strong>3km单向步道</strong>：遍布石笋石柱钟旗<br><br>👑 <strong>镇洞之宝</strong>：<br>• "霸王盔"<br>• "银雨树"<br><br>💰 门票110元+景交车20元<br>⏰ 游览2-3h<br><br>🌡️ 洞内阴凉带薄外套',
+images:[],videos:[],nav:'织金洞',phone:'',book:'',note_nav:'织金县，国家5A级景区'
+},
+'m-d6-wujiang':{
+title:'乌江源百里画廊',
+sub:'D6 · 织金洞旁7km · 高原小三峡',
+tags:['<span class="modal-tag nature">翡翠江水</span>','<span class="modal-tag water">百米崖壁</span>','<span class="modal-tag kid">游船观光</span>','<span class="modal-tag free">免费入园</span>'],
+intro:'织金洞旁7km，喀斯特高山峡谷。翡翠色江水，两岸百米崖壁。乘船游览可看天竹奇峰、鸭池河大桥、化屋苗寨、大鹏崖画。',
+detail:'🏞️ <strong>高原小三峡</strong>：喀斯特高山峡谷<br><br>💚 <strong>翡翠江水</strong>：两岸百米崖壁<br><br>🚢 <strong>乘船游览1h</strong>：<br>• 天竹奇峰<br>• 鸭池河大桥(世界最大跨径钢桁梁斜拉桥)<br>• 化屋苗寨<br>• 大鹏崖画<br><br>💰 免费入园，游船50-60元/人<br>⏰ 最佳时间上午10点前或下午4点后',
+food:'<ul class="food-list"><li>乌江鱼火锅</li><li>织金发粑</li><li>烙锅</li></ul>',
+images:[],videos:[],nav:'乌江源百里画廊',phone:'',book:'',note_nav:'织金洞旁7km'
+}
+};
+
+function openModal(id){
+var d=modalData[id];if(!d)return;
+document.getElementById('modalTitle').textContent=d.title;
+document.getElementById('modalSub').textContent=d.sub;
+var h='';
+if(d.images&&d.images.length>0){
+h+='<div class="modal-gallery">';
+for(var i=0;i<d.images.length;i++){
+h+='<img src="'+d.images[i]+'" alt="'+d.title+'" loading="lazy" onclick="openLightbox(this.src)">';
+}
+h+='</div>';
+}
+if(d.videos&&d.videos.length>0){
+for(var j=0;j<d.videos.length;j++){
+h+='<div class="modal-video-label">▶ '+d.videos[j].title+'</div>';
+h+='<div class="modal-video"><iframe src="'+d.videos[j].url+'" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; encrypted-media"></iframe></div>';
+}
+}
+// Action buttons (nav/phone/book)
+var acts=[];
+if(d.nav) acts.push('<a class="m-btn nav" href="https://uri.amap.com/search?keyword='+encodeURIComponent(d.nav)+'" target="_blank">🗺️ 高德地图搜索</a>');
+if(d.nav) acts.push('<a class="m-btn nav" href="https://uri.amap.com/navigation?to='+encodeURIComponent(d.nav)+'&mode=car" target="_blank">🧭 导航到这里</a>');
+if(d.phone) acts.push('<a class="m-btn call" href="tel:'+d.phone+'">📞 '+d.phone+'</a>');
+if(d.book) acts.push('<a class="m-btn '+(d.book_label?'site':'book')+'" href="'+d.book+'" target="_blank">'+(d.book_label?'🔗 '+d.book_label:'🎫 预订')+'</a>');
+if(acts.length>0) h+='<div class="modal-actions">'+acts.join('')+'</div>';
+h+='<div class="modal-meta">'+d.tags.join('')+'</div>';
+h+='<div class="modal-section"><h4>简介</h4><div class="modal-text">'+d.intro+'</div></div>';
+h+='<div class="modal-section"><h4>详情</h4><div class="modal-text">'+d.detail+'</div></div>';
+if(d.kids) h+='<div class="modal-section"><h4>🧒 小孩怎么玩</h4><div class="modal-text">'+d.kids+'</div></div>';
+if(d.water) h+='<div class="mtip blue">'+d.water+'</div>';
+if(d.photo) h+='<div class="mtip gold">'+d.photo+'</div>';
+if(d.note) h+=d.note;
+if(d.food) h+='<div class="modal-section" style="margin-top:1rem"><h4>🍜 美食推荐</h4>'+d.food+'</div>';
+document.getElementById('modalBody').innerHTML=h;
+document.getElementById('modalOverlay').classList.add('show');
+document.getElementById('modalSheet').classList.add('show');
+document.body.style.overflow='hidden';
+}
+function openLightbox(src){
+document.getElementById('lightboxImg').src=src;
+document.getElementById('lightbox').classList.add('show');
+}
+function closeLightbox(){
+document.getElementById('lightbox').classList.remove('show');
+document.getElementById('lightboxImg').src='';
+}
+function closeModal(){
+document.getElementById('modalOverlay').classList.remove('show');
+document.getElementById('modalSheet').classList.remove('show');
+document.body.style.overflow='';
+}
+
+/* ===== Auto open D1 ===== */
+setTimeout(function(){toggleCard('d1');},600);
+
+
+/* ========== Dynamic Interactive Engine ========== */
+
+// --- Scroll Progress Bar ---
+(function(){
+  var bar = document.getElementById('scrollProgress');
+  window.addEventListener('scroll', function(){
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h * 100) : 0) + '%';
+  }, {passive:true});
+})();
+
+// --- Hero Star Particles ---
+(function(){
+  var canvas = document.getElementById('heroCanvas');
+  if(!canvas) return;
+  var ctx = canvas.getContext('2d');
+  var particles = [];
+  var count = 50;
+
+  function resize(){
+    var hero = canvas.parentElement;
+    canvas.width = hero.offsetWidth;
+    canvas.height = hero.offsetHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  for(var i=0;i<count;i++){
+    particles.push({
+      x: Math.random()*canvas.width,
+      y: Math.random()*canvas.height,
+      r: Math.random()*2+0.5,
+      vx: (Math.random()-0.5)*0.3,
+      vy: (Math.random()-0.5)*0.3,
+      alpha: Math.random()*0.5+0.2,
+      pulse: Math.random()*Math.PI*2
+    });
+  }
+
+  function draw(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    for(var i=0;i<particles.length;i++){
+      var p = particles[i];
+      p.x += p.vx;
+      p.y += p.vy;
+      p.pulse += 0.02;
+      var a = p.alpha * (0.6 + 0.4*Math.sin(p.pulse));
+      if(p.x<0) p.x=canvas.width;
+      if(p.x>canvas.width) p.x=0;
+      if(p.y<0) p.y=canvas.height;
+      if(p.y>canvas.height) p.y=0;
+      ctx.beginPath();
+      ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.fillStyle='rgba(255,255,255,'+a+')';
+      ctx.fill();
+    }
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+// --- Intersection Observer for scroll-triggered animations ---
+(function(){
+  var observer = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('in-view');
+      }
+    });
+  }, {threshold:0.1, rootMargin:'0px 0px -40px 0px'});
+
+  // Observe day cards
+  document.querySelectorAll('.day-card').forEach(function(el){ observer.observe(el); });
+  // Observe section headers
+  document.querySelectorAll('.sh').forEach(function(el){ observer.observe(el); });
+  // Observe tips
+  document.querySelectorAll('.tips-accordion').forEach(function(el,i){
+    el.style.transitionDelay = (i*0.08)+'s';
+    observer.observe(el);
+  });
+  // Observe footer
+  var footer = document.querySelector('.footer');
+  if(footer) observer.observe(footer);
+})();
+
+// --- Ripple click effect for interactive elements ---
+(function(){
+  var targets = document.querySelectorAll('.spot-chip, .map-loc, .route-btn');
+  targets.forEach(function(el){
+    el.classList.add('ripple-effect');
+    el.addEventListener('click', function(e){
+      var rect = el.getBoundingClientRect();
+      var wave = document.createElement('span');
+      wave.className = 'ripple-wave';
+      var size = Math.max(rect.width, rect.height);
+      wave.style.width = wave.style.height = size + 'px';
+      wave.style.left = (e.clientX - rect.left - size/2) + 'px';
+      wave.style.top = (e.clientY - rect.top - size/2) + 'px';
+      el.appendChild(wave);
+      setTimeout(function(){ wave.remove(); }, 600);
+    });
+  });
+})();
+
+// --- Enhanced toggleCard: reset animations on close/reopen ---
+var _origToggle = window.toggleCard;
+window.toggleCard = function(id){
+  var el = document.getElementById(id);
+  if(!el) return;
+  var wasOpen = el.classList.contains('open');
+  _origToggle(id);
+  if(!wasOpen){
+    if(navigator.vibrate) navigator.vibrate(5);
+  }
+};
+
+// --- Parallax on hero (subtle) ---
+(function(){
+  var hero = document.querySelector('.hero');
+  if(!hero) return;
+  window.addEventListener('scroll', function(){
+    var y = window.scrollY;
+    if(y < hero.offsetHeight + 100){
+      hero.style.backgroundPositionY = (y * 0.3) + 'px';
+    }
+  }, {passive:true});
+})();
+
+// --- Day card stagger delay based on scroll position ---
+(function(){
+  var cards = document.querySelectorAll('.day-card');
+  cards.forEach(function(card, i){
+    card.style.transitionDelay = (i * 0.1) + 's';
+  });
+})();
+
+// --- Smooth anchor highlight for route buttons ---
+document.querySelectorAll('.route-btn').forEach(function(btn){
+  btn.addEventListener('mouseenter', function(){
+    this.style.transform = 'scale(1.05)';
+  });
+  btn.addEventListener('mouseleave', function(){
+    this.style.transform = 'scale(1)';
+  });
+});
+
+// --- Auto-open first card with animation delay ---
+setTimeout(function(){
+  var d1 = document.getElementById('d1');
+  if(d1 && !d1.classList.contains('in-view')){
+    d1.classList.add('in-view');
+  }
+}, 100);
+
+</script>
+</body>
+</html>
