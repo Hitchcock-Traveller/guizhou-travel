@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>黔途拾趣 · 路线二 | 钓旅西行 · 毕节→威宁→六盘水→牂牁江→郎岱</title>
-<meta name="description" content="全程贵阳以西，19℃避暑专线，钓鱼+露营+土著美食，零爬山">
+<title>黔途拾趣 · 路线二 | 秘境探黔 · 贵州6天小众秘境深度游</title>
+<meta name="description" content="溶洞飞瀑·野生秘境·高原花海·云上草原·地下天宫，一条串联贵州最硬核小众秘境的深度自驾线">
 <noscript><style>
 .day-card,.sh,.spot-chip,.info-pill,.reject-item,.tips-accordion,.footer,.day-map-label{opacity:1!important;transform:none!important;transition:none!important}
 </style></noscript>
@@ -25,7 +25,7 @@ a:hover{color:#c9a961}
 .nav-back svg{width:16px;height:16px}
 
 /* ========== Hero (compact) ========== */
-.hero{padding:5rem 1.5rem 2.5rem;text-align:center;position:relative;overflow:hidden;background:linear-gradient(170deg,#0a1628 0%,#162a3a 25%,#1a5a5a 50%,#2d8a7f 70%,#52b788 88%,#95d5b2 100%)}
+.hero{padding:5rem 1.5rem 2.5rem;text-align:center;position:relative;overflow:hidden;background:linear-gradient(170deg,#0a0a28 0%,#1a1a4a 25%,#2d3a7a 50%,#4a5a9a 70%,#7a8aba 88%,#a0b0d0 100%)}
 .hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:60px;background:linear-gradient(to bottom,transparent,#f5f3ed)}
 .hero-badge{display:inline-block;padding:.3rem 1rem;border:1px solid rgba(255,255,255,.25);border-radius:2rem;font-size:.7rem;letter-spacing:.12em;color:rgba(255,255,255,.8);margin-bottom:1.2rem}
 .hero h1{font-size:2rem;font-weight:800;color:#fff;margin-bottom:.6rem;line-height:1.3}
@@ -34,10 +34,11 @@ a:hover{color:#c9a961}
 .hero-tags{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap}
 .hero-tag{padding:.35rem .8rem;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.12);border-radius:.4rem;font-size:.72rem;color:rgba(255,255,255,.85)}
 .route-switch{display:flex;gap:.6rem;justify-content:center;margin-top:1.5rem}
-.route-btn{padding:.45rem 1.2rem;border-radius:2rem;font-size:.78rem;font-weight:600;border:none;cursor:pointer;transition:all .3s}
+.route-btn{padding:.45rem 1.2rem;border-radius:2rem;font-size:.78rem;font-weight:600;border:none;cursor:pointer;transition:all .3s;text-decoration:none;display:inline-block}
 .route-btn.outline{background:transparent;color:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.25)}
 .route-btn.fill{background:rgba(255,255,255,.18);color:#fff;border:1px solid rgba(255,255,255,.3)}
 .route-btn:hover{opacity:.85}
+.route-btn.active{background:rgba(255,255,255,.18);color:#fff;border:1px solid rgba(255,255,255,.3);cursor:default}
 
 /* ========== Main container ========== */
 .main{max-width:560px;margin:0 auto;padding:0 1.2rem 3rem}
@@ -53,10 +54,12 @@ a:hover{color:#c9a961}
 .day-card:hover{box-shadow:0 3px 16px rgba(0,0,0,.07)}
 .day-summary{padding:1.1rem 1.2rem;display:flex;align-items:center;gap:1rem;cursor:pointer;user-select:none;-webkit-tap-highlight-color:transparent}
 .day-dot{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:800;color:#fff;flex-shrink:0}
-.day-dot.c3{background:linear-gradient(135deg,#1a6b7a,#2d9aab)}
-.day-dot.c4{background:linear-gradient(135deg,#2d6a4f,#52b788)}
-.day-dot.c5{background:linear-gradient(135deg,#6b4c1a,#c9a961)}
-.day-dot.c6{background:linear-gradient(135deg,#5a4a6a,#8a7a9a)}
+.day-dot.c1{background:linear-gradient(135deg,#1a6b7a,#2d9aab)}
+.day-dot.c2{background:linear-gradient(135deg,#2d6a4f,#52b788)}
+.day-dot.c3{background:linear-gradient(135deg,#6b4c1a,#c9a961)}
+.day-dot.c4{background:linear-gradient(135deg,#5a4a6a,#8a7a9a)}
+.day-dot.c5{background:linear-gradient(135deg,#7a3a6a,#b06a9a)}
+.day-dot.c6{background:linear-gradient(135deg,#3a4a8a,#6a7aba)}
 .day-meta{flex:1;min-width:0}
 .day-date{font-size:.72rem;color:#aaa;font-weight:500}
 .day-spots{font-size:.95rem;font-weight:700;color:#1a3a2a;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -121,28 +124,6 @@ a:hover{color:#c9a961}
 .food-list li::before{content:'·';position:absolute;left:.2rem;color:#c9a961;font-weight:700}
 .food-price{font-size:.75rem;color:#c9a961;font-weight:600}
 
-/* ========== Rule cards (compact) ========== */
-.rule-row{display:flex;align-items:flex-start;gap:.7rem;padding:.8rem 0;border-bottom:1px solid rgba(0,0,0,.04)}
-.rule-row:last-child{border-bottom:none}
-.rule-icon{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#2d6a4f,#52b788);display:flex;align-items:center;justify-content:center;color:#fff;font-size:.7rem;flex-shrink:0;margin-top:.1rem}
-.rule-text h4{font-size:.85rem;font-weight:600;color:#1a3a2a}
-.rule-text p{font-size:.78rem;color:#888;line-height:1.6}
-
-/* ========== Rejected (compact) ========== */
-.reject-item{display:flex;align-items:center;gap:.8rem;padding:.65rem 0;border-bottom:1px solid rgba(0,0,0,.04)}
-.reject-item:last-child{border-bottom:none}
-.reject-x{width:24px;height:24px;border-radius:50%;background:rgba(200,80,80,.08);color:#c85050;font-size:.7rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-weight:700}
-.reject-name{font-size:.85rem;font-weight:600;color:#555}
-.reject-reason{font-size:.72rem;color:#c85050}
-
-/* ========== Water strip ========== */
-.water-strip{display:flex;gap:.6rem;overflow-x:auto;padding:0 0 .8rem;-webkit-overflow-scrolling:touch;scrollbar-width:none}
-.water-strip::-webkit-scrollbar{display:none}
-.water-chip{min-width:200px;background:#fff;border-radius:.8rem;padding:1rem;border:1px solid rgba(45,154,171,.1);flex-shrink:0}
-.water-chip h4{font-size:.85rem;font-weight:600;color:#1a5a6a;margin-bottom:.2rem}
-.water-chip .wc-loc{font-size:.68rem;color:#aaa;margin-bottom:.4rem}
-.water-chip p{font-size:.78rem;color:#5a6a5a;line-height:1.6}
-
 /* ========== Tips compact ========== */
 .tips-accordion{background:#fff;border-radius:1rem;overflow:hidden;border:1px solid rgba(0,0,0,.04);margin-bottom:.6rem}
 .tips-head{padding:.9rem 1.1rem;display:flex;align-items:center;gap:.6rem;cursor:pointer;user-select:none;font-size:.88rem;font-weight:600;color:#1a3a2a}
@@ -197,7 +178,6 @@ a:hover{color:#c9a961}
 .m-btn:hover{opacity:.85;transform:translateY(-1px)}
 
 /* ========== Animations ========== */
-/* old fade-in replaced by dynamic engine */
 
 /* ========== Responsive ========== */
 @media(min-width:768px){
@@ -207,10 +187,10 @@ a:hover{color:#c9a961}
 .modal-sheet.show{transform:translate(-50%,0)}
 }
 
-/* ========== 🎬 Dynamic Interactive Effects ========== */
+/* ========== Dynamic Interactive Effects ========== */
 
 /* --- Scroll progress bar --- */
-.scroll-progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,#2d6a4f,#52b788,#c9a961);z-index:999;width:0%;transition:width .1s linear;pointer-events:none;border-radius:0 2px 2px 0}
+.scroll-progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,#5a4a6a,#8a7aba,#c9a961);z-index:999;width:0%;transition:width .1s linear;pointer-events:none;border-radius:0 2px 2px 0}
 
 /* --- Hero star particles canvas --- */
 #heroCanvas{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0}
@@ -226,8 +206,8 @@ a:hover{color:#c9a961}
 
 /* --- Day dot breathing glow --- */
 @keyframes dotPulse{
-  0%,100%{box-shadow:0 0 0 0 rgba(45,106,79,.3)}
-  50%{box-shadow:0 0 0 8px rgba(45,106,79,0)}
+  0%,100%{box-shadow:0 0 0 0 rgba(90,74,106,.3)}
+  50%{box-shadow:0 0 0 8px rgba(90,74,106,0)}
 }
 .day-dot{animation:dotPulse 3s ease-in-out infinite}
 
@@ -245,13 +225,6 @@ a:hover{color:#c9a961}
 .day-card.open .spot-chip:nth-child(5){transition-delay:.25s}
 .day-card.open .spot-chip:nth-child(6){transition-delay:.3s}
 .day-card.open .spot-chip:nth-child(7){transition-delay:.35s}
-.day-card.open .spot-chip:nth-child(8){transition-delay:.4s}
-.day-card.open .spot-chip:nth-child(9){transition-delay:.45s}
-.day-card.open .spot-chip:nth-child(10){transition-delay:.5s}
-.day-card.open .spot-chip:nth-child(11){transition-delay:.55s}
-.day-card.open .spot-chip:nth-child(12){transition-delay:.6s}
-.day-card.open .spot-chip:nth-child(13){transition-delay:.65s}
-.day-card.open .spot-chip:nth-child(14){transition-delay:.7s}
 
 /* --- Info pills bounce in --- */
 .info-pill{opacity:0;transform:scale(.6);transition:opacity .3s ease,transform .3s cubic-bezier(.34,1.56,.64,1)}
@@ -261,8 +234,6 @@ a:hover{color:#c9a961}
 .day-card.open .info-pill:nth-child(3){transition-delay:.15s}
 .day-card.open .info-pill:nth-child(4){transition-delay:.2s}
 .day-card.open .info-pill:nth-child(5){transition-delay:.25s}
-.day-card.open .info-pill:nth-child(6){transition-delay:.3s}
-.day-card.open .info-pill:nth-child(7){transition-delay:.35s}
 
 /* --- Map pins bounce --- */
 @keyframes pinBounce{
@@ -277,31 +248,19 @@ a:hover{color:#c9a961}
 .day-card.open .map-loc:nth-child(4){animation-delay:.54s}
 .day-card.open .map-loc:nth-child(5){animation-delay:.62s}
 
-/* --- Timeline connector line --- */
-.timeline-dot{width:10px;height:10px;border-radius:50%;background:#52b788;border:2px solid #fff;box-shadow:0 0 0 2px rgba(82,183,136,.3);position:absolute;left:-1.75rem;top:1.3rem;z-index:2;display:none}
-.day-card{position:relative}
-
 /* --- Section headers slide in --- */
 .sh{opacity:0;transform:translateX(-20px);transition:opacity .6s ease,transform .6s ease}
 .sh.in-view{opacity:1;transform:translateX(0)}
-
-/* --- Water chips hover glow --- */
-.water-chip{transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease}
-.water-chip:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(26,106,122,.15);border-color:rgba(26,106,122,.3)}
 
 /* --- Day card hover lift --- */
 .day-card.in-view:hover{box-shadow:0 6px 24px rgba(0,0,0,.08);transform:translateY(-2px)}
 
 /* --- Ripple click effect --- */
 .ripple-effect{position:relative;overflow:hidden}
-.ripple-wave{position:absolute;border-radius:50%;background:rgba(45,106,79,.15);transform:scale(0);animation:rippleAnim .6s ease-out forwards;pointer-events:none}
+.ripple-wave{position:absolute;border-radius:50%;background:rgba(90,74,106,.15);transform:scale(0);animation:rippleAnim .6s ease-out forwards;pointer-events:none}
 @keyframes rippleAnim{
   to{transform:scale(4);opacity:0}
 }
-
-/* --- Rejected items strike animation --- */
-.reject-item{opacity:0;transform:translateX(15px);transition:opacity .4s ease,transform .4s ease}
-.reject-item.in-view{opacity:1;transform:translateX(0)}
 
 /* --- Tips accordion enhanced --- */
 .tips-accordion{opacity:0;transform:translateY(15px);transition:opacity .5s ease,transform .5s ease}
@@ -317,7 +276,7 @@ a:hover{color:#c9a961}
 .spot-chip{position:relative;overflow:hidden}
 
 /* --- Day card expand glow border --- */
-.day-card.open{border-color:rgba(82,183,136,.2);box-shadow:0 4px 20px rgba(45,106,79,.08)}
+.day-card.open{border-color:rgba(138,122,186,.2);box-shadow:0 4px 20px rgba(90,74,106,.08)}
 
 /* --- Modal entrance enhance --- */
 .modal-sheet{transition:transform .45s cubic-bezier(.22,1,.36,1)}
@@ -333,16 +292,9 @@ a:hover{color:#c9a961}
 .hero-tags{animation:heroFadeUp .8s ease .8s both}
 .route-switch{animation:heroFadeUp .8s ease 1s both}
 
-/* --- Number counter animation --- */
-@keyframes countUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
-
-/* --- Smooth scroll snap for water --- */
-.water-strip{scroll-snap-type:x mandatory}
-.water-chip{scroll-snap-align:start}
-
 /* --- Day summary text shimmer on hover --- */
 .day-spots{transition:color .3s ease}
-.day-card:hover .day-spots{color:#2d6a4f}
+.day-card:hover .day-spots{color:#5a4a6a}
 
 /* --- Map row label entrance --- */
 .day-map-label{opacity:0;transition:opacity .4s ease .25s}
@@ -356,93 +308,185 @@ a:hover{color:#c9a961}
 <!-- Nav -->
 <nav class="nav"><div class="nav-inner">
 <div class="nav-logo">黔途<span>拾趣</span> · 路线二</div>
-<a href="index.html" class="nav-back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>路线一</a>
+<a href="index.html" class="nav-back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>首页</a>
 </div></nav>
 
 <!-- Hero (compact) -->
 <section class="hero">
 <canvas id="heroCanvas"></canvas>
-<div class="hero-badge">2026 · 贵阳以西 · D3—D6</div>
-<h1 class="serif">钓旅<span class="gold">西行</span></h1>
-<p>毕节出发一路向西，19℃凉都、彝寨火把节、高原草场、螺旋小火车、地道土著美食，全程零爬山</p>
+<div class="hero-badge">2027 · 贵州深度游 · 6天5夜</div>
+<h1 class="serif">秘境<span class="gold">探</span>黔</h1>
+<p>溶洞飞瀑·野生秘境·高原花海·云上草原·地下天宫，一条串联贵州最硬核小众秘境的深度自驾线</p>
 <div class="hero-tags">
-<div class="hero-tag">🌡️ 19℃</div>
-<div class="hero-tag">🎣 每天野钓</div>
-<div class="hero-tag">🏕️ 星空露营</div>
-<div class="hero-tag">🍳 土著美食</div>
+<div class="hero-tag">🏔️ 贵州屋脊</div>
+<div class="hero-tag">💜 紫色花海</div>
+<div class="hero-tag">🕳️ 溶洞秘境</div>
+<div class="hero-tag">🌊 超级飞瀑</div>
+<div class="hero-tag">🛶 暗河穿越</div>
 </div>
 <div class="route-switch">
 <a href="index.html" class="route-btn outline">路线一</a>
-<a href="route3.html" class="route-btn outline">路线三</a>
+<span class="route-btn active">路线二</span>
 </div>
 </section>
 
 <div class="main">
 
-<!-- ===== Rules (compact) ===== -->
-<div class="sh"><div class="sh-label">RULES CHECK</div><div class="sh-title">六条规则 ✅</div></div>
-<div class="day-card" style="padding:0 .4rem">
-<div class="rule-row"><div class="rule-icon">✓</div><div class="rule-text"><h4>不爬山不暴走</h4><p>全部车到景，步行极少，大人小孩都轻松</p></div></div>
-<div class="rule-row"><div class="rule-icon">✓</div><div class="rule-text"><h4>纯自然风光</h4><p>峡谷江景、高山草甸、古镇烟火、溪流营地</p></div></div>
-<div class="rule-row"><div class="rule-icon">✓</div><div class="rule-text"><h4>避开人潮</h4><p>猫河、阿志河、郎岱古镇均为冷门秘境</p></div></div>
-<div class="rule-row"><div class="rule-icon">✓</div><div class="rule-text"><h4>小孩每天可玩</h4><p>钓鱼、坐快艇、溪流踩水、露营观星</p></div></div>
-<div class="rule-row"><div class="rule-icon">✓</div><div class="rule-text"><h4>100%全新路线</h4><p>与路线一完全不同方向</p></div></div>
-<div class="rule-row"><div class="rule-icon">✓</div><div class="rule-text"><h4>避暑最高优先</h4><p>凉都19℃，全程无暴晒无爬坡，轻松遛娃</p></div></div>
-</div>
-
 <!-- ===== Day Cards ===== -->
 <div class="sh"><div class="sh-label">DAILY PLAN</div><div class="sh-title">每日行程</div><div class="sh-desc">点击日期展开，再点击景点查看详情</div></div>
 
-<!-- D3 -->
-<div class="day-card" id="d3">
-<div class="day-summary" onclick="toggleCard('d3')">
-<div class="day-dot c3">D3</div>
+<!-- D1 -->
+<div class="day-card" id="d1">
+<div class="day-summary" onclick="toggleCard('d1')">
+<div class="day-dot c1">D1</div>
 <div class="day-meta">
-<div class="day-date">8月10日</div>
-<div class="day-spots">威宁小吃 → 水城古镇 → 六盘水</div>
+<div class="day-date">待定（2027年夏季）</div>
+<div class="day-spots">贵阳 → 羊皮洞瀑布</div>
 </div>
 <div class="day-right">
-<div class="day-temp">≤27℃</div>
+<div class="day-temp">~25℃</div>
 <svg class="day-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
 </div>
 </div>
-<div class="day-expand" style="background-image:url('https://s.coze.cn/image/MjZdiU5CMEs/')">
+<div class="day-expand" style="background-image:url('https://s.coze.cn/image/R06cfy0PzSQ/')">
 <div class="day-info-bar">
-<span class="info-pill">🚗 毕节→威宁2h→六盘水2h</span>
-<span class="info-pill food">🍳 威宁小吃</span>
-<span class="info-pill">🏨 百车河温泉庄园</span>
+<span class="info-pill">🚗 贵阳→清镇 1.5h</span>
+<span class="info-pill">🎫 免费</span>
+<span class="info-pill">⏰ 建议上午出发</span>
 </div>
 <div class="spot-strip">
-<div class="spot-chip" onclick="openModal('m-d3-weining')">
-<div class="spot-emoji">🍠</div>
+<div class="spot-chip" onclick="openModal('m-d1-yangpidong')">
+<div class="spot-emoji">🌊</div>
 <div class="spot-chip-info">
-<div class="spot-chip-name">威宁小吃</div>
-<div class="spot-chip-sub">高原味道 · 小粑粑+烤洋芋</div>
-</div>
-<div class="spot-chip-arrow">›</div>
-</div>
-<div class="spot-chip" onclick="openModal('m-d3-guzhen')">
-<div class="spot-emoji">🏘️</div>
-<div class="spot-chip-info">
-<div class="spot-chip-name">水城古镇 · 烙锅</div>
-<div class="spot-chip-sub">280年青石板路 · 烙锅一条街</div>
+<div class="spot-chip-name">羊皮洞瀑布</div>
+<div class="spot-chip-sub">41米溶洞飞瀑·瀑布直击面部·伸手可触</div>
 </div>
 <div class="spot-chip-arrow">›</div>
 </div>
 </div>
 <div class="day-map-label">📍 今日行程地图</div>
 <div class="day-map-row">
-<a class="map-loc" href="https://uri.amap.com/search?keyword=威宁县城&city=522427" target="_blank">威宁小吃</a>
-<a class="map-loc" href="https://uri.amap.com/search?keyword=水城古镇&city=520204" target="_blank">水城古镇</a>
-<a class="map-loc" href="https://uri.amap.com/search?keyword=禾阅水云涧度假庄园&city=520204" target="_blank">🏨 禾阅·水云涧</a>
-<a class="map-loc route-btn" href="https://uri.amap.com/navigation?from=毕节市&to=威宁县城&via=水城古镇&mode=car&policy=2" target="_blank">🧭 全程导航</a>
+<a class="map-loc" href="https://uri.amap.com/search?keyword=羊皮洞瀑布&city=520181" target="_blank">羊皮洞瀑布</a>
+<a class="map-loc route-btn" href="https://uri.amap.com/navigation?from=贵阳市&to=羊皮洞停车场&mode=car&policy=2" target="_blank">🧭 全程导航</a>
 </div>
-<div class="day-map-label">🏨 当晚住宿</div>
+</div>
+</div>
+
+<!-- D2 -->
+<div class="day-card" id="d2">
+<div class="day-summary" onclick="toggleCard('d2')">
+<div class="day-dot c2">D2</div>
+<div class="day-meta">
+<div class="day-date">待定（2027年夏季）</div>
+<div class="day-spots">冰臼 → 滴水滩瀑布 → 吊水岩 → 莲花古洞 → 龙脊山</div>
+</div>
+<div class="day-right">
+<div class="day-temp">~26℃</div>
+<svg class="day-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+</div>
+</div>
+<div class="day-expand" style="background-image:url('https://s.coze.cn/image/o5EiIs8TQPY/')">
+<div class="day-info-bar">
+<span class="info-pill">🚗 全程约200km</span>
+<span class="info-pill">🎫 全部免费</span>
+<span class="info-pill">⏰ 全天行程</span>
+</div>
+<div class="spot-strip">
+<div class="spot-chip" onclick="openModal('m-d2-bingjiu')">
+<div class="spot-emoji">🪨</div>
+<div class="spot-chip-info">
+<div class="spot-chip-name">关岭冰臼</div>
+<div class="spot-chip-sub">百万年冰川遗迹·大小冰臼如翡翠散落脚底</div>
+</div>
+<div class="spot-chip-arrow">›</div>
+</div>
+<div class="spot-chip" onclick="openModal('m-d2-dishuitan')">
+<div class="spot-emoji">🌊</div>
+<div class="spot-chip-info">
+<div class="spot-chip-name">滴水滩瀑布</div>
+<div class="spot-chip-sub">总高410米·比黄果树高6倍·三级cascading瀑布</div>
+</div>
+<div class="spot-chip-arrow">›</div>
+</div>
+<div class="spot-chip" onclick="openModal('m-d2-diaoshuiyan')">
+<div class="spot-emoji">💧</div>
+<div class="spot-chip-info">
+<div class="spot-chip-name">吊水岩瀑布</div>
+<div class="spot-chip-sub">贵州版冰岛·公路瀑布·纳雍小瑞士</div>
+</div>
+<div class="spot-chip-arrow">›</div>
+</div>
+<div class="spot-chip" onclick="openModal('m-d2-lianhua')">
+<div class="spot-emoji">🕳️</div>
+<div class="spot-chip-info">
+<div class="spot-chip-name">莲花古洞</div>
+<div class="spot-chip-sub">无灯野溶洞·乘船入地下河·丁达尔光效</div>
+</div>
+<div class="spot-chip-arrow">›</div>
+</div>
+<div class="spot-chip" onclick="openModal('m-d2-longji')">
+<div class="spot-emoji">⛰️</div>
+<div class="spot-chip-info">
+<div class="spot-chip-name">龙脊山</div>
+<div class="spot-chip-sub">金色山脊·悬崖挂壁公路·荒芜壮美</div>
+</div>
+<div class="spot-chip-arrow">›</div>
+</div>
+</div>
+<div class="day-map-label">📍 今日行程地图</div>
 <div class="day-map-row">
-<a class="map-loc" href="tel:15519842829">📞 15519842829</a>
-<a class="map-loc" href="https://hotels.ctrip.com/hotel/dianping/19916132.html" target="_blank">🎫 携程预订</a>
-<a class="map-loc" href="https://www.ly.com/hotel/hoteldetail?hotelId=93331126&city=115" target="_blank">🎫 同程预订</a>
-<a class="map-loc" href="https://uri.amap.com/search?keyword=禾阅水云涧度假庄园&city=520204" target="_blank">📍 导航到酒店</a>
+<a class="map-loc" href="https://uri.amap.com/search?keyword=关岭冰臼&city=520430" target="_blank">关岭冰臼</a>
+<a class="map-loc" href="https://uri.amap.com/search?keyword=滴水滩瀑布&city=520430" target="_blank">滴水滩瀑布</a>
+<a class="map-loc" href="https://uri.amap.com/search?keyword=吊水岩瀑布&city=522427" target="_blank">吊水岩瀑布</a>
+<a class="map-loc" href="https://uri.amap.com/search?keyword=莲花古洞&city=520422" target="_blank">莲花古洞</a>
+<a class="map-loc" href="https://uri.amap.com/search?keyword=龙脊山&city=520201" target="_blank">龙脊山</a>
+<a class="map-loc route-btn" href="https://uri.amap.com/navigation?from=清镇市&to=龙脊山&via=关岭冰臼,滴水滩瀑布,吊水岩瀑布,莲花古洞&mode=car&policy=2" target="_blank">🧭 全程导航</a>
+</div>
+</div>
+</div>
+
+<!-- D3 -->
+<div class="day-card" id="d3">
+<div class="day-summary" onclick="toggleCard('d3')">
+<div class="day-dot c3">D3</div>
+<div class="day-meta">
+<div class="day-date">待定（2027年夏季）</div>
+<div class="day-spots">格凸河 → 峰林布依寨</div>
+</div>
+<div class="day-right">
+<div class="day-temp">~27℃</div>
+<svg class="day-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+</div>
+</div>
+<div class="day-expand" style="background-image:url('https://s.coze.cn/image/W5VQDb6zqk8/')">
+<div class="day-info-bar">
+<span class="info-pill">🚗 安顺→紫云 1.5h</span>
+<span class="info-pill">🎫 格凸河约150元含船</span>
+<span class="info-pill">⏰ 天地神光需9:00前到</span>
+</div>
+<div class="spot-strip">
+<div class="spot-chip" onclick="openModal('m-d3-getuoh')">
+<div class="spot-emoji">🌤️</div>
+<div class="spot-chip-info">
+<div class="spot-chip-name">格凸河·大穿洞</div>
+<div class="spot-chip-sub">116m巨型溶洞·天地神光·蜘蛛人攀岩</div>
+</div>
+<div class="spot-chip-arrow">›</div>
+</div>
+<div class="spot-chip" onclick="openModal('m-d3-fenglin')">
+<div class="spot-emoji">🏘️</div>
+<div class="spot-chip-info">
+<div class="spot-chip-name">峰林布依</div>
+<div class="spot-chip-sub">600栋吊脚楼·万家灯火·贵州"天空之城"</div>
+</div>
+<div class="spot-chip-arrow">›</div>
+</div>
+</div>
+<div class="day-map-label">📍 今日行程地图</div>
+<div class="day-map-row">
+<a class="map-loc" href="https://uri.amap.com/search?keyword=格凸河&city=520425" target="_blank">格凸河</a>
+<a class="map-loc" href="https://uri.amap.com/search?keyword=峰林布依&city=522301" target="_blank">峰林布依</a>
+<a class="map-loc route-btn" href="https://uri.amap.com/navigation?from=安顺市&to=峰林布依&via=格凸河&mode=car&policy=2" target="_blank">🧭 全程导航</a>
 </div>
 </div>
 </div>
@@ -452,57 +496,43 @@ a:hover{color:#c9a961}
 <div class="day-summary" onclick="toggleCard('d4')">
 <div class="day-dot c4">D4</div>
 <div class="day-meta">
-<div class="day-date">8月11日</div>
-<div class="day-spots">野玉海·彝寨 → 森林小火车 → 火把狂欢</div>
+<div class="day-date">待定（2027年夏季）</div>
+<div class="day-spots">乌蒙大草原 → 玉舍森林公园</div>
 </div>
 <div class="day-right">
-<div class="day-temp">18℃</div>
+<div class="day-temp">~19℃</div>
 <svg class="day-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
 </div>
 </div>
-<div class="day-expand" style="background-image:url('https://s.coze.cn/image.spWTFIuSJ2M/')">
+<div class="day-expand" style="background-image:url('https://s.coze.cn/image/xoitZDXVk0o/')">
 <div class="day-info-bar">
-<span class="info-pill">🏘️ 彝族风情小镇</span>
-<span class="info-pill">🔥 火把狂欢</span>
-<span class="info-pill food">🚂 森林小火车</span>
+<span class="info-pill">🚗 全天行程</span>
+<span class="info-pill">🌡️ 高原19℃避暑</span>
+<span class="info-pill">🎫 草原30元+森林20元</span>
 </div>
 <div class="spot-strip">
-<div class="spot-chip" onclick="openModal('m-d4-yizhai')">
-<div class="spot-emoji">🏘️</div>
+<div class="spot-chip" onclick="openModal('m-d4-wumeng')">
+<div class="spot-emoji">🌿</div>
 <div class="spot-chip-info">
-<div class="spot-chip-name">海坪千户彝寨</div>
-<div class="spot-chip-sub">彝族文化小镇 · 火把广场 · 免费</div>
+<div class="spot-chip-name">乌蒙大草原</div>
+<div class="spot-chip-sub">2800m高山草甸·云海佛光·10万亩草原</div>
 </div>
 <div class="spot-chip-arrow">›</div>
 </div>
-<div class="spot-chip" onclick="openModal('m-d4-huoche')">
+<div class="spot-chip" onclick="openModal('m-d4-yushe')">
 <div class="spot-emoji">🚂</div>
 <div class="spot-chip-info">
-<div class="spot-chip-name">玉舍森林公园·螺旋小火车</div>
-<div class="spot-chip-sub">世界首条螺旋盘升列车 · 穿越万亩林海</div>
-</div>
-<div class="spot-chip-arrow">›</div>
-</div>
-<div class="spot-chip" onclick="openModal('m-d4-huoba')">
-<div class="spot-emoji">🔥</div>
-<div class="spot-chip-info">
-<div class="spot-chip-name">火把季篝火狂欢</div>
-<div class="spot-chip-sub">万人篝火+达体舞+电音 · 每晚19:00 · 免费</div>
+<div class="spot-chip-name">玉舍森林公园·窄轨小火车</div>
+<div class="spot-chip-sub">世界首条螺旋盘升列车·穿越万亩林海</div>
 </div>
 <div class="spot-chip-arrow">›</div>
 </div>
 </div>
 <div class="day-map-label">📍 今日行程地图</div>
 <div class="day-map-row">
-<a class="map-loc" href="https://uri.amap.com/search?keyword=海坪千户彝寨&city=520204" target="_blank">海坪千户彝寨</a>
+<a class="map-loc" href="https://uri.amap.com/search?keyword=乌蒙大草原&city=520222" target="_blank">乌蒙大草原</a>
 <a class="map-loc" href="https://uri.amap.com/search?keyword=玉舍森林公园&city=520204" target="_blank">玉舍森林公园</a>
-<a class="map-loc route-btn" href="https://uri.amap.com/navigation?from=北盘江大桥&to=野玉海海坪彝族小镇&mode=car&policy=2" target="_blank">🧭 全程导航</a>
-</div>
-<div class="day-map-label">🏨 当晚住宿（到了现场找民宿）</div>
-<div class="day-map-row">
-<a class="map-loc" href="tel:0858-6660266">📞 土司庄园 0858-6660266</a>
-<a class="map-loc" href="https://hotels.ctrip.com/hotels/13179144.html" target="_blank">🎫 携程预订</a>
-<a class="map-loc" href="https://uri.amap.com/search?keyword=海坪彝族风情街&city=520204" target="_blank">📍 海坪民宿</a>
+<a class="map-loc route-btn" href="https://uri.amap.com/navigation?from=六盘水市&to=玉舍森林公园&via=乌蒙大草原&mode=car&policy=2" target="_blank">🧭 全程导航</a>
 </div>
 </div>
 </div>
@@ -512,52 +542,52 @@ a:hover{color:#c9a961}
 <div class="day-summary" onclick="toggleCard('d5')">
 <div class="day-dot c5">D5</div>
 <div class="day-meta">
-<div class="day-date">8月12日</div>
-<div class="day-spots">野鸡坪花海 → 乌蒙大草原 → 奢渡河峡谷</div>
+<div class="day-date">待定（2027年夏季）</div>
+<div class="day-spots">韭菜坪 → 阿西里西草原</div>
 </div>
 <div class="day-right">
-<div class="day-temp">15-25℃</div>
+<div class="day-temp">~18℃</div>
 <svg class="day-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
 </div>
 </div>
-<div class="day-expand" style="background-image:url('https://s.coze.cn/image/r2F52iqBZeA/')">
+<div class="day-expand" style="background-image:url('https://s.coze.cn/image/4LhXAXrmDno/')">
 <div class="day-info-bar">
-<span class="info-pill">🌿 野鸡坪花海</span>
-<span class="info-pill">🌄 乌蒙大草原</span>
-<span class="info-pill water">🏞️ 奢渡河峡谷</span>
+<span class="info-pill">🚗 赫章县</span>
+<span class="info-pill">🌸 8-9月紫色花海</span>
+<span class="info-pill">🏔️ 贵州屋脊2900m</span>
 </div>
 <div class="spot-strip">
-<div class="spot-chip" onclick="openModal('m-d5-yejiping')">
-<div class="spot-emoji">🌿</div>
+<div class="spot-chip" onclick="openModal('m-d5-dajiuc')">
+<div class="spot-emoji">💜</div>
 <div class="spot-chip-info">
-<div class="spot-chip-name">野鸡坪高原运动基地</div>
-<div class="spot-chip-sub">550亩马鞭草花海 · 大风车 · 卡丁车</div>
+<div class="spot-chip-name">大韭菜坪·天上花海</div>
+<div class="spot-chip-sub">世界最大野生韭菜花带·东方普罗旺斯</div>
 </div>
 <div class="spot-chip-arrow">›</div>
 </div>
-<div class="spot-chip" onclick="openModal('m-d5-wumeng')">
-<div class="spot-emoji">🌄</div>
+<div class="spot-chip" onclick="openModal('m-d5-xiaojiuc')">
+<div class="spot-emoji">🏔️</div>
 <div class="spot-chip-info">
-<div class="spot-chip-name">乌蒙大草原</div>
-<div class="spot-chip-sub">西南最大高山草场 · 10万亩草甸 · 风车群</div>
+<div class="spot-chip-name">小韭菜坪·贵州屋脊</div>
+<div class="spot-chip-sub">海拔2900.6m·贵州最高峰·天上石林</div>
 </div>
 <div class="spot-chip-arrow">›</div>
 </div>
-<div class="spot-chip" onclick="openModal('m-d5-sheduhe')">
-<div class="spot-emoji">🏞️</div>
+<div class="spot-chip" onclick="openModal('m-d5-axilisi')">
+<div class="spot-emoji">🛤️</div>
 <div class="spot-chip-info">
-<div class="spot-chip-name">奢渡河峡谷</div>
-<div class="spot-chip-sub">锅圈岩瀑布 · 栈道吊桥 · 天然溶洞</div>
+<div class="spot-chip-name">阿西里西·波浪公路</div>
+<div class="spot-chip-sub">13km地景过山车·S型弯道+30度斜坡</div>
 </div>
 <div class="spot-chip-arrow">›</div>
 </div>
 </div>
 <div class="day-map-label">📍 今日行程地图</div>
 <div class="day-map-row">
-<a class="map-loc" href="https://uri.amap.com/search?keyword=野鸡坪&city=520204" target="_blank">野鸡坪</a>
-<a class="map-loc" href="https://uri.amap.com/search?keyword=乌蒙大草原&city=520222" target="_blank">乌蒙大草原</a>
-<a class="map-loc" href="https://uri.amap.com/search?keyword=奢渡河峡谷&city=520204" target="_blank">奢渡河峡谷</a>
-<a class="map-loc route-btn" href="https://uri.amap.com/navigation?from=海坪千户彝寨&to=乌蒙大草原&via=野鸡坪,奢渡河峡谷&mode=car" target="_blank">🧭 全程导航</a>
+<a class="map-loc" href="https://uri.amap.com/search?keyword=大韭菜坪&city=522428" target="_blank">大韭菜坪</a>
+<a class="map-loc" href="https://uri.amap.com/search?keyword=小韭菜坪&city=522428" target="_blank">小韭菜坪</a>
+<a class="map-loc" href="https://uri.amap.com/search?keyword=阿西里西草原&city=522428" target="_blank">阿西里西草原</a>
+<a class="map-loc route-btn" href="https://uri.amap.com/navigation?from=赫章县&to=阿西里西草原&via=大韭菜坪,小韭菜坪&mode=car&policy=2" target="_blank">🧭 全程导航</a>
 </div>
 </div>
 </div>
@@ -567,139 +597,54 @@ a:hover{color:#c9a961}
 <div class="day-summary" onclick="toggleCard('d6')">
 <div class="day-dot c6">D6</div>
 <div class="day-meta">
-<div class="day-date">8月13日</div>
-<div class="day-spots">郎岱古镇 → 花江青椒鱼 → 返程</div>
+<div class="day-date">待定（2027年夏季）</div>
+<div class="day-spots">九洞天 → 织金洞 → 乌江源百里画廊</div>
 </div>
 <div class="day-right">
-<div class="day-temp">25-28℃</div>
+<div class="day-temp">~25℃</div>
 <svg class="day-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
 </div>
 </div>
-<div class="day-expand" style="background-image:url('https://s.coze.cn/image/ZGxaF4nCMtk/')">
+<div class="day-expand" style="background-image:url('https://s.coze.cn/image/RhbSAzzJ9sQ/')">
 <div class="day-info-bar">
-<span class="info-pill food">🍘 郎岱小吃</span>
-<span class="info-pill water">🐟 断桥青椒鱼</span>
-<span class="info-pill">🚗 返程约5h</span>
+<span class="info-pill">🚗 全程约200km</span>
+<span class="info-pill">🛶 船游暗河</span>
+<span class="info-pill">🎫 九洞天70元+织金洞130元</span>
 </div>
 <div class="spot-strip">
-<div class="spot-chip" onclick="openModal('m-d6-langdai')">
-<div class="spot-emoji">🍘</div>
+<div class="spot-chip" onclick="openModal('m-d6-jiudong')">
+<div class="spot-emoji">🛶</div>
 <div class="spot-chip-info">
-<div class="spot-chip-name">郎岱古镇</div>
-<div class="spot-chip-sub">凉粉 · 金丝肉饼 · 岩脚面 · 明清古街</div>
+<div class="spot-chip-name">九洞天</div>
+<div class="spot-chip-sub">中国岩溶百科全书·乘船穿九重天窗·暗河时空隧道</div>
 </div>
 <div class="spot-chip-arrow">›</div>
 </div>
-<div class="spot-chip" onclick="openModal('m-d6-duanqiao')">
-<div class="spot-emoji">🐟</div>
+<div class="spot-chip" onclick="openModal('m-d6-zhijin')">
+<div class="spot-emoji">🕳️</div>
 <div class="spot-chip-info">
-<div class="spot-chip-name">断桥青椒鱼·鲁记</div>
-<div class="spot-chip-sub">北盘江活鱼 · 青花椒 · 鲜香麻辣</div>
+<div class="spot-chip-name">织金洞</div>
+<div class="spot-chip-sub">中国溶洞之王·世界地质公园·地下天宫</div>
 </div>
 <div class="spot-chip-arrow">›</div>
 </div>
-<div class="spot-chip" onclick="openModal('m-d6-gaojiadu')">
-<div class="spot-emoji">🏖️</div>
+<div class="spot-chip" onclick="openModal('m-d6-wujiang')">
+<div class="spot-emoji">🏞️</div>
 <div class="spot-chip-info">
-<div class="spot-chip-name">北盘江高家渡</div>
-<div class="spot-chip-sub">江边踩水 · 垂钓 · 水上项目</div>
+<div class="spot-chip-name">乌江源百里画廊</div>
+<div class="spot-chip-sub">高原小三峡·翡翠江水·百米崖壁·化屋苗寨</div>
 </div>
 <div class="spot-chip-arrow">›</div>
 </div>
 </div>
 <div class="day-map-label">📍 今日行程地图</div>
 <div class="day-map-row">
-<a class="map-loc" href="https://uri.amap.com/search?keyword=郎岱古镇&city=520201" target="_blank">郎岱古镇</a>
-<a class="map-loc" href="https://uri.amap.com/search?keyword=断桥鲁记青椒鱼&city=560301" target="_blank">断桥青椒鱼</a>
-<a class="map-loc" href="https://uri.amap.com/search?keyword=高家渡码头&city=560301" target="_blank">高家渡码头</a>
-<a class="map-loc route-btn" href="https://uri.amap.com/navigation?from=郎岱古镇&to=断桥鲁记青椒鱼&via=高家渡码头&mode=car&policy=2" target="_blank">🧭 全程导航</a>
+<a class="map-loc" href="https://uri.amap.com/search?keyword=九洞天&city=522422" target="_blank">九洞天</a>
+<a class="map-loc" href="https://uri.amap.com/search?keyword=织金洞&city=522423" target="_blank">织金洞</a>
+<a class="map-loc" href="https://uri.amap.com/search?keyword=乌江源百里画廊&city=522423" target="_blank">乌江源百里画廊</a>
+<a class="map-loc route-btn" href="https://uri.amap.com/navigation?from=大方县&to=乌江源百里画廊&via=九洞天,织金洞&mode=car&policy=2" target="_blank">🧭 全程导航</a>
 </div>
 </div>
-</div>
-
-<!-- ===== Aerial Photography ===== -->
-<div class="sh"><div class="sh-label">AERIAL SPOTS</div><div class="sh-title">📸 航拍圣地 & 拍照推荐</div><div class="sh-desc">周边航拍推荐，带无人机必打卡</div></div>
-<div class="day-card" style="padding:.8rem 1rem">
-<div class="spot-chip" onclick="openModal('m-drone-yejiping')">
-<div class="spot-emoji">🌅</div>
-<div class="spot-chip-info">
-<div class="spot-chip-name">野鸡坪云海日出</div>
-<div class="spot-chip-sub">海拔2300m · 云海+风车+花海 · 日出前30分钟</div>
-</div>
-<div class="spot-chip-arrow">›</div>
-</div>
-<div class="spot-chip" onclick="openModal('m-drone-yizhai')">
-<div class="spot-emoji">🏘️</div>
-<div class="spot-chip-info">
-<div class="spot-chip-name">千户彝寨全景</div>
-<div class="spot-chip-sub">红土墙吊脚楼 · 傍晚灯火+火把+星空 · 蓝调时刻</div>
-</div>
-<div class="spot-chip-arrow">›</div>
-</div>
-<div class="spot-chip" onclick="openModal('m-drone-huoche')">
-<div class="spot-emoji">🚂</div>
-<div class="spot-chip-info">
-<div class="spot-chip-name">螺旋小火车穿林海</div>
-<div class="spot-chip-sub">世界首条螺旋盘升轨道 · 穿越万亩松林 · 上午侧光</div>
-</div>
-<div class="spot-chip-arrow">›</div>
-</div>
-<div class="spot-chip" onclick="openModal('m-drone-beipanjiang')">
-<div class="spot-emoji">🌉</div>
-<div class="spot-chip-info">
-<div class="spot-chip-name">北盘江大桥</div>
-<div class="spot-chip-sub">世界第一高桥 · 桥面距谷565m · 晨雾或雨后</div>
-</div>
-<div class="spot-chip-arrow">›</div>
-</div>
-<div class="spot-chip" onclick="openModal('m-drone-wumeng')">
-<div class="spot-emoji">🌄</div>
-<div class="spot-chip-info">
-<div class="spot-chip-name">乌蒙大草原风车群</div>
-<div class="spot-chip-sub">万亩草甸+白色风车+天池 · 日落金色光线</div>
-</div>
-<div class="spot-chip-arrow">›</div>
-</div>
-<div class="spot-chip" onclick="openModal('m-drone-sheduhe')">
-<div class="spot-emoji">🏞️</div>
-<div class="spot-chip-info">
-<div class="spot-chip-name">奢渡河瀑布</div>
-<div class="spot-chip-sub">锅圈岩瀑布+栈道+溶洞 · 小众秘境 · 上午顺光</div>
-</div>
-<div class="spot-chip-arrow">›</div>
-</div>
-</div>
-
-<!-- ===== Water Section (horizontal scroll) ===== -->
-<div class="sh"><div class="sh-label">WATER & FISHING</div><div class="sh-title">沿途水域 🎣</div><div class="sh-desc">从野钓天堂到峡谷江滩，每天有水玩</div></div>
-<div class="water-strip">
-<div class="water-chip">
-<h4>🏞️ 奢渡河峡谷</h4>
-<div class="wc-loc">D5 · 水城区</div>
-<p>锅圈岩瀑布飞流直泻、栈道+吊桥+天然溶洞，火把季联动景区</p>
-</div>
-<div class="water-chip">
-<h4>🌊 野鸡坪高空观景台</h4>
-<div class="wc-loc">D5 · 野玉海度假区</div>
-<p>远眺北盘江大桥和峡谷全貌，海拔2300m高原</p>
-</div>
-<div class="water-chip">
-<h4>🏖️ 高家渡码头</h4>
-<div class="wc-loc">D6 · 关岭</div>
-<p>北盘江游船/垂钓/桨板/水上自行车</p>
-</div>
-</div>
-
-<!-- ===== Rejected ===== -->
-<div class="sh"><div class="sh-label">VETOED</div><div class="sh-title">一票否决 ✕</div><div class="sh-desc">有名但不符合规则，严格排除</div></div>
-<div class="day-card" style="padding:0 1rem">
-<div class="reject-item"><div class="reject-x">✕</div><div><div class="reject-name">九洞天</div><div class="reject-reason">500m悬崖栈道+过吊桥</div></div></div>
-<div class="reject-item"><div class="reject-x">✕</div><div><div class="reject-name">阿西里西大草原</div><div class="reject-reason">海拔2400m + 夜间7级风</div></div></div>
-<div class="reject-item"><div class="reject-x">✕</div><div><div class="reject-name">龙宫</div><div class="reject-reason">入口到码头步行2-3km</div></div></div>
-<div class="reject-item"><div class="reject-x">✕</div><div><div class="reject-name">黄果树瀑布</div><div class="reject-reason">暑期日均3万+人流</div></div></div>
-<div class="reject-item"><div class="reject-x">✕</div><div><div class="reject-name">织金洞</div><div class="reject-reason">洞内步行3-4km</div></div></div>
-<div class="reject-item"><div class="reject-x">✕</div><div><div class="reject-name">小韭菜坪</div><div class="reject-reason">贵州最高峰2900m</div></div></div>
-<div class="reject-item"><div class="reject-x">✕</div><div><div class="reject-name">梅花山索道</div><div class="reject-reason">山顶步行+高海拔大风</div></div></div>
 </div>
 
 <!-- ===== Tips ===== -->
@@ -708,78 +653,66 @@ a:hover{color:#c9a961}
 <div class="tips-accordion" id="t1">
 <div class="tips-head" onclick="toggleCard('t1')"><span class="t-icon">🎒</span>必带装备<svg class="t-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
 <div class="tips-body"><div class="tips-body-inner"><ul>
-<li>薄外套（野玉海/乌蒙大草原海拔高+早晚温差大，晚上18℃）</li>
-<li>防滑凉鞋（奢渡河栈道踩水必备）</li>
+<li>防滑高帮徒步鞋（羊皮洞/冰臼/吊水岩必备）</li>
+<li>雨衣/冲锋衣（瀑布水雾大）</li>
+<li>手机防水袋（拍照必备）</li>
+<li>薄外套（乌蒙大草原/韭菜坪/织金洞温差大）</li>
+<li>登山杖（羊皮洞山路陡峭）</li>
 <li>防晒+帽子（高原紫外线强，草原无遮挡）</li>
-<li>驱蚊水（森林+草地+溪流）</li>
-<li>平底鞋（火把季篝火跳舞超费脚）</li>
-<li>晕车药（山路弯道多，备着以防万一）</li>
+<li>晕车药（山路弯道多）</li>
 </ul></div></div>
 </div>
 
 <div class="tips-accordion" id="t2">
 <div class="tips-head" onclick="toggleCard('t2')"><span class="t-icon">🧒</span>亲子注意<svg class="t-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
 <div class="tips-body"><div class="tips-body-inner"><ul>
-<li>牂牁江坐船/快艇务必穿好救生衣</li>
-<li>阿志河溪流戏水注意防滑，牵好小孩</li>
-<li>龙脊天路弯道多，提前备好晕车药</li>
-<li>花江/高家渡不要去深水处，注意上游涨水</li>
-<li>每天保证午休，车程中让小孩睡</li>
-<li>所有景点车到即达，无需爬山走远路</li>
+<li>羊皮洞山路泥泞湿滑，小孩需防滑鞋+大人牵手</li>
+<li>冰臼深坑无护栏，看好小孩不要靠近边缘</li>
+<li>格凸河乘船穿好救生衣</li>
+<li>韭菜坪/乌蒙大草原海拔高(2800-2900m)，注意高反</li>
+<li>每天车程较长，备好零食和水</li>
+<li>吊水岩/龙脊天路弯道多，提前吃晕车药</li>
 </ul></div></div>
 </div>
 
 <div class="tips-accordion" id="t3">
 <div class="tips-head" onclick="toggleCard('t3')"><span class="t-icon">🎫</span>门票汇总<svg class="t-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
 <div class="tips-body"><div class="tips-body-inner"><ul>
-<li>海坪千户彝寨/火把广场/野鸡坪花海/郎岱古镇/高家渡：免费</li>
-<li>玉舍森林公园：门票20元/人</li>
-<li>螺旋小火车：单程98元/人，往返120元/人（1.2m以下半价）</li>
-<li>野鸡坪：门票+观光车约20元/人</li>
-<li>乌蒙大草原：门票30元/人（1.2m以下免费），停车10元</li>
-<li>奢渡河峡谷：以景区现场价格为准</li>
-<li>土司婚宴：68元/人（彝族特色长桌宴）</li>
-<li>骑马（乌蒙大草原）：50-60元/小时</li>
-<li>野玉海民宿（到现场找）：以现场价格为准</li>
-<li>郎岱古镇/断桥/高家渡：免费</li>
+<li>羊皮洞/冰臼/滴水滩/吊水岩/莲花古洞/龙脊山：免费</li>
+<li>格凸河：约150元（含游船+大穿洞）</li>
+<li>峰林布依：免费</li>
+<li>乌蒙大草原：30元/人（1.2m以下免费），停车10元</li>
+<li>玉舍森林公园：20元/人</li>
+<li>玉舍小火车：单程80元，往返120元（1.2m以下半价）</li>
+<li>韭菜坪：旺季45元，观光车50元，索道80元</li>
+<li>阿西里西波浪公路：自驾100元/辆+同行20元/人</li>
+<li>九洞天：套票70元/人（含门票+游船）</li>
+<li>织金洞：110元+景交车20元</li>
+<li>乌江源百里画廊：免费入园，游船50-60元/人</li>
 </ul></div></div>
 </div>
 
 <div class="tips-accordion" id="t4">
 <div class="tips-head" onclick="toggleCard('t4')"><span class="t-icon">🚗</span>自驾提示<svg class="t-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
 <div class="tips-body"><div class="tips-body-inner"><ul>
-<li>全程高速+景区公路，路况良好</li>
-<li>野玉海度假区内各板块（海坪/玉舍/野鸡坪）互通，车程很短</li>
-<li>野玉海→乌蒙大草原约1.5h，盘州方向山路弯道多</li>
-<li>乌蒙大草原可自驾开进草原深处，沿途观景台随时停车</li>
-<li>返程走G60沪昆高速约5-6h，每2h休息</li>
+<li>全程约1200km，涉及贵阳→安顺→紫云→六盘水→赫章→大方→织金→贵阳大环线</li>
+<li>羊皮洞最后3km碎石路，建议SUV，14点后只出不进</li>
+<li>山区道路弯多路窄，会车需减速</li>
+<li>韭菜坪/乌蒙大草原海拔高，注意车辆动力</li>
+<li>建议加满油再进山区，部分路段无加油站</li>
 </ul></div></div>
 </div>
 
 <div class="tips-accordion" id="t5">
 <div class="tips-head" onclick="toggleCard('t5')"><span class="t-icon">🍳</span>美食汇总<svg class="t-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
 <div class="tips-body"><div class="tips-body-inner"><ul>
-<li>威宁小粑粑：荞麦+火腿馅煎饼，街头几块钱</li>
-<li>威宁烤洋芋：高原土豆炭火烤，蘸折耳根辣椒水</li>
-<li>水城羊肉粉（尝回头）：30年老店，黑山羊炖8h，国家级非遗，只做早市</li>
-<li>水城烙锅（全有福）：黑砂锅凸面烙万物，人均35-50</li>
-<li>茨冲鸡火锅：30年历史，土鸡+糍粑辣椒+茨冲豆腐</li>
-<li>郎岱凉粉：米浆+郎岱酱+酸萝卜，消暑神器</li>
-<li>郎岱金丝肉饼：千层面皮包肉馅，油炸金黄酥脆</li>
-<li>岩脚面：百年手工擀面，国家地理标志</li>
-<li>断桥青椒鱼（鲁记）：北盘江活鱼+青花椒</li>
-<li>王姨妈糯米饭：柴火蒸糯米+脆哨+花生+秘制辣椒</li>
-<li>冰浆：水果+冰块+糯米现打，解辣消暑（30年老店）</li>
-<li>宣威火腿：世界三大火腿之一，与金华火腿齐名，600年历史</li>
-<li>宣威土八碗宴：曲靖传统宴席，八大碗荤素搭配</li>
-<li>酸菜猪脚火锅：宣威特色，酸爽开胃</li>
-<li>尼珠河白条鱼：清水加盐煮，不放佐料，鲜美至极</li>
-<li>土司婚宴：68元/人，彝族特色长桌宴，山野土菜+民族歌舞</li>
-<li>彝族风情街小吃：烙锅、水城羊肉粉、烤包谷、洋芋粑</li>
-<li>刺梨汁、苦荞粑粑、坨坨肉：彝族特色</li>
-<li>水城烙锅（全有福）：万物皆可烙，人均35-50</li>
-<li>茨冲鸡火锅：30年历史，鸡肉软烂汤底醇厚</li>
-<li>百车河温泉区农家菜</li>
+<li>清镇：卫城八大碗、清镇烙锅、清镇羊肉粉、何记冰粉、黄粑</li>
+<li>关岭：关岭牛肉火锅、花江狗肉、断桥青椒鱼、关岭剪粉</li>
+<li>纳雍：火把鱼、豆豉火锅、荞凉粉</li>
+<li>安顺：裹卷、夺夺粉、小锅凉粉</li>
+<li>六盘水：水城烙锅（全有福）、水城羊肉粉（尝回头）、茨冲鸡火锅、冰浆</li>
+<li>赫章：威宁小粑粑、威宁烤洋芋、荞酥、火腿</li>
+<li>织金：织金发粑、烙锅、乌江鱼火锅</li>
 </ul></div></div>
 </div>
 
@@ -804,12 +737,10 @@ a:hover{color:#c9a961}
 
 <!-- Footer -->
 <footer class="footer">
-<p>黔途拾趣 · 路线二 · 2026贵州钓旅西行</p>
-<p>毕节→威宁→六盘水→野玉海·彝寨→乌蒙大草原→奢渡河→郎岱→花江→洞口</p>
-<p style="margin-top:.5rem">用 <span class="heart">♥</span> 为两个小孩规划</p>
-<p style="margin-top:.8rem">
-<a href="index.html">← 路线一</a> · <a href="route3.html">路线三 →</a>
-</p>
+<p>黔途拾趣 · 路线二 · 2027贵州避暑深度游</p>
+<p>贵阳→羊皮洞→冰臼→滴水滩→吊水岩→莲花古洞→龙脊山→格凸河→峰林布依→乌蒙大草原→玉舍→韭菜坪→阿西里西→九洞天→织金洞→乌江源百里画廊</p>
+<p style="margin-top:.5rem">用 <span class="heart">♥</span> 探索贵州小众秘境</p>
+<p style="margin-top:.8rem"><a href="index.html">← 路线一</a> · <span>路线二</span></p>
 </footer>
 
 <script>
@@ -828,185 +759,146 @@ body.style.maxHeight=body.scrollHeight+'px';
 
 /* ===== Modal ===== */
 var modalData={
-'m-d3-weining':{
-title:'威宁小吃',
-sub:'D3 傍晚 · 毕节→威宁 2h',
-tags:['<span class="modal-tag nature">高原味道</span>','<span class="modal-tag free">免费</span>','<span class="modal-tag easy">路边即吃</span>','<span class="modal-tag temp">≤27℃</span>'],
-intro:'威宁海拔2200m，高原特产造就独特小吃。小粑粑和烤洋芋是本地人最爱的路边味道。',
-detail:'🍠 <strong>威宁小粑粑</strong>：荞麦面皮包火腿馅，铁锅煎至金黄，外酥里香，几块钱一个管饱<br><br>🥔 <strong>威宁烤洋芋</strong>：高原土豆炭火慢烤，切开蘸折耳根辣椒水，简单但上瘾<br><br>📍 威宁县城街头随处可见，停车路边即买',
-kids:'小孩一手拿小粑粑当零食，一手拿烤洋芋蘸辣椒水，路边站着吃最香。',
-food:'<ul class="food-list"><li>小粑粑（3-5元/个）</li><li>烤洋芋（5-8元/个）</li><li>荞酥（600年历史糕点）</li><li>威宁火腿（600年历史，与金华宣威并称三大火腿）</li></ul><p class="food-price">人均10-20元</p>',
-images:['https://s.coze.cn/image/yAgMmqehDZg/','https://s.coze.cn/image/cLNQaAPq2N4/','https://s.coze.cn/image/-xDwZ5_08Zw/','https://s.coze.cn/image/aw2CBE00Do4/'],
-videos:[{url:'https://player.bilibili.com/player.html?bvid=BV14EEE6mERe&autoplay=0',title:'威宁小粑粑制作'}],
-nav:'威宁县城',phone:'',book:'',note_nav:'威宁县城街头'
+'m-d1-yangpidong':{
+title:'羊皮洞瀑布',
+sub:'D1 · 清镇市暗流镇 · 贵阳出发1.5h',
+tags:['<span class="modal-tag free">免费</span>','<span class="modal-tag nature">野生秘境</span>','<span class="modal-tag water">溶洞飞瀑</span>','<span class="modal-tag temp">~25℃</span>'],
+intro:'位于清镇市暗流镇木刻村，未商业化的原生野生秘境。40余米溶洞飞瀑从崖洞奔涌而下，峡谷幽深、水雾缭绕，伸手可触瀑布。',
+detail:'🌊 <strong>41米溶洞飞瀑</strong>：从崖洞奔涌而下，水雾弥漫，站在瀑布前伸手即可触碰水流<br><br>🏞️ <strong>峡谷幽深</strong>：水雾缭绕，如入仙境<br><br>💰 <strong>免费</strong>，停车10-15元<br>🥾 从停车场到瀑布徒步30-40分钟<br>🌊 <strong>丰水期(5-10月)</strong>水量最充沛<br><br>⚠️ <strong>注意</strong>：<br>• 最后3km碎石路建议SUV<br>• 14点后山路限行只出不进<br>• 必穿防滑鞋+带雨衣',
+kids:'需要徒步山路约40分钟，路滑需穿防滑鞋，建议带登山杖。较小的孩子可能需要背带。',
+food:'<ul class="food-list"><li>卫城八大碗</li><li>清镇烙锅</li><li>清镇羊肉粉</li><li>何记冰粉</li><li>黄粑</li></ul><p class="food-price">清镇市区美食</p>',
+photo:'📸 晴日中午12点左右光线最好，能看到瀑布彩虹。从洞内向外拍剪影绝佳。',
+images:[],videos:[],nav:'羊皮洞停车场',phone:'',book:'',note_nav:'清镇市暗流镇木刻村，导航"羊皮洞停车场"'
 },
-'m-d3-guzhen':{
-title:'水城古镇 · 烙锅',
-sub:'D3 下午 · 威宁→六盘水 2h',
-tags:['<span class="modal-tag nature">280年古镇</span>','<span class="modal-tag free">免费</span>','<span class="modal-tag easy">完全平路</span>'],
-intro:'始建于雍正年间，280年历史的青石板古街，保留大量本地居民生活气息，不商业化。',
-detail:'🏘️ 全平路，推婴儿车无障碍<br>🎫 免费，开放式古镇<br>⏰ 建议逛1-1.5h<br><br>🍳 <strong>水城烙锅</strong>——贵州三大小吃之一，国家级非遗。特制黑砂锅凸面刷油，万物可烙：五花肉、洋芋片、豆腐、饵块、青椒、韭菜，蘸辣椒面。推荐"全有福烙锅"（古镇侧巷老店）。人均35-50元。',
-kids:'看大人烙食材像看魔术，小孩吃烙洋芋片和烙豆腐（不辣）。',
-water:null,
-photo:'📸 雨后青石板路倒影最美。',
-food:'<ul class="food-list"><li>烙五花肉/洋芋片/豆腐/饵块</li><li>冰浆（水果+冰块+糯米现打，解辣消暑）</li><li>威宁火腿（中国三大火腿）</li><li>荞凉粉、荞酥、荞面</li></ul><p class="food-price">人均35-50元</p>',
-images:['https://s.coze.cn/image/MjZdiU5CMEs/','https://s.coze.cn/image/91zGO25Xaoo/','https://s.coze.cn/image/VaKFf3Z2_1s/'],
-videos:[{url:'https://player.bilibili.com/player.html?bvid=BV16E3kz8EAu&autoplay=0',title:'自驾游逛水城古镇'},{url:'https://player.bilibili.com/player.html?bvid=BV1s54y1q7sw&autoplay=0',title:'VLOG水城古镇'}],
-nav:'水城古镇',phone:'',book:'',note_nav:'六盘水市水城区'
+'m-d2-bingjiu':{
+title:'关岭冰臼',
+sub:'D2 · 关岭县断桥镇 · 全天开放',
+tags:['<span class="modal-tag free">免费</span>','<span class="modal-tag nature">冰川遗迹</span>','<span class="modal-tag easy">全天开放</span>'],
+intro:'位于关岭县断桥镇，中国面积较大、保存完整的冰臼群。大的直径15米深10米，小的仅纽扣大小。蓄满蓝绿色水的冰臼如散落河谷的宝石，高空俯瞰宛如异域星球。',
+detail:'🪨 <strong>冰臼群</strong>：中国面积较大、保存完整的第四纪冰川遗迹<br><br>📏 <strong>规模</strong>：大的直径15米深10米，小的仅纽扣大小<br><br>💎 <strong>色彩</strong>：蓄满蓝绿色水的冰臼如散落河谷的宝石<br><br>🛸 <strong>航拍</strong>：高空俯瞰宛如异域星球<br><br>💰 免费，全天开放<br>🥾 徒步往返3-4小时<br>⚠️ 注意枯水期去更安全',
+kids:'冰臼徒步注意安全，不要靠近深水冰臼边缘。大冰臼像天然的游泳池，小孩会好奇地往里看。',
+images:[],videos:[],nav:'关岭冰臼',phone:'',book:'',note_nav:'关岭县断桥镇'
 },
-'m-d4-yizhai':{
-title:'海坪千户彝寨',
-sub:'D4 下午 · 野玉海度假区内 · 步行可达',
-tags:['<span class="modal-tag free">免费</span>','<span class="modal-tag nature">彝族文化</span>','<span class="modal-tag kid">非遗体验</span>','<span class="modal-tag temp">火把季限定</span>'],
-intro:'全国最大的彝族风格建筑群，红土墙吊脚楼错落山间。九重宫殿、太阳历广场、土司庄园，沉浸式体验彝族文化。火把季期间每天有民俗巡游、拦门酒、土司婚宴等活动。',
-detail:'🏘️ <strong>千户彝寨</strong>：全国最大彝族风格建筑群，红土墙吊脚楼依山而建<br><br>🏛️ <strong>九重宫殿</strong>：彝族文化展示，传承中国古代文化<br><br>☀️ <strong>太阳历广场</strong>：彝族始祖希慕遮雕塑，了解彝族天文历法<br><br>🍽️ <strong>土司庄园</strong>：土司婚宴68元/人，山野土菜+民族歌舞<br><br>🔥 <strong>火把广场</strong>：全国最大火把广场，每晚篝火狂欢<br><br>🎭 <strong>每日活动</strong>：<br>• 拦门酒（14:00）→ 土司婚俗巡游 → 火把新星剧场 → 篝火晚会（20:30）→ 电音狂欢（22:00）<br><br>📍 贵州省六盘水市水城区野玉海度假区内<br>🆓 免费进入，土司宴等体验另计<br><br>💡 <strong>火把季</strong>：7月18日-8月16日，每天从早到晚不间断活动',
-kids:'租一套彝族服饰拍照（~50元），体验手工打糍粑、扎染，晚上围着篝火跳舞，小朋友超开心！',
-photo:'📸 红土墙吊脚楼+彝族服饰出片率极高。傍晚蓝调时刻（日落后至完全天黑）拍灯火+彝寨最美。',
-note:'<div class="mtip green">✅ 彝寨全程平坦，推婴儿车无压力。火把季期间晚上人较多，建议早点去占好位置。</div>',
-images:['https://s.coze.cn/image.spWTFIuSJ2M/'],
-nav:'海坪千户彝寨',phone:'0858-6662252',book:'',note_nav:'野玉海度假区内，导航"野玉海海坪彝族小镇"'
+'m-d2-dishuitan':{
+title:'滴水滩瀑布',
+sub:'D2 · 关岭县城北4km · 免费',
+tags:['<span class="modal-tag free">免费</span>','<span class="modal-tag nature">贵州最高瀑布</span>','<span class="modal-tag water">三级飞瀑</span>'],
+intro:'关岭县城北4km，黄果树以西8km。由连天瀑布(40m)、冲坑瀑布(160m)、高滩瀑布(130m)三级组成，总高410米，贵州省最高瀑布。与坝陵河大桥隔谷相望。',
+detail:'🌊 <strong>三级瀑布</strong>：<br>• 连天瀑布(40m)<br>• 冲坑瀑布(160m)<br>• 高滩瀑布(130m)<br>• 总高410米，比黄果树高6倍<br><br>🌉 <strong>坝陵河大桥</strong>：与瀑布隔谷相望<br><br>💰 免费，原生态未开发<br>📍 最佳观赏点：伟喜村南1km观景台<br>🌊 丰水期4-10月最壮观',
+images:[],videos:[],nav:'滴水滩瀑布',phone:'',book:'',note_nav:'关岭县城北4km，伟喜村南1km观景台'
 },
-'m-d4-huoche':{
-title:'玉舍森林公园 · 螺旋小火车',
-sub:'D4 上午/下午 · 野玉海度假区内',
-tags:['<span class="modal-tag nature">万亩林海</span>','<span class="modal-tag kid">网红小火车</span>','<span class="modal-tag easy">天然氧吧</span>','<span class="modal-tag temp">19℃避暑</span>'],
-intro:'世界首条三层半螺旋盘升单轨观光列车，穿越万亩松林40分钟，像《千与千寻》里的海上列车。玉舍森林公园96%森林覆盖率，天然大氧吧。',
-detail:'🚂 <strong>螺旋小火车</strong>：世界首条三层半螺旋盘升单轨列车，全程40分钟穿越森林峡谷<br><br>💰 <strong>票价</strong>：单程98元/人，往返120元/人（1.2m以下儿童半价，60岁以上8折）<br><br>⏰ <strong>时间</strong>：8:30-17:30，整点发车，建议提前购票<br><br>🌲 <strong>玉舍森林公园</strong>：万亩林海，96%森林覆盖率，夏季均温19℃<br>💰 门票20元/人<br><br>🎠 <strong>森林活动</strong>：<br>• 睡莲湖花船演绎<br>• 森林音乐会（15:00-19:00孤独的树草地）<br>• 动物城巡游（萌宠NPC互动）<br>• 滑草、低空飞行、湖边露营<br>• 森林八段锦（19:00）<br><br>🐿️ <strong>偶遇松鼠</strong>：森林步道常遇小松鼠，小朋友最爱<br><br>📍 玉舍站（小火车终点），从海坪站上车',
-kids:'坐小火车穿越森林像千与千寻！在森林里找松鼠，草地上奔跑，滑草超刺激。',
-photo:'📸 小火车螺旋爬升的俯拍最震撼（需航拍）。森林步道光影斑驳，随手一拍就是大片。',
-note:'<div class="mtip green">✅ 小火车平稳舒适，老少皆宜。森林公园步道平缓，可推婴儿车。</div>',
-images:['https://s.coze.cn/image.spWTFIuSJ2M/'],
-nav:'玉舍森林公园',phone:'',book:'',note_nav:'野玉海度假区内'
+'m-d2-diaoshuiyan':{
+title:'吊水岩瀑布',
+sub:'D2 · 毕节纳雍县深山 · 免费',
+tags:['<span class="modal-tag free">免费</span>','<span class="modal-tag nature">贵州版冰岛</span>','<span class="modal-tag water">公路瀑布</span>'],
+intro:'位于毕节纳雍县深山，多级阶梯瀑布群。丰水期(6-10月)水流如银色绸缎从百余米悬崖倾泻。第一叠"公路瀑布"紧挨盘山公路，车在画中游。',
+detail:'💧 <strong>多级瀑布</strong>：阶梯瀑布群，丰水期水流如银色绸缎<br><br>🛣️ <strong>公路瀑布</strong>：第一叠紧挨盘山公路，车在画中游<br><br>🇨🇭 <strong>纳雍小瑞士</strong>：第二叠需轻松徒步3km沙石路<br><br>💰 免费，停车10元<br>🌊 丰水期6-10月最壮观',
+kids:'吊水岩石阶湿滑，牵好小孩。公路瀑布近距离体验很震撼。',
+images:[],videos:[],nav:'吊水岩瀑布',phone:'',book:'',note_nav:'毕节纳雍县深山'
 },
-'m-d4-huoba':{
-title:'火把季篝火狂欢',
-sub:'D4 夜间 · 海坪火把广场 · 每晚19:00起',
-tags:['<span class="modal-tag free">免费</span>','<span class="modal-tag nature">彝族火把节</span>','<span class="modal-tag kid">万人篝火</span>','<span class="modal-tag temp">7.18-8.16限定</span>'],
-intro:'2026贵州野玉海彝族火把季，每晚从拦门酒到电音狂欢不间断。万人围着篝火跳达体舞，火光映着星空，比坐在台下看表演震撼十倍。',
-detail:'🔥 <strong>每晚时间线</strong>：<br>• 18:30 海坪欢歌万人共舞（火把广场）<br>• 20:30 情景文艺剧目（火把广场）<br>• 21:20 篝火狂欢·万人达体舞（全场高潮！）<br>• 22:00 电音狂欢收尾<br><br>🎭 <strong>白天活动</strong>（穿插在游玩间隙）：<br>• 拦门酒（14:00）<br>• 土司婚俗巡游（11:30/17:00两场）<br>• 火把新星剧场（15:00，推荐必看）<br>• 窗口演绎（14:30/17:30）<br>• 土司婚宴（12:00/17:30，68元/人）<br><br>🎪 <strong>配套项目</strong>：<br>• 海坪市集（彝族文创+美食）<br>• 热气球营地（西广场，空中俯瞰灯火）<br>• 球幕影院露营基地<br>• 卡丁车极速夜跑<br><br>💡 <strong>贴士</strong>：<br>• 晚上人超级多，早点去占好位置<br>• 穿平底鞋！全程走路+跳舞超费脚<br>• 长发扎起来，火把有明火<br>• 带薄外套，晚上18℃有点凉<br>• 不要买路边高价火把，广场免费火盆够用',
-kids:'围在篝火旁和彝族同胞一起跳舞，火光映着笑脸，小孩超兴奋！还有热气球可以坐。',
-photo:'📸 万人篝火全景最震撼。手机拍视频比照片更有氛围感。航拍：从高空俯瞰整个火把广场的火光和人群。',
-note:'<div class="mtip gold">🔥 火把季到8月16日结束，你们正好赶上！这是贵州最正宗、规模最大的彝族火把节。</div>',
-images:['https://s.coze.cn/image.spWTFIuSJ2M/'],
-nav:'火把广场',phone:'0858-6662252',book:'',note_nav:'海坪彝族小镇火把广场'
+'m-d2-lianhua':{
+title:'莲花古洞',
+sub:'D2 · 安顺普定 · 神秘地心世界',
+tags:['<span class="modal-tag nature">野溶洞</span>','<span class="modal-tag water">地下河</span>','<span class="modal-tag easy">丁达尔光效</span>'],
+intro:'安顺普定，神秘的地心世界。洞口的光洒入如电影丁达尔效应，乘船进入地下河体验地心探秘。',
+detail:'🕳️ <strong>无灯野溶洞</strong>：保持原始状态，没有商业灯光<br><br>🛶 <strong>乘船入地下河</strong>：体验地心探秘<br><br>☀️ <strong>丁达尔光效</strong>：洞口的光洒入，如电影般的丁达尔效应<br><br>📍 安顺普定',
+images:[],videos:[],nav:'莲花古洞',phone:'',book:'',note_nav:'安顺普定'
 },
-
-'m-d5-yejiping':{
-title:'野鸡坪高原运动基地',
-sub:'D5 上午 · 野玉海度假区内',
-tags:['<span class="modal-tag nature">高原花海</span>','<span class="modal-tag kid">卡丁车</span>','<span class="modal-tag temp">550亩马鞭草</span>','<span class="modal-tag free">北盘江观景</span>'],
-intro:'海拔2300m的高原草场，550亩紫色柳叶马鞭草花海、网红大风车、高空观景台可远眺北盘江大桥。卡丁车、自行车赛道等户外运动项目。',
-detail:'🌿 <strong>550亩花海</strong>：紫色柳叶马鞭草+百日草+万寿菊，四季不同花种<br><br>🎡 <strong>网红大风车</strong>：花海+风车+蓝天，拍照绝佳<br><br>🌉 <strong>高空观景台</strong>：远眺北盘江大桥和峡谷全貌<br><br>🏎️ <strong>卡丁车</strong>：高原赛道，刺激凉爽<br><br>🚲 <strong>自行车赛道</strong>：骑行穿越花海和草甸<br><br>🪁 <strong>风筝/草地奔跑</strong>：开阔平坦，小孩尽情跑<br><br>💰 观光车约20元/人（景区必须），门票+项目另计<br><br>📍 野玉海度假区第三大板块，与海坪/玉舍相连<br>🌡️ 海拔2300m，体感更凉爽，带薄外套',
-kids:'在花海里奔跑、坐卡丁车、放风筝、爬大风车拍照。开阔平坦安全，小孩玩疯了！',
-photo:'📸 花海+风车+蓝天是最经典的构图。航拍：从花海上方俯拍，紫色花海绵延到天际线。',
-images:['https://s.coze.cn/image.spWTFIuSJ2M/'],
-nav:'野鸡坪',phone:'',book:'',note_nav:'野玉海度假区内'
+'m-d2-longji':{
+title:'龙脊山',
+sub:'D2 · 六枝特区 · 金色山脊',
+tags:['<span class="modal-tag free">免费</span>','<span class="modal-tag nature">挂壁公路</span>','<span class="modal-tag easy">荒芜壮美</span>'],
+intro:'六枝特区龙脊天路，公路在喀斯特峰林间蜿蜒，随手一拍都是大片，如异域世界。傍晚登顶可观金色山脊落日。',
+detail:'⛰️ <strong>龙脊天路</strong>：公路在喀斯特峰林间蜿蜒<br><br>📸 <strong>随手大片</strong>：每一处弯道都是异域世界的画面<br><br>🌅 <strong>金色山脊</strong>：傍晚登顶可观落日<br><br>📍 六枝特区',
+images:[],videos:[],nav:'龙脊山',phone:'',book:'',note_nav:'六枝特区龙脊天路'
 },
-'m-d5-wumeng':{
+'m-d3-getuoh':{
+title:'格凸河·大穿洞',
+sub:'D3 · 安顺紫云县 · 国家4A级景区',
+tags:['<span class="modal-tag nature">巨型溶洞</span>','<span class="modal-tag kid">天地神光</span>','<span class="modal-tag water">乘船穿洞</span>','<span class="modal-tag temp">~27℃</span>'],
+intro:'安顺紫云县，国家4A级景区、国家级风景名胜区。"格凸"苗语意为"圣地"。大穿洞高116m宽25m，每年4月中下旬至9月上旬上午9点左右，阳光穿透天窗产生丁达尔效应"天地神光"。',
+detail:'🌤️ <strong>天地神光</strong>：每年4月中下旬至9月上旬上午9点左右，阳光穿透天窗产生丁达尔效应<br><br>🕳️ <strong>大穿洞</strong>：高116m宽25m的巨型溶洞<br><br>🛶 <strong>乘船穿洞</strong>：洞内可乘船穿越<br><br>🌌 <strong>通天洞</strong>：深370m宽200m天窗<br><br>🧗 <strong>蜘蛛人攀岩</strong>：苗族蜘蛛人徒手攀岩108m表演(非遗)<br><br>💰 门票约150元（含游船+大穿洞）<br>⏰ 天地神光需在9:00前到达<br><br>📍 安顺紫云县，"格凸"苗语意为"圣地"',
+kids:'乘船穿洞小孩会很兴奋，注意穿好救生衣',
+images:[],videos:[],nav:'格凸河',phone:'',book:'',note_nav:'安顺紫云县格凸河景区'
+},
+'m-d3-fenglin':{
+title:'峰林布依',
+sub:'D3 傍晚 · 国家4A级景区 · 贵州"天空之城"',
+tags:['<span class="modal-tag free">免费</span>','<span class="modal-tag nature">600栋吊脚楼</span>','<span class="modal-tag kid">非遗体验</span>'],
+intro:'距万峰林10km，国家4A级景区。纳灰河畔布依族古村寨，600余栋吊脚楼依山而建。入夜万家灯火与星空交映，被誉为贵州"天空之城"。',
+detail:'🏘️ <strong>600栋吊脚楼</strong>：纳灰河畔依山而建的布依族古村寨<br><br>🧵 <strong>非遗体验</strong>：刺绣、蜡染、八音、舞狮、打铁花等20多项非遗<br><br>✨ <strong>万家灯火</strong>：入夜灯火与星空交映，被誉为贵州"天空之城"<br><br>💰 免费<br>📍 距万峰林10km',
+photo:'📸 傍晚到达最佳，拍万家灯火夜景',
+images:[],videos:[],nav:'峰林布依',phone:'',book:'',note_nav:'距万峰林10km，纳灰河畔'
+},
+'m-d4-wumeng':{
 title:'乌蒙大草原',
-sub:'D5 中午 · 盘州市 · 野玉海出发约1.5h',
-tags:['<span class="modal-tag nature">西南最大草场</span>','<span class="modal-tag kid">骑马</span>','<span class="modal-tag temp">云海佛光</span>','<span class="modal-tag easy">自驾直达</span>'],
-intro:'贵州海拔最高、面积最大的天然草场，海拔2000-2857m。10万亩高原草甸、成片白色风车、天池长海子、观佛台看云海佛光。盛夏均温20℃，"风吹草低见牛羊"。',
-detail:'🌿 <strong>10万亩草甸</strong>：绵延起伏，牛羊如珍珠散落<br><br>🎡 <strong>成片风车</strong>：白色风车群+蓝天绿草，航拍圣地<br><br>💧 <strong>天池长海子</strong>：高原湖泊如碧玉倒映苍穹<br><br>🌅 <strong>观佛台</strong>：云海翻涌时偶见"五色佛光"，世界罕见<br><br>🐴 <strong>骑马</strong>：50-60元/小时，去官方马场更安全<br><br>🛝 <strong>七彩滑道/滑草</strong>：草地娱乐项目<br><br>🏕️ <strong>露营观星</strong>：无光污染，夜晚银河肉眼可见<br><br>💰 门票30元/人（1.2m以下儿童免费），停车10元<br>🕐 全天开放（建议8:00-18:00）<br>📍 盘州市坪地乡和四格乡境内<br><br>⚠️ 海拔最高2857m，注意防晒+保暖<br>⚠️ 务必去官方马场骑马，有安全头盔',
-kids:'在无边草原上奔跑、放风筝、骑小马、看牛羊。草地上野餐，看日落，幸运还能看到"佛光"！',
-photo:'📸 风车+草甸+牛羊是经典。航拍：万亩草甸+白色风车群+天池倒影，绝对出大片。',
-note:'<div class="mtip green">✅ 可以自驾直接开进草原深处，沿途观景台随时停车。带孩子骑马建议选官方马场。</div>',
-images:['https://s.coze.cn/image.spWTFIuSJ2M/'],
-nav:'乌蒙大草原',phone:'',book:'',note_nav:'盘州市坪地乡四格乡，从野玉海出发约1.5h'
+sub:'D4 · 六盘水盘州 · 海拔2800m',
+tags:['<span class="modal-tag nature">高山草甸</span>','<span class="modal-tag kid">骑马</span>','<span class="modal-tag temp">云海佛光</span>','<span class="modal-tag easy">自驾穿越</span>'],
+intro:'六盘水盘州，海拔2800m，10万亩高原草甸。可自驾穿越草原，沿途观景台随时停车。有高山湖泊长海子，运气好可见佛光和云海。',
+detail:'🌿 <strong>10万亩高原草甸</strong>：可自驾穿越，沿途观景台随时停车<br><br>💧 <strong>长海子</strong>：高山湖泊如碧<br><br>☀️ <strong>佛光与云海</strong>：运气好可见<br><br>💰 门票30元(1.2m以下免费)，停车10元<br>🐴 骑马50-60元/h<br><br>🌡️ <strong>温差提醒</strong>：山顶温差大(比山脚低10℃+)，带薄外套',
+kids:'草原上尽情奔跑放风筝，天然"耗电"神器',
+food:'<ul class="food-list"><li>水城烙锅（全有福）</li><li>水城羊肉粉（尝回头，30年老店，只做早市）</li><li>茨冲鸡火锅</li></ul>',
+images:[],videos:[],nav:'乌蒙大草原',phone:'',book:'',note_nav:'六盘水盘州，海拔2800m'
 },
-'m-d5-sheduhe':{
-title:'奢渡河峡谷',
-sub:'D5 下午 · 水城区 · 野玉海出发约40min',
-tags:['<span class="modal-tag nature">小众秘境</span>','<span class="modal-tag water">飞瀑溶洞</span>','<span class="modal-tag easy">栈道平缓</span>','<span class="modal-tag free">避暑胜地</span>'],
-intro:'水城区小众宝藏峡谷，锅圈岩瀑布飞流直泻、悬空栈道+吊桥+天然溶洞。游客不多，清凉幽静，是火把季联动景区之一。',
-detail:'💧 <strong>锅圈岩瀑布</strong>：飞流直泻，水雾氤氲，清凉十足<br><br>🌉 <strong>悬空栈道+吊桥</strong>：临水而建，沿途溪流潺潺、奇石错落<br><br>🕳️ <strong>天然溶洞</strong>：钟乳石在灯光下玲珑剔透，如地下仙境<br><br>🌲 <strong>生态</strong>：连山青山环抱蜿蜒河谷，绿意盎然<br><br>📍 水城区，距野玉海约30-40分钟车程<br>💰 以景区现场价格为准<br>🌡️ 峡谷内比外面更凉爽<br><br>💡 2026火把季水城区联动景区之一，与海坪火把季呼应',
-kids:'走吊桥看瀑布，在溶洞里探险像寻宝游戏！溪水清凉可以踩水。',
-photo:'📸 瀑布+栈道+吊桥是经典构图。溶洞内灯光效果奇特，适合手机慢门拍摄。',
-note:'<div class="mtip green">✅ 栈道平缓，适合老人小孩。峡谷内阴凉，是避暑好去处。</div>',
-images:['https://s.coze.cn/image.spWTFIuSJ2M/'],
-nav:'奢渡河峡谷',phone:'',book:'',note_nav:'水城区，距野玉海约30-40min车程'
+'m-d4-yushe':{
+title:'玉舍森林公园·窄轨小火车',
+sub:'D4 · 国家级森林公园 · 世界首条螺旋盘升列车',
+tags:['<span class="modal-tag nature">原始森林</span>','<span class="modal-tag kid">螺旋小火车</span>','<span class="modal-tag easy">天然氧吧</span>','<span class="modal-tag temp">19℃避暑</span>'],
+intro:'国家级森林公园，原始森林瀑布泉水。核心体验：世界首座三层半螺旋盘升观光小火车，穿越原始森林，单程40分钟。',
+detail:'🚂 <strong>螺旋小火车</strong>：世界首座三层半螺旋盘升观光列车<br><br>⏰ 单程40分钟穿越原始森林<br><br>💰 门票20元<br>🚂 小火车单程80元/往返120元(1.2m以下半价)<br>🌉 玻璃桥68元',
+food:'<ul class="food-list"><li>水城烙锅（全有福）</li><li>水城羊肉粉（尝回头，30年老店，只做早市）</li><li>茨冲鸡火锅</li></ul>',
+images:[],videos:[],nav:'玉舍森林公园',phone:'',book:'',note_nav:'国家级森林公园'
 },
-
-,
-'m-drone-yejiping':{
-title:'🚁 野鸡坪云海日出',
-sub:'航拍圣地 · 海拔2300m高原',
-tags:['<span class="modal-tag nature">云海</span>','<span class="modal-tag temp">日出</span>'],
-intro:'野鸡坪高原草场，清晨云海翻涌+风车+花海，航拍视角绝美。',
-detail:'📸 <strong>最佳时间</strong>：日出前30分钟至日出后1小时<br><br>🎯 <strong>航拍要点</strong>：<br>• 从花海上方俯拍，紫色花海绵延至天际<br>• 风车群+草甸+云海的三层构图<br>• 清晨雾气中若隐若现的风车如仙境<br><br>📍 海拔2300m，信号良好<br>🌡️ 清晨约10℃，注意保暖<br>⚠️ 高原风速大，注意无人机抗风等级',
-images:[],nav:'野鸡坪',phone:'',book:'',note_nav:''
+'m-d5-dajiuc':{
+title:'大韭菜坪·天上花海',
+sub:'D5 · 毕节赫章县 · 世界最大野生韭菜花带',
+tags:['<span class="modal-tag nature">东方普罗旺斯</span>','<span class="modal-tag temp">10万亩紫色花海</span>','<span class="modal-tag easy">夏季均温16.7℃</span>'],
+intro:'毕节赫章县，主峰2777m。世界最大面积野生多星韭花带，8-9月十万亩紫色花海铺满山脊，被誉为"东方普罗旺斯"。夏季均温16.7℃。',
+detail:'💜 <strong>十万亩紫色花海</strong>：世界最大面积野生多星韭花带<br><br>🌡️ <strong>夏季均温16.7℃</strong>：天然避暑胜地<br><br>💰 旺季45元，观光车往返50元，索道往返80元<br>🕐 09:00-17:30<br><br>🌸 <strong>花期</strong>：<br>• 最佳花期8月中旬-10月上旬<br>• 盛花期8月下旬-9月下旬',
+photo:'📸 上午9-11点晨雾未散时最美',
+images:[],videos:[],nav:'大韭菜坪',phone:'',book:'',note_nav:'毕节赫章县，主峰2777m'
 },
-'m-drone-yizhai':{
-title:'🚁 千户彝寨全景',
-sub:'航拍圣地 · 傍晚蓝调时刻',
-tags:['<span class="modal-tag nature">民族建筑</span>','<span class="modal-tag temp">蓝调时刻</span>'],
-intro:'红土墙吊脚楼依山错落于青山之间，傍晚灯火+火把+星空同框。',
-detail:'📸 <strong>最佳时间</strong>：日落后蓝调时刻（天未全黑时）<br><br>🎯 <strong>航拍要点</strong>：<br>• 正上方俯拍整个彝寨全貌<br>• 红土墙+绿树+远山的色彩对比<br>• 傍晚灯火渐次亮起的延时摄影<br>• 火把季期间火把+篝火的夜间航拍<br><br>📍 海坪火把广场上方<br>⚠️ 火把季期间注意避开明火区域',
-images:[],nav:'海坪千户彝寨',phone:'',book:'',note_nav:''
+'m-d5-xiaojiuc':{
+title:'小韭菜坪·贵州屋脊',
+sub:'D5 · 贵州最高峰2900.6m · 天上石林',
+tags:['<span class="modal-tag nature">贵州最高峰</span>','<span class="modal-tag temp">2900.6m</span>','<span class="modal-tag easy">天上石林</span>'],
+intro:'贵州最高峰2900.6m，"不到韭菜坪，枉看贵州山"。喀斯特石林+云海日出+"一览众山小"。',
+detail:'🏔️ <strong>贵州屋脊</strong>：海拔2900.6m，贵州最高点<br><br>🪨 <strong>喀斯特石林</strong>：独特的石林景观<br><br>☁️ <strong>云海日出</strong>：运气好可观壮美云海<br><br>📍 "不到韭菜坪，枉看贵州山"',
+images:[],videos:[],nav:'小韭菜坪',phone:'',book:'',note_nav:'贵州最高峰2900.6m'
 },
-'m-drone-huoche':{
-title:'🚁 螺旋小火车穿林海',
-sub:'航拍圣地 · 上午侧光',
-tags:['<span class="modal-tag nature">森林</span>','<span class="modal-tag temp">上午</span>'],
-intro:'世界首条螺旋盘升轨道穿越万亩松林，航拍视角看小火车在林海间穿行。',
-detail:'📸 <strong>最佳时间</strong>：上午9-11点侧光<br><br>🎯 <strong>航拍要点</strong>：<br>• 小火车螺旋爬升的震撼俯拍<br>• 林海+列车+远山的多层次构图<br>• 跟随小火车移动的跟拍<br><br>📍 海坪站→玉舍站沿线<br>⚠️ 注意小火车运行时间8:30-17:30',
-images:[],nav:'玉舍森林公园',phone:'',book:'',note_nav:''
+'m-d5-axilisi':{
+title:'阿西里西·波浪公路',
+sub:'D5 · 二台坡草原 · 13km地景过山车',
+tags:['<span class="modal-tag nature">过山车公路</span>','<span class="modal-tag kid">S型弯道</span>','<span class="modal-tag temp">30度斜坡</span>'],
+intro:'二台坡草原，全长13km连续S型弯道与30度斜坡交替。驾车其上失重超重交替，车窗外的天空山峦交替出现。',
+detail:'🛤️ <strong>13km波浪公路</strong>：连续S型弯道与30度斜坡交替<br><br>🎢 <strong>失重超重</strong>：驾车其上交替体验<br><br>🌄 <strong>车窗风景</strong>：天空山峦交替出现<br><br>💰 自驾费100元/辆(含司机)+同行20元/人<br>🎢 还有有轨小火车、管轨滑道等项目',
+kids:'波浪公路像过山车，小孩会兴奋尖叫',
+images:[],videos:[],nav:'阿西里西草原',phone:'',book:'',note_nav:'二台坡草原'
 },
-'m-drone-beipanjiang':{
-title:'🚁 北盘江大桥',
-sub:'航拍圣地 · 晨雾或雨后',
-tags:['<span class="modal-tag nature">世界第一高桥</span>','<span class="modal-tag temp">云雾</span>'],
-intro:'世界第一高桥，桥面距谷底565m，云雾天如悬浮云端。',
-detail:'📸 <strong>最佳时间</strong>：晨雾或雨后，云雾缭绕时最壮观<br><br>🎯 <strong>航拍要点</strong>：<br>• 从侧面拍摄桥体+峡谷纵深<br>• 桥面在云海中若隐若现<br>• 从桥下仰拍展现565m高度震撼<br><br>📍 北盘江大桥观景台附近起飞<br>⚠️ 桥梁附近风力大，注意安全<br>⚠️ 远离桥面结构，避免碰撞',
-images:[],nav:'北盘江大桥',phone:'',book:'',note_nav:''
+'m-d6-jiudong':{
+title:'九洞天',
+sub:'D6 · 大方纳雍交界 · 国家4A级景区',
+tags:['<span class="modal-tag nature">岩溶百科</span>','<span class="modal-tag water">暗河游船</span>','<span class="modal-tag kid">九重天窗</span>','<span class="modal-tag temp">~25℃</span>'],
+intro:'大方纳雍交界，国家4A级景区。六冲河伏流在7km河段开了9个巨大天窗，集伏流、溶洞、天坑、天生桥、峡谷于一体。',
+detail:'🛶 <strong>乘船穿暗河</strong>：明暗交替，阳光从天窗倾泻如入仙境<br><br>🕳️ <strong>九重天窗</strong>：7km河段开了9个巨大天窗<br><br>🌊 <strong>集大成</strong>：伏流、溶洞、天坑、天生桥、峡谷于一体<br><br>💰 门票+游船套票70元/人<br>⏰ 游览1.5-2h<br>📍 推荐从东门入(龙井游客中心)，不走回头路',
+images:[],videos:[],nav:'九洞天',phone:'',book:'',note_nav:'大方纳雍交界，推荐从东门龙井游客中心入'
 },
-'m-drone-wumeng':{
-title:'🚁 乌蒙大草原风车群',
-sub:'航拍圣地 · 日落金色光线',
-tags:['<span class="modal-tag nature">万亩草甸</span>','<span class="modal-tag temp">日落</span>'],
-intro:'万亩草甸+白色风车+天池倒影，"风吹草低见牛羊"的极致画面。',
-detail:'📸 <strong>最佳时间</strong>：日落前1小时金色光线<br><br>🎯 <strong>航拍要点</strong>：<br>• 万亩草甸+风车群的壮阔全景<br>• 牛羊散落在绿色草甸上<br>• 天池长海子的镜面倒影<br>• 日落时金色光线洒满草原<br><br>📍 海拔2500m+，航拍视野极佳<br>⚠️ 高原大风，注意无人机抗风',
-images:[],nav:'乌蒙大草原',phone:'',book:'',note_nav:''
+'m-d6-zhijin':{
+title:'织金洞',
+sub:'D6 · 织金县 · 国家5A级景区·世界地质公园',
+tags:['<span class="modal-tag nature">中国溶洞之王</span>','<span class="modal-tag temp">洞内恒温16℃</span>','<span class="modal-tag easy">世界地质公园</span>'],
+intro:'织金县，国家5A级景区、世界地质公园。亚洲最大喀斯特溶洞，洞内常年16℃恒温。3km单向步道，遍布石笋石柱钟旗。',
+detail:'🕳️ <strong>亚洲最大喀斯特溶洞</strong>：洞内常年16℃恒温<br><br>🪨 <strong>3km单向步道</strong>：遍布石笋石柱钟旗<br><br>👑 <strong>镇洞之宝</strong>：<br>• "霸王盔"<br>• "银雨树"<br><br>💰 门票110元+景交车20元<br>⏰ 游览2-3h<br><br>🌡️ 洞内阴凉带薄外套',
+images:[],videos:[],nav:'织金洞',phone:'',book:'',note_nav:'织金县，国家5A级景区'
 },
-'m-drone-sheduhe':{
-title:'🚁 奢渡河瀑布',
-sub:'航拍圣地 · 上午顺光',
-tags:['<span class="modal-tag nature">小众秘境</span>','<span class="modal-tag temp">上午</span>'],
-intro:'锅圈岩瀑布+栈道+溶洞，小众秘境，航拍视角看峡谷全貌。',
-detail:'📸 <strong>最佳时间</strong>：上午顺光<br><br>🎯 <strong>航拍要点</strong>：<br>• 瀑布飞流+峡谷纵深<br>• 栈道如丝带缠绕山间<br>• 溶洞入口的神秘感<br>• 河谷+吊桥+绿植的色彩层次<br><br>📍 峡谷内飞行注意信号遮挡<br>⚠️ 峡谷内GPS信号可能不稳定，建议手动模式',
-images:[],nav:'奢渡河峡谷',phone:'',book:'',note_nav:''
-},
-'m-d6-langdai':{
-title:'郎岱古镇',
-sub:'D6 上午 · 阿志河→郎岱 约40min',
-tags:['<span class="modal-tag nature">明清古镇</span>','<span class="modal-tag free">免费</span>','<span class="modal-tag easy">完全平路</span>'],
-intro:'六枝特区郎岱镇，保存完好的明清古镇，青石板路配马头墙。不是网红景点，是真正的本地生活古镇。',
-detail:'🍘 <strong>郎岱凉粉</strong>：米浆做成，加郎岱特产酱+酸萝卜，消暑神器。3-5元一碗<br><br>🥩 <strong>郎岱金丝肉饼</strong>：千层面皮包肉馅，油炸至金黄酥脆，外酥里嫩。5-8元一个<br><br>🍜 <strong>岩脚面</strong>：百年手工擀面，国家地理标志保护产品。面条筋道爽滑<br><br>🍘 <strong>岩脚肉饼</strong>：类似金丝肉饼但更大更厚实<br><br>🏘️ 古镇青石板路漫步，看马头墙、老宅院，没有商业化，原汁原味<br>📍 六枝特区郎岱镇，免费',
-kids:'在青石板路上跑，买凉粉吃（甜甜酸酸的），看老房子数马头墙。',
-food:'<ul class="food-list"><li>郎岱凉粉（3-5元）</li><li>金丝肉饼（5-8元）</li><li>岩脚面（10-15元）</li><li>岩脚肉饼（8-10元）</li></ul><p class="food-price">人均15-30元</p>',
-images:['https://s.coze.cn/image/w2K5FoBp5rM/','https://s.coze.cn/image/UAlXlF5qLGs/','https://s.coze.cn/image/ZGxaF4nCMtk/'],
-nav:'郎岱古镇',phone:'0858-5323157',book:'',note_nav:'六枝特区郎岱镇'
-},
-'m-d6-duanqiao':{
-title:'断桥青椒鱼·鲁记',
-sub:'D6 午餐 · 关岭断桥 · 郎岱→断桥约1h',
-tags:['<span class="modal-tag nature">老字号</span>','<span class="modal-tag water">北盘江活鱼</span>','<span class="modal-tag easy">路边饭店</span>'],
-intro:'关岭断桥·鲁记青椒鱼火锅，用北盘江鲜活鱼+青花椒+秘制配料，鲜香麻辣，是关岭最有名的河鱼馆。',
-detail:'🐟 <strong>北盘江活鱼</strong>：现杀现做，鱼来自北盘江清水<br><br>🌶️ <strong>青花椒</strong>：贵州本地青花椒，麻香四溢<br><br>🍲 <strong>汤底</strong>：鲜香麻辣，鱼汤浓白，喝一口暖胃<br><br>💰 人均50-70元，鱼按斤计价<br>📍 关岭断桥（花江峡谷大桥附近）<br><br>🍚 配一碗白米饭，鱼汤泡饭，绝了！',
-kids:'鱼肉嫩滑不辣的部分给小孩吃，鲜得很。汤泡饭小孩爱吃。',
-food:'<ul class="food-list"><li>青椒鱼火锅（必点）</li><li>酸汤鱼（备选）</li><li>关岭剪粉（特色小吃）</li><li>王姨妈糯米饭（如路过关岭县城）</li></ul><p class="food-price">人均50-70元</p>',
-images:['https://s.coze.cn/image/99qVawoMA4U/','https://s.coze.cn/image/eAVy2sDfwsM/','https://s.coze.cn/image/HoDIPPqdOVY/'],
-nav:'断桥鲁记青椒鱼火锅',phone:'13885303610',book:'',note_nav:'关岭断桥G320国道旁，花江峡谷大桥附近'
-},
-'m-d6-gaojiadu':{
-title:'北盘江高家渡码头',
-sub:'D6 下午 · 关岭 · 断桥→高家渡约15min',
-tags:['<span class="modal-tag water">水上乐园</span>','<span class="modal-tag kid">踩水+游船</span>','<span class="modal-tag easy">码头平路</span>','<span class="modal-tag free">江边免费</span>'],
-intro:'北盘江高家渡码头，集游船、垂钓、桨板、皮划艇、水上自行车、摩托艇于一体。峡谷江面宽阔，碧水如镜。',
-detail:'🚢 <strong>游船</strong>：游览北盘江峡谷，约80-100元/人<br><br>🎣 <strong>垂钓</strong>：江边野钓，免费（自带钓具）<br><br>🏄 <strong>桨板/皮划艇</strong>：水面划行<br><br>🚲 <strong>水上自行车</strong>：亲子项目，小孩最爱<br><br>🏖️ <strong>江边踩水</strong>：浅水鹅卵石滩，安全<br><br>💰 江边踩水免费；水上项目另计<br>🌡️ 峡谷内25-28℃，江面有风凉爽',
-kids:'水上自行车超好玩！踩水+捡石头+看大峡谷。坐船看两岸峭壁像进入迷宫。',
-images:['https://s.coze.cn/image/e_HzIQjYVHc/','https://s.coze.cn/image/eEH7bb3ONyE/','https://s.coze.cn/image/20h2k3GwvLE/','https://s.coze.cn/image/w8IGe5XV5-c/'],
-nav:'高家渡码头',book:'',note_nav:'关岭高家渡码头，北盘江边'
+'m-d6-wujiang':{
+title:'乌江源百里画廊',
+sub:'D6 · 织金洞旁7km · 高原小三峡',
+tags:['<span class="modal-tag nature">翡翠江水</span>','<span class="modal-tag water">百米崖壁</span>','<span class="modal-tag kid">游船观光</span>','<span class="modal-tag free">免费入园</span>'],
+intro:'织金洞旁7km，喀斯特高山峡谷。翡翠色江水，两岸百米崖壁。乘船游览可看天竹奇峰、鸭池河大桥、化屋苗寨、大鹏崖画。',
+detail:'🏞️ <strong>高原小三峡</strong>：喀斯特高山峡谷<br><br>💚 <strong>翡翠江水</strong>：两岸百米崖壁<br><br>🚢 <strong>乘船游览1h</strong>：<br>• 天竹奇峰<br>• 鸭池河大桥(世界最大跨径钢桁梁斜拉桥)<br>• 化屋苗寨<br>• 大鹏崖画<br><br>💰 免费入园，游船50-60元/人<br>⏰ 最佳时间上午10点前或下午4点后',
+food:'<ul class="food-list"><li>乌江鱼火锅</li><li>织金发粑</li><li>烙锅</li></ul>',
+images:[],videos:[],nav:'乌江源百里画廊',phone:'',book:'',note_nav:'织金洞旁7km'
 }
 };
 
@@ -1062,13 +954,11 @@ document.getElementById('modalSheet').classList.remove('show');
 document.body.style.overflow='';
 }
 
-/* old scroll fade replaced by IntersectionObserver */
-
-/* ===== Auto open D3 ===== */
-setTimeout(function(){toggleCard('d3');},600);
+/* ===== Auto open D1 ===== */
+setTimeout(function(){toggleCard('d1');},600);
 
 
-/* ========== 🎬 Dynamic Interactive Engine ========== */
+/* ========== Dynamic Interactive Engine ========== */
 
 // --- Scroll Progress Bar ---
 (function(){
@@ -1143,11 +1033,6 @@ setTimeout(function(){toggleCard('d3');},600);
   document.querySelectorAll('.day-card').forEach(function(el){ observer.observe(el); });
   // Observe section headers
   document.querySelectorAll('.sh').forEach(function(el){ observer.observe(el); });
-  // Observe reject items
-  document.querySelectorAll('.reject-item').forEach(function(el,i){
-    el.style.transitionDelay = (i*0.06)+'s';
-    observer.observe(el);
-  });
   // Observe tips
   document.querySelectorAll('.tips-accordion').forEach(function(el,i){
     el.style.transitionDelay = (i*0.08)+'s';
@@ -1160,7 +1045,7 @@ setTimeout(function(){toggleCard('d3');},600);
 
 // --- Ripple click effect for interactive elements ---
 (function(){
-  var targets = document.querySelectorAll('.spot-chip, .map-loc, .route-btn, .water-chip');
+  var targets = document.querySelectorAll('.spot-chip, .map-loc, .route-btn');
   targets.forEach(function(el){
     el.classList.add('ripple-effect');
     el.addEventListener('click', function(e){
@@ -1185,8 +1070,6 @@ window.toggleCard = function(id){
   var wasOpen = el.classList.contains('open');
   _origToggle(id);
   if(!wasOpen){
-    // Re-trigger chip cascade by briefly removing/adding open class
-    // Actually the CSS handles it, but let's add a subtle haptic feel
     if(navigator.vibrate) navigator.vibrate(5);
   }
 };
@@ -1223,9 +1106,9 @@ document.querySelectorAll('.route-btn').forEach(function(btn){
 
 // --- Auto-open first card with animation delay ---
 setTimeout(function(){
-  var d3 = document.getElementById('d3');
-  if(d3 && !d3.classList.contains('in-view')){
-    d3.classList.add('in-view');
+  var d1 = document.getElementById('d1');
+  if(d1 && !d1.classList.contains('in-view')){
+    d1.classList.add('in-view');
   }
 }, 100);
 
