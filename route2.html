@@ -1226,6 +1226,12 @@ setTimeout(function(){
   }
 }, 100);
 
+// --- Fallback: force-show all elements if IntersectionObserver fails ---
+setTimeout(function(){
+  var hidden = document.querySelectorAll('.day-card:not(.in-view), .sh:not(.in-view), .reject-item:not(.in-view), .tips-accordion:not(.in-view), .footer:not(.in-view)');
+  hidden.forEach(function(el){ el.classList.add('in-view'); });
+}, 2000);
+
 </script>
 </body>
 </html>
